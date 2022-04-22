@@ -24,6 +24,12 @@ type CategoryBrand struct {
 	ItemsWithSells int32 `json:"items_with_sells"`
 	// Число товаров с продажами в процентах
 	ItemsWithSellsPercent float32 `json:"items_with_sells_percent"`
+	// Число продавцов
+	Sellers *int32 `json:"sellers,omitempty"`
+	// Число продавцов с продажами
+	SellersWithSells *int32 `json:"sellers_with_sells,omitempty"`
+	// Число продавцов с продажами в процентах
+	SellersWithSellsPercent *int32 `json:"sellers_with_sells_percent,omitempty"`
 	// Число зафиксированных продаж (единицы)
 	Sales int32 `json:"sales"`
 	// Сумма произведений числа проданных товаров на их стоимость
@@ -32,6 +38,10 @@ type CategoryBrand struct {
 	SalesPerItemsAverage float32 `json:"sales_per_items_average"`
 	// Среднее количество продаж на товарную позицию с продажами
 	SalesPerItemsWithSellsAverage float32 `json:"sales_per_items_with_sells_average"`
+	// Средняя выручка за товар
+	RevenuePerItemsAverage *float32 `json:"revenue_per_items_average,omitempty"`
+	// Средняя выручка за товар с продажами
+	RevenuePerItemsWithSellsAverage *float32 `json:"revenue_per_items_with_sells_average,omitempty"`
 	// Название бренда
 	Name string `json:"name"`
 	// Баланс
@@ -176,6 +186,102 @@ func (o *CategoryBrand) SetItemsWithSellsPercent(v float32) {
 	o.ItemsWithSellsPercent = v
 }
 
+// GetSellers returns the Sellers field value if set, zero value otherwise.
+func (o *CategoryBrand) GetSellers() int32 {
+	if o == nil || o.Sellers == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Sellers
+}
+
+// GetSellersOk returns a tuple with the Sellers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategoryBrand) GetSellersOk() (*int32, bool) {
+	if o == nil || o.Sellers == nil {
+		return nil, false
+	}
+	return o.Sellers, true
+}
+
+// HasSellers returns a boolean if a field has been set.
+func (o *CategoryBrand) HasSellers() bool {
+	if o != nil && o.Sellers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSellers gets a reference to the given int32 and assigns it to the Sellers field.
+func (o *CategoryBrand) SetSellers(v int32) {
+	o.Sellers = &v
+}
+
+// GetSellersWithSells returns the SellersWithSells field value if set, zero value otherwise.
+func (o *CategoryBrand) GetSellersWithSells() int32 {
+	if o == nil || o.SellersWithSells == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SellersWithSells
+}
+
+// GetSellersWithSellsOk returns a tuple with the SellersWithSells field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategoryBrand) GetSellersWithSellsOk() (*int32, bool) {
+	if o == nil || o.SellersWithSells == nil {
+		return nil, false
+	}
+	return o.SellersWithSells, true
+}
+
+// HasSellersWithSells returns a boolean if a field has been set.
+func (o *CategoryBrand) HasSellersWithSells() bool {
+	if o != nil && o.SellersWithSells != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSellersWithSells gets a reference to the given int32 and assigns it to the SellersWithSells field.
+func (o *CategoryBrand) SetSellersWithSells(v int32) {
+	o.SellersWithSells = &v
+}
+
+// GetSellersWithSellsPercent returns the SellersWithSellsPercent field value if set, zero value otherwise.
+func (o *CategoryBrand) GetSellersWithSellsPercent() int32 {
+	if o == nil || o.SellersWithSellsPercent == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SellersWithSellsPercent
+}
+
+// GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*int32, bool) {
+	if o == nil || o.SellersWithSellsPercent == nil {
+		return nil, false
+	}
+	return o.SellersWithSellsPercent, true
+}
+
+// HasSellersWithSellsPercent returns a boolean if a field has been set.
+func (o *CategoryBrand) HasSellersWithSellsPercent() bool {
+	if o != nil && o.SellersWithSellsPercent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSellersWithSellsPercent gets a reference to the given int32 and assigns it to the SellersWithSellsPercent field.
+func (o *CategoryBrand) SetSellersWithSellsPercent(v int32) {
+	o.SellersWithSellsPercent = &v
+}
+
 // GetSales returns the Sales field value
 func (o *CategoryBrand) GetSales() int32 {
 	if o == nil {
@@ -270,6 +376,70 @@ func (o *CategoryBrand) GetSalesPerItemsWithSellsAverageOk() (*float32, bool) {
 // SetSalesPerItemsWithSellsAverage sets field value
 func (o *CategoryBrand) SetSalesPerItemsWithSellsAverage(v float32) {
 	o.SalesPerItemsWithSellsAverage = v
+}
+
+// GetRevenuePerItemsAverage returns the RevenuePerItemsAverage field value if set, zero value otherwise.
+func (o *CategoryBrand) GetRevenuePerItemsAverage() float32 {
+	if o == nil || o.RevenuePerItemsAverage == nil {
+		var ret float32
+		return ret
+	}
+	return *o.RevenuePerItemsAverage
+}
+
+// GetRevenuePerItemsAverageOk returns a tuple with the RevenuePerItemsAverage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategoryBrand) GetRevenuePerItemsAverageOk() (*float32, bool) {
+	if o == nil || o.RevenuePerItemsAverage == nil {
+		return nil, false
+	}
+	return o.RevenuePerItemsAverage, true
+}
+
+// HasRevenuePerItemsAverage returns a boolean if a field has been set.
+func (o *CategoryBrand) HasRevenuePerItemsAverage() bool {
+	if o != nil && o.RevenuePerItemsAverage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRevenuePerItemsAverage gets a reference to the given float32 and assigns it to the RevenuePerItemsAverage field.
+func (o *CategoryBrand) SetRevenuePerItemsAverage(v float32) {
+	o.RevenuePerItemsAverage = &v
+}
+
+// GetRevenuePerItemsWithSellsAverage returns the RevenuePerItemsWithSellsAverage field value if set, zero value otherwise.
+func (o *CategoryBrand) GetRevenuePerItemsWithSellsAverage() float32 {
+	if o == nil || o.RevenuePerItemsWithSellsAverage == nil {
+		var ret float32
+		return ret
+	}
+	return *o.RevenuePerItemsWithSellsAverage
+}
+
+// GetRevenuePerItemsWithSellsAverageOk returns a tuple with the RevenuePerItemsWithSellsAverage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategoryBrand) GetRevenuePerItemsWithSellsAverageOk() (*float32, bool) {
+	if o == nil || o.RevenuePerItemsWithSellsAverage == nil {
+		return nil, false
+	}
+	return o.RevenuePerItemsWithSellsAverage, true
+}
+
+// HasRevenuePerItemsWithSellsAverage returns a boolean if a field has been set.
+func (o *CategoryBrand) HasRevenuePerItemsWithSellsAverage() bool {
+	if o != nil && o.RevenuePerItemsWithSellsAverage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRevenuePerItemsWithSellsAverage gets a reference to the given float32 and assigns it to the RevenuePerItemsWithSellsAverage field.
+func (o *CategoryBrand) SetRevenuePerItemsWithSellsAverage(v float32) {
+	o.RevenuePerItemsWithSellsAverage = &v
 }
 
 // GetName returns the Name field value
@@ -454,6 +624,15 @@ func (o CategoryBrand) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["items_with_sells_percent"] = o.ItemsWithSellsPercent
 	}
+	if o.Sellers != nil {
+		toSerialize["sellers"] = o.Sellers
+	}
+	if o.SellersWithSells != nil {
+		toSerialize["sellers_with_sells"] = o.SellersWithSells
+	}
+	if o.SellersWithSellsPercent != nil {
+		toSerialize["sellers_with_sells_percent"] = o.SellersWithSellsPercent
+	}
 	if true {
 		toSerialize["sales"] = o.Sales
 	}
@@ -465,6 +644,12 @@ func (o CategoryBrand) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["sales_per_items_with_sells_average"] = o.SalesPerItemsWithSellsAverage
+	}
+	if o.RevenuePerItemsAverage != nil {
+		toSerialize["revenue_per_items_average"] = o.RevenuePerItemsAverage
+	}
+	if o.RevenuePerItemsWithSellsAverage != nil {
+		toSerialize["revenue_per_items_with_sells_average"] = o.RevenuePerItemsWithSellsAverage
 	}
 	if true {
 		toSerialize["name"] = o.Name

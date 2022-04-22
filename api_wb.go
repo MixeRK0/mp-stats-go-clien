@@ -4392,7 +4392,7 @@ type ApiPostWbGetSearchCategoriesRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	inlineObject *InlineObject
+	tplsRequestBody *TplsRequestBody
 }
 
 func (r ApiPostWbGetSearchCategoriesRequest) Path(path string) ApiPostWbGetSearchCategoriesRequest {
@@ -4412,8 +4412,8 @@ func (r ApiPostWbGetSearchCategoriesRequest) D2(d2 string) ApiPostWbGetSearchCat
 	return r
 }
 
-func (r ApiPostWbGetSearchCategoriesRequest) InlineObject(inlineObject InlineObject) ApiPostWbGetSearchCategoriesRequest {
-	r.inlineObject = &inlineObject
+func (r ApiPostWbGetSearchCategoriesRequest) TplsRequestBody(tplsRequestBody TplsRequestBody) ApiPostWbGetSearchCategoriesRequest {
+	r.tplsRequestBody = &tplsRequestBody
 	return r
 }
 
@@ -4422,7 +4422,7 @@ func (r ApiPostWbGetSearchCategoriesRequest) Execute() ([]SearchCategory, *http.
 }
 
 /*
-PostWbGetSearchCategories 
+PostWbGetSearchCategories GetSearchCategory
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostWbGetSearchCategoriesRequest
@@ -4483,7 +4483,7 @@ func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCate
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.inlineObject
+	localVarPostBody = r.tplsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

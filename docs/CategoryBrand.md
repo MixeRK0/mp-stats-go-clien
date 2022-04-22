@@ -8,10 +8,15 @@ Name | Type | Description | Notes
 **Items** | **int32** | Число товаров | 
 **ItemsWithSells** | **int32** | Число товаров с продажами | 
 **ItemsWithSellsPercent** | **float32** | Число товаров с продажами в процентах | 
+**Sellers** | Pointer to **int32** | Число продавцов | [optional] 
+**SellersWithSells** | Pointer to **int32** | Число продавцов с продажами | [optional] 
+**SellersWithSellsPercent** | Pointer to **int32** | Число продавцов с продажами в процентах | [optional] 
 **Sales** | **int32** | Число зафиксированных продаж (единицы) | 
 **Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
 **SalesPerItemsAverage** | **float32** | Среднее количество продаж на товарную позицию | 
 **SalesPerItemsWithSellsAverage** | **float32** | Среднее количество продаж на товарную позицию с продажами | 
+**RevenuePerItemsAverage** | Pointer to **float32** | Средняя выручка за товар | [optional] 
+**RevenuePerItemsWithSellsAverage** | Pointer to **float32** | Средняя выручка за товар с продажами | [optional] 
 **Name** | **string** | Название бренда | 
 **Balance** | **string** | Баланс | 
 **AvgPrice** | **float32** | Средняя стоимость товара | 
@@ -119,6 +124,81 @@ and a boolean to check if the value has been set.
 SetItemsWithSellsPercent sets ItemsWithSellsPercent field to given value.
 
 
+### GetSellers
+
+`func (o *CategoryBrand) GetSellers() int32`
+
+GetSellers returns the Sellers field if non-nil, zero value otherwise.
+
+### GetSellersOk
+
+`func (o *CategoryBrand) GetSellersOk() (*int32, bool)`
+
+GetSellersOk returns a tuple with the Sellers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellers
+
+`func (o *CategoryBrand) SetSellers(v int32)`
+
+SetSellers sets Sellers field to given value.
+
+### HasSellers
+
+`func (o *CategoryBrand) HasSellers() bool`
+
+HasSellers returns a boolean if a field has been set.
+
+### GetSellersWithSells
+
+`func (o *CategoryBrand) GetSellersWithSells() int32`
+
+GetSellersWithSells returns the SellersWithSells field if non-nil, zero value otherwise.
+
+### GetSellersWithSellsOk
+
+`func (o *CategoryBrand) GetSellersWithSellsOk() (*int32, bool)`
+
+GetSellersWithSellsOk returns a tuple with the SellersWithSells field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellersWithSells
+
+`func (o *CategoryBrand) SetSellersWithSells(v int32)`
+
+SetSellersWithSells sets SellersWithSells field to given value.
+
+### HasSellersWithSells
+
+`func (o *CategoryBrand) HasSellersWithSells() bool`
+
+HasSellersWithSells returns a boolean if a field has been set.
+
+### GetSellersWithSellsPercent
+
+`func (o *CategoryBrand) GetSellersWithSellsPercent() int32`
+
+GetSellersWithSellsPercent returns the SellersWithSellsPercent field if non-nil, zero value otherwise.
+
+### GetSellersWithSellsPercentOk
+
+`func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*int32, bool)`
+
+GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellersWithSellsPercent
+
+`func (o *CategoryBrand) SetSellersWithSellsPercent(v int32)`
+
+SetSellersWithSellsPercent sets SellersWithSellsPercent field to given value.
+
+### HasSellersWithSellsPercent
+
+`func (o *CategoryBrand) HasSellersWithSellsPercent() bool`
+
+HasSellersWithSellsPercent returns a boolean if a field has been set.
+
 ### GetSales
 
 `func (o *CategoryBrand) GetSales() int32`
@@ -198,6 +278,56 @@ and a boolean to check if the value has been set.
 
 SetSalesPerItemsWithSellsAverage sets SalesPerItemsWithSellsAverage field to given value.
 
+
+### GetRevenuePerItemsAverage
+
+`func (o *CategoryBrand) GetRevenuePerItemsAverage() float32`
+
+GetRevenuePerItemsAverage returns the RevenuePerItemsAverage field if non-nil, zero value otherwise.
+
+### GetRevenuePerItemsAverageOk
+
+`func (o *CategoryBrand) GetRevenuePerItemsAverageOk() (*float32, bool)`
+
+GetRevenuePerItemsAverageOk returns a tuple with the RevenuePerItemsAverage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRevenuePerItemsAverage
+
+`func (o *CategoryBrand) SetRevenuePerItemsAverage(v float32)`
+
+SetRevenuePerItemsAverage sets RevenuePerItemsAverage field to given value.
+
+### HasRevenuePerItemsAverage
+
+`func (o *CategoryBrand) HasRevenuePerItemsAverage() bool`
+
+HasRevenuePerItemsAverage returns a boolean if a field has been set.
+
+### GetRevenuePerItemsWithSellsAverage
+
+`func (o *CategoryBrand) GetRevenuePerItemsWithSellsAverage() float32`
+
+GetRevenuePerItemsWithSellsAverage returns the RevenuePerItemsWithSellsAverage field if non-nil, zero value otherwise.
+
+### GetRevenuePerItemsWithSellsAverageOk
+
+`func (o *CategoryBrand) GetRevenuePerItemsWithSellsAverageOk() (*float32, bool)`
+
+GetRevenuePerItemsWithSellsAverageOk returns a tuple with the RevenuePerItemsWithSellsAverage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRevenuePerItemsWithSellsAverage
+
+`func (o *CategoryBrand) SetRevenuePerItemsWithSellsAverage(v float32)`
+
+SetRevenuePerItemsWithSellsAverage sets RevenuePerItemsWithSellsAverage field to given value.
+
+### HasRevenuePerItemsWithSellsAverage
+
+`func (o *CategoryBrand) HasRevenuePerItemsWithSellsAverage() bool`
+
+HasRevenuePerItemsWithSellsAverage returns a boolean if a field has been set.
 
 ### GetName
 

@@ -26,6 +26,10 @@ type CategorySubcategory struct {
 	Brands int32 `json:"brands"`
 	// Число брендов с продажами
 	BrandsWithSells int32 `json:"brands_with_sells"`
+	// Число продавцов
+	Sellers *int32 `json:"sellers,omitempty"`
+	// Число продавцов с продажами
+	SellersWithSells *int32 `json:"sellers_with_sells,omitempty"`
 	// Число зафиксированных продаж (единицы)
 	Sales int32 `json:"sales"`
 	// Сумма произведений числа проданных товаров на их стоимость
@@ -204,6 +208,70 @@ func (o *CategorySubcategory) GetBrandsWithSellsOk() (*int32, bool) {
 // SetBrandsWithSells sets field value
 func (o *CategorySubcategory) SetBrandsWithSells(v int32) {
 	o.BrandsWithSells = v
+}
+
+// GetSellers returns the Sellers field value if set, zero value otherwise.
+func (o *CategorySubcategory) GetSellers() int32 {
+	if o == nil || o.Sellers == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Sellers
+}
+
+// GetSellersOk returns a tuple with the Sellers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategorySubcategory) GetSellersOk() (*int32, bool) {
+	if o == nil || o.Sellers == nil {
+		return nil, false
+	}
+	return o.Sellers, true
+}
+
+// HasSellers returns a boolean if a field has been set.
+func (o *CategorySubcategory) HasSellers() bool {
+	if o != nil && o.Sellers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSellers gets a reference to the given int32 and assigns it to the Sellers field.
+func (o *CategorySubcategory) SetSellers(v int32) {
+	o.Sellers = &v
+}
+
+// GetSellersWithSells returns the SellersWithSells field value if set, zero value otherwise.
+func (o *CategorySubcategory) GetSellersWithSells() int32 {
+	if o == nil || o.SellersWithSells == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SellersWithSells
+}
+
+// GetSellersWithSellsOk returns a tuple with the SellersWithSells field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CategorySubcategory) GetSellersWithSellsOk() (*int32, bool) {
+	if o == nil || o.SellersWithSells == nil {
+		return nil, false
+	}
+	return o.SellersWithSells, true
+}
+
+// HasSellersWithSells returns a boolean if a field has been set.
+func (o *CategorySubcategory) HasSellersWithSells() bool {
+	if o != nil && o.SellersWithSells != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSellersWithSells gets a reference to the given int32 and assigns it to the SellersWithSells field.
+func (o *CategorySubcategory) SetSellersWithSells(v int32) {
+	o.SellersWithSells = &v
 }
 
 // GetSales returns the Sales field value
@@ -510,6 +578,12 @@ func (o CategorySubcategory) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["brands_with_sells"] = o.BrandsWithSells
+	}
+	if o.Sellers != nil {
+		toSerialize["sellers"] = o.Sellers
+	}
+	if o.SellersWithSells != nil {
+		toSerialize["sellers_with_sells"] = o.SellersWithSells
 	}
 	if true {
 		toSerialize["sales"] = o.Sales

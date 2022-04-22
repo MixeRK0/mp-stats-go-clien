@@ -109,7 +109,7 @@ Class | Method | HTTP request | Description
 *WbApi* | [**GetSimilarCategories**](docs/WbApi.md#getsimilarcategories) | **Get** /wb/get/similar/categories | Категории похожего товара
 *WbApi* | [**GetSimilarDetailedItems**](docs/WbApi.md#getsimilardetaileditems) | **Post** /wb/get/similar | Товары по похожему товару
 *WbApi* | [**GetSimilarSellers**](docs/WbApi.md#getsimilarsellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
-*WbApi* | [**PostWbGetSearchCategories**](docs/WbApi.md#postwbgetsearchcategories) | **Post** /wb/get/search/categories | 
+*WbApi* | [**PostWbGetSearchCategories**](docs/WbApi.md#postwbgetsearchcategories) | **Post** /wb/get/search/categories | GetSearchCategory
 
 
 ## Documentation For Models
@@ -130,7 +130,6 @@ Class | Method | HTTP request | Description
  - [DetailedItem](docs/DetailedItem.md)
  - [FilterModelItem](docs/FilterModelItem.md)
  - [GetItemsBatchRequestBody](docs/GetItemsBatchRequestBody.md)
- - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [Item](docs/Item.md)
  - [ItemBalanceByDay](docs/ItemBalanceByDay.md)
@@ -151,6 +150,7 @@ Class | Method | HTTP request | Description
  - [SimilarCategory](docs/SimilarCategory.md)
  - [SimilarSeller](docs/SimilarSeller.md)
  - [SortModelItem](docs/SortModelItem.md)
+ - [TplsRequestBody](docs/TplsRequestBody.md)
 
 
 ## Documentation For Authorization

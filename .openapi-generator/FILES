@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -22,7 +21,6 @@ docs/CategoryUrl.md
 docs/DetailedItem.md
 docs/FilterModelItem.md
 docs/GetItemsBatchRequestBody.md
-docs/InlineObject.md
 docs/InlineResponse200.md
 docs/Item.md
 docs/ItemBalanceByDay.md
@@ -43,6 +41,7 @@ docs/SimilarByDate.md
 docs/SimilarCategory.md
 docs/SimilarSeller.md
 docs/SortModelItem.md
+docs/TplsRequestBody.md
 docs/WbApi.md
 git_push.sh
 go.mod
@@ -63,7 +62,6 @@ model_category_url.go
 model_detailed_item.go
 model_filter_model_item.go
 model_get_items_batch_request_body.go
-model_inline_object.go
 model_inline_response_200.go
 model_item.go
 model_item_balance_by_day.go
@@ -84,5 +82,6 @@ model_similar_by_date.go
 model_similar_category.go
 model_similar_seller.go
 model_sort_model_item.go
+model_tpls_request_body.go
 response.go
 utils.go

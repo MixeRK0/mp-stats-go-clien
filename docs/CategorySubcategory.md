@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ItemsWithSells** | **int32** | Число товаров с продажами | 
 **Brands** | **int32** | Число брендов | 
 **BrandsWithSells** | **int32** | Число брендов с продажами | 
+**Sellers** | Pointer to **int32** | Число продавцов | [optional] 
+**SellersWithSells** | Pointer to **int32** | Число продавцов с продажами | [optional] 
 **Sales** | **int32** | Число зафиксированных продаж (единицы) | 
 **Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
 **AvgPrice** | **float32** | Средняя стоимость товара | 
@@ -140,6 +142,56 @@ and a boolean to check if the value has been set.
 
 SetBrandsWithSells sets BrandsWithSells field to given value.
 
+
+### GetSellers
+
+`func (o *CategorySubcategory) GetSellers() int32`
+
+GetSellers returns the Sellers field if non-nil, zero value otherwise.
+
+### GetSellersOk
+
+`func (o *CategorySubcategory) GetSellersOk() (*int32, bool)`
+
+GetSellersOk returns a tuple with the Sellers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellers
+
+`func (o *CategorySubcategory) SetSellers(v int32)`
+
+SetSellers sets Sellers field to given value.
+
+### HasSellers
+
+`func (o *CategorySubcategory) HasSellers() bool`
+
+HasSellers returns a boolean if a field has been set.
+
+### GetSellersWithSells
+
+`func (o *CategorySubcategory) GetSellersWithSells() int32`
+
+GetSellersWithSells returns the SellersWithSells field if non-nil, zero value otherwise.
+
+### GetSellersWithSellsOk
+
+`func (o *CategorySubcategory) GetSellersWithSellsOk() (*int32, bool)`
+
+GetSellersWithSellsOk returns a tuple with the SellersWithSells field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellersWithSells
+
+`func (o *CategorySubcategory) SetSellersWithSells(v int32)`
+
+SetSellersWithSells sets SellersWithSells field to given value.
+
+### HasSellersWithSells
+
+`func (o *CategorySubcategory) HasSellersWithSells() bool`
+
+HasSellersWithSells returns a boolean if a field has been set.
 
 ### GetSales
 

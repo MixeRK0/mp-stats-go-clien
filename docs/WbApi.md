@@ -35,7 +35,7 @@ Method | HTTP request | Description
 [**GetSimilarCategories**](WbApi.md#GetSimilarCategories) | **Get** /wb/get/similar/categories | Категории похожего товара
 [**GetSimilarDetailedItems**](WbApi.md#GetSimilarDetailedItems) | **Post** /wb/get/similar | Товары по похожему товару
 [**GetSimilarSellers**](WbApi.md#GetSimilarSellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
-[**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | 
+[**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | GetSearchCategory
 
 
 
@@ -2256,9 +2256,9 @@ Name | Type | Description  | Notes
 
 ## PostWbGetSearchCategories
 
-> []SearchCategory PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).InlineObject(inlineObject).Execute()
+> []SearchCategory PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
 
-
+GetSearchCategory
 
 ### Example
 
@@ -2277,11 +2277,11 @@ func main() {
     path := "path_example" // string | 
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    inlineObject := *openapiclient.NewInlineObject("Tpls_example") // InlineObject |  (optional)
+    tplsRequestBody := *openapiclient.NewTplsRequestBody() // TplsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).InlineObject(inlineObject).Execute()
+    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchCategories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2305,7 +2305,7 @@ Name | Type | Description  | Notes
  **path** | **string** |  | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **inlineObject** | [**InlineObject**](InlineObject.md) |  | 
+ **tplsRequestBody** | [**TplsRequestBody**](TplsRequestBody.md) |  | 
 
 ### Return type
 
