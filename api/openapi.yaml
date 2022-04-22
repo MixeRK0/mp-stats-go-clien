@@ -1,0 +1,4005 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: MPStats API
+  termsOfService: https://mpstats.io/integrations
+  title: mpstats
+  version: "1.0"
+servers:
+- description: prod
+  url: https://mpstats.io/api
+security:
+- Header-token: []
+tags:
+- name: wb
+paths:
+  /wb/get/categories:
+    get:
+      description: Получение текущих категорий
+      operationId: get-categories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  allOf:
+                  - $ref: '#/components/schemas/category-path'
+                  - $ref: '#/components/schemas/category-name'
+                  - $ref: '#/components/schemas/category-url'
+                type: array
+          description: OK
+      summary: Текущие категории
+      tags:
+      - wb
+  /wb/get/category:
+    post:
+      description: Получение данных о товарах категории
+      operationId: get-category-detailed-items
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/GetCategory'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Get category response
+      summary: Товары категории
+      tags:
+      - wb
+  /wb/get/category/subcategories:
+    get:
+      description: Получение данных по подкатегориям категории
+      operationId: get-category-subcategories
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategorySubcategory'
+                type: array
+          description: Get category subcategories response
+      summary: Подкатегории категории
+      tags:
+      - wb
+  /wb/get/category/brands:
+    get:
+      description: Получение данных о брендах категории
+      operationId: get-category-brands
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryBrand'
+                type: array
+          description: Get category brands response
+      summary: Бренды категории
+      tags:
+      - wb
+  /wb/get/category/sellers:
+    get:
+      description: Получение данных о продавцах категории
+      operationId: get-category-sellers
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategorySeller'
+                type: array
+          description: Get category sellers response
+      summary: Продавцы категории
+      tags:
+      - wb
+  /wb/get/category/trends:
+    get:
+      description: Получение данных о трендах категории
+      operationId: get-category-trends
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryTrend'
+                type: array
+          description: Get category trends response
+      summary: Тренды категории
+      tags:
+      - wb
+  /wb/get/category/by_date:
+    get:
+      description: Получение данных по дням по категориии
+      operationId: get-category-by-date
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryByDate'
+                type: array
+          description: Get category by date response
+      summary: Данные по дням по категории
+      tags:
+      - wb
+  /wb/get/category/price_segmentation:
+    get:
+      description: Получение данных о ценовой сегментации по категории
+      operationId: get-category-price-segmentation
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryPriceSegmentation'
+                type: array
+          description: Get category price segmentation response
+      summary: Ценовая сегментация категории
+      tags:
+      - wb
+  /wb/get/brand:
+    post:
+      description: Получение данных о товарах по бренду
+      operationId: get-brand-detailed-items
+      parameters:
+      - description: Бренд
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Mango
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/GetBrand'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Get brand response
+      summary: Товары бренда
+      tags:
+      - wb
+  /wb/get/brand/categories:
+    get:
+      description: Получение данных о категориях бренда
+      operationId: get-brand-categories
+      parameters:
+      - description: Бренд
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Mango
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BrandCategory'
+                type: array
+          description: Get brand categories response
+      summary: Категории бренда
+      tags:
+      - wb
+  /wb/get/brand/sellers:
+    get:
+      description: Получение данных о продавцах бренда
+      operationId: get-brand-sellers
+      parameters:
+      - description: Бренд
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Mango
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BrandSeller'
+                type: array
+          description: Get brand sellers response
+      summary: Продавцы бренда
+      tags:
+      - wb
+  /wb/get/brand/by_date:
+    get:
+      description: Получение данных по дням по бренду
+      operationId: get-brand-by-date
+      parameters:
+      - description: Бренд
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Mango
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BrandByDate'
+                type: array
+          description: Get brand by date response
+      summary: Данные по дням по бренду
+      tags:
+      - wb
+  /wb/get/brand/price_segmentation:
+    get:
+      description: Получение данных о ценовой сегментации бренда
+      operationId: get-brand-price-segmentation
+      parameters:
+      - description: Бренд
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Mango
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BrandPriceSegmentation'
+                type: array
+          description: Get brand price segmentation response
+      summary: Ценовая сегментация бренда
+      tags:
+      - wb
+  /wb/get/seller:
+    post:
+      description: Получение данных о товарах по продавцу
+      operationId: get-seller-detailed-items
+      parameters:
+      - description: Продавец
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: ВАЙЛДБЕРРИЗ ООО
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/GetSeller'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Get seller response
+      summary: Товары продавца
+      tags:
+      - wb
+  /wb/get/seller/categories:
+    get:
+      description: Получение данных по категориям по продавцу
+      operationId: get-seller-categories
+      parameters:
+      - description: Продавец
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: ВАЙЛДБЕРРИЗ ООО
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SellerCategory'
+                type: array
+          description: Get seller categories response
+      summary: Категории продавца
+      tags:
+      - wb
+  /wb/get/seller/brands:
+    get:
+      description: Получение данных по брендам по продавцу
+      operationId: get-seller-brands
+      parameters:
+      - description: Продавец
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: ВАЙЛДБЕРРИЗ ООО
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SellerBrand'
+                type: array
+          description: Get seller brands response
+      summary: Бренды продавца
+      tags:
+      - wb
+  /wb/get/seller/by_date:
+    get:
+      description: Получение данных по дням по продавцу
+      operationId: get-seller-by-date
+      parameters:
+      - description: Продавец
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: ВАЙЛДБЕРРИЗ ООО
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SellerByDate'
+                type: array
+          description: Get seller by date response
+      summary: Данные по дням по продавцу
+      tags:
+      - wb
+  /wb/get/seller/price_segmentation:
+    get:
+      description: Получение данных о ценовой сегментации продавца
+      operationId: get-seller-price-segmentation
+      parameters:
+      - description: Продавец
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: ВАЙЛДБЕРРИЗ ООО
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SellerPriceSegmentation'
+                type: array
+          description: Get seller price segmentation response
+      summary: Ценовая сегментация продавца
+      tags:
+      - wb
+  /wb/get/similar:
+    post:
+      description: Получение данных о товарах по похожему товару
+      operationId: get-similar-detailed-items
+      parameters:
+      - description: SKU
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: "6929090"
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/GetSimilar'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Get similar response
+      summary: Товары по похожему товару
+      tags:
+      - wb
+  /wb/get/similar/categories:
+    get:
+      description: Получение данных по категориям по похожему товару
+      operationId: get-similar-categories
+      parameters:
+      - description: SKU
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: "6929090"
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SimilarCategory'
+                type: array
+          description: Get similar categories response
+      summary: Категории похожего товара
+      tags:
+      - wb
+  /wb/get/similar/brands:
+    get:
+      description: Получение данных по брендам похожего товара
+      operationId: get-similar-brands
+      parameters:
+      - description: SKU
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: "6929090"
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SimilarBrand'
+                type: array
+          description: Get similar brands response
+      summary: Бренды похожего товара
+      tags:
+      - wb
+  /wb/get/similar/sellers:
+    get:
+      description: Получение данных по продавцам похожего товара
+      operationId: get-similar-sellers
+      parameters:
+      - description: SKU
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: "6929090"
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SimilarSeller'
+                type: array
+          description: Get similar sellers response
+      summary: Продавцы похожего товара
+      tags:
+      - wb
+  /wb/get/similar/by_date:
+    get:
+      description: Получение данных по дням по похожему товару
+      operationId: get-similar-by-date
+      parameters:
+      - description: SKU
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: "6929090"
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SimilarByDate'
+                type: array
+          description: Get similar by date response
+      summary: По дням
+      tags:
+      - wb
+  /wb/get/items/batch:
+    post:
+      description: Получение товарных позиций по SKU
+      operationId: get-items-batch
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/GetItemsBatch'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Item'
+                type: array
+          description: Get item response
+      summary: Товарные позиции по SKU
+      tags:
+      - wb
+  /wb/get/item/{sku}:
+    get:
+      description: Получение одной товарной позиции по SKU
+      operationId: get-item-by-sku
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+          description: Get item response
+      summary: Одна товарная позиция по SKU
+      tags:
+      - wb
+  /wb/get/item/{sku}/sales:
+    get:
+      description: Получение продаж и остатков по товарной позиции
+      operationId: get-item-sales
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ItemSale'
+                type: array
+          description: Get item sales response
+      summary: Продажи и остатки товарной позиции
+      tags:
+      - wb
+  /wb/get/item/{sku}/balance_by_day:
+    get:
+      description: Получение продаж и остатков по товарной позиции за сутки
+      operationId: get-item-balance-by-day
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата
+        explode: true
+        in: query
+        name: d
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ItemBalanceByDay'
+                type: array
+          description: Get item balance by day response
+      summary: Продажи и остатки товарной позиции за сутки
+      tags:
+      - wb
+  /wb/get/item/{sku}/by_category:
+    get:
+      description: Получение истории товарной позиции по категориям
+      operationId: get-item-by-category
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ItemByCategory'
+                type: array
+          description: Get item by category response
+      summary: История товарной позиции по категориям
+      tags:
+      - wb
+  /wb/get/item/{sku}/orders_by_region:
+    get:
+      description: Получение истории заказов и остатков товарной позиции по складам
+      operationId: get-item-orders-by-region
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ItemOrdersByRegion'
+                type: array
+          description: Get item orders by region response
+      summary: История заказов и остатков товарной позиции по складам
+      tags:
+      - wb
+  /wb/get/item/{sku}/orders_by_size:
+    get:
+      description: Получение истории заказов и остатков товарной позиции по размерам
+      operationId: get-item-orders-by-size
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemOrdersBySize'
+          description: Get item orders by size response
+      summary: История заказов и остатков товарной позиции по размерам
+      tags:
+      - wb
+  /wb/get/item/{sku}/similar:
+    get:
+      description: Получение похожих товарных позиций
+      operationId: get-item-similar
+      parameters:
+      - description: SKU
+        explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSimilar'
+          description: Get item similar response
+      summary: Похожие товарные позиции
+      tags:
+      - wb
+  /wb/get/search/categories:
+    post:
+      operationId: post-wb-get-search-categories
+      parameters:
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            examples:
+              example-1:
+                value:
+                  tpls: "[[1, 72411387],[2, 8501879],[3, 16906514],[4, 21584878],[5,\
+                    \ 21212165],[6, 71740830],[7, 32350397],[8, 19496049],[9, 9045302],[10,\
+                    \ 21047602],[11, 51340160],[12, 51102617],[13, 49973555],[14,\
+                    \ 27803911],[15, 27802904],[16, 51202608],[17, 50066705],[18,\
+                    \ 72683356],[19, 8127416],[20, 35178115],[21, 10854808],[22, 12077200],[23,\
+                    \ 43742872],[24, 57938900],[25, 27803279],[26, 47946418],[27,\
+                    \ 64931577],[28, 26803221],[29, 17232272],[30, 45004361],[31,\
+                    \ 57925093],[32, 28497780],[33, 5331773],[34, 36183517],[35, 12608237],[36,\
+                    \ 21047600],[37, 26801907],[38, 59385420],[39, 28970010],[40,\
+                    \ 57927866],[41, 37787517],[42, 10978204],[43, 24691766],[44,\
+                    \ 34696030],[45, 26803082],[46, 41505449],[47, 27804733],[48,\
+                    \ 24691763],[49, 24691764],[50, 13374674],[51, 12228346],[52,\
+                    \ 10978203],[53, 9070130],[54, 49624244],[55, 15568660],[56, 18654939],[57,\
+                    \ 42769876],[58, 31037546],[59, 2032749],[60, 14034437],[61, 27805896],[62,\
+                    \ 35936801],[63, 13315319],[64, 11804960],[65, 39048706],[66,\
+                    \ 36770543],[67, 50647458],[68, 35176495],[69, 26802902],[70,\
+                    \ 69137157],[71, 10854868],[72, 26477597],[73, 68243725],[74,\
+                    \ 5331777],[75, 17676577],[76, 20868430],[77, 38973127],[78, 11127822],[79,\
+                    \ 5331772],[80, 53003179],[81, 37913657],[82, 26802152],[83, 8501878],[84,\
+                    \ 24691765],[85, 51030355],[86, 52163192],[87, 21255256],[88,\
+                    \ 35415497],[89, 28594704],[90, 16923743],[91, 27806340],[92,\
+                    \ 7271818],[93, 10854809],[94, 48085964],[95, 5331778],[96, 35433960],[97,\
+                    \ 16924299],[98, 37674963],[99, 16924300],[100, 45802491]]"
+            schema:
+              description: ""
+              properties:
+                tpls:
+                  minLength: 1
+                  type: string
+              required:
+              - tpls
+              type: object
+              x-examples:
+                example-1:
+                  tpls: "[[1, 72411387],[2, 8501879],[3, 16906514],[4, 21584878],[5,\
+                    \ 21212165],[6, 71740830],[7, 32350397],[8, 19496049],[9, 9045302],[10,\
+                    \ 21047602],[11, 51340160],[12, 51102617],[13, 49973555],[14,\
+                    \ 27803911],[15, 27802904],[16, 51202608],[17, 50066705],[18,\
+                    \ 72683356],[19, 8127416],[20, 35178115],[21, 10854808],[22, 12077200],[23,\
+                    \ 43742872],[24, 57938900],[25, 27803279],[26, 47946418],[27,\
+                    \ 64931577],[28, 26803221],[29, 17232272],[30, 45004361],[31,\
+                    \ 57925093],[32, 28497780],[33, 5331773],[34, 36183517],[35, 12608237],[36,\
+                    \ 21047600],[37, 26801907],[38, 59385420],[39, 28970010],[40,\
+                    \ 57927866],[41, 37787517],[42, 10978204],[43, 24691766],[44,\
+                    \ 34696030],[45, 26803082],[46, 41505449],[47, 27804733],[48,\
+                    \ 24691763],[49, 24691764],[50, 13374674],[51, 12228346],[52,\
+                    \ 10978203],[53, 9070130],[54, 49624244],[55, 15568660],[56, 18654939],[57,\
+                    \ 42769876],[58, 31037546],[59, 2032749],[60, 14034437],[61, 27805896],[62,\
+                    \ 35936801],[63, 13315319],[64, 11804960],[65, 39048706],[66,\
+                    \ 36770543],[67, 50647458],[68, 35176495],[69, 26802902],[70,\
+                    \ 69137157],[71, 10854868],[72, 26477597],[73, 68243725],[74,\
+                    \ 5331777],[75, 17676577],[76, 20868430],[77, 38973127],[78, 11127822],[79,\
+                    \ 5331772],[80, 53003179],[81, 37913657],[82, 26802152],[83, 8501878],[84,\
+                    \ 24691765],[85, 51030355],[86, 52163192],[87, 21255256],[88,\
+                    \ 35415497],[89, 28594704],[90, 16923743],[91, 27806340],[92,\
+                    \ 7271818],[93, 10854809],[94, 48085964],[95, 5331778],[96, 35433960],[97,\
+                    \ 16924299],[98, 37674963],[99, 16924300],[100, 45802491]]"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchCategory'
+                type: array
+          description: Get search categories response
+      summary: ""
+      tags:
+      - wb
+components:
+  parameters:
+    path-category:
+      description: Категория
+      explode: true
+      in: query
+      name: path
+      required: true
+      schema:
+        example: Женщинам/Одежда
+        type: string
+      style: form
+    path-brand:
+      description: Бренд
+      explode: true
+      in: query
+      name: path
+      required: true
+      schema:
+        example: Mango
+        type: string
+      style: form
+    path-seller:
+      description: Продавец
+      explode: true
+      in: query
+      name: path
+      required: true
+      schema:
+        example: ВАЙЛДБЕРРИЗ ООО
+        type: string
+      style: form
+    path-sku:
+      description: SKU
+      explode: true
+      in: query
+      name: path
+      required: true
+      schema:
+        example: "6929090"
+        type: string
+      style: form
+    d:
+      description: Дата
+      explode: true
+      in: query
+      name: d
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    d1:
+      description: Дата начала периода
+      explode: true
+      in: query
+      name: d1
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    d2:
+      description: Дата окончания периода
+      explode: true
+      in: query
+      name: d2
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+  requestBodies:
+    GetCategory:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostRequestBody'
+    GetBrand:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostRequestBody'
+    GetSeller:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostRequestBody'
+    GetItemsBatch:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetItemsBatchRequestBody'
+    GetSimilar:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostRequestBody'
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+  responses:
+    GetCategory:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Get category response
+    GetCategorySubcategories:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategorySubcategory'
+            type: array
+      description: Get category subcategories response
+    GetCategoryTrends:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategoryTrend'
+            type: array
+      description: Get category trends response
+    GetCategoryPriceSegmentation:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategoryPriceSegmentation'
+            type: array
+      description: Get category price segmentation response
+    GetCategoryByDate:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategoryByDate'
+            type: array
+      description: Get category by date response
+    GetCategoryBrands:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategoryBrand'
+            type: array
+      description: Get category brands response
+    GetBrandCategories:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/BrandCategory'
+            type: array
+      description: Get brand categories response
+    GetBrandSellers:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/BrandSeller'
+            type: array
+      description: Get brand sellers response
+    GetBrandPriceSegmentation:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/BrandPriceSegmentation'
+            type: array
+      description: Get brand price segmentation response
+    GetBrandByDate:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/BrandByDate'
+            type: array
+      description: Get brand by date response
+    GetSellerCategories:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SellerCategory'
+            type: array
+      description: Get seller categories response
+    GetSellerBrands:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SellerBrand'
+            type: array
+      description: Get seller brands response
+    GetSellerPriceSegmentation:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SellerPriceSegmentation'
+            type: array
+      description: Get seller price segmentation response
+    GetSellerByDate:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SellerByDate'
+            type: array
+      description: Get seller by date response
+    GetSimilarCategories:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SimilarCategory'
+            type: array
+      description: Get similar categories response
+    GetSimilarBrands:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SimilarBrand'
+            type: array
+      description: Get similar brands response
+    GetSimilarSellers:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SimilarSeller'
+            type: array
+      description: Get similar sellers response
+    GetItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Item'
+      description: Get item response
+    GetItemsBatch:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/Item'
+            type: array
+      description: Get item response
+    GetItemSales:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/ItemSale'
+            type: array
+      description: Get item sales response
+    GetItemBalanceByDay:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/ItemBalanceByDay'
+            type: array
+      description: Get item balance by day response
+    GetItemByCategory:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/ItemByCategory'
+            type: array
+      description: Get item by category response
+    GetItemOrdersByRegion:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/ItemOrdersByRegion'
+            type: array
+      description: Get item orders by region response
+    GetItemOrdersBySize:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ItemOrdersBySize'
+      description: Get item orders by size response
+    GetItemSimilar:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ItemSimilar'
+      description: Get item similar response
+    GetSimilarByDate:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SimilarByDate'
+            type: array
+      description: Get similar by date response
+    GetCategorySellers:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategorySeller'
+            type: array
+      description: Get category sellers response
+    GetSearchCategories:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/SearchCategory'
+            type: array
+      description: Get search categories response
+    GetBrand:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Get brand response
+    GetSimilar:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Get similar response
+    GetSeller:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Get seller response
+  schemas:
+    category-path:
+      properties:
+        path:
+          description: Путь по категориям каталога Wildberries
+          type: string
+      required:
+      - path
+      title: category-path
+      type: object
+    category-name:
+      properties:
+        name:
+          description: Название категории
+          type: string
+      required:
+      - name
+      title: category-name
+      type: object
+    category-url:
+      properties:
+        id:
+          description: Url на Wildberries
+          type: string
+      required:
+      - id
+      title: category-url
+      type: object
+    FilterModel:
+      description: ""
+      title: FilterModel
+      type: object
+    FilterModelItem:
+      description: ""
+      properties:
+        filterType:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+        filter:
+          type: string
+        filterTo:
+          type: string
+      required:
+      - filter
+      - filterType
+      - type
+      type: object
+    SortModel:
+      items:
+        $ref: '#/components/schemas/SortModelItem'
+      title: SortModel
+      type: array
+    SortModelItem:
+      description: ""
+      example:
+        sort: sort
+        colId: colId
+      properties:
+        colId:
+          minLength: 1
+          type: string
+        sort:
+          minLength: 1
+          type: string
+      required:
+      - colId
+      - sort
+      type: object
+    CategorySubcategory:
+      description: ""
+      example:
+        sales_per_items_average: 1.2315135367772556
+        brands: 1
+        comments: 9.301444243932576
+        brands_with_sells_percent: 4.145608029883936
+        rating: 3.616076749251911
+        avg_price: 7.061401241503109
+        revenue_per_items_average: 1.4894159098541704
+        sales: 5
+        sellers_with_sells_percent: 7.386281948385884
+        sales_per_items_with_sells_average: 1.0246457001441578
+        brands_with_sells: 5
+        revenue_per_items_with_sells_average: 6.84685269835264
+        revenue: 2.3021358869347655
+        name: name
+        items_with_sells: 6
+        items: 0
+        items_with_sells_percent: 2.027123023002322
+      properties:
+        name:
+          description: Вложенная рубрика
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        items_with_sells:
+          description: Число товаров с продажами
+          type: integer
+        brands:
+          description: Число брендов
+          type: integer
+        brands_with_sells:
+          description: Число брендов с продажами
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        avg_price:
+          description: Средняя стоимость товара
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+        items_with_sells_percent:
+          description: Число товаров с продажами в процентах
+          type: number
+        brands_with_sells_percent:
+          description: Число брендов с продажами в процентах
+          type: number
+        sellers_with_sells_percent:
+          description: Число продавцов с продажами в процентах
+          type: number
+        sales_per_items_average:
+          description: Среднее количество продаж на товар
+          type: number
+        sales_per_items_with_sells_average:
+          description: Среднее количество продаж на товар с продажами
+          type: number
+        revenue_per_items_average:
+          description: Среднее выручка на товар
+          type: number
+        revenue_per_items_with_sells_average:
+          description: Среднее выручка на товар с продажами
+          type: number
+      required:
+      - avg_price
+      - brands
+      - brands_with_sells
+      - brands_with_sells_percent
+      - comments
+      - items
+      - items_with_sells
+      - items_with_sells_percent
+      - name
+      - rating
+      - revenue
+      - revenue_per_items_average
+      - revenue_per_items_with_sells_average
+      - sales
+      - sales_per_items_average
+      - sales_per_items_with_sells_average
+      - sellers_with_sells_percent
+      type: object
+    CategoryBrand:
+      description: ""
+      example:
+        sales_per_items_average: 2.3021358869347655
+        comments: 2.027123023002322
+        rating: 3.616076749251911
+        avg_price: 9.301444243932576
+        sales: 5
+        graph:
+        - 7
+        - 7
+        sales_per_items_with_sells_average: 7.061401241503109
+        revenue: 5.637376656633329
+        balance: balance
+        name: name
+        items_with_sells: 6
+        position: 4
+        brand: brand
+        items: 0
+        items_with_sells_percent: 1.4658129805029452
+      properties:
+        brand:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        items_with_sells:
+          description: Число товаров с продажами
+          type: integer
+        items_with_sells_percent:
+          description: Число товаров с продажами в процентах
+          type: number
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        sales_per_items_average:
+          description: Среднее количество продаж на товарную позицию
+          type: number
+        sales_per_items_with_sells_average:
+          description: Среднее количество продаж на товарную позицию с продажами
+          type: number
+        name:
+          description: Название бренда
+          type: string
+        balance:
+          description: Баланс
+          type: string
+        avg_price:
+          description: Средняя стоимость товара
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        position:
+          description: Позиция в рейтинге
+          type: integer
+        graph:
+          description: Граф
+          items:
+            type: integer
+          type: array
+      required:
+      - avg_price
+      - balance
+      - brand
+      - comments
+      - graph
+      - items
+      - items_with_sells
+      - items_with_sells_percent
+      - name
+      - position
+      - rating
+      - revenue
+      - sales
+      - sales_per_items_average
+      - sales_per_items_with_sells_average
+      type: object
+    CategorySeller:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название продавца
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    CategoryTrend:
+      description: ""
+      example:
+        revenue: 6.027456183070403
+        week: week
+        brands: 5.637376656633329
+        items: 5.962133916683182
+        sales: 0.8008281904610115
+        sellers: 2.3021358869347655
+        product_revenue: 1.4658129805029452
+      properties:
+        week:
+          description: Дата начала недели
+          type: string
+        sales:
+          description: Число продаж
+          type: number
+        revenue:
+          description: Суммарная выручка в рубрике
+          type: number
+        product_revenue:
+          description: "Сумма выручки категории, разделенная на число товаров"
+          type: number
+        items:
+          description: Число товаров в рубрике на указанной неделе
+          type: number
+        brands:
+          description: Число брендов в рубрике на указанной неделе
+          type: number
+        sellers:
+          description: "\tЧисло продавцов в рубрике на указанной неделе"
+          type: number
+      required:
+      - brands
+      - items
+      - product_revenue
+      - revenue
+      - sales
+      - sellers
+      - week
+      type: object
+    CategoryByDate:
+      description: ""
+      example:
+        revenue: 7.061401241503109
+        brands: 0
+        comments: 9.301444243932576
+        data: 2000-01-23
+        rating: 3.616076749251911
+        avg_price: 1.4658129805029452
+        avg_sale_price: 5.962133916683182
+        items: 5
+        sellers: 6
+        sales: 2
+      properties:
+        data:
+          description: "\tДата"
+          format: date
+          type: string
+        brands:
+          description: Кол-во брендов
+          type: integer
+        sellers:
+          description: Кол-во продавцов
+          type: integer
+        avg_price:
+          description: "Средняя цена товара в категории (все товары, среднее арифм\
+            етическое)"
+          type: number
+        avg_sale_price:
+          description: Средняя цена состоявшейся продажи (деление выручки на число
+            продаж)
+          type: number
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - avg_price
+      - avg_sale_price
+      - brands
+      - comments
+      - data
+      - items
+      - rating
+      - revenue
+      - sales
+      - sellers
+      type: object
+    CategoryPriceSegmentation:
+      description: ""
+      example:
+        min_range_price: 2.027123023002322
+        sellers_with_sells: 2.3021358869347655
+        brands: 1.4658129805029452
+        max_range_price: 4.145608029883936
+        range: range
+        sales: 9.301444243932576
+        product_revenue: 3.616076749251911
+        brands_with_sells: 5.962133916683182
+        revenue: 7.061401241503109
+        lost_profit_percent: 1.2315135367772556
+        items_with_sells: 6.027456183070403
+        items: 0.8008281904610115
+        lost_profit: 7.386281948385884
+        sellers: 5.637376656633329
+      properties:
+        range:
+          description: Диапазон цен
+          minLength: 1
+          type: string
+        items:
+          description: Число товаров в диапазоне
+          type: number
+        items_with_sells:
+          description: Число товаров с продажами в диапазоне
+          type: number
+        brands:
+          description: Число брендов в диапазоне
+          type: number
+        brands_with_sells:
+          description: Число брендов в диапазоне с продажами больше 0
+          type: number
+        sellers:
+          description: Число продавцов в диапазоне
+          type: number
+        sellers_with_sells:
+          description: Число продавцов в диапазоне продажами больше 0
+          type: number
+        revenue:
+          description: Суммарная выручка в диапазоне
+          type: number
+        sales:
+          description: Число продаж
+          type: number
+        product_revenue:
+          description: "Сумма выручки диапазона, разделенная на число товаров в не\
+            м"
+          type: number
+        min_range_price:
+          description: Цена в диапазоне от
+          type: number
+        max_range_price:
+          description: Цена в диапазоне до
+          type: number
+        lost_profit:
+          description: Упущенная выручка
+          type: number
+        lost_profit_percent:
+          description: Процент упущенной выручка
+          type: number
+      required:
+      - brands
+      - brands_with_sells
+      - items
+      - max_range_price
+      - min_range_price
+      - product_revenue
+      - range
+      - revenue
+      - sales
+      - sellers
+      - sellers_with_sells
+      type: object
+    BrandCategory:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    BrandSeller:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    BrandByDate:
+      description: ""
+      example:
+        balance_price: 5
+        revenue: 3.616076749251911
+        comments: 6.027456183070403
+        data: 2000-01-23
+        balance: 5
+        rating: 1.4658129805029452
+        avg_price: 2.3021358869347655
+        avg_sale_price: 7.061401241503109
+        items: 0
+        sales: 9
+      properties:
+        data:
+          description: Дата
+          format: date
+          type: string
+        items:
+          description: Число позиций
+          type: integer
+        comments:
+          description: Среднее число комментариев на товар
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+        balance:
+          description: "Число товаров, числящихся в наличии"
+          type: integer
+        balance_price:
+          description: Произведение остатка на цену продажи
+          type: integer
+        avg_price:
+          description: "Средняя цена товара у бренда (все товары, среднее арифмети\
+            ческое)"
+          type: number
+        avg_sale_price:
+          description: Средняя цена состоявшейся продажи (деление выручки на число
+            продаж)
+          type: number
+        sales:
+          description: Число продаж единиц товара
+          type: integer
+        revenue:
+          description: Выручка за сутки
+          type: number
+      required:
+      - avg_price
+      - avg_sale_price
+      - balance
+      - balance_price
+      - comments
+      - data
+      - items
+      - rating
+      - revenue
+      - sales
+      type: object
+    BrandPriceSegmentation:
+      description: ""
+      example:
+        brands_with_sells: 1.4658129805029452
+        min_range_price: 3.616076749251911
+        sellers_with_sells: 5.637376656633329
+        revenue: 2.3021358869347655
+        brands: 6.027456183070403
+        max_range_price: 2.027123023002322
+        range: range
+        items: 0.8008281904610115
+        sellers: 5.962133916683182
+        sales: 7.061401241503109
+        product_revenue: 9.301444243932576
+      properties:
+        range:
+          description: Диапазон цен
+          type: string
+        items:
+          description: Число товаров в диапазоне
+          type: number
+        brands:
+          description: Число брендов в диапазоне
+          type: number
+        brands_with_sells:
+          description: Число брендов в диапазоне с продажами больше 0
+          type: number
+        sellers:
+          description: Число продавцов в диапазоне
+          type: number
+        sellers_with_sells:
+          description: Число продавцов в диапазоне продажами больше 0
+          type: number
+        revenue:
+          description: Суммарная выручка в диапазоне
+          type: number
+        sales:
+          description: Число продаж
+          type: number
+        product_revenue:
+          description: "Сумма выручки диапазона, разделенная на число товаров в не\
+            м"
+          type: number
+        min_range_price:
+          description: Цена в диапазоне от
+          type: number
+        max_range_price:
+          description: Цена в диапазоне до
+          type: number
+      required:
+      - brands
+      - brands_with_sells
+      - items
+      - max_range_price
+      - min_range_price
+      - product_revenue
+      - range
+      - revenue
+      - sales
+      - sellers
+      - sellers_with_sells
+      type: object
+    SellerCategory:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    SellerBrand:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    SellerByDate:
+      description: ""
+      example:
+        balance_price: 5
+        revenue: 3.616076749251911
+        comments: 6.027456183070403
+        data: 2000-01-23
+        balance: 5
+        rating: 1.4658129805029452
+        avg_price: 2.3021358869347655
+        avg_sale_price: 7.061401241503109
+        items: 0
+        sales: 9
+      properties:
+        data:
+          description: Дата
+          format: date
+          type: string
+        items:
+          description: Число позиций
+          type: integer
+        comments:
+          description: Среднее число комментариев на товар
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+        balance:
+          description: "Число товаров, числящихся в наличии"
+          type: integer
+        balance_price:
+          description: Произведение остатка на цену продажи
+          type: integer
+        avg_price:
+          description: "Средняя цена товара у бренда (все товары, среднее арифмети\
+            ческое)"
+          type: number
+        avg_sale_price:
+          description: Средняя цена состоявшейся продажи (деление выручки на число
+            продаж)
+          type: number
+        sales:
+          description: Число продаж единиц товара
+          type: integer
+        revenue:
+          description: Выручка за сутки
+          type: number
+      required:
+      - avg_price
+      - avg_sale_price
+      - balance
+      - balance_price
+      - comments
+      - data
+      - items
+      - rating
+      - revenue
+      - sales
+      type: object
+    SellerPriceSegmentation:
+      description: ""
+      example:
+        brands_with_sells: 1.4658129805029452
+        min_range_price: 3.616076749251911
+        sellers_with_sells: 5.637376656633329
+        revenue: 2.3021358869347655
+        brands: 6.027456183070403
+        max_range_price: 2.027123023002322
+        range: range
+        items: 0.8008281904610115
+        sellers: 5.962133916683182
+        sales: 7.061401241503109
+        product_revenue: 9.301444243932576
+      properties:
+        range:
+          description: Диапазон цен
+          type: string
+        items:
+          description: Число товаров в диапазоне
+          type: number
+        brands:
+          description: Число брендов в диапазоне
+          type: number
+        brands_with_sells:
+          description: Число брендов в диапазоне с продажами больше 0
+          type: number
+        sellers:
+          description: Число продавцов в диапазоне
+          type: number
+        sellers_with_sells:
+          description: Число продавцов в диапазоне продажами больше 0
+          type: number
+        revenue:
+          description: Суммарная выручка в диапазоне
+          type: number
+        sales:
+          description: Число продаж
+          type: number
+        product_revenue:
+          description: "Сумма выручки диапазона, разделенная на число товаров в не\
+            м"
+          type: number
+        min_range_price:
+          description: Цена в диапазоне от
+          type: number
+        max_range_price:
+          description: Цена в диапазоне до
+          type: number
+      required:
+      - brands
+      - brands_with_sells
+      - items
+      - max_range_price
+      - min_range_price
+      - product_revenue
+      - range
+      - revenue
+      - sales
+      - sellers
+      - sellers_with_sells
+      type: object
+    SimilarCategory:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    SimilarBrand:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    SimilarSeller:
+      description: ""
+      example:
+        revenue: 1.4658129805029452
+        comments: 5.962133916683182
+        name: name
+        rating: 5.637376656633329
+        items: 0
+        sales: 6
+      properties:
+        name:
+          description: Название бренда
+          type: string
+        items:
+          description: Число товаров
+          type: integer
+        sales:
+          description: Число зафиксированных продаж (единицы)
+          type: integer
+        revenue:
+          description: Сумма произведений числа проданных товаров на их стоимость
+          type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+      required:
+      - comments
+      - items
+      - name
+      - rating
+      - revenue
+      - sales
+      type: object
+    SimilarByDate:
+      description: ""
+      example:
+        balance_price: 5
+        revenue: 3.616076749251911
+        comments: 6.027456183070403
+        data: 2000-01-23
+        balance: 5
+        rating: 1.4658129805029452
+        avg_price: 2.3021358869347655
+        avg_sale_price: 7.061401241503109
+        items: 0
+        sales: 9
+      properties:
+        data:
+          description: Дата
+          format: date
+          type: string
+        items:
+          description: Число позиций
+          type: integer
+        comments:
+          description: Среднее число комментариев на товар
+          type: number
+        rating:
+          description: Средний рейтинг
+          type: number
+        balance:
+          description: "Число товаров, числящихся в наличии"
+          type: integer
+        balance_price:
+          description: Произведение остатка на цену продажи
+          type: integer
+        avg_price:
+          description: "Средняя цена товара у бренда (все товары, среднее арифмети\
+            ческое)"
+          type: number
+        avg_sale_price:
+          description: Средняя цена состоявшейся продажи (деление выручки на число
+            продаж)
+          type: number
+        sales:
+          description: Число продаж единиц товара
+          type: integer
+        revenue:
+          description: Выручка за сутки
+          type: number
+      required:
+      - avg_price
+      - avg_sale_price
+      - balance
+      - balance_price
+      - comments
+      - data
+      - items
+      - rating
+      - revenue
+      - sales
+      type: object
+    Item:
+      description: ""
+      example:
+        item:
+          seller: seller
+          comments: 6.027456183070403
+          is_new: 2.3021358869347655
+          link: link
+          rating: 0.8008281904610115
+          discount: 5.637376656633329
+          full_name: full_name
+          final_price: 5.962133916683182
+          price: 1.4658129805029452
+          name: name
+          id: id
+          brand: brand
+          updated: updated
+        photos:
+        - t: t
+          f: f
+        - t: t
+          f: f
+      properties:
+        item:
+          $ref: '#/components/schemas/Item_item'
+        photos:
+          items:
+            $ref: '#/components/schemas/Item_photos'
+          minItems: 1
+          type: array
+          uniqueItems: true
+      required:
+      - item
+      - photos
+      type: object
+    DetailedItem:
+      description: ""
+      example:
+        seller: seller
+        color: color
+        thumb: thumb
+        basic_price: 1.2315135367772556
+        days_with_sales: 6.683562403749608
+        rating: 2.3021358869347655
+        client_price: 6.84685269835264
+        days_in_stock: 9.369310271410669
+        sales: 1.1730742509559433
+        revenue: 4.965218492984954
+        balance: 5.637376656633329
+        final_price: 9.301444243932576
+        average_if_in_stock: 8.762042012749001
+        id: 5.962133916683182
+        brand: brand
+        lost_profit: 9.965781217890562
+        final_price_min: 2.027123023002322
+        client_sale: 1.4894159098541704
+        comments: 7.061401241503109
+        final_price_max: 3.616076749251911
+        promo_sale: 1.0246457001441578
+        start_price: 7.457744773683766
+        revenue_potential: 5.025004791520295
+        graph:
+        - 9.018348186070783
+        - 9.018348186070783
+        final_price_average: 4.145608029883936
+        name: name
+        basic_sale: 7.386281948385884
+        category: category
+      properties:
+        id:
+          description: Идентификатор товарной позиции
+          type: number
+        name:
+          description: Название товара
+          minLength: 1
+          type: string
+        brand:
+          description: Название бренда
+          minLength: 1
+          type: string
+        seller:
+          description: Название продавца
+          minLength: 1
+          type: string
+        category:
+          description: Категория товара
+          minLength: 1
+          type: string
+        color:
+          description: Цвет товара
+          type: string
+        balance:
+          description: Последний зафиксированный остаток на складе
+          type: number
+        rating:
+          description: Рейтинг товара
+          type: number
+        comments:
+          description: Количество комментариев
+          type: number
+        final_price:
+          description: Последняя зафиксированная цена
+          type: number
+        final_price_max:
+          description: Максимальная цена за период
+          type: number
+        final_price_min:
+          description: Минимальная цена за период
+          type: number
+        final_price_average:
+          description: Средняя цена за период (выручка / число продаж)
+          type: number
+        basic_sale:
+          description: Размер скидки
+          type: number
+        basic_price:
+          description: Цена после применения скидки
+          type: number
+        promo_sale:
+          description: Размер скидки по промокоду
+          type: number
+        client_sale:
+          description: Размер Скидки Постоянного Покупателя
+          type: number
+        client_price:
+          description: "Итоговая цена для посетителя, с учетом СПП"
+          type: number
+        start_price:
+          description: Цена без учета скидок
+          type: number
+        sales:
+          description: Количество проданных единиц товара за период
+          type: number
+        revenue:
+          description: Выручка за период
+          type: number
+        revenue_potential:
+          description: Потенциал выручки (выручка / число дней в наличии) * дней в
+            отчете
+          type: number
+        lost_profit:
+          description: Упущенная выручка (Потенциал - Выручка)
+          type: number
+        days_in_stock:
+          description: "Количество дней, когда товар был в наличии на конец дня"
+          type: number
+        days_with_sales:
+          description: "Количество дней, когда были продажи"
+          type: number
+        average_if_in_stock:
+          description: "Среднее число продаж, при наличии товара на конец дня"
+          type: number
+        thumb:
+          description: Изображение товара
+          type: string
+        graph:
+          description: График продаж
+          items:
+            type: number
+          type: array
+      required:
+      - average_if_in_stock
+      - balance
+      - basic_price
+      - basic_sale
+      - brand
+      - category
+      - client_price
+      - client_sale
+      - color
+      - comments
+      - days_in_stock
+      - days_with_sales
+      - final_price
+      - final_price_average
+      - final_price_max
+      - final_price_min
+      - graph
+      - id
+      - lost_profit
+      - name
+      - promo_sale
+      - rating
+      - revenue
+      - revenue_potential
+      - sales
+      - seller
+      - start_price
+      - thumb
+      title: ""
+      type: object
+    ItemSale:
+      description: ""
+      example:
+        comments: 9.301444243932576
+        data: 2000-01-23
+        balance: 6
+        final_price: 2.3021358869347655
+        is_new: 7
+        price: 5.637376656633329
+        rating: 5.962133916683182
+        no_data: 0
+        sales: 1
+      properties:
+        no_data:
+          description: "0: OK, 1: Продаж и остатков не зафиксировано"
+          type: integer
+        data:
+          description: Дата
+          format: date
+          type: string
+        balance:
+          description: Остаток
+          type: integer
+        sales:
+          description: Продажи
+          type: integer
+        rating:
+          description: Рейтинг
+          type: number
+        price:
+          description: Цена
+          type: number
+        final_price:
+          description: Со скидкой
+          type: number
+        is_new:
+          description: Новый товар (?)
+          type: integer
+        comments:
+          description: Комментариев
+          type: number
+      required:
+      - balance
+      - comments
+      - data
+      - final_price
+      - is_new
+      - no_data
+      - price
+      - rating
+      - sales
+      type: object
+    ItemBalanceByDay:
+      description: ""
+      example:
+        comments: 2.3021358869347655
+        balance: 0
+        final_price: 5.637376656633329
+        price: 5.962133916683182
+        rating: 1.4658129805029452
+        tm: tm
+        sales: 6
+      properties:
+        tm:
+          description: Время
+          format: time
+          type: string
+        balance:
+          description: Остаток
+          type: integer
+        sales:
+          description: Продажи
+          type: integer
+        rating:
+          description: Рейтинг
+          type: number
+        price:
+          description: Цена
+          type: number
+        final_price:
+          description: Со скидкой
+          type: number
+        comments:
+          description: Комментариев
+          type: number
+      required:
+      - balance
+      - comments
+      - final_price
+      - price
+      - rating
+      - sales
+      - tm
+      type: object
+    ItemByCategory:
+      description: ""
+      example:
+        balance:
+        - 0
+        - 0
+        final_price:
+        - 6.027456183070403
+        - 6.027456183070403
+        days:
+        - days
+        - days
+        categories: "{}"
+        sales:
+        - 1
+        - 1
+      properties:
+        balance:
+          description: Остаток
+          items:
+            type: integer
+          type: array
+        categories:
+          description: "Категория и позиции в ней. NaN: Позиция не определена"
+          type: object
+        days:
+          description: Дни
+          items:
+            type: string
+          type: array
+        final_price:
+          description: Цена со скидкой
+          items:
+            type: number
+          type: array
+        sales:
+          description: Продаж
+          items:
+            type: integer
+          type: array
+      required:
+      - balance
+      - categories
+      - days
+      - final_price
+      - sales
+      type: object
+    ItemOrdersByRegion:
+      description: ""
+      type: object
+    ItemOrdersBySize:
+      description: ""
+      type: object
+    ItemSimilar:
+      description: ""
+      example:
+        seller: seller
+        comments: 6.027456183070403
+        thumb: thumb
+        rating: 2.3021358869347655
+        thumb_middle: thumb_middle
+        graph:
+        - 5
+        - 5
+        sales: 9.301444243932576
+        revenue: 7.061401241503109
+        balance: 0.8008281904610115
+        final_price: 1.4658129805029452
+        name: name
+        id: 5.637376656633329
+        brand: brand
+      properties:
+        balance:
+          description: Последний зафиксированный остаток на складе
+          type: number
+        brand:
+          description: Название бренда
+          type: string
+        comments:
+          description: Количество комментариев
+          type: number
+        final_price:
+          description: Последняя зафиксированная цена
+          type: number
+        graph:
+          description: График продаж
+          items:
+            type: integer
+          type: array
+        id:
+          description: SKU
+          type: number
+        name:
+          description: Название товара
+          type: string
+        rating:
+          description: Рейтинг товара
+          type: number
+        revenue:
+          description: Выручка за период
+          type: number
+        sales:
+          description: Количество проданных единиц товара за период
+          type: number
+        seller:
+          description: Название продавца
+          type: string
+        thumb:
+          description: Изображение товара
+          type: string
+        thumb_middle:
+          description: Изображение товара (среднее)
+          type: string
+      required:
+      - balance
+      - brand
+      - comments
+      - final_price
+      - graph
+      - id
+      - name
+      - rating
+      - revenue
+      - sales
+      - seller
+      - thumb
+      - thumb_middle
+      type: object
+    SearchCategoriesItem:
+      example:
+        seller: seller
+        country: country
+        hasvideo: 0
+        basic_price: 5
+        days_with_sales: 6
+        rating: 1
+        client_price: 6
+        is_fbs: 6
+        days_in_stock: 6
+        sales: 9
+        revenue: 3
+        balance: 4
+        average_if_in_stock: 5.944895607614016
+        id: 9
+        brand: brand
+        lost_profit: 1
+        client_sale: 9
+        start_price: 8
+        thumb_middle: thumb_middle
+        categories_last_count: categories_last_count
+        graph:
+        - 4
+        - 4
+        commentsvaluation: 7.058770351582356
+        name: name
+        basic_sale: 4
+        position: 0
+        category_graph:
+        - 8
+        - 8
+        supplier_id: 3
+        sales_per_day_average: 6.438423552598547
+        picscount: 3
+        subject_id: 3
+        color: color
+        gender: gender
+        thumb: thumb
+        pos_data: pos_data
+        has3d: 7
+        final_price: 1
+        cardratingval: 6
+        final_price_min: 7
+        price_graph:
+        - 3
+        - 3
+        comments: 1
+        final_price_max: 6
+        promo_sale: 9
+        sku_first_date: sku_first_date
+        stocks_graph:
+        - 7
+        - 7
+        revenue_potential: 6
+        category_position: 2
+        url: url
+        lost_profit_percent: 2.8841621266687802
+        final_price_average: 1
+        firstcommentdate: firstcommentdate
+        category: category
+        balance_fbs: 7
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        brand:
+          type: string
+        seller:
+          type: string
+        supplier_id:
+          type: integer
+        category:
+          type: string
+        category_position:
+          type: integer
+        pos_data:
+          type: string
+        color:
+          type: string
+        balance:
+          type: integer
+        balance_fbs:
+          type: integer
+        comments:
+          type: integer
+        rating:
+          type: integer
+        final_price:
+          type: integer
+        final_price_max:
+          type: integer
+        final_price_min:
+          type: integer
+        final_price_average:
+          type: integer
+        basic_sale:
+          type: integer
+        basic_price:
+          type: integer
+        promo_sale:
+          type: integer
+        client_sale:
+          type: integer
+        client_price:
+          type: integer
+        start_price:
+          type: integer
+        sales:
+          type: integer
+        sales_per_day_average:
+          type: number
+        revenue:
+          type: integer
+        revenue_potential:
+          type: integer
+        lost_profit:
+          type: integer
+        lost_profit_percent:
+          type: number
+        days_in_stock:
+          type: integer
+        days_with_sales:
+          type: integer
+        average_if_in_stock:
+          type: number
+        thumb:
+          type: string
+        thumb_middle:
+          type: string
+        is_fbs:
+          type: integer
+        subject_id:
+          type: integer
+        url:
+          type: string
+        country:
+          type: string
+        gender:
+          type: string
+        sku_first_date:
+          type: string
+        firstcommentdate:
+          type: string
+        picscount:
+          type: integer
+        has3d:
+          type: integer
+        hasvideo:
+          type: integer
+        commentsvaluation:
+          type: number
+        cardratingval:
+          type: integer
+        position:
+          type: integer
+        categories_last_count:
+          type: string
+        graph:
+          items:
+            type: integer
+          type: array
+        category_graph:
+          items:
+            type: integer
+          type: array
+        stocks_graph:
+          items:
+            type: integer
+          type: array
+        price_graph:
+          items:
+            type: integer
+          type: array
+      type: object
+      x-examples:
+        example-1:
+          id: 8501879
+          name: "Маникюрные ножницы, для кутикулы, для кожи, профессиональные, нер\
+            жавеющая сталь, ручная заточка"
+          brand: Silver Star
+          seller: Сильвер Стар
+          supplier_id: 38010
+          category: Красота/Профессиональная косметика/Ножницы маникюрные
+          category_position: 1
+          pos_data: 2022-04-19
+          color: ""
+          balance: 1
+          balance_fbs: 55
+          comments: 2009
+          rating: 5
+          final_price: 627
+          final_price_max: 627
+          final_price_min: 627
+          final_price_average: 627
+          basic_sale: 50
+          basic_price: 627
+          promo_sale: 0
+          client_sale: 0
+          client_price: 627
+          start_price: 1254
+          sales: 3054
+          sales_per_day_average: 101.8
+          revenue: 1914858
+          revenue_potential: 2209451
+          lost_profit: 294593
+          lost_profit_percent: 13.333333333333336
+          days_in_stock: 26
+          days_with_sales: 30
+          average_if_in_stock: 116.61538461538461
+          thumb: https://img1.wbstatic.net/tm/new/8500000/8501879-1.jpg
+          thumb_middle: https://img1.wbstatic.net/c252x336/new/8500000/8501879-1.jpg
+          is_fbs: 1
+          subject_id: 1411
+          url: https://www.wildberries.ru/catalog/8501879/detail.aspx
+          country: Россия
+          gender: ""
+          sku_first_date: 2020-04-16
+          firstcommentdate: 2020-06-05
+          picscount: 7
+          has3d: 0
+          hasvideo: 1
+          commentsvaluation: 4.6
+          cardratingval: 90
+          position: 2
+          categories_last_count: "7"
+          graph:
+          - 131
+          - 95
+          - 123
+          - 97
+          - 108
+          - 172
+          - 173
+          - 172
+          - 122
+          - 156
+          - 113
+          - 129
+          - 106
+          - 89
+          - 137
+          - 127
+          - 95
+          - 108
+          - 117
+          - 102
+          - 145
+          - 112
+          - 120
+          - 90
+          - 89
+          - 11
+          - 6
+          - 3
+          - 2
+          - 4
+          category_graph:
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          - 0
+          - 0
+          - 7
+          - 7
+          - 7
+          - 6
+          - 7
+          - 7
+          - 7
+          - 7
+          - 7
+          stocks_graph:
+          - 437
+          - 442
+          - 2101
+          - 2591
+          - 2483
+          - 2313
+          - 2142
+          - 1971
+          - 1851
+          - 1698
+          - 1586
+          - 1461
+          - 1358
+          - 1225
+          - 1089
+          - 968
+          - 875
+          - 768
+          - 655
+          - 558
+          - 414
+          - 303
+          - 185
+          - 97
+          - 11
+          - 0
+          - 0
+          - 0
+          - 0
+          - 1
+          price_graph:
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+          - 627
+    SearchCategory:
+      example:
+        pivotCols:
+        - 2
+        - 2
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 6
+        groupKeys:
+        - 7
+        - 7
+        data:
+        - seller: seller
+          country: country
+          hasvideo: 0
+          basic_price: 5
+          days_with_sales: 6
+          rating: 1
+          client_price: 6
+          is_fbs: 6
+          days_in_stock: 6
+          sales: 9
+          revenue: 3
+          balance: 4
+          average_if_in_stock: 5.944895607614016
+          id: 9
+          brand: brand
+          lost_profit: 1
+          client_sale: 9
+          start_price: 8
+          thumb_middle: thumb_middle
+          categories_last_count: categories_last_count
+          graph:
+          - 4
+          - 4
+          commentsvaluation: 7.058770351582356
+          name: name
+          basic_sale: 4
+          position: 0
+          category_graph:
+          - 8
+          - 8
+          supplier_id: 3
+          sales_per_day_average: 6.438423552598547
+          picscount: 3
+          subject_id: 3
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: pos_data
+          has3d: 7
+          final_price: 1
+          cardratingval: 6
+          final_price_min: 7
+          price_graph:
+          - 3
+          - 3
+          comments: 1
+          final_price_max: 6
+          promo_sale: 9
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - 7
+          - 7
+          revenue_potential: 6
+          category_position: 2
+          url: url
+          lost_profit_percent: 2.8841621266687802
+          final_price_average: 1
+          firstcommentdate: firstcommentdate
+          category: category
+          balance_fbs: 7
+        - seller: seller
+          country: country
+          hasvideo: 0
+          basic_price: 5
+          days_with_sales: 6
+          rating: 1
+          client_price: 6
+          is_fbs: 6
+          days_in_stock: 6
+          sales: 9
+          revenue: 3
+          balance: 4
+          average_if_in_stock: 5.944895607614016
+          id: 9
+          brand: brand
+          lost_profit: 1
+          client_sale: 9
+          start_price: 8
+          thumb_middle: thumb_middle
+          categories_last_count: categories_last_count
+          graph:
+          - 4
+          - 4
+          commentsvaluation: 7.058770351582356
+          name: name
+          basic_sale: 4
+          position: 0
+          category_graph:
+          - 8
+          - 8
+          supplier_id: 3
+          sales_per_day_average: 6.438423552598547
+          picscount: 3
+          subject_id: 3
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: pos_data
+          has3d: 7
+          final_price: 1
+          cardratingval: 6
+          final_price_min: 7
+          price_graph:
+          - 3
+          - 3
+          comments: 1
+          final_price_max: 6
+          promo_sale: 9
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - 7
+          - 7
+          revenue_potential: 6
+          category_position: 2
+          url: url
+          lost_profit_percent: 2.8841621266687802
+          final_price_average: 1
+          firstcommentdate: firstcommentdate
+          category: category
+          balance_fbs: 7
+        filterModel: "{}"
+        endRow: 1
+        error: true
+        valueCols:
+        - 5
+        - 5
+        tpl: tpl
+        total: 0
+        rowGroupCols:
+        - 5
+        - 5
+        pivotMode: true
+      properties:
+        total:
+          description: Кол-во строк в результирующем запросе без учета пагинации
+          type: integer
+        error:
+          description: Ошибка
+          type: boolean
+        startRow:
+          description: Номер строки начала получения данных
+          type: integer
+        endRow:
+          description: Номер строки конца получения данных
+          type: integer
+        rowGroupCols:
+          items:
+            type: integer
+          type: array
+        valueCols:
+          items:
+            type: integer
+          type: array
+        pivotCols:
+          items:
+            type: integer
+          type: array
+        pivotMode:
+          type: boolean
+        groupKeys:
+          items:
+            type: integer
+          type: array
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+        tpl:
+          description: tpl
+          type: string
+        data:
+          description: Массив данных
+          items:
+            $ref: '#/components/schemas/SearchCategoriesItem'
+          type: array
+      required:
+      - data
+      - endRow
+      - error
+      - filterModel
+      - groupKeys
+      - pivotCols
+      - pivotMode
+      - rowGroupCols
+      - sortModel
+      - startRow
+      - total
+      - tpl
+      - valueCols
+      title: SearchCategory
+      type: object
+    PostRequestBody:
+      example:
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 0
+        filterModel: "{}"
+        endRow: 6
+      properties:
+        startRow:
+          description: Номер строки начала получения данных
+          type: integer
+        endRow:
+          description: Номер строки конца получения данных
+          type: integer
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+      required:
+      - endRow
+      - filterModel
+      - sortModel
+      - startRow
+      title: PostRequestBody
+      type: object
+    GetItemsBatchRequestBody:
+      example:
+        ids:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      properties:
+        ids:
+          description: "Массив SKU товаров, не более 200 в одном запросе"
+          items:
+            type: integer
+          maxItems: 200
+          type: array
+      required:
+      - ids
+      title: GetItemsBatchRequestBody
+      type: object
+    inline_response_200:
+      example:
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        total: 1
+        startRow: 0
+        data:
+        - seller: seller
+          color: color
+          thumb: thumb
+          basic_price: 1.2315135367772556
+          days_with_sales: 6.683562403749608
+          rating: 2.3021358869347655
+          client_price: 6.84685269835264
+          days_in_stock: 9.369310271410669
+          sales: 1.1730742509559433
+          revenue: 4.965218492984954
+          balance: 5.637376656633329
+          final_price: 9.301444243932576
+          average_if_in_stock: 8.762042012749001
+          id: 5.962133916683182
+          brand: brand
+          lost_profit: 9.965781217890562
+          final_price_min: 2.027123023002322
+          client_sale: 1.4894159098541704
+          comments: 7.061401241503109
+          final_price_max: 3.616076749251911
+          promo_sale: 1.0246457001441578
+          start_price: 7.457744773683766
+          revenue_potential: 5.025004791520295
+          graph:
+          - 9.018348186070783
+          - 9.018348186070783
+          final_price_average: 4.145608029883936
+          name: name
+          basic_sale: 7.386281948385884
+          category: category
+        - seller: seller
+          color: color
+          thumb: thumb
+          basic_price: 1.2315135367772556
+          days_with_sales: 6.683562403749608
+          rating: 2.3021358869347655
+          client_price: 6.84685269835264
+          days_in_stock: 9.369310271410669
+          sales: 1.1730742509559433
+          revenue: 4.965218492984954
+          balance: 5.637376656633329
+          final_price: 9.301444243932576
+          average_if_in_stock: 8.762042012749001
+          id: 5.962133916683182
+          brand: brand
+          lost_profit: 9.965781217890562
+          final_price_min: 2.027123023002322
+          client_sale: 1.4894159098541704
+          comments: 7.061401241503109
+          final_price_max: 3.616076749251911
+          promo_sale: 1.0246457001441578
+          start_price: 7.457744773683766
+          revenue_potential: 5.025004791520295
+          graph:
+          - 9.018348186070783
+          - 9.018348186070783
+          final_price_average: 4.145608029883936
+          name: name
+          basic_sale: 7.386281948385884
+          category: category
+        filterModel: "{}"
+        endRow: 6
+      properties:
+        startRow:
+          description: Номер строки начала получения данных
+          type: integer
+        endRow:
+          description: Номер строки конца получения данных
+          type: integer
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+        total:
+          description: Кол-во строк в результирующем запросе без учета пагинации
+          type: integer
+        data:
+          description: Массив данных
+          items:
+            $ref: '#/components/schemas/DetailedItem'
+          type: array
+      required:
+      - data
+      - endRow
+      - filterModel
+      - sortModel
+      - startRow
+      - total
+      type: object
+    inline_object:
+      description: ""
+      properties:
+        tpls:
+          minLength: 1
+          type: string
+      required:
+      - tpls
+      type: object
+      x-examples:
+        example-1:
+          tpls: "[[1, 72411387],[2, 8501879],[3, 16906514],[4, 21584878],[5, 21212165],[6,\
+            \ 71740830],[7, 32350397],[8, 19496049],[9, 9045302],[10, 21047602],[11,\
+            \ 51340160],[12, 51102617],[13, 49973555],[14, 27803911],[15, 27802904],[16,\
+            \ 51202608],[17, 50066705],[18, 72683356],[19, 8127416],[20, 35178115],[21,\
+            \ 10854808],[22, 12077200],[23, 43742872],[24, 57938900],[25, 27803279],[26,\
+            \ 47946418],[27, 64931577],[28, 26803221],[29, 17232272],[30, 45004361],[31,\
+            \ 57925093],[32, 28497780],[33, 5331773],[34, 36183517],[35, 12608237],[36,\
+            \ 21047600],[37, 26801907],[38, 59385420],[39, 28970010],[40, 57927866],[41,\
+            \ 37787517],[42, 10978204],[43, 24691766],[44, 34696030],[45, 26803082],[46,\
+            \ 41505449],[47, 27804733],[48, 24691763],[49, 24691764],[50, 13374674],[51,\
+            \ 12228346],[52, 10978203],[53, 9070130],[54, 49624244],[55, 15568660],[56,\
+            \ 18654939],[57, 42769876],[58, 31037546],[59, 2032749],[60, 14034437],[61,\
+            \ 27805896],[62, 35936801],[63, 13315319],[64, 11804960],[65, 39048706],[66,\
+            \ 36770543],[67, 50647458],[68, 35176495],[69, 26802902],[70, 69137157],[71,\
+            \ 10854868],[72, 26477597],[73, 68243725],[74, 5331777],[75, 17676577],[76,\
+            \ 20868430],[77, 38973127],[78, 11127822],[79, 5331772],[80, 53003179],[81,\
+            \ 37913657],[82, 26802152],[83, 8501878],[84, 24691765],[85, 51030355],[86,\
+            \ 52163192],[87, 21255256],[88, 35415497],[89, 28594704],[90, 16923743],[91,\
+            \ 27806340],[92, 7271818],[93, 10854809],[94, 48085964],[95, 5331778],[96,\
+            \ 35433960],[97, 16924299],[98, 37674963],[99, 16924300],[100, 45802491]]"
+    Item_item:
+      example:
+        seller: seller
+        comments: 6.027456183070403
+        is_new: 2.3021358869347655
+        link: link
+        rating: 0.8008281904610115
+        discount: 5.637376656633329
+        full_name: full_name
+        final_price: 5.962133916683182
+        price: 1.4658129805029452
+        name: name
+        id: id
+        brand: brand
+        updated: updated
+      properties:
+        id:
+          description: Идентификатор товара (SKU)
+          minLength: 1
+          type: string
+        name:
+          description: Название
+          minLength: 1
+          type: string
+        full_name:
+          description: Полное название
+          minLength: 1
+          type: string
+        link:
+          description: Ссылка на площадке
+          minLength: 1
+          type: string
+        brand:
+          description: Бренд
+          minLength: 1
+          type: string
+        seller:
+          description: Продавец
+          minLength: 1
+          type: string
+        rating:
+          description: Рейтинг
+          type: number
+        comments:
+          description: Комментариев
+          type: number
+        price:
+          description: Цена
+          type: number
+        final_price:
+          description: Цена с учетом скидки
+          type: number
+        discount:
+          description: Скидка
+          type: number
+        updated:
+          description: Обновлено
+          minLength: 1
+          type: string
+        is_new:
+          description: Новинка
+          type: number
+      required:
+      - brand
+      - comments
+      - discount
+      - final_price
+      - full_name
+      - id
+      - is_new
+      - link
+      - name
+      - price
+      - rating
+      - seller
+      - updated
+      type: object
+    Item_photos:
+      example:
+        t: t
+        f: f
+      properties:
+        f:
+          description: Полноразмерное фото
+          minLength: 1
+          type: string
+        t:
+          description: Уменьшенное фото
+          minLength: 1
+          type: string
+      required:
+      - f
+      - t
+      type: object
+  securitySchemes:
+    Header-token:
+      description: ""
+      in: header
+      name: X-Mpstats-TOKEN
+      type: apiKey

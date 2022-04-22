@@ -1,0 +1,156 @@
+# BrandSeller
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **string** | Название бренда | 
+**Items** | **int32** | Число товаров | 
+**Sales** | **int32** | Число зафиксированных продаж (единицы) | 
+**Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
+**Comments** | **float32** | Среднее число комментариев | 
+**Rating** | **float32** | Средний рейтинг | 
+
+## Methods
+
+### NewBrandSeller
+
+`func NewBrandSeller(name string, items int32, sales int32, revenue float32, comments float32, rating float32, ) *BrandSeller`
+
+NewBrandSeller instantiates a new BrandSeller object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBrandSellerWithDefaults
+
+`func NewBrandSellerWithDefaults() *BrandSeller`
+
+NewBrandSellerWithDefaults instantiates a new BrandSeller object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *BrandSeller) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *BrandSeller) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *BrandSeller) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetItems
+
+`func (o *BrandSeller) GetItems() int32`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *BrandSeller) GetItemsOk() (*int32, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *BrandSeller) SetItems(v int32)`
+
+SetItems sets Items field to given value.
+
+
+### GetSales
+
+`func (o *BrandSeller) GetSales() int32`
+
+GetSales returns the Sales field if non-nil, zero value otherwise.
+
+### GetSalesOk
+
+`func (o *BrandSeller) GetSalesOk() (*int32, bool)`
+
+GetSalesOk returns a tuple with the Sales field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSales
+
+`func (o *BrandSeller) SetSales(v int32)`
+
+SetSales sets Sales field to given value.
+
+
+### GetRevenue
+
+`func (o *BrandSeller) GetRevenue() float32`
+
+GetRevenue returns the Revenue field if non-nil, zero value otherwise.
+
+### GetRevenueOk
+
+`func (o *BrandSeller) GetRevenueOk() (*float32, bool)`
+
+GetRevenueOk returns a tuple with the Revenue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRevenue
+
+`func (o *BrandSeller) SetRevenue(v float32)`
+
+SetRevenue sets Revenue field to given value.
+
+
+### GetComments
+
+`func (o *BrandSeller) GetComments() float32`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *BrandSeller) GetCommentsOk() (*float32, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *BrandSeller) SetComments(v float32)`
+
+SetComments sets Comments field to given value.
+
+
+### GetRating
+
+`func (o *BrandSeller) GetRating() float32`
+
+GetRating returns the Rating field if non-nil, zero value otherwise.
+
+### GetRatingOk
+
+`func (o *BrandSeller) GetRatingOk() (*float32, bool)`
+
+GetRatingOk returns a tuple with the Rating field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRating
+
+`func (o *BrandSeller) SetRating(v float32)`
+
+SetRating sets Rating field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
