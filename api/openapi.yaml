@@ -3314,7 +3314,7 @@ components:
           category_position: 2
           url: url
           lost_profit_percent: 2.8841621266687802
-          final_price_average: 1
+          final_price_average: 1.1730742509559433
           firstcommentdate: firstcommentdate
           category: category
           balance_fbs: 7
@@ -3374,7 +3374,7 @@ components:
           category_position: 2
           url: url
           lost_profit_percent: 2.8841621266687802
-          final_price_average: 1
+          final_price_average: 1.1730742509559433
           firstcommentdate: firstcommentdate
           category: category
           balance_fbs: 7
@@ -3512,7 +3512,7 @@ components:
         category_position: 2
         url: url
         lost_profit_percent: 2.8841621266687802
-        final_price_average: 1
+        final_price_average: 1.1730742509559433
         firstcommentdate: firstcommentdate
         category: category
         balance_fbs: 7
@@ -3550,7 +3550,7 @@ components:
         final_price_min:
           type: integer
         final_price_average:
-          type: integer
+          type: number
         basic_sale:
           type: integer
         basic_price:
@@ -3996,8 +3996,6 @@ components:
         endRow:
           type: integer
         filterModel:
-          description: ""
-          title: FilterModel
           type: object
         groupKeys:
           items:

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **FinalPrice** | **int32** |  | 
 **FinalPriceMax** | **int32** |  | 
 **FinalPriceMin** | **int32** |  | 
-**FinalPriceAverage** | **int32** |  | 
+**FinalPriceAverage** | **float32** |  | 
 **BasicSale** | **int32** |  | 
 **BasicPrice** | **int32** |  | 
 **PromoSale** | **int32** |  | 
@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 
 ### NewSearchItemsElement
 
-`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage int32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, ) *SearchItemsElement`
+`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, ) *SearchItemsElement`
 
 NewSearchItemsElement instantiates a new SearchItemsElement object
 This constructor will assign default values to properties that have it defined,
@@ -398,20 +398,20 @@ SetFinalPriceMin sets FinalPriceMin field to given value.
 
 ### GetFinalPriceAverage
 
-`func (o *SearchItemsElement) GetFinalPriceAverage() int32`
+`func (o *SearchItemsElement) GetFinalPriceAverage() float32`
 
 GetFinalPriceAverage returns the FinalPriceAverage field if non-nil, zero value otherwise.
 
 ### GetFinalPriceAverageOk
 
-`func (o *SearchItemsElement) GetFinalPriceAverageOk() (*int32, bool)`
+`func (o *SearchItemsElement) GetFinalPriceAverageOk() (*float32, bool)`
 
 GetFinalPriceAverageOk returns a tuple with the FinalPriceAverage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFinalPriceAverage
 
-`func (o *SearchItemsElement) SetFinalPriceAverage(v int32)`
+`func (o *SearchItemsElement) SetFinalPriceAverage(v float32)`
 
 SetFinalPriceAverage sets FinalPriceAverage field to given value.
 

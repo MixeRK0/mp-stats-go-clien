@@ -18,7 +18,6 @@ import (
 type GetSearchItemsRequestBody struct {
 	StartRow int32 `json:"startRow"`
 	EndRow int32 `json:"endRow"`
-	// 
 	FilterModel map[string]interface{} `json:"filterModel"`
 	GroupKeys []string `json:"groupKeys"`
 	PivotCols []string `json:"pivotCols"`

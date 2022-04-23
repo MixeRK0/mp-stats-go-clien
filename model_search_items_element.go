@@ -32,7 +32,7 @@ type SearchItemsElement struct {
 	FinalPrice int32 `json:"final_price"`
 	FinalPriceMax int32 `json:"final_price_max"`
 	FinalPriceMin int32 `json:"final_price_min"`
-	FinalPriceAverage int32 `json:"final_price_average"`
+	FinalPriceAverage float32 `json:"final_price_average"`
 	BasicSale int32 `json:"basic_sale"`
 	BasicPrice int32 `json:"basic_price"`
 	PromoSale int32 `json:"promo_sale"`
@@ -74,7 +74,7 @@ type SearchItemsElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage int32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32) *SearchItemsElement {
+func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32) *SearchItemsElement {
 	this := SearchItemsElement{}
 	this.Id = id
 	this.Name = name
@@ -524,9 +524,9 @@ func (o *SearchItemsElement) SetFinalPriceMin(v int32) {
 }
 
 // GetFinalPriceAverage returns the FinalPriceAverage field value
-func (o *SearchItemsElement) GetFinalPriceAverage() int32 {
+func (o *SearchItemsElement) GetFinalPriceAverage() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -535,7 +535,7 @@ func (o *SearchItemsElement) GetFinalPriceAverage() int32 {
 
 // GetFinalPriceAverageOk returns a tuple with the FinalPriceAverage field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFinalPriceAverageOk() (*int32, bool) {
+func (o *SearchItemsElement) GetFinalPriceAverageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -543,7 +543,7 @@ func (o *SearchItemsElement) GetFinalPriceAverageOk() (*int32, bool) {
 }
 
 // SetFinalPriceAverage sets field value
-func (o *SearchItemsElement) SetFinalPriceAverage(v int32) {
+func (o *SearchItemsElement) SetFinalPriceAverage(v float32) {
 	o.FinalPriceAverage = v
 }
 
