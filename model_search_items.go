@@ -30,7 +30,7 @@ type SearchItems struct {
 	PivotMode bool `json:"pivotMode"`
 	GroupKeys []int32 `json:"groupKeys,omitempty"`
 	// 
-	FilterModel map[string]interface{} `json:"filterModel,omitempty"`
+	FilterModel []map[string]interface{} `json:"filterModel,omitempty"`
 	SortModel []SortModelItem `json:"sortModel,omitempty"`
 	// tpl
 	Tpl string `json:"tpl"`
@@ -310,9 +310,9 @@ func (o *SearchItems) SetGroupKeys(v []int32) {
 }
 
 // GetFilterModel returns the FilterModel field value if set, zero value otherwise.
-func (o *SearchItems) GetFilterModel() map[string]interface{} {
+func (o *SearchItems) GetFilterModel() []map[string]interface{} {
 	if o == nil || o.FilterModel == nil {
-		var ret map[string]interface{}
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.FilterModel
@@ -320,7 +320,7 @@ func (o *SearchItems) GetFilterModel() map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchItems) GetFilterModelOk() (map[string]interface{}, bool) {
+func (o *SearchItems) GetFilterModelOk() ([]map[string]interface{}, bool) {
 	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
@@ -336,8 +336,8 @@ func (o *SearchItems) HasFilterModel() bool {
 	return false
 }
 
-// SetFilterModel gets a reference to the given map[string]interface{} and assigns it to the FilterModel field.
-func (o *SearchItems) SetFilterModel(v map[string]interface{}) {
+// SetFilterModel gets a reference to the given []map[string]interface{} and assigns it to the FilterModel field.
+func (o *SearchItems) SetFilterModel(v []map[string]interface{}) {
 	o.FilterModel = v
 }
 

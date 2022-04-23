@@ -19,7 +19,7 @@ type GetSearchItemsRequestBody struct {
 	StartRow int32 `json:"startRow"`
 	EndRow int32 `json:"endRow"`
 	// 
-	FilterModel map[string]interface{} `json:"filterModel,omitempty"`
+	FilterModel []map[string]interface{} `json:"filterModel,omitempty"`
 	GroupKeys []string `json:"groupKeys,omitempty"`
 	PivotCols []string `json:"pivotCols,omitempty"`
 	PivotMode bool `json:"pivotMode"`
@@ -99,9 +99,9 @@ func (o *GetSearchItemsRequestBody) SetEndRow(v int32) {
 }
 
 // GetFilterModel returns the FilterModel field value if set, zero value otherwise.
-func (o *GetSearchItemsRequestBody) GetFilterModel() map[string]interface{} {
+func (o *GetSearchItemsRequestBody) GetFilterModel() []map[string]interface{} {
 	if o == nil || o.FilterModel == nil {
-		var ret map[string]interface{}
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.FilterModel
@@ -109,7 +109,7 @@ func (o *GetSearchItemsRequestBody) GetFilterModel() map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetSearchItemsRequestBody) GetFilterModelOk() (map[string]interface{}, bool) {
+func (o *GetSearchItemsRequestBody) GetFilterModelOk() ([]map[string]interface{}, bool) {
 	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
@@ -125,8 +125,8 @@ func (o *GetSearchItemsRequestBody) HasFilterModel() bool {
 	return false
 }
 
-// SetFilterModel gets a reference to the given map[string]interface{} and assigns it to the FilterModel field.
-func (o *GetSearchItemsRequestBody) SetFilterModel(v map[string]interface{}) {
+// SetFilterModel gets a reference to the given []map[string]interface{} and assigns it to the FilterModel field.
+func (o *GetSearchItemsRequestBody) SetFilterModel(v []map[string]interface{}) {
 	o.FilterModel = v
 }
 

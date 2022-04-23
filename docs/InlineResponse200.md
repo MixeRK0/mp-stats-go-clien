@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartRow** | **int32** | Номер строки начала получения данных | 
 **EndRow** | **int32** | Номер строки конца получения данных | 
-**FilterModel** | **map[string]interface{}** |  | 
+**FilterModel** | **[]map[string]interface{}** |  | 
 **SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 **Total** | **int32** | Кол-во строк в результирующем запросе без учета пагинации | 
 **Data** | [**[]DetailedItem**](DetailedItem.md) | Массив данных | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(startRow int32, endRow int32, filterModel map[string]interface{}, sortModel []SortModelItem, total int32, data []DetailedItem, ) *InlineResponse200`
+`func NewInlineResponse200(startRow int32, endRow int32, filterModel []map[string]interface{}, sortModel []SortModelItem, total int32, data []DetailedItem, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -72,20 +72,20 @@ SetEndRow sets EndRow field to given value.
 
 ### GetFilterModel
 
-`func (o *InlineResponse200) GetFilterModel() map[string]interface{}`
+`func (o *InlineResponse200) GetFilterModel() []map[string]interface{}`
 
 GetFilterModel returns the FilterModel field if non-nil, zero value otherwise.
 
 ### GetFilterModelOk
 
-`func (o *InlineResponse200) GetFilterModelOk() (*map[string]interface{}, bool)`
+`func (o *InlineResponse200) GetFilterModelOk() (*[]map[string]interface{}, bool)`
 
 GetFilterModelOk returns a tuple with the FilterModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilterModel
 
-`func (o *InlineResponse200) SetFilterModel(v map[string]interface{})`
+`func (o *InlineResponse200) SetFilterModel(v []map[string]interface{})`
 
 SetFilterModel sets FilterModel field to given value.
 

@@ -1749,8 +1749,10 @@ components:
       type: object
     FilterModel:
       description: ""
+      items:
+        type: object
       title: FilterModel
-      type: object
+      type: array
     FilterModelItem:
       description: ""
       properties:
@@ -1902,8 +1904,8 @@ components:
         revenue_per_items_average: 4.145608029883936
         sales: 7
         graph:
-        - 7
-        - 7
+        - ""
+        - ""
         sellers_with_sells_percent: 2.3021358869347655
         sales_per_items_with_sells_average: 2.027123023002322
         revenue_per_items_with_sells_average: 7.386281948385884
@@ -1976,8 +1978,7 @@ components:
           type: integer
         graph:
           description: Граф
-          items:
-            type: integer
+          items: {}
           type: array
       required:
       - avg_price
@@ -3189,7 +3190,9 @@ components:
         - sort: sort
           colId: colId
         startRow: 0
-        filterModel: "{}"
+        filterModel:
+        - "{}"
+        - "{}"
         endRow: 6
       properties:
         startRow:
@@ -3200,8 +3203,10 @@ components:
           type: integer
         filterModel:
           description: ""
+          items:
+            type: object
           title: FilterModel
-          type: object
+          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'
@@ -3279,15 +3284,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: categories_last_count
           graph:
-          - 4
-          - 4
+          - ""
+          - ""
           commentsvaluation: 7.058770351582356
           name: name
           basic_sale: 4
           position: 0
           category_graph:
-          - 8
-          - 8
+          - ""
+          - ""
           supplier_id: 3
           sales_per_day_average: 6.438423552598547
           picscount: 3
@@ -3301,15 +3306,15 @@ components:
           cardratingval: 6
           final_price_min: 7
           price_graph:
-          - 3
-          - 3
+          - ""
+          - ""
           comments: 1
           final_price_max: 6
           promo_sale: 9
           sku_first_date: sku_first_date
           stocks_graph:
-          - 7
-          - 7
+          - ""
+          - ""
           revenue_potential: 6
           category_position: 2
           url: url
@@ -3339,15 +3344,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: categories_last_count
           graph:
-          - 4
-          - 4
+          - ""
+          - ""
           commentsvaluation: 7.058770351582356
           name: name
           basic_sale: 4
           position: 0
           category_graph:
-          - 8
-          - 8
+          - ""
+          - ""
           supplier_id: 3
           sales_per_day_average: 6.438423552598547
           picscount: 3
@@ -3361,15 +3366,15 @@ components:
           cardratingval: 6
           final_price_min: 7
           price_graph:
-          - 3
-          - 3
+          - ""
+          - ""
           comments: 1
           final_price_max: 6
           promo_sale: 9
           sku_first_date: sku_first_date
           stocks_graph:
-          - 7
-          - 7
+          - ""
+          - ""
           revenue_potential: 6
           category_position: 2
           url: url
@@ -3378,7 +3383,9 @@ components:
           firstcommentdate: firstcommentdate
           category: category
           balance_fbs: 7
-        filterModel: "{}"
+        filterModel:
+        - "{}"
+        - "{}"
         endRow: 1
         error: true
         valueCols:
@@ -3423,8 +3430,10 @@ components:
           type: array
         filterModel:
           description: ""
+          items:
+            type: object
           title: FilterModel
-          type: object
+          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'
@@ -3470,15 +3479,15 @@ components:
         thumb_middle: thumb_middle
         categories_last_count: categories_last_count
         graph:
-        - 4
-        - 4
+        - ""
+        - ""
         commentsvaluation: 7.058770351582356
         name: name
         basic_sale: 4
         position: 0
         category_graph:
-        - 8
-        - 8
+        - ""
+        - ""
         supplier_id: 3
         sales_per_day_average: 6.438423552598547
         picscount: 3
@@ -3492,15 +3501,15 @@ components:
         cardratingval: 6
         final_price_min: 7
         price_graph:
-        - 3
-        - 3
+        - ""
+        - ""
         comments: 1
         final_price_max: 6
         promo_sale: 9
         sku_first_date: sku_first_date
         stocks_graph:
-        - 7
-        - 7
+        - ""
+        - ""
         revenue_potential: 6
         category_position: 2
         url: url
@@ -3607,20 +3616,16 @@ components:
         categories_last_count:
           type: string
         graph:
-          items:
-            type: integer
+          items: {}
           type: array
         category_graph:
-          items:
-            type: integer
+          items: {}
           type: array
         stocks_graph:
-          items:
-            type: integer
+          items: {}
           type: array
         price_graph:
-          items:
-            type: integer
+          items: {}
           type: array
       required:
       - average_if_in_stock
@@ -3977,7 +3982,9 @@ components:
         groupKeys:
         - groupKeys
         - groupKeys
-        filterModel: "{}"
+        filterModel:
+        - "{}"
+        - "{}"
         rowGroupCols:
         - rowGroupCols
         - rowGroupCols
@@ -3990,8 +3997,10 @@ components:
           type: integer
         filterModel:
           description: ""
+          items:
+            type: object
           title: FilterModel
-          type: object
+          type: array
         groupKeys:
           items:
             type: string
@@ -4094,7 +4103,9 @@ components:
           name: name
           basic_sale: 7.386281948385884
           category: category
-        filterModel: "{}"
+        filterModel:
+        - "{}"
+        - "{}"
         endRow: 6
       properties:
         startRow:
@@ -4105,8 +4116,10 @@ components:
           type: integer
         filterModel:
           description: ""
+          items:
+            type: object
           title: FilterModel
-          type: object
+          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'

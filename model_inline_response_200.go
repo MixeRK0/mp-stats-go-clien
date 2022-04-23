@@ -21,7 +21,7 @@ type InlineResponse200 struct {
 	// Номер строки конца получения данных
 	EndRow int32 `json:"endRow"`
 	// 
-	FilterModel map[string]interface{} `json:"filterModel"`
+	FilterModel []map[string]interface{} `json:"filterModel"`
 	SortModel []SortModelItem `json:"sortModel"`
 	// Кол-во строк в результирующем запросе без учета пагинации
 	Total int32 `json:"total"`
@@ -33,7 +33,7 @@ type InlineResponse200 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(startRow int32, endRow int32, filterModel map[string]interface{}, sortModel []SortModelItem, total int32, data []DetailedItem) *InlineResponse200 {
+func NewInlineResponse200(startRow int32, endRow int32, filterModel []map[string]interface{}, sortModel []SortModelItem, total int32, data []DetailedItem) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.StartRow = startRow
 	this.EndRow = endRow
@@ -101,9 +101,9 @@ func (o *InlineResponse200) SetEndRow(v int32) {
 }
 
 // GetFilterModel returns the FilterModel field value
-func (o *InlineResponse200) GetFilterModel() map[string]interface{} {
+func (o *InlineResponse200) GetFilterModel() []map[string]interface{} {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -112,7 +112,7 @@ func (o *InlineResponse200) GetFilterModel() map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetFilterModelOk() (map[string]interface{}, bool) {
+func (o *InlineResponse200) GetFilterModelOk() ([]map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -120,7 +120,7 @@ func (o *InlineResponse200) GetFilterModelOk() (map[string]interface{}, bool) {
 }
 
 // SetFilterModel sets field value
-func (o *InlineResponse200) SetFilterModel(v map[string]interface{}) {
+func (o *InlineResponse200) SetFilterModel(v []map[string]interface{}) {
 	o.FilterModel = v
 }
 

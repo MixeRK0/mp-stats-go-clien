@@ -55,14 +55,14 @@ type CategoryBrand struct {
 	// Позиция в рейтинге
 	Position int32 `json:"position"`
 	// Граф
-	Graph []int32 `json:"graph"`
+	Graph []interface{} `json:"graph"`
 }
 
 // NewCategoryBrand instantiates a new CategoryBrand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32) *CategoryBrand {
+func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}) *CategoryBrand {
 	this := CategoryBrand{}
 	this.Brand = brand
 	this.Items = items
@@ -552,9 +552,9 @@ func (o *CategoryBrand) SetPosition(v int32) {
 }
 
 // GetGraph returns the Graph field value
-func (o *CategoryBrand) GetGraph() []int32 {
+func (o *CategoryBrand) GetGraph() []interface{} {
 	if o == nil {
-		var ret []int32
+		var ret []interface{}
 		return ret
 	}
 
@@ -563,7 +563,7 @@ func (o *CategoryBrand) GetGraph() []int32 {
 
 // GetGraphOk returns a tuple with the Graph field value
 // and a boolean to check if the value has been set.
-func (o *CategoryBrand) GetGraphOk() ([]int32, bool) {
+func (o *CategoryBrand) GetGraphOk() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -571,7 +571,7 @@ func (o *CategoryBrand) GetGraphOk() ([]int32, bool) {
 }
 
 // SetGraph sets field value
-func (o *CategoryBrand) SetGraph(v []int32) {
+func (o *CategoryBrand) SetGraph(v []interface{}) {
 	o.Graph = v
 }
 

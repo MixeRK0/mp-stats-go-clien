@@ -52,16 +52,16 @@ Name | Type | Description | Notes
 **Cardratingval** | **int32** |  | 
 **Position** | **int32** |  | 
 **CategoriesLastCount** | **string** |  | 
-**Graph** | **[]int32** |  | 
-**CategoryGraph** | **[]int32** |  | 
-**StocksGraph** | **[]int32** |  | 
-**PriceGraph** | **[]int32** |  | 
+**Graph** | **[]interface{}** |  | 
+**CategoryGraph** | **[]interface{}** |  | 
+**StocksGraph** | **[]interface{}** |  | 
+**PriceGraph** | **[]interface{}** |  | 
 
 ## Methods
 
 ### NewSearchItemsElement
 
-`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, ) *SearchItemsElement`
+`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}, ) *SearchItemsElement`
 
 NewSearchItemsElement instantiates a new SearchItemsElement object
 This constructor will assign default values to properties that have it defined,
@@ -1038,80 +1038,80 @@ SetCategoriesLastCount sets CategoriesLastCount field to given value.
 
 ### GetGraph
 
-`func (o *SearchItemsElement) GetGraph() []int32`
+`func (o *SearchItemsElement) GetGraph() []interface{}`
 
 GetGraph returns the Graph field if non-nil, zero value otherwise.
 
 ### GetGraphOk
 
-`func (o *SearchItemsElement) GetGraphOk() (*[]int32, bool)`
+`func (o *SearchItemsElement) GetGraphOk() (*[]interface{}, bool)`
 
 GetGraphOk returns a tuple with the Graph field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGraph
 
-`func (o *SearchItemsElement) SetGraph(v []int32)`
+`func (o *SearchItemsElement) SetGraph(v []interface{})`
 
 SetGraph sets Graph field to given value.
 
 
 ### GetCategoryGraph
 
-`func (o *SearchItemsElement) GetCategoryGraph() []int32`
+`func (o *SearchItemsElement) GetCategoryGraph() []interface{}`
 
 GetCategoryGraph returns the CategoryGraph field if non-nil, zero value otherwise.
 
 ### GetCategoryGraphOk
 
-`func (o *SearchItemsElement) GetCategoryGraphOk() (*[]int32, bool)`
+`func (o *SearchItemsElement) GetCategoryGraphOk() (*[]interface{}, bool)`
 
 GetCategoryGraphOk returns a tuple with the CategoryGraph field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategoryGraph
 
-`func (o *SearchItemsElement) SetCategoryGraph(v []int32)`
+`func (o *SearchItemsElement) SetCategoryGraph(v []interface{})`
 
 SetCategoryGraph sets CategoryGraph field to given value.
 
 
 ### GetStocksGraph
 
-`func (o *SearchItemsElement) GetStocksGraph() []int32`
+`func (o *SearchItemsElement) GetStocksGraph() []interface{}`
 
 GetStocksGraph returns the StocksGraph field if non-nil, zero value otherwise.
 
 ### GetStocksGraphOk
 
-`func (o *SearchItemsElement) GetStocksGraphOk() (*[]int32, bool)`
+`func (o *SearchItemsElement) GetStocksGraphOk() (*[]interface{}, bool)`
 
 GetStocksGraphOk returns a tuple with the StocksGraph field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStocksGraph
 
-`func (o *SearchItemsElement) SetStocksGraph(v []int32)`
+`func (o *SearchItemsElement) SetStocksGraph(v []interface{})`
 
 SetStocksGraph sets StocksGraph field to given value.
 
 
 ### GetPriceGraph
 
-`func (o *SearchItemsElement) GetPriceGraph() []int32`
+`func (o *SearchItemsElement) GetPriceGraph() []interface{}`
 
 GetPriceGraph returns the PriceGraph field if non-nil, zero value otherwise.
 
 ### GetPriceGraphOk
 
-`func (o *SearchItemsElement) GetPriceGraphOk() (*[]int32, bool)`
+`func (o *SearchItemsElement) GetPriceGraphOk() (*[]interface{}, bool)`
 
 GetPriceGraphOk returns a tuple with the PriceGraph field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriceGraph
 
-`func (o *SearchItemsElement) SetPriceGraph(v []int32)`
+`func (o *SearchItemsElement) SetPriceGraph(v []interface{})`
 
 SetPriceGraph sets PriceGraph field to given value.
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **PivotCols** | Pointer to **[]int32** |  | [optional] 
 **PivotMode** | **bool** |  | 
 **GroupKeys** | Pointer to **[]int32** |  | [optional] 
-**FilterModel** | Pointer to **map[string]interface{}** |  | [optional] 
+**FilterModel** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **SortModel** | Pointer to [**[]SortModelItem**](SortModelItem.md) |  | [optional] 
 **Tpl** | **string** | tpl | 
 **Data** | Pointer to [**[]SearchItemsElement**](SearchItemsElement.md) | Массив данных | [optional] 
@@ -239,20 +239,20 @@ HasGroupKeys returns a boolean if a field has been set.
 
 ### GetFilterModel
 
-`func (o *SearchItems) GetFilterModel() map[string]interface{}`
+`func (o *SearchItems) GetFilterModel() []map[string]interface{}`
 
 GetFilterModel returns the FilterModel field if non-nil, zero value otherwise.
 
 ### GetFilterModelOk
 
-`func (o *SearchItems) GetFilterModelOk() (*map[string]interface{}, bool)`
+`func (o *SearchItems) GetFilterModelOk() (*[]map[string]interface{}, bool)`
 
 GetFilterModelOk returns a tuple with the FilterModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilterModel
 
-`func (o *SearchItems) SetFilterModel(v map[string]interface{})`
+`func (o *SearchItems) SetFilterModel(v []map[string]interface{})`
 
 SetFilterModel sets FilterModel field to given value.
 

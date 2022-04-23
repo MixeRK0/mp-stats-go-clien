@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartRow** | **int32** | Номер строки начала получения данных | 
 **EndRow** | **int32** | Номер строки конца получения данных | 
-**FilterModel** | **map[string]interface{}** |  | 
+**FilterModel** | **[]map[string]interface{}** |  | 
 **SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 
 ## Methods
 
 ### NewPostRequestBody
 
-`func NewPostRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, sortModel []SortModelItem, ) *PostRequestBody`
+`func NewPostRequestBody(startRow int32, endRow int32, filterModel []map[string]interface{}, sortModel []SortModelItem, ) *PostRequestBody`
 
 NewPostRequestBody instantiates a new PostRequestBody object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetEndRow sets EndRow field to given value.
 
 ### GetFilterModel
 
-`func (o *PostRequestBody) GetFilterModel() map[string]interface{}`
+`func (o *PostRequestBody) GetFilterModel() []map[string]interface{}`
 
 GetFilterModel returns the FilterModel field if non-nil, zero value otherwise.
 
 ### GetFilterModelOk
 
-`func (o *PostRequestBody) GetFilterModelOk() (*map[string]interface{}, bool)`
+`func (o *PostRequestBody) GetFilterModelOk() (*[]map[string]interface{}, bool)`
 
 GetFilterModelOk returns a tuple with the FilterModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilterModel
 
-`func (o *PostRequestBody) SetFilterModel(v map[string]interface{})`
+`func (o *PostRequestBody) SetFilterModel(v []map[string]interface{})`
 
 SetFilterModel sets FilterModel field to given value.
 
