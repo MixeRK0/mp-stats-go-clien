@@ -4392,9 +4392,9 @@ type ApiPostWbGetSearchCategoriesRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	tplsRequestBody *TplsRequestBody
 }
 
+// Поисковой запрос
 func (r ApiPostWbGetSearchCategoriesRequest) Path(path string) ApiPostWbGetSearchCategoriesRequest {
 	r.path = &path
 	return r
@@ -4412,12 +4412,7 @@ func (r ApiPostWbGetSearchCategoriesRequest) D2(d2 string) ApiPostWbGetSearchCat
 	return r
 }
 
-func (r ApiPostWbGetSearchCategoriesRequest) TplsRequestBody(tplsRequestBody TplsRequestBody) ApiPostWbGetSearchCategoriesRequest {
-	r.tplsRequestBody = &tplsRequestBody
-	return r
-}
-
-func (r ApiPostWbGetSearchCategoriesRequest) Execute() (*SearchCategories, *http.Response, error) {
+func (r ApiPostWbGetSearchCategoriesRequest) Execute() ([]SearchCategoriesElement, *http.Response, error) {
 	return r.ApiService.PostWbGetSearchCategoriesExecute(r)
 }
 
@@ -4435,13 +4430,13 @@ func (a *WbApiService) PostWbGetSearchCategories(ctx context.Context) ApiPostWbG
 }
 
 // Execute executes the request
-//  @return SearchCategories
-func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCategoriesRequest) (*SearchCategories, *http.Response, error) {
+//  @return []SearchCategoriesElement
+func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCategoriesRequest) ([]SearchCategoriesElement, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchCategories
+		localVarReturnValue  []SearchCategoriesElement
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.PostWbGetSearchCategories")
@@ -4450,6 +4445,156 @@ func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCate
 	}
 
 	localVarPath := localBasePath + "/wb/get/search/categories"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.path == nil {
+		return localVarReturnValue, nil, reportError("path is required and must be specified")
+	}
+
+	if r.d1 != nil {
+		localVarQueryParams.Add("d1", parameterToString(*r.d1, ""))
+	}
+	localVarQueryParams.Add("path", parameterToString(*r.path, ""))
+	if r.d2 != nil {
+		localVarQueryParams.Add("d2", parameterToString(*r.d2, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Header-token"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-Mpstats-TOKEN"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostWbGetSearchItemsRequest struct {
+	ctx context.Context
+	ApiService *WbApiService
+	path *string
+	d1 *string
+	d2 *string
+	tplsRequestBody *TplsRequestBody
+}
+
+// Поисковой запрос
+func (r ApiPostWbGetSearchItemsRequest) Path(path string) ApiPostWbGetSearchItemsRequest {
+	r.path = &path
+	return r
+}
+
+// Дата начала периода
+func (r ApiPostWbGetSearchItemsRequest) D1(d1 string) ApiPostWbGetSearchItemsRequest {
+	r.d1 = &d1
+	return r
+}
+
+// Дата окончания периода
+func (r ApiPostWbGetSearchItemsRequest) D2(d2 string) ApiPostWbGetSearchItemsRequest {
+	r.d2 = &d2
+	return r
+}
+
+func (r ApiPostWbGetSearchItemsRequest) TplsRequestBody(tplsRequestBody TplsRequestBody) ApiPostWbGetSearchItemsRequest {
+	r.tplsRequestBody = &tplsRequestBody
+	return r
+}
+
+func (r ApiPostWbGetSearchItemsRequest) Execute() (*SearchItems, *http.Response, error) {
+	return r.ApiService.PostWbGetSearchItemsExecute(r)
+}
+
+/*
+PostWbGetSearchItems GetSearchItems
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostWbGetSearchItemsRequest
+*/
+func (a *WbApiService) PostWbGetSearchItems(ctx context.Context) ApiPostWbGetSearchItemsRequest {
+	return ApiPostWbGetSearchItemsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SearchItems
+func (a *WbApiService) PostWbGetSearchItemsExecute(r ApiPostWbGetSearchItemsRequest) (*SearchItems, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SearchItems
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.PostWbGetSearchItems")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/wb/get/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

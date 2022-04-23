@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// SearchCategory struct for SearchCategory
-type SearchCategory struct {
+// SearchItems struct for SearchItems
+type SearchItems struct {
 	// Кол-во строк в результирующем запросе без учета пагинации
 	Total int32 `json:"total"`
 	// Ошибка
@@ -35,15 +35,15 @@ type SearchCategory struct {
 	// tpl
 	Tpl string `json:"tpl"`
 	// Массив данных
-	Data []SearchCategoriesItem `json:"data"`
+	Data []SearchItemsElement `json:"data"`
 }
 
-// NewSearchCategory instantiates a new SearchCategory object
+// NewSearchItems instantiates a new SearchItems object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchCategory(total int32, error_ bool, startRow int32, endRow int32, rowGroupCols []int32, valueCols []int32, pivotCols []int32, pivotMode bool, groupKeys []int32, filterModel map[string]interface{}, sortModel []SortModelItem, tpl string, data []SearchCategoriesItem) *SearchCategory {
-	this := SearchCategory{}
+func NewSearchItems(total int32, error_ bool, startRow int32, endRow int32, rowGroupCols []int32, valueCols []int32, pivotCols []int32, pivotMode bool, groupKeys []int32, filterModel map[string]interface{}, sortModel []SortModelItem, tpl string, data []SearchItemsElement) *SearchItems {
+	this := SearchItems{}
 	this.Total = total
 	this.Error = error_
 	this.StartRow = startRow
@@ -60,16 +60,16 @@ func NewSearchCategory(total int32, error_ bool, startRow int32, endRow int32, r
 	return &this
 }
 
-// NewSearchCategoryWithDefaults instantiates a new SearchCategory object
+// NewSearchItemsWithDefaults instantiates a new SearchItems object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSearchCategoryWithDefaults() *SearchCategory {
-	this := SearchCategory{}
+func NewSearchItemsWithDefaults() *SearchItems {
+	this := SearchItems{}
 	return &this
 }
 
 // GetTotal returns the Total field value
-func (o *SearchCategory) GetTotal() int32 {
+func (o *SearchItems) GetTotal() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -80,7 +80,7 @@ func (o *SearchCategory) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetTotalOk() (*int32, bool) {
+func (o *SearchItems) GetTotalOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -88,12 +88,12 @@ func (o *SearchCategory) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *SearchCategory) SetTotal(v int32) {
+func (o *SearchItems) SetTotal(v int32) {
 	o.Total = v
 }
 
 // GetError returns the Error field value
-func (o *SearchCategory) GetError() bool {
+func (o *SearchItems) GetError() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -104,7 +104,7 @@ func (o *SearchCategory) GetError() bool {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetErrorOk() (*bool, bool) {
+func (o *SearchItems) GetErrorOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -112,12 +112,12 @@ func (o *SearchCategory) GetErrorOk() (*bool, bool) {
 }
 
 // SetError sets field value
-func (o *SearchCategory) SetError(v bool) {
+func (o *SearchItems) SetError(v bool) {
 	o.Error = v
 }
 
 // GetStartRow returns the StartRow field value
-func (o *SearchCategory) GetStartRow() int32 {
+func (o *SearchItems) GetStartRow() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -128,7 +128,7 @@ func (o *SearchCategory) GetStartRow() int32 {
 
 // GetStartRowOk returns a tuple with the StartRow field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetStartRowOk() (*int32, bool) {
+func (o *SearchItems) GetStartRowOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,12 +136,12 @@ func (o *SearchCategory) GetStartRowOk() (*int32, bool) {
 }
 
 // SetStartRow sets field value
-func (o *SearchCategory) SetStartRow(v int32) {
+func (o *SearchItems) SetStartRow(v int32) {
 	o.StartRow = v
 }
 
 // GetEndRow returns the EndRow field value
-func (o *SearchCategory) GetEndRow() int32 {
+func (o *SearchItems) GetEndRow() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -152,7 +152,7 @@ func (o *SearchCategory) GetEndRow() int32 {
 
 // GetEndRowOk returns a tuple with the EndRow field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetEndRowOk() (*int32, bool) {
+func (o *SearchItems) GetEndRowOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -160,12 +160,12 @@ func (o *SearchCategory) GetEndRowOk() (*int32, bool) {
 }
 
 // SetEndRow sets field value
-func (o *SearchCategory) SetEndRow(v int32) {
+func (o *SearchItems) SetEndRow(v int32) {
 	o.EndRow = v
 }
 
 // GetRowGroupCols returns the RowGroupCols field value
-func (o *SearchCategory) GetRowGroupCols() []int32 {
+func (o *SearchItems) GetRowGroupCols() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -176,7 +176,7 @@ func (o *SearchCategory) GetRowGroupCols() []int32 {
 
 // GetRowGroupColsOk returns a tuple with the RowGroupCols field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetRowGroupColsOk() ([]int32, bool) {
+func (o *SearchItems) GetRowGroupColsOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -184,12 +184,12 @@ func (o *SearchCategory) GetRowGroupColsOk() ([]int32, bool) {
 }
 
 // SetRowGroupCols sets field value
-func (o *SearchCategory) SetRowGroupCols(v []int32) {
+func (o *SearchItems) SetRowGroupCols(v []int32) {
 	o.RowGroupCols = v
 }
 
 // GetValueCols returns the ValueCols field value
-func (o *SearchCategory) GetValueCols() []int32 {
+func (o *SearchItems) GetValueCols() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -200,7 +200,7 @@ func (o *SearchCategory) GetValueCols() []int32 {
 
 // GetValueColsOk returns a tuple with the ValueCols field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetValueColsOk() ([]int32, bool) {
+func (o *SearchItems) GetValueColsOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -208,12 +208,12 @@ func (o *SearchCategory) GetValueColsOk() ([]int32, bool) {
 }
 
 // SetValueCols sets field value
-func (o *SearchCategory) SetValueCols(v []int32) {
+func (o *SearchItems) SetValueCols(v []int32) {
 	o.ValueCols = v
 }
 
 // GetPivotCols returns the PivotCols field value
-func (o *SearchCategory) GetPivotCols() []int32 {
+func (o *SearchItems) GetPivotCols() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -224,7 +224,7 @@ func (o *SearchCategory) GetPivotCols() []int32 {
 
 // GetPivotColsOk returns a tuple with the PivotCols field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetPivotColsOk() ([]int32, bool) {
+func (o *SearchItems) GetPivotColsOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -232,12 +232,12 @@ func (o *SearchCategory) GetPivotColsOk() ([]int32, bool) {
 }
 
 // SetPivotCols sets field value
-func (o *SearchCategory) SetPivotCols(v []int32) {
+func (o *SearchItems) SetPivotCols(v []int32) {
 	o.PivotCols = v
 }
 
 // GetPivotMode returns the PivotMode field value
-func (o *SearchCategory) GetPivotMode() bool {
+func (o *SearchItems) GetPivotMode() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -248,7 +248,7 @@ func (o *SearchCategory) GetPivotMode() bool {
 
 // GetPivotModeOk returns a tuple with the PivotMode field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetPivotModeOk() (*bool, bool) {
+func (o *SearchItems) GetPivotModeOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -256,12 +256,12 @@ func (o *SearchCategory) GetPivotModeOk() (*bool, bool) {
 }
 
 // SetPivotMode sets field value
-func (o *SearchCategory) SetPivotMode(v bool) {
+func (o *SearchItems) SetPivotMode(v bool) {
 	o.PivotMode = v
 }
 
 // GetGroupKeys returns the GroupKeys field value
-func (o *SearchCategory) GetGroupKeys() []int32 {
+func (o *SearchItems) GetGroupKeys() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -272,7 +272,7 @@ func (o *SearchCategory) GetGroupKeys() []int32 {
 
 // GetGroupKeysOk returns a tuple with the GroupKeys field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetGroupKeysOk() ([]int32, bool) {
+func (o *SearchItems) GetGroupKeysOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -280,12 +280,12 @@ func (o *SearchCategory) GetGroupKeysOk() ([]int32, bool) {
 }
 
 // SetGroupKeys sets field value
-func (o *SearchCategory) SetGroupKeys(v []int32) {
+func (o *SearchItems) SetGroupKeys(v []int32) {
 	o.GroupKeys = v
 }
 
 // GetFilterModel returns the FilterModel field value
-func (o *SearchCategory) GetFilterModel() map[string]interface{} {
+func (o *SearchItems) GetFilterModel() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -296,7 +296,7 @@ func (o *SearchCategory) GetFilterModel() map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetFilterModelOk() (map[string]interface{}, bool) {
+func (o *SearchItems) GetFilterModelOk() (map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -304,12 +304,12 @@ func (o *SearchCategory) GetFilterModelOk() (map[string]interface{}, bool) {
 }
 
 // SetFilterModel sets field value
-func (o *SearchCategory) SetFilterModel(v map[string]interface{}) {
+func (o *SearchItems) SetFilterModel(v map[string]interface{}) {
 	o.FilterModel = v
 }
 
 // GetSortModel returns the SortModel field value
-func (o *SearchCategory) GetSortModel() []SortModelItem {
+func (o *SearchItems) GetSortModel() []SortModelItem {
 	if o == nil {
 		var ret []SortModelItem
 		return ret
@@ -320,7 +320,7 @@ func (o *SearchCategory) GetSortModel() []SortModelItem {
 
 // GetSortModelOk returns a tuple with the SortModel field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetSortModelOk() ([]SortModelItem, bool) {
+func (o *SearchItems) GetSortModelOk() ([]SortModelItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -328,12 +328,12 @@ func (o *SearchCategory) GetSortModelOk() ([]SortModelItem, bool) {
 }
 
 // SetSortModel sets field value
-func (o *SearchCategory) SetSortModel(v []SortModelItem) {
+func (o *SearchItems) SetSortModel(v []SortModelItem) {
 	o.SortModel = v
 }
 
 // GetTpl returns the Tpl field value
-func (o *SearchCategory) GetTpl() string {
+func (o *SearchItems) GetTpl() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -344,7 +344,7 @@ func (o *SearchCategory) GetTpl() string {
 
 // GetTplOk returns a tuple with the Tpl field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetTplOk() (*string, bool) {
+func (o *SearchItems) GetTplOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -352,14 +352,14 @@ func (o *SearchCategory) GetTplOk() (*string, bool) {
 }
 
 // SetTpl sets field value
-func (o *SearchCategory) SetTpl(v string) {
+func (o *SearchItems) SetTpl(v string) {
 	o.Tpl = v
 }
 
 // GetData returns the Data field value
-func (o *SearchCategory) GetData() []SearchCategoriesItem {
+func (o *SearchItems) GetData() []SearchItemsElement {
 	if o == nil {
-		var ret []SearchCategoriesItem
+		var ret []SearchItemsElement
 		return ret
 	}
 
@@ -368,7 +368,7 @@ func (o *SearchCategory) GetData() []SearchCategoriesItem {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategory) GetDataOk() ([]SearchCategoriesItem, bool) {
+func (o *SearchItems) GetDataOk() ([]SearchItemsElement, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -376,11 +376,11 @@ func (o *SearchCategory) GetDataOk() ([]SearchCategoriesItem, bool) {
 }
 
 // SetData sets field value
-func (o *SearchCategory) SetData(v []SearchCategoriesItem) {
+func (o *SearchItems) SetData(v []SearchItemsElement) {
 	o.Data = v
 }
 
-func (o SearchCategory) MarshalJSON() ([]byte, error) {
+func (o SearchItems) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["total"] = o.Total
@@ -424,38 +424,38 @@ func (o SearchCategory) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableSearchCategory struct {
-	value *SearchCategory
+type NullableSearchItems struct {
+	value *SearchItems
 	isSet bool
 }
 
-func (v NullableSearchCategory) Get() *SearchCategory {
+func (v NullableSearchItems) Get() *SearchItems {
 	return v.value
 }
 
-func (v *NullableSearchCategory) Set(val *SearchCategory) {
+func (v *NullableSearchItems) Set(val *SearchItems) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSearchCategory) IsSet() bool {
+func (v NullableSearchItems) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSearchCategory) Unset() {
+func (v *NullableSearchItems) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSearchCategory(val *SearchCategory) *NullableSearchCategory {
-	return &NullableSearchCategory{value: val, isSet: true}
+func NewNullableSearchItems(val *SearchItems) *NullableSearchItems {
+	return &NullableSearchItems{value: val, isSet: true}
 }
 
-func (v NullableSearchCategory) MarshalJSON() ([]byte, error) {
+func (v NullableSearchItems) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSearchCategory) UnmarshalJSON(src []byte) error {
+func (v *NullableSearchItems) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

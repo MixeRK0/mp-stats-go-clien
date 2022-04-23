@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *WbApi* | [**GetSimilarDetailedItems**](docs/WbApi.md#getsimilardetaileditems) | **Post** /wb/get/similar | Товары по похожему товару
 *WbApi* | [**GetSimilarSellers**](docs/WbApi.md#getsimilarsellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
 *WbApi* | [**PostWbGetSearchCategories**](docs/WbApi.md#postwbgetsearchcategories) | **Post** /wb/get/search/categories | GetSearchCategories
+*WbApi* | [**PostWbGetSearchItems**](docs/WbApi.md#postwbgetsearchitems) | **Post** /wb/get/search | GetSearchItems
 
 
 ## Documentation For Models
@@ -139,8 +140,9 @@ Class | Method | HTTP request | Description
  - [ItemSale](docs/ItemSale.md)
  - [ItemSimilar](docs/ItemSimilar.md)
  - [PostRequestBody](docs/PostRequestBody.md)
- - [SearchCategories](docs/SearchCategories.md)
- - [SearchCategoriesItem](docs/SearchCategoriesItem.md)
+ - [SearchCategoriesElement](docs/SearchCategoriesElement.md)
+ - [SearchItems](docs/SearchItems.md)
+ - [SearchItemsElement](docs/SearchItemsElement.md)
  - [SellerBrand](docs/SellerBrand.md)
  - [SellerByDate](docs/SellerByDate.md)
  - [SellerCategory](docs/SellerCategory.md)

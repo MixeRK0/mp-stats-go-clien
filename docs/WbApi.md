@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**GetSimilarDetailedItems**](WbApi.md#GetSimilarDetailedItems) | **Post** /wb/get/similar | Товары по похожему товару
 [**GetSimilarSellers**](WbApi.md#GetSimilarSellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
 [**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | GetSearchCategories
+[**PostWbGetSearchItems**](WbApi.md#PostWbGetSearchItems) | **Post** /wb/get/search | GetSearchItems
 
 
 
@@ -2256,7 +2257,7 @@ Name | Type | Description  | Notes
 
 ## PostWbGetSearchCategories
 
-> SearchCategories PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+> []SearchCategoriesElement PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).Execute()
 
 GetSearchCategories
 
@@ -2274,19 +2275,18 @@ import (
 )
 
 func main() {
-    path := "path_example" // string | 
+    path := "path_example" // string | Поисковой запрос
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    tplsRequestBody := *openapiclient.NewTplsRequestBody("Tpls_example") // TplsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchCategories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PostWbGetSearchCategories`: SearchCategories
+    // response from `PostWbGetSearchCategories`: []SearchCategoriesElement
     fmt.Fprintf(os.Stdout, "Response from `WbApi.PostWbGetSearchCategories`: %v\n", resp)
 }
 ```
@@ -2302,14 +2302,86 @@ Other parameters are passed through a pointer to a apiPostWbGetSearchCategoriesR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string** |  | 
+ **path** | **string** | Поисковой запрос | 
+ **d1** | **string** | Дата начала периода | 
+ **d2** | **string** | Дата окончания периода | 
+
+### Return type
+
+[**[]SearchCategoriesElement**](SearchCategoriesElement.md)
+
+### Authorization
+
+[Header-token](../README.md#Header-token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostWbGetSearchItems
+
+> SearchItems PostWbGetSearchItems(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+
+GetSearchItems
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    path := "path_example" // string | Поисковой запрос
+    d1 := time.Now() // string | Дата начала периода (optional)
+    d2 := time.Now() // string | Дата окончания периода (optional)
+    tplsRequestBody := *openapiclient.NewTplsRequestBody("Tpls_example") // TplsRequestBody |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WbApi.PostWbGetSearchItems(context.Background()).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchItems``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PostWbGetSearchItems`: SearchItems
+    fmt.Fprintf(os.Stdout, "Response from `WbApi.PostWbGetSearchItems`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostWbGetSearchItemsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string** | Поисковой запрос | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
  **tplsRequestBody** | [**TplsRequestBody**](TplsRequestBody.md) |  | 
 
 ### Return type
 
-[**SearchCategories**](SearchCategories.md)
+[**SearchItems**](SearchItems.md)
 
 ### Authorization
 

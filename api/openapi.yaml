@@ -1300,7 +1300,49 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - description: Поисковой запрос
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchCategories'
+          description: Get search categories response
+      summary: GetSearchCategories
+      tags:
+      - wb
+  /wb/get/search:
+    post:
+      description: ""
+      operationId: post-wb-get-search-items
+      parameters:
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Поисковой запрос
+        explode: true
         in: query
         name: path
         required: true
@@ -1317,15 +1359,15 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/GetSearchCategories'
+        $ref: '#/components/requestBodies/GetSearchItems'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchCategories'
-          description: Get search categories response
-      summary: GetSearchCategories
+                $ref: '#/components/schemas/SearchItems'
+          description: Get search items response
+      summary: GetSearchItems
       tags:
       - wb
 components:
@@ -1426,7 +1468,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PostRequestBody'
-    GetSearchCategories:
+    GetSearchItems:
       content:
         application/json:
           schema:
@@ -1646,6 +1688,12 @@ components:
           schema:
             $ref: '#/components/schemas/SearchCategories'
       description: Get search categories response
+    GetSearchItems:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchItems'
+      description: Get search items response
     GetBrand:
       content:
         application/json:
@@ -3126,7 +3174,280 @@ components:
       - thumb
       - thumb_middle
       type: object
-    SearchCategoriesItem:
+    PostRequestBody:
+      example:
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 0
+        filterModel: "{}"
+        endRow: 6
+      properties:
+        startRow:
+          description: Номер строки начала получения данных
+          type: integer
+        endRow:
+          description: Номер строки конца получения данных
+          type: integer
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+      required:
+      - endRow
+      - filterModel
+      - sortModel
+      - startRow
+      title: PostRequestBody
+      type: object
+    GetItemsBatchRequestBody:
+      example:
+        ids:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      properties:
+        ids:
+          description: "Массив SKU товаров, не более 200 в одном запросе"
+          items:
+            type: integer
+          maxItems: 200
+          type: array
+      required:
+      - ids
+      title: GetItemsBatchRequestBody
+      type: object
+    TplsRequestBody:
+      example:
+        tpls: tpls
+      properties:
+        tpls:
+          type: string
+      required:
+      - tpls
+      title: TplsRequestBody
+      type: object
+    SearchItems:
+      example:
+        pivotCols:
+        - 2
+        - 2
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 6
+        groupKeys:
+        - 7
+        - 7
+        data:
+        - seller: seller
+          country: country
+          hasvideo: 0
+          basic_price: 5
+          days_with_sales: 6
+          rating: 1
+          client_price: 6
+          is_fbs: 6
+          days_in_stock: 6
+          sales: 9
+          revenue: 3
+          balance: 4
+          average_if_in_stock: 5.944895607614016
+          id: 9
+          brand: brand
+          lost_profit: 1
+          client_sale: 9
+          start_price: 8
+          thumb_middle: thumb_middle
+          categories_last_count: categories_last_count
+          graph:
+          - 4
+          - 4
+          commentsvaluation: 7.058770351582356
+          name: name
+          basic_sale: 4
+          position: 0
+          category_graph:
+          - 8
+          - 8
+          supplier_id: 3
+          sales_per_day_average: 6.438423552598547
+          picscount: 3
+          subject_id: 3
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: pos_data
+          has3d: 7
+          final_price: 1
+          cardratingval: 6
+          final_price_min: 7
+          price_graph:
+          - 3
+          - 3
+          comments: 1
+          final_price_max: 6
+          promo_sale: 9
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - 7
+          - 7
+          revenue_potential: 6
+          category_position: 2
+          url: url
+          lost_profit_percent: 2.8841621266687802
+          final_price_average: 1
+          firstcommentdate: firstcommentdate
+          category: category
+          balance_fbs: 7
+        - seller: seller
+          country: country
+          hasvideo: 0
+          basic_price: 5
+          days_with_sales: 6
+          rating: 1
+          client_price: 6
+          is_fbs: 6
+          days_in_stock: 6
+          sales: 9
+          revenue: 3
+          balance: 4
+          average_if_in_stock: 5.944895607614016
+          id: 9
+          brand: brand
+          lost_profit: 1
+          client_sale: 9
+          start_price: 8
+          thumb_middle: thumb_middle
+          categories_last_count: categories_last_count
+          graph:
+          - 4
+          - 4
+          commentsvaluation: 7.058770351582356
+          name: name
+          basic_sale: 4
+          position: 0
+          category_graph:
+          - 8
+          - 8
+          supplier_id: 3
+          sales_per_day_average: 6.438423552598547
+          picscount: 3
+          subject_id: 3
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: pos_data
+          has3d: 7
+          final_price: 1
+          cardratingval: 6
+          final_price_min: 7
+          price_graph:
+          - 3
+          - 3
+          comments: 1
+          final_price_max: 6
+          promo_sale: 9
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - 7
+          - 7
+          revenue_potential: 6
+          category_position: 2
+          url: url
+          lost_profit_percent: 2.8841621266687802
+          final_price_average: 1
+          firstcommentdate: firstcommentdate
+          category: category
+          balance_fbs: 7
+        filterModel: "{}"
+        endRow: 1
+        error: true
+        valueCols:
+        - 5
+        - 5
+        tpl: tpl
+        total: 0
+        rowGroupCols:
+        - 5
+        - 5
+        pivotMode: true
+      properties:
+        total:
+          description: Кол-во строк в результирующем запросе без учета пагинации
+          type: integer
+        error:
+          description: Ошибка
+          type: boolean
+        startRow:
+          description: Номер строки начала получения данных
+          type: integer
+        endRow:
+          description: Номер строки конца получения данных
+          type: integer
+        rowGroupCols:
+          items:
+            type: integer
+          type: array
+        valueCols:
+          items:
+            type: integer
+          type: array
+        pivotCols:
+          items:
+            type: integer
+          type: array
+        pivotMode:
+          type: boolean
+        groupKeys:
+          items:
+            type: integer
+          type: array
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+        tpl:
+          description: tpl
+          type: string
+        data:
+          description: Массив данных
+          items:
+            $ref: '#/components/schemas/SearchItemsElement'
+          type: array
+      required:
+      - data
+      - endRow
+      - error
+      - filterModel
+      - groupKeys
+      - pivotCols
+      - pivotMode
+      - rowGroupCols
+      - sortModel
+      - startRow
+      - total
+      - tpl
+      - valueCols
+      title: SearchItems
+      type: object
+    SearchItemsElement:
       example:
         seller: seller
         country: country
@@ -3531,278 +3852,113 @@ components:
           - 627
           - 627
     SearchCategories:
+      items:
+        $ref: '#/components/schemas/SearchCategoriesElement'
+      title: SearchCategories
+      type: array
+    SearchCategoriesElement:
       example:
-        pivotCols:
-        - 2
-        - 2
-        sortModel:
-        - sort: sort
-          colId: colId
-        - sort: sort
-          colId: colId
-        startRow: 6
-        groupKeys:
-        - 7
-        - 7
-        data:
-        - seller: seller
-          country: country
-          hasvideo: 0
-          basic_price: 5
-          days_with_sales: 6
-          rating: 1
-          client_price: 6
-          is_fbs: 6
-          days_in_stock: 6
-          sales: 9
-          revenue: 3
-          balance: 4
-          average_if_in_stock: 5.944895607614016
-          id: 9
-          brand: brand
-          lost_profit: 1
-          client_sale: 9
-          start_price: 8
-          thumb_middle: thumb_middle
-          categories_last_count: categories_last_count
-          graph:
-          - 4
-          - 4
-          commentsvaluation: 7.058770351582356
-          name: name
-          basic_sale: 4
-          position: 0
-          category_graph:
-          - 8
-          - 8
-          supplier_id: 3
-          sales_per_day_average: 6.438423552598547
-          picscount: 3
-          subject_id: 3
-          color: color
-          gender: gender
-          thumb: thumb
-          pos_data: pos_data
-          has3d: 7
-          final_price: 1
-          cardratingval: 6
-          final_price_min: 7
-          price_graph:
-          - 3
-          - 3
-          comments: 1
-          final_price_max: 6
-          promo_sale: 9
-          sku_first_date: sku_first_date
-          stocks_graph:
-          - 7
-          - 7
-          revenue_potential: 6
-          category_position: 2
-          url: url
-          lost_profit_percent: 2.8841621266687802
-          final_price_average: 1
-          firstcommentdate: firstcommentdate
-          category: category
-          balance_fbs: 7
-        - seller: seller
-          country: country
-          hasvideo: 0
-          basic_price: 5
-          days_with_sales: 6
-          rating: 1
-          client_price: 6
-          is_fbs: 6
-          days_in_stock: 6
-          sales: 9
-          revenue: 3
-          balance: 4
-          average_if_in_stock: 5.944895607614016
-          id: 9
-          brand: brand
-          lost_profit: 1
-          client_sale: 9
-          start_price: 8
-          thumb_middle: thumb_middle
-          categories_last_count: categories_last_count
-          graph:
-          - 4
-          - 4
-          commentsvaluation: 7.058770351582356
-          name: name
-          basic_sale: 4
-          position: 0
-          category_graph:
-          - 8
-          - 8
-          supplier_id: 3
-          sales_per_day_average: 6.438423552598547
-          picscount: 3
-          subject_id: 3
-          color: color
-          gender: gender
-          thumb: thumb
-          pos_data: pos_data
-          has3d: 7
-          final_price: 1
-          cardratingval: 6
-          final_price_min: 7
-          price_graph:
-          - 3
-          - 3
-          comments: 1
-          final_price_max: 6
-          promo_sale: 9
-          sku_first_date: sku_first_date
-          stocks_graph:
-          - 7
-          - 7
-          revenue_potential: 6
-          category_position: 2
-          url: url
-          lost_profit_percent: 2.8841621266687802
-          final_price_average: 1
-          firstcommentdate: firstcommentdate
-          category: category
-          balance_fbs: 7
-        filterModel: "{}"
-        endRow: 1
-        error: true
-        valueCols:
-        - 5
-        - 5
-        tpl: tpl
-        total: 0
-        rowGroupCols:
-        - 5
-        - 5
-        pivotMode: true
+        sales_per_items_average: 7.061401241503109
+        sellers_with_sells: 5
+        comments: 1.0246457001441578
+        rating: 1.4894159098541704
+        avg_price: 1.2315135367772556
+        revenue_per_items_average: 4.145608029883936
+        sales: 3
+        sellers_with_sells_percent: 2
+        sales_per_items_with_sells_average: 9.301444243932576
+        revenue_per_items_with_sells_average: 7.386281948385884
+        revenue: 2
+        name: name
+        items_with_sells: 6
+        items: 0
+        sellers: 5
+        items_with_sells_percent: 1
       properties:
-        total:
-          description: Кол-во строк в результирующем запросе без учета пагинации
-          type: integer
-        error:
-          description: Ошибка
-          type: boolean
-        startRow:
-          description: Номер строки начала получения данных
-          type: integer
-        endRow:
-          description: Номер строки конца получения данных
-          type: integer
-        rowGroupCols:
-          items:
-            type: integer
-          type: array
-        valueCols:
-          items:
-            type: integer
-          type: array
-        pivotCols:
-          items:
-            type: integer
-          type: array
-        pivotMode:
-          type: boolean
-        groupKeys:
-          items:
-            type: integer
-          type: array
-        filterModel:
-          description: ""
-          title: FilterModel
-          type: object
-        sortModel:
-          items:
-            $ref: '#/components/schemas/SortModelItem'
-          title: SortModel
-          type: array
-        tpl:
-          description: tpl
+        name:
+          description: Наименование категории
           type: string
-        data:
-          description: Массив данных
-          items:
-            $ref: '#/components/schemas/SearchCategoriesItem'
-          type: array
-      required:
-      - data
-      - endRow
-      - error
-      - filterModel
-      - groupKeys
-      - pivotCols
-      - pivotMode
-      - rowGroupCols
-      - sortModel
-      - startRow
-      - total
-      - tpl
-      - valueCols
-      title: SearchCategory
-      type: object
-    PostRequestBody:
-      example:
-        sortModel:
-        - sort: sort
-          colId: colId
-        - sort: sort
-          colId: colId
-        startRow: 0
-        filterModel: "{}"
-        endRow: 6
-      properties:
-        startRow:
-          description: Номер строки начала получения данных
+        items:
+          description: Число товаров
           type: integer
-        endRow:
-          description: Номер строки конца получения данных
+        items_with_sells:
+          description: Число товаров с продажами
           type: integer
-        filterModel:
-          description: ""
-          title: FilterModel
-          type: object
-        sortModel:
-          items:
-            $ref: '#/components/schemas/SortModelItem'
-          title: SortModel
-          type: array
+        items_with_sells_percent:
+          description: Процент товаров с продажами
+          type: integer
+        sellers:
+          description: Число продавцов
+          type: integer
+        sellers_with_sells:
+          description: Число продавцов с продажами
+          type: integer
+        sellers_with_sells_percent:
+          description: Процент продавцов с продажами
+          type: integer
+        sales_per_items_average:
+          description: Среднее количество продаж на товар
+          type: number
+        sales_per_items_with_sells_average:
+          description: Среднее количество продаж на товар с продажами
+          type: number
+        sales:
+          description: Число продаж
+          type: integer
+        revenue:
+          description: Выручка
+          type: integer
+        revenue_per_items_average:
+          description: Сердняя выручка на товар
+          type: number
+        revenue_per_items_with_sells_average:
+          description: Сердняя выручка на товар с продажами
+          type: number
+        avg_price:
+          description: Сердняя цена товара
+          type: number
+        comments:
+          description: Среднее количество комментариев
+          type: number
+        rating:
+          description: Средний рейтинг товаров
+          type: number
       required:
-      - endRow
-      - filterModel
-      - sortModel
-      - startRow
-      title: PostRequestBody
+      - avg_price
+      - comments
+      - items
+      - items_with_sells
+      - items_with_sells_percent
+      - name
+      - rating
+      - revenue
+      - revenue_per_items_average
+      - revenue_per_items_with_sells_average
+      - sales
+      - sales_per_items_average
+      - sales_per_items_with_sells_average
+      - sellers
+      - sellers_with_sells
+      - sellers_with_sells_percent
       type: object
-    GetItemsBatchRequestBody:
-      example:
-        ids:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      properties:
-        ids:
-          description: "Массив SKU товаров, не более 200 в одном запросе"
-          items:
-            type: integer
-          maxItems: 200
-          type: array
-      required:
-      - ids
-      title: GetItemsBatchRequestBody
-      type: object
-    TplsRequestBody:
-      example:
-        tpls: tpls
-      properties:
-        tpls:
-          type: string
-      required:
-      - tpls
-      title: TplsRequestBody
-      type: object
+      x-examples:
+        example-1:
+          name: Женщинам/Одежда/Футболки и топы/Футболка
+          items: 42
+          items_with_sells: 42
+          items_with_sells_percent: 100
+          sellers: 27
+          sellers_with_sells: 27
+          sellers_with_sells_percent: 100
+          sales_per_items_average: 3061.9285714285716
+          sales_per_items_with_sells_average: 3061.9285714285716
+          sales: 128601
+          revenue: 101284459
+          revenue_per_items_average: 2411534.738095238
+          revenue_per_items_with_sells_average: 2411534.738095238
+          avg_price: 878.7576054955839
+          comments: 3438.6237424547285
+          rating: 4.857142857142857
     inline_response_200:
       example:
         sortModel:
