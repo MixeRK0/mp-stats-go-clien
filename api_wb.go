@@ -4392,6 +4392,7 @@ type ApiPostWbGetSearchCategoriesRequest struct {
 	path *string
 	d1 *string
 	d2 *string
+	tplsRequestBody *TplsRequestBody
 }
 
 // Поисковой запрос
@@ -4409,6 +4410,11 @@ func (r ApiPostWbGetSearchCategoriesRequest) D1(d1 string) ApiPostWbGetSearchCat
 // Дата окончания периода
 func (r ApiPostWbGetSearchCategoriesRequest) D2(d2 string) ApiPostWbGetSearchCategoriesRequest {
 	r.d2 = &d2
+	return r
+}
+
+func (r ApiPostWbGetSearchCategoriesRequest) TplsRequestBody(tplsRequestBody TplsRequestBody) ApiPostWbGetSearchCategoriesRequest {
+	r.tplsRequestBody = &tplsRequestBody
 	return r
 }
 
@@ -4461,7 +4467,7 @@ func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCate
 		localVarQueryParams.Add("d2", parameterToString(*r.d2, ""))
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4477,6 +4483,8 @@ func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.tplsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

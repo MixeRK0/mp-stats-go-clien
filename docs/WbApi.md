@@ -2257,7 +2257,7 @@ Name | Type | Description  | Notes
 
 ## PostWbGetSearchCategories
 
-> []SearchCategoriesElement PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).Execute()
+> []SearchCategoriesElement PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
 
 GetSearchCategories
 
@@ -2278,10 +2278,11 @@ func main() {
     path := "path_example" // string | Поисковой запрос
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
+    tplsRequestBody := *openapiclient.NewTplsRequestBody("Tpls_example") // TplsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).Execute()
+    resp, r, err := apiClient.WbApi.PostWbGetSearchCategories(context.Background()).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchCategories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2305,6 +2306,7 @@ Name | Type | Description  | Notes
  **path** | **string** | Поисковой запрос | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
+ **tplsRequestBody** | [**TplsRequestBody**](TplsRequestBody.md) |  | 
 
 ### Return type
 
@@ -2316,7 +2318,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
