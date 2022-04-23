@@ -8,21 +8,21 @@ Name | Type | Description | Notes
 **Error** | **bool** | Ошибка | 
 **StartRow** | **int32** | Номер строки начала получения данных | 
 **EndRow** | **int32** | Номер строки конца получения данных | 
-**RowGroupCols** | Pointer to **[]int32** |  | [optional] 
-**ValueCols** | Pointer to **[]int32** |  | [optional] 
-**PivotCols** | Pointer to **[]int32** |  | [optional] 
+**RowGroupCols** | **[]int32** |  | 
+**ValueCols** | **[]int32** |  | 
+**PivotCols** | **[]int32** |  | 
 **PivotMode** | **bool** |  | 
-**GroupKeys** | Pointer to **[]int32** |  | [optional] 
-**FilterModel** | Pointer to **[]map[string]interface{}** |  | [optional] 
-**SortModel** | Pointer to [**[]SortModelItem**](SortModelItem.md) |  | [optional] 
+**GroupKeys** | **[]int32** |  | 
+**FilterModel** | **interface{}** |  | 
+**SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 **Tpl** | **string** | tpl | 
-**Data** | Pointer to [**[]SearchItemsElement**](SearchItemsElement.md) | Массив данных | [optional] 
+**Data** | [**[]SearchItemsElement**](SearchItemsElement.md) | Массив данных | 
 
 ## Methods
 
 ### NewSearchItems
 
-`func NewSearchItems(total int32, error_ bool, startRow int32, endRow int32, pivotMode bool, tpl string, ) *SearchItems`
+`func NewSearchItems(total int32, error_ bool, startRow int32, endRow int32, rowGroupCols []int32, valueCols []int32, pivotCols []int32, pivotMode bool, groupKeys []int32, filterModel interface{}, sortModel []SortModelItem, tpl string, data []SearchItemsElement, ) *SearchItems`
 
 NewSearchItems instantiates a new SearchItems object
 This constructor will assign default values to properties that have it defined,
@@ -136,11 +136,6 @@ and a boolean to check if the value has been set.
 
 SetRowGroupCols sets RowGroupCols field to given value.
 
-### HasRowGroupCols
-
-`func (o *SearchItems) HasRowGroupCols() bool`
-
-HasRowGroupCols returns a boolean if a field has been set.
 
 ### GetValueCols
 
@@ -161,11 +156,6 @@ and a boolean to check if the value has been set.
 
 SetValueCols sets ValueCols field to given value.
 
-### HasValueCols
-
-`func (o *SearchItems) HasValueCols() bool`
-
-HasValueCols returns a boolean if a field has been set.
 
 ### GetPivotCols
 
@@ -186,11 +176,6 @@ and a boolean to check if the value has been set.
 
 SetPivotCols sets PivotCols field to given value.
 
-### HasPivotCols
-
-`func (o *SearchItems) HasPivotCols() bool`
-
-HasPivotCols returns a boolean if a field has been set.
 
 ### GetPivotMode
 
@@ -231,37 +216,37 @@ and a boolean to check if the value has been set.
 
 SetGroupKeys sets GroupKeys field to given value.
 
-### HasGroupKeys
-
-`func (o *SearchItems) HasGroupKeys() bool`
-
-HasGroupKeys returns a boolean if a field has been set.
 
 ### GetFilterModel
 
-`func (o *SearchItems) GetFilterModel() []map[string]interface{}`
+`func (o *SearchItems) GetFilterModel() interface{}`
 
 GetFilterModel returns the FilterModel field if non-nil, zero value otherwise.
 
 ### GetFilterModelOk
 
-`func (o *SearchItems) GetFilterModelOk() (*[]map[string]interface{}, bool)`
+`func (o *SearchItems) GetFilterModelOk() (*interface{}, bool)`
 
 GetFilterModelOk returns a tuple with the FilterModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilterModel
 
-`func (o *SearchItems) SetFilterModel(v []map[string]interface{})`
+`func (o *SearchItems) SetFilterModel(v interface{})`
 
 SetFilterModel sets FilterModel field to given value.
 
-### HasFilterModel
 
-`func (o *SearchItems) HasFilterModel() bool`
+### SetFilterModelNil
 
-HasFilterModel returns a boolean if a field has been set.
+`func (o *SearchItems) SetFilterModelNil(b bool)`
 
+ SetFilterModelNil sets the value for FilterModel to be an explicit nil
+
+### UnsetFilterModel
+`func (o *SearchItems) UnsetFilterModel()`
+
+UnsetFilterModel ensures that no value is present for FilterModel, not even an explicit nil
 ### GetSortModel
 
 `func (o *SearchItems) GetSortModel() []SortModelItem`
@@ -281,11 +266,6 @@ and a boolean to check if the value has been set.
 
 SetSortModel sets SortModel field to given value.
 
-### HasSortModel
-
-`func (o *SearchItems) HasSortModel() bool`
-
-HasSortModel returns a boolean if a field has been set.
 
 ### GetTpl
 
@@ -326,11 +306,6 @@ and a boolean to check if the value has been set.
 
 SetData sets Data field to given value.
 
-### HasData
-
-`func (o *SearchItems) HasData() bool`
-
-HasData returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

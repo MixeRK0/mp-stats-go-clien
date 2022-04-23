@@ -1749,10 +1749,7 @@ components:
       type: object
     FilterModel:
       description: ""
-      items:
-        type: object
       title: FilterModel
-      type: array
     FilterModelItem:
       description: ""
       properties:
@@ -3190,9 +3187,7 @@ components:
         - sort: sort
           colId: colId
         startRow: 0
-        filterModel:
-        - "{}"
-        - "{}"
+        filterModel: ""
         endRow: 6
       properties:
         startRow:
@@ -3203,10 +3198,7 @@ components:
           type: integer
         filterModel:
           description: ""
-          items:
-            type: object
           title: FilterModel
-          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'
@@ -3383,9 +3375,7 @@ components:
           firstcommentdate: firstcommentdate
           category: category
           balance_fbs: 7
-        filterModel:
-        - "{}"
-        - "{}"
+        filterModel: ""
         endRow: 1
         error: true
         valueCols:
@@ -3430,10 +3420,7 @@ components:
           type: array
         filterModel:
           description: ""
-          items:
-            type: object
           title: FilterModel
-          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'
@@ -3448,12 +3435,19 @@ components:
             $ref: '#/components/schemas/SearchItemsElement'
           type: array
       required:
+      - data
       - endRow
       - error
+      - filterModel
+      - groupKeys
+      - pivotCols
       - pivotMode
+      - rowGroupCols
+      - sortModel
       - startRow
       - total
       - tpl
+      - valueCols
       title: SearchItems
       type: object
     SearchItemsElement:
@@ -3982,9 +3976,7 @@ components:
         groupKeys:
         - groupKeys
         - groupKeys
-        filterModel:
-        - "{}"
-        - "{}"
+        filterModel: ""
         rowGroupCols:
         - rowGroupCols
         - rowGroupCols
@@ -3997,10 +3989,7 @@ components:
           type: integer
         filterModel:
           description: ""
-          items:
-            type: object
           title: FilterModel
-          type: array
         groupKeys:
           items:
             type: string
@@ -4103,9 +4092,7 @@ components:
           name: name
           basic_sale: 7.386281948385884
           category: category
-        filterModel:
-        - "{}"
-        - "{}"
+        filterModel: ""
         endRow: 6
       properties:
         startRow:
@@ -4116,10 +4103,7 @@ components:
           type: integer
         filterModel:
           description: ""
-          items:
-            type: object
           title: FilterModel
-          type: array
         sortModel:
           items:
             $ref: '#/components/schemas/SortModelItem'

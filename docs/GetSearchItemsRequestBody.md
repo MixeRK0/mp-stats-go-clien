@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartRow** | **int32** |  | 
 **EndRow** | **int32** |  | 
-**FilterModel** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**FilterModel** | Pointer to **interface{}** |  | [optional] 
 **GroupKeys** | Pointer to **[]string** |  | [optional] 
 **PivotCols** | Pointer to **[]string** |  | [optional] 
 **PivotMode** | **bool** |  | 
@@ -76,20 +76,20 @@ SetEndRow sets EndRow field to given value.
 
 ### GetFilterModel
 
-`func (o *GetSearchItemsRequestBody) GetFilterModel() []map[string]interface{}`
+`func (o *GetSearchItemsRequestBody) GetFilterModel() interface{}`
 
 GetFilterModel returns the FilterModel field if non-nil, zero value otherwise.
 
 ### GetFilterModelOk
 
-`func (o *GetSearchItemsRequestBody) GetFilterModelOk() (*[]map[string]interface{}, bool)`
+`func (o *GetSearchItemsRequestBody) GetFilterModelOk() (*interface{}, bool)`
 
 GetFilterModelOk returns a tuple with the FilterModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilterModel
 
-`func (o *GetSearchItemsRequestBody) SetFilterModel(v []map[string]interface{})`
+`func (o *GetSearchItemsRequestBody) SetFilterModel(v interface{})`
 
 SetFilterModel sets FilterModel field to given value.
 
@@ -99,6 +99,16 @@ SetFilterModel sets FilterModel field to given value.
 
 HasFilterModel returns a boolean if a field has been set.
 
+### SetFilterModelNil
+
+`func (o *GetSearchItemsRequestBody) SetFilterModelNil(b bool)`
+
+ SetFilterModelNil sets the value for FilterModel to be an explicit nil
+
+### UnsetFilterModel
+`func (o *GetSearchItemsRequestBody) UnsetFilterModel()`
+
+UnsetFilterModel ensures that no value is present for FilterModel, not even an explicit nil
 ### GetGroupKeys
 
 `func (o *GetSearchItemsRequestBody) GetGroupKeys() []string`

@@ -207,7 +207,7 @@ func main() {
     path := "Mango" // string | Бренд
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), []map[string]interface{}{map[string]interface{}(123)}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -625,7 +625,7 @@ func main() {
     path := "Женщинам/Одежда" // string | Категория
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), []map[string]interface{}{map[string]interface{}(123)}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1779,7 +1779,7 @@ func main() {
     path := "ВАЙЛДБЕРРИЗ ООО" // string | Продавец
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), []map[string]interface{}{map[string]interface{}(123)}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2136,7 +2136,7 @@ func main() {
     path := "6929090" // string | SKU
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), []map[string]interface{}{map[string]interface{}(123)}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

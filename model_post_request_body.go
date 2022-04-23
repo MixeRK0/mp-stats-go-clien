@@ -21,7 +21,7 @@ type PostRequestBody struct {
 	// Номер строки конца получения данных
 	EndRow int32 `json:"endRow"`
 	// 
-	FilterModel []map[string]interface{} `json:"filterModel"`
+	FilterModel interface{} `json:"filterModel"`
 	SortModel []SortModelItem `json:"sortModel"`
 }
 
@@ -29,7 +29,7 @@ type PostRequestBody struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostRequestBody(startRow int32, endRow int32, filterModel []map[string]interface{}, sortModel []SortModelItem) *PostRequestBody {
+func NewPostRequestBody(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem) *PostRequestBody {
 	this := PostRequestBody{}
 	this.StartRow = startRow
 	this.EndRow = endRow
@@ -95,9 +95,10 @@ func (o *PostRequestBody) SetEndRow(v int32) {
 }
 
 // GetFilterModel returns the FilterModel field value
-func (o *PostRequestBody) GetFilterModel() []map[string]interface{} {
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *PostRequestBody) GetFilterModel() interface{} {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret interface{}
 		return ret
 	}
 
@@ -106,15 +107,16 @@ func (o *PostRequestBody) GetFilterModel() []map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value
 // and a boolean to check if the value has been set.
-func (o *PostRequestBody) GetFilterModelOk() ([]map[string]interface{}, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PostRequestBody) GetFilterModelOk() (*interface{}, bool) {
+	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
-	return o.FilterModel, true
+	return &o.FilterModel, true
 }
 
 // SetFilterModel sets field value
-func (o *PostRequestBody) SetFilterModel(v []map[string]interface{}) {
+func (o *PostRequestBody) SetFilterModel(v interface{}) {
 	o.FilterModel = v
 }
 
@@ -150,7 +152,7 @@ func (o PostRequestBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["endRow"] = o.EndRow
 	}
-	if true {
+	if o.FilterModel != nil {
 		toSerialize["filterModel"] = o.FilterModel
 	}
 	if true {

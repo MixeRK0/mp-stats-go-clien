@@ -19,7 +19,7 @@ type GetSearchItemsRequestBody struct {
 	StartRow int32 `json:"startRow"`
 	EndRow int32 `json:"endRow"`
 	// 
-	FilterModel []map[string]interface{} `json:"filterModel,omitempty"`
+	FilterModel interface{} `json:"filterModel,omitempty"`
 	GroupKeys []string `json:"groupKeys,omitempty"`
 	PivotCols []string `json:"pivotCols,omitempty"`
 	PivotMode bool `json:"pivotMode"`
@@ -98,10 +98,10 @@ func (o *GetSearchItemsRequestBody) SetEndRow(v int32) {
 	o.EndRow = v
 }
 
-// GetFilterModel returns the FilterModel field value if set, zero value otherwise.
-func (o *GetSearchItemsRequestBody) GetFilterModel() []map[string]interface{} {
-	if o == nil || o.FilterModel == nil {
-		var ret []map[string]interface{}
+// GetFilterModel returns the FilterModel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSearchItemsRequestBody) GetFilterModel() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
 	return o.FilterModel
@@ -109,11 +109,12 @@ func (o *GetSearchItemsRequestBody) GetFilterModel() []map[string]interface{} {
 
 // GetFilterModelOk returns a tuple with the FilterModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetSearchItemsRequestBody) GetFilterModelOk() ([]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSearchItemsRequestBody) GetFilterModelOk() (*interface{}, bool) {
 	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
-	return o.FilterModel, true
+	return &o.FilterModel, true
 }
 
 // HasFilterModel returns a boolean if a field has been set.
@@ -125,8 +126,8 @@ func (o *GetSearchItemsRequestBody) HasFilterModel() bool {
 	return false
 }
 
-// SetFilterModel gets a reference to the given []map[string]interface{} and assigns it to the FilterModel field.
-func (o *GetSearchItemsRequestBody) SetFilterModel(v []map[string]interface{}) {
+// SetFilterModel gets a reference to the given interface{} and assigns it to the FilterModel field.
+func (o *GetSearchItemsRequestBody) SetFilterModel(v interface{}) {
 	o.FilterModel = v
 }
 
