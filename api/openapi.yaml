@@ -3968,7 +3968,9 @@ components:
           rating: 4.857142857142857
     GetSearchItemsRequestBody:
       example:
-        valueCols: valueCols
+        valueCols:
+        - valueCols
+        - valueCols
         tpl: tpl
         pivotCols:
         - pivotCols
@@ -4019,7 +4021,9 @@ components:
         tpl:
           type: string
         valueCols:
-          type: string
+          items:
+            type: string
+          type: array
       required:
       - endRow
       - filterModel

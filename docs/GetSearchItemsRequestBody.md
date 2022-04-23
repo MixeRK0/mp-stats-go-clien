@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 **RowGroupCols** | **[]string** |  | 
 **SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 **Tpl** | **string** |  | 
-**ValueCols** | **string** |  | 
+**ValueCols** | **[]string** |  | 
 
 ## Methods
 
 ### NewGetSearchItemsRequestBody
 
-`func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols string, ) *GetSearchItemsRequestBody`
+`func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols []string, ) *GetSearchItemsRequestBody`
 
 NewGetSearchItemsRequestBody instantiates a new GetSearchItemsRequestBody object
 This constructor will assign default values to properties that have it defined,
@@ -216,20 +216,20 @@ SetTpl sets Tpl field to given value.
 
 ### GetValueCols
 
-`func (o *GetSearchItemsRequestBody) GetValueCols() string`
+`func (o *GetSearchItemsRequestBody) GetValueCols() []string`
 
 GetValueCols returns the ValueCols field if non-nil, zero value otherwise.
 
 ### GetValueColsOk
 
-`func (o *GetSearchItemsRequestBody) GetValueColsOk() (*string, bool)`
+`func (o *GetSearchItemsRequestBody) GetValueColsOk() (*[]string, bool)`
 
 GetValueColsOk returns a tuple with the ValueCols field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValueCols
 
-`func (o *GetSearchItemsRequestBody) SetValueCols(v string)`
+`func (o *GetSearchItemsRequestBody) SetValueCols(v []string)`
 
 SetValueCols sets ValueCols field to given value.
 

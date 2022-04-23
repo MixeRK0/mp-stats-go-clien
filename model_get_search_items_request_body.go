@@ -26,14 +26,14 @@ type GetSearchItemsRequestBody struct {
 	RowGroupCols []string `json:"rowGroupCols"`
 	SortModel []SortModelItem `json:"sortModel"`
 	Tpl string `json:"tpl"`
-	ValueCols string `json:"valueCols"`
+	ValueCols []string `json:"valueCols"`
 }
 
 // NewGetSearchItemsRequestBody instantiates a new GetSearchItemsRequestBody object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols string) *GetSearchItemsRequestBody {
+func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols []string) *GetSearchItemsRequestBody {
 	this := GetSearchItemsRequestBody{}
 	this.StartRow = startRow
 	this.EndRow = endRow
@@ -273,9 +273,9 @@ func (o *GetSearchItemsRequestBody) SetTpl(v string) {
 }
 
 // GetValueCols returns the ValueCols field value
-func (o *GetSearchItemsRequestBody) GetValueCols() string {
+func (o *GetSearchItemsRequestBody) GetValueCols() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
@@ -284,15 +284,15 @@ func (o *GetSearchItemsRequestBody) GetValueCols() string {
 
 // GetValueColsOk returns a tuple with the ValueCols field value
 // and a boolean to check if the value has been set.
-func (o *GetSearchItemsRequestBody) GetValueColsOk() (*string, bool) {
+func (o *GetSearchItemsRequestBody) GetValueColsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ValueCols, true
+	return o.ValueCols, true
 }
 
 // SetValueCols sets field value
-func (o *GetSearchItemsRequestBody) SetValueCols(v string) {
+func (o *GetSearchItemsRequestBody) SetValueCols(v []string) {
 	o.ValueCols = v
 }
 
