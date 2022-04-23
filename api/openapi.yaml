@@ -4017,9 +4017,15 @@ components:
           type: array
       required:
       - endRow
+      - filterModel
+      - groupKeys
+      - pivotCols
       - pivotMode
+      - rowGroupCols
+      - sortModel
       - startRow
       - tpl
+      - valueCols
       title: GetSearchItemsRequestBody
       type: object
     inline_response_200:

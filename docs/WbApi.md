@@ -2351,7 +2351,7 @@ func main() {
     path := "path_example" // string | Поисковой запрос
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    getSearchItemsRequestBody := *openapiclient.NewGetSearchItemsRequestBody(int32(123), int32(123), false, "Tpl_example") // GetSearchItemsRequestBody |  (optional)
+    getSearchItemsRequestBody := *openapiclient.NewGetSearchItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, "Tpl_example", []string{"ValueCols_example"}) // GetSearchItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

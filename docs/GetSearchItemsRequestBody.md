@@ -6,20 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartRow** | **int32** |  | 
 **EndRow** | **int32** |  | 
-**FilterModel** | Pointer to **interface{}** |  | [optional] 
-**GroupKeys** | Pointer to **[]string** |  | [optional] 
-**PivotCols** | Pointer to **[]string** |  | [optional] 
+**FilterModel** | **interface{}** |  | 
+**GroupKeys** | **[]string** |  | 
+**PivotCols** | **[]string** |  | 
 **PivotMode** | **bool** |  | 
-**RowGroupCols** | Pointer to **[]string** |  | [optional] 
-**SortModel** | Pointer to [**[]SortModelItem**](SortModelItem.md) |  | [optional] 
+**RowGroupCols** | **[]string** |  | 
+**SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 **Tpl** | **string** |  | 
-**ValueCols** | Pointer to **[]string** |  | [optional] 
+**ValueCols** | **[]string** |  | 
 
 ## Methods
 
 ### NewGetSearchItemsRequestBody
 
-`func NewGetSearchItemsRequestBody(startRow int32, endRow int32, pivotMode bool, tpl string, ) *GetSearchItemsRequestBody`
+`func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols []string, ) *GetSearchItemsRequestBody`
 
 NewGetSearchItemsRequestBody instantiates a new GetSearchItemsRequestBody object
 This constructor will assign default values to properties that have it defined,
@@ -93,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetFilterModel sets FilterModel field to given value.
 
-### HasFilterModel
-
-`func (o *GetSearchItemsRequestBody) HasFilterModel() bool`
-
-HasFilterModel returns a boolean if a field has been set.
 
 ### SetFilterModelNil
 
@@ -128,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetGroupKeys sets GroupKeys field to given value.
 
-### HasGroupKeys
-
-`func (o *GetSearchItemsRequestBody) HasGroupKeys() bool`
-
-HasGroupKeys returns a boolean if a field has been set.
 
 ### GetPivotCols
 
@@ -153,11 +143,6 @@ and a boolean to check if the value has been set.
 
 SetPivotCols sets PivotCols field to given value.
 
-### HasPivotCols
-
-`func (o *GetSearchItemsRequestBody) HasPivotCols() bool`
-
-HasPivotCols returns a boolean if a field has been set.
 
 ### GetPivotMode
 
@@ -198,11 +183,6 @@ and a boolean to check if the value has been set.
 
 SetRowGroupCols sets RowGroupCols field to given value.
 
-### HasRowGroupCols
-
-`func (o *GetSearchItemsRequestBody) HasRowGroupCols() bool`
-
-HasRowGroupCols returns a boolean if a field has been set.
 
 ### GetSortModel
 
@@ -223,11 +203,6 @@ and a boolean to check if the value has been set.
 
 SetSortModel sets SortModel field to given value.
 
-### HasSortModel
-
-`func (o *GetSearchItemsRequestBody) HasSortModel() bool`
-
-HasSortModel returns a boolean if a field has been set.
 
 ### GetTpl
 
@@ -268,11 +243,6 @@ and a boolean to check if the value has been set.
 
 SetValueCols sets ValueCols field to given value.
 
-### HasValueCols
-
-`func (o *GetSearchItemsRequestBody) HasValueCols() bool`
-
-HasValueCols returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
