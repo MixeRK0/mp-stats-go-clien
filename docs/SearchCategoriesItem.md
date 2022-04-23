@@ -4,64 +4,64 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **int32** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Brand** | Pointer to **string** |  | [optional] 
-**Seller** | Pointer to **string** |  | [optional] 
-**SupplierId** | Pointer to **int32** |  | [optional] 
-**Category** | Pointer to **string** |  | [optional] 
-**CategoryPosition** | Pointer to **int32** |  | [optional] 
-**PosData** | Pointer to **string** |  | [optional] 
-**Color** | Pointer to **string** |  | [optional] 
-**Balance** | Pointer to **int32** |  | [optional] 
-**BalanceFbs** | Pointer to **int32** |  | [optional] 
-**Comments** | Pointer to **int32** |  | [optional] 
-**Rating** | Pointer to **int32** |  | [optional] 
-**FinalPrice** | Pointer to **int32** |  | [optional] 
-**FinalPriceMax** | Pointer to **int32** |  | [optional] 
-**FinalPriceMin** | Pointer to **int32** |  | [optional] 
-**FinalPriceAverage** | Pointer to **int32** |  | [optional] 
-**BasicSale** | Pointer to **int32** |  | [optional] 
-**BasicPrice** | Pointer to **int32** |  | [optional] 
-**PromoSale** | Pointer to **int32** |  | [optional] 
-**ClientSale** | Pointer to **int32** |  | [optional] 
-**ClientPrice** | Pointer to **int32** |  | [optional] 
-**StartPrice** | Pointer to **int32** |  | [optional] 
-**Sales** | Pointer to **int32** |  | [optional] 
-**SalesPerDayAverage** | Pointer to **float32** |  | [optional] 
-**Revenue** | Pointer to **int32** |  | [optional] 
-**RevenuePotential** | Pointer to **int32** |  | [optional] 
-**LostProfit** | Pointer to **int32** |  | [optional] 
-**LostProfitPercent** | Pointer to **float32** |  | [optional] 
-**DaysInStock** | Pointer to **int32** |  | [optional] 
-**DaysWithSales** | Pointer to **int32** |  | [optional] 
-**AverageIfInStock** | Pointer to **float32** |  | [optional] 
-**Thumb** | Pointer to **string** |  | [optional] 
-**ThumbMiddle** | Pointer to **string** |  | [optional] 
-**IsFbs** | Pointer to **int32** |  | [optional] 
-**SubjectId** | Pointer to **int32** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
-**Country** | Pointer to **string** |  | [optional] 
-**Gender** | Pointer to **string** |  | [optional] 
-**SkuFirstDate** | Pointer to **string** |  | [optional] 
-**Firstcommentdate** | Pointer to **string** |  | [optional] 
-**Picscount** | Pointer to **int32** |  | [optional] 
-**Has3d** | Pointer to **int32** |  | [optional] 
-**Hasvideo** | Pointer to **int32** |  | [optional] 
-**Commentsvaluation** | Pointer to **float32** |  | [optional] 
-**Cardratingval** | Pointer to **int32** |  | [optional] 
-**Position** | Pointer to **int32** |  | [optional] 
-**CategoriesLastCount** | Pointer to **string** |  | [optional] 
-**Graph** | Pointer to **[]int32** |  | [optional] 
-**CategoryGraph** | Pointer to **[]int32** |  | [optional] 
-**StocksGraph** | Pointer to **[]int32** |  | [optional] 
-**PriceGraph** | Pointer to **[]int32** |  | [optional] 
+**Id** | **int32** |  | 
+**Name** | **string** |  | 
+**Brand** | **string** |  | 
+**Seller** | **string** |  | 
+**SupplierId** | **int32** |  | 
+**Category** | **string** |  | 
+**CategoryPosition** | **int32** |  | 
+**PosData** | **string** |  | 
+**Color** | **string** |  | 
+**Balance** | **int32** |  | 
+**BalanceFbs** | **int32** |  | 
+**Comments** | **int32** |  | 
+**Rating** | **int32** |  | 
+**FinalPrice** | **int32** |  | 
+**FinalPriceMax** | **int32** |  | 
+**FinalPriceMin** | **int32** |  | 
+**FinalPriceAverage** | **int32** |  | 
+**BasicSale** | **int32** |  | 
+**BasicPrice** | **int32** |  | 
+**PromoSale** | **int32** |  | 
+**ClientSale** | **int32** |  | 
+**ClientPrice** | **int32** |  | 
+**StartPrice** | **int32** |  | 
+**Sales** | **int32** |  | 
+**SalesPerDayAverage** | **float32** |  | 
+**Revenue** | **int32** |  | 
+**RevenuePotential** | **int32** |  | 
+**LostProfit** | **int32** |  | 
+**LostProfitPercent** | **float32** |  | 
+**DaysInStock** | **int32** |  | 
+**DaysWithSales** | **int32** |  | 
+**AverageIfInStock** | **float32** |  | 
+**Thumb** | **string** |  | 
+**ThumbMiddle** | **string** |  | 
+**IsFbs** | **int32** |  | 
+**SubjectId** | **int32** |  | 
+**Url** | **string** |  | 
+**Country** | **string** |  | 
+**Gender** | **string** |  | 
+**SkuFirstDate** | **string** |  | 
+**Firstcommentdate** | **string** |  | 
+**Picscount** | **int32** |  | 
+**Has3d** | **int32** |  | 
+**Hasvideo** | **int32** |  | 
+**Commentsvaluation** | **float32** |  | 
+**Cardratingval** | **int32** |  | 
+**Position** | **int32** |  | 
+**CategoriesLastCount** | **string** |  | 
+**Graph** | **[]int32** |  | 
+**CategoryGraph** | **[]int32** |  | 
+**StocksGraph** | **[]int32** |  | 
+**PriceGraph** | **[]int32** |  | 
 
 ## Methods
 
 ### NewSearchCategoriesItem
 
-`func NewSearchCategoriesItem() *SearchCategoriesItem`
+`func NewSearchCategoriesItem(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage int32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, ) *SearchCategoriesItem`
 
 NewSearchCategoriesItem instantiates a new SearchCategoriesItem object
 This constructor will assign default values to properties that have it defined,
@@ -95,11 +95,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SearchCategoriesItem) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -120,11 +115,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *SearchCategoriesItem) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetBrand
 
@@ -145,11 +135,6 @@ and a boolean to check if the value has been set.
 
 SetBrand sets Brand field to given value.
 
-### HasBrand
-
-`func (o *SearchCategoriesItem) HasBrand() bool`
-
-HasBrand returns a boolean if a field has been set.
 
 ### GetSeller
 
@@ -170,11 +155,6 @@ and a boolean to check if the value has been set.
 
 SetSeller sets Seller field to given value.
 
-### HasSeller
-
-`func (o *SearchCategoriesItem) HasSeller() bool`
-
-HasSeller returns a boolean if a field has been set.
 
 ### GetSupplierId
 
@@ -195,11 +175,6 @@ and a boolean to check if the value has been set.
 
 SetSupplierId sets SupplierId field to given value.
 
-### HasSupplierId
-
-`func (o *SearchCategoriesItem) HasSupplierId() bool`
-
-HasSupplierId returns a boolean if a field has been set.
 
 ### GetCategory
 
@@ -220,11 +195,6 @@ and a boolean to check if the value has been set.
 
 SetCategory sets Category field to given value.
 
-### HasCategory
-
-`func (o *SearchCategoriesItem) HasCategory() bool`
-
-HasCategory returns a boolean if a field has been set.
 
 ### GetCategoryPosition
 
@@ -245,11 +215,6 @@ and a boolean to check if the value has been set.
 
 SetCategoryPosition sets CategoryPosition field to given value.
 
-### HasCategoryPosition
-
-`func (o *SearchCategoriesItem) HasCategoryPosition() bool`
-
-HasCategoryPosition returns a boolean if a field has been set.
 
 ### GetPosData
 
@@ -270,11 +235,6 @@ and a boolean to check if the value has been set.
 
 SetPosData sets PosData field to given value.
 
-### HasPosData
-
-`func (o *SearchCategoriesItem) HasPosData() bool`
-
-HasPosData returns a boolean if a field has been set.
 
 ### GetColor
 
@@ -295,11 +255,6 @@ and a boolean to check if the value has been set.
 
 SetColor sets Color field to given value.
 
-### HasColor
-
-`func (o *SearchCategoriesItem) HasColor() bool`
-
-HasColor returns a boolean if a field has been set.
 
 ### GetBalance
 
@@ -320,11 +275,6 @@ and a boolean to check if the value has been set.
 
 SetBalance sets Balance field to given value.
 
-### HasBalance
-
-`func (o *SearchCategoriesItem) HasBalance() bool`
-
-HasBalance returns a boolean if a field has been set.
 
 ### GetBalanceFbs
 
@@ -345,11 +295,6 @@ and a boolean to check if the value has been set.
 
 SetBalanceFbs sets BalanceFbs field to given value.
 
-### HasBalanceFbs
-
-`func (o *SearchCategoriesItem) HasBalanceFbs() bool`
-
-HasBalanceFbs returns a boolean if a field has been set.
 
 ### GetComments
 
@@ -370,11 +315,6 @@ and a boolean to check if the value has been set.
 
 SetComments sets Comments field to given value.
 
-### HasComments
-
-`func (o *SearchCategoriesItem) HasComments() bool`
-
-HasComments returns a boolean if a field has been set.
 
 ### GetRating
 
@@ -395,11 +335,6 @@ and a boolean to check if the value has been set.
 
 SetRating sets Rating field to given value.
 
-### HasRating
-
-`func (o *SearchCategoriesItem) HasRating() bool`
-
-HasRating returns a boolean if a field has been set.
 
 ### GetFinalPrice
 
@@ -420,11 +355,6 @@ and a boolean to check if the value has been set.
 
 SetFinalPrice sets FinalPrice field to given value.
 
-### HasFinalPrice
-
-`func (o *SearchCategoriesItem) HasFinalPrice() bool`
-
-HasFinalPrice returns a boolean if a field has been set.
 
 ### GetFinalPriceMax
 
@@ -445,11 +375,6 @@ and a boolean to check if the value has been set.
 
 SetFinalPriceMax sets FinalPriceMax field to given value.
 
-### HasFinalPriceMax
-
-`func (o *SearchCategoriesItem) HasFinalPriceMax() bool`
-
-HasFinalPriceMax returns a boolean if a field has been set.
 
 ### GetFinalPriceMin
 
@@ -470,11 +395,6 @@ and a boolean to check if the value has been set.
 
 SetFinalPriceMin sets FinalPriceMin field to given value.
 
-### HasFinalPriceMin
-
-`func (o *SearchCategoriesItem) HasFinalPriceMin() bool`
-
-HasFinalPriceMin returns a boolean if a field has been set.
 
 ### GetFinalPriceAverage
 
@@ -495,11 +415,6 @@ and a boolean to check if the value has been set.
 
 SetFinalPriceAverage sets FinalPriceAverage field to given value.
 
-### HasFinalPriceAverage
-
-`func (o *SearchCategoriesItem) HasFinalPriceAverage() bool`
-
-HasFinalPriceAverage returns a boolean if a field has been set.
 
 ### GetBasicSale
 
@@ -520,11 +435,6 @@ and a boolean to check if the value has been set.
 
 SetBasicSale sets BasicSale field to given value.
 
-### HasBasicSale
-
-`func (o *SearchCategoriesItem) HasBasicSale() bool`
-
-HasBasicSale returns a boolean if a field has been set.
 
 ### GetBasicPrice
 
@@ -545,11 +455,6 @@ and a boolean to check if the value has been set.
 
 SetBasicPrice sets BasicPrice field to given value.
 
-### HasBasicPrice
-
-`func (o *SearchCategoriesItem) HasBasicPrice() bool`
-
-HasBasicPrice returns a boolean if a field has been set.
 
 ### GetPromoSale
 
@@ -570,11 +475,6 @@ and a boolean to check if the value has been set.
 
 SetPromoSale sets PromoSale field to given value.
 
-### HasPromoSale
-
-`func (o *SearchCategoriesItem) HasPromoSale() bool`
-
-HasPromoSale returns a boolean if a field has been set.
 
 ### GetClientSale
 
@@ -595,11 +495,6 @@ and a boolean to check if the value has been set.
 
 SetClientSale sets ClientSale field to given value.
 
-### HasClientSale
-
-`func (o *SearchCategoriesItem) HasClientSale() bool`
-
-HasClientSale returns a boolean if a field has been set.
 
 ### GetClientPrice
 
@@ -620,11 +515,6 @@ and a boolean to check if the value has been set.
 
 SetClientPrice sets ClientPrice field to given value.
 
-### HasClientPrice
-
-`func (o *SearchCategoriesItem) HasClientPrice() bool`
-
-HasClientPrice returns a boolean if a field has been set.
 
 ### GetStartPrice
 
@@ -645,11 +535,6 @@ and a boolean to check if the value has been set.
 
 SetStartPrice sets StartPrice field to given value.
 
-### HasStartPrice
-
-`func (o *SearchCategoriesItem) HasStartPrice() bool`
-
-HasStartPrice returns a boolean if a field has been set.
 
 ### GetSales
 
@@ -670,11 +555,6 @@ and a boolean to check if the value has been set.
 
 SetSales sets Sales field to given value.
 
-### HasSales
-
-`func (o *SearchCategoriesItem) HasSales() bool`
-
-HasSales returns a boolean if a field has been set.
 
 ### GetSalesPerDayAverage
 
@@ -695,11 +575,6 @@ and a boolean to check if the value has been set.
 
 SetSalesPerDayAverage sets SalesPerDayAverage field to given value.
 
-### HasSalesPerDayAverage
-
-`func (o *SearchCategoriesItem) HasSalesPerDayAverage() bool`
-
-HasSalesPerDayAverage returns a boolean if a field has been set.
 
 ### GetRevenue
 
@@ -720,11 +595,6 @@ and a boolean to check if the value has been set.
 
 SetRevenue sets Revenue field to given value.
 
-### HasRevenue
-
-`func (o *SearchCategoriesItem) HasRevenue() bool`
-
-HasRevenue returns a boolean if a field has been set.
 
 ### GetRevenuePotential
 
@@ -745,11 +615,6 @@ and a boolean to check if the value has been set.
 
 SetRevenuePotential sets RevenuePotential field to given value.
 
-### HasRevenuePotential
-
-`func (o *SearchCategoriesItem) HasRevenuePotential() bool`
-
-HasRevenuePotential returns a boolean if a field has been set.
 
 ### GetLostProfit
 
@@ -770,11 +635,6 @@ and a boolean to check if the value has been set.
 
 SetLostProfit sets LostProfit field to given value.
 
-### HasLostProfit
-
-`func (o *SearchCategoriesItem) HasLostProfit() bool`
-
-HasLostProfit returns a boolean if a field has been set.
 
 ### GetLostProfitPercent
 
@@ -795,11 +655,6 @@ and a boolean to check if the value has been set.
 
 SetLostProfitPercent sets LostProfitPercent field to given value.
 
-### HasLostProfitPercent
-
-`func (o *SearchCategoriesItem) HasLostProfitPercent() bool`
-
-HasLostProfitPercent returns a boolean if a field has been set.
 
 ### GetDaysInStock
 
@@ -820,11 +675,6 @@ and a boolean to check if the value has been set.
 
 SetDaysInStock sets DaysInStock field to given value.
 
-### HasDaysInStock
-
-`func (o *SearchCategoriesItem) HasDaysInStock() bool`
-
-HasDaysInStock returns a boolean if a field has been set.
 
 ### GetDaysWithSales
 
@@ -845,11 +695,6 @@ and a boolean to check if the value has been set.
 
 SetDaysWithSales sets DaysWithSales field to given value.
 
-### HasDaysWithSales
-
-`func (o *SearchCategoriesItem) HasDaysWithSales() bool`
-
-HasDaysWithSales returns a boolean if a field has been set.
 
 ### GetAverageIfInStock
 
@@ -870,11 +715,6 @@ and a boolean to check if the value has been set.
 
 SetAverageIfInStock sets AverageIfInStock field to given value.
 
-### HasAverageIfInStock
-
-`func (o *SearchCategoriesItem) HasAverageIfInStock() bool`
-
-HasAverageIfInStock returns a boolean if a field has been set.
 
 ### GetThumb
 
@@ -895,11 +735,6 @@ and a boolean to check if the value has been set.
 
 SetThumb sets Thumb field to given value.
 
-### HasThumb
-
-`func (o *SearchCategoriesItem) HasThumb() bool`
-
-HasThumb returns a boolean if a field has been set.
 
 ### GetThumbMiddle
 
@@ -920,11 +755,6 @@ and a boolean to check if the value has been set.
 
 SetThumbMiddle sets ThumbMiddle field to given value.
 
-### HasThumbMiddle
-
-`func (o *SearchCategoriesItem) HasThumbMiddle() bool`
-
-HasThumbMiddle returns a boolean if a field has been set.
 
 ### GetIsFbs
 
@@ -945,11 +775,6 @@ and a boolean to check if the value has been set.
 
 SetIsFbs sets IsFbs field to given value.
 
-### HasIsFbs
-
-`func (o *SearchCategoriesItem) HasIsFbs() bool`
-
-HasIsFbs returns a boolean if a field has been set.
 
 ### GetSubjectId
 
@@ -970,11 +795,6 @@ and a boolean to check if the value has been set.
 
 SetSubjectId sets SubjectId field to given value.
 
-### HasSubjectId
-
-`func (o *SearchCategoriesItem) HasSubjectId() bool`
-
-HasSubjectId returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -995,11 +815,6 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
-
-`func (o *SearchCategoriesItem) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
 
 ### GetCountry
 
@@ -1020,11 +835,6 @@ and a boolean to check if the value has been set.
 
 SetCountry sets Country field to given value.
 
-### HasCountry
-
-`func (o *SearchCategoriesItem) HasCountry() bool`
-
-HasCountry returns a boolean if a field has been set.
 
 ### GetGender
 
@@ -1045,11 +855,6 @@ and a boolean to check if the value has been set.
 
 SetGender sets Gender field to given value.
 
-### HasGender
-
-`func (o *SearchCategoriesItem) HasGender() bool`
-
-HasGender returns a boolean if a field has been set.
 
 ### GetSkuFirstDate
 
@@ -1070,11 +875,6 @@ and a boolean to check if the value has been set.
 
 SetSkuFirstDate sets SkuFirstDate field to given value.
 
-### HasSkuFirstDate
-
-`func (o *SearchCategoriesItem) HasSkuFirstDate() bool`
-
-HasSkuFirstDate returns a boolean if a field has been set.
 
 ### GetFirstcommentdate
 
@@ -1095,11 +895,6 @@ and a boolean to check if the value has been set.
 
 SetFirstcommentdate sets Firstcommentdate field to given value.
 
-### HasFirstcommentdate
-
-`func (o *SearchCategoriesItem) HasFirstcommentdate() bool`
-
-HasFirstcommentdate returns a boolean if a field has been set.
 
 ### GetPicscount
 
@@ -1120,11 +915,6 @@ and a boolean to check if the value has been set.
 
 SetPicscount sets Picscount field to given value.
 
-### HasPicscount
-
-`func (o *SearchCategoriesItem) HasPicscount() bool`
-
-HasPicscount returns a boolean if a field has been set.
 
 ### GetHas3d
 
@@ -1145,11 +935,6 @@ and a boolean to check if the value has been set.
 
 SetHas3d sets Has3d field to given value.
 
-### HasHas3d
-
-`func (o *SearchCategoriesItem) HasHas3d() bool`
-
-HasHas3d returns a boolean if a field has been set.
 
 ### GetHasvideo
 
@@ -1170,11 +955,6 @@ and a boolean to check if the value has been set.
 
 SetHasvideo sets Hasvideo field to given value.
 
-### HasHasvideo
-
-`func (o *SearchCategoriesItem) HasHasvideo() bool`
-
-HasHasvideo returns a boolean if a field has been set.
 
 ### GetCommentsvaluation
 
@@ -1195,11 +975,6 @@ and a boolean to check if the value has been set.
 
 SetCommentsvaluation sets Commentsvaluation field to given value.
 
-### HasCommentsvaluation
-
-`func (o *SearchCategoriesItem) HasCommentsvaluation() bool`
-
-HasCommentsvaluation returns a boolean if a field has been set.
 
 ### GetCardratingval
 
@@ -1220,11 +995,6 @@ and a boolean to check if the value has been set.
 
 SetCardratingval sets Cardratingval field to given value.
 
-### HasCardratingval
-
-`func (o *SearchCategoriesItem) HasCardratingval() bool`
-
-HasCardratingval returns a boolean if a field has been set.
 
 ### GetPosition
 
@@ -1245,11 +1015,6 @@ and a boolean to check if the value has been set.
 
 SetPosition sets Position field to given value.
 
-### HasPosition
-
-`func (o *SearchCategoriesItem) HasPosition() bool`
-
-HasPosition returns a boolean if a field has been set.
 
 ### GetCategoriesLastCount
 
@@ -1270,11 +1035,6 @@ and a boolean to check if the value has been set.
 
 SetCategoriesLastCount sets CategoriesLastCount field to given value.
 
-### HasCategoriesLastCount
-
-`func (o *SearchCategoriesItem) HasCategoriesLastCount() bool`
-
-HasCategoriesLastCount returns a boolean if a field has been set.
 
 ### GetGraph
 
@@ -1295,11 +1055,6 @@ and a boolean to check if the value has been set.
 
 SetGraph sets Graph field to given value.
 
-### HasGraph
-
-`func (o *SearchCategoriesItem) HasGraph() bool`
-
-HasGraph returns a boolean if a field has been set.
 
 ### GetCategoryGraph
 
@@ -1320,11 +1075,6 @@ and a boolean to check if the value has been set.
 
 SetCategoryGraph sets CategoryGraph field to given value.
 
-### HasCategoryGraph
-
-`func (o *SearchCategoriesItem) HasCategoryGraph() bool`
-
-HasCategoryGraph returns a boolean if a field has been set.
 
 ### GetStocksGraph
 
@@ -1345,11 +1095,6 @@ and a boolean to check if the value has been set.
 
 SetStocksGraph sets StocksGraph field to given value.
 
-### HasStocksGraph
-
-`func (o *SearchCategoriesItem) HasStocksGraph() bool`
-
-HasStocksGraph returns a boolean if a field has been set.
 
 ### GetPriceGraph
 
@@ -1370,11 +1115,6 @@ and a boolean to check if the value has been set.
 
 SetPriceGraph sets PriceGraph field to given value.
 
-### HasPriceGraph
-
-`func (o *SearchCategoriesItem) HasPriceGraph() bool`
-
-HasPriceGraph returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

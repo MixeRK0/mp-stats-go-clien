@@ -16,15 +16,16 @@ import (
 
 // TplsRequestBody struct for TplsRequestBody
 type TplsRequestBody struct {
-	Tpls *string `json:"tpls,omitempty"`
+	Tpls string `json:"tpls"`
 }
 
 // NewTplsRequestBody instantiates a new TplsRequestBody object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTplsRequestBody() *TplsRequestBody {
+func NewTplsRequestBody(tpls string) *TplsRequestBody {
 	this := TplsRequestBody{}
+	this.Tpls = tpls
 	return &this
 }
 
@@ -36,41 +37,33 @@ func NewTplsRequestBodyWithDefaults() *TplsRequestBody {
 	return &this
 }
 
-// GetTpls returns the Tpls field value if set, zero value otherwise.
+// GetTpls returns the Tpls field value
 func (o *TplsRequestBody) GetTpls() string {
-	if o == nil || o.Tpls == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Tpls
+
+	return o.Tpls
 }
 
-// GetTplsOk returns a tuple with the Tpls field value if set, nil otherwise
+// GetTplsOk returns a tuple with the Tpls field value
 // and a boolean to check if the value has been set.
 func (o *TplsRequestBody) GetTplsOk() (*string, bool) {
-	if o == nil || o.Tpls == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tpls, true
+	return &o.Tpls, true
 }
 
-// HasTpls returns a boolean if a field has been set.
-func (o *TplsRequestBody) HasTpls() bool {
-	if o != nil && o.Tpls != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTpls gets a reference to the given string and assigns it to the Tpls field.
+// SetTpls sets field value
 func (o *TplsRequestBody) SetTpls(v string) {
-	o.Tpls = &v
+	o.Tpls = v
 }
 
 func (o TplsRequestBody) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Tpls != nil {
+	if true {
 		toSerialize["tpls"] = o.Tpls
 	}
 	return json.Marshal(toSerialize)

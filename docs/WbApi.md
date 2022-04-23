@@ -2277,7 +2277,7 @@ func main() {
     path := "path_example" // string | 
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    tplsRequestBody := *openapiclient.NewTplsRequestBody() // TplsRequestBody |  (optional)
+    tplsRequestBody := *openapiclient.NewTplsRequestBody("Tpls_example") // TplsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

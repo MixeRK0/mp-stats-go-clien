@@ -27,9 +27,9 @@ type CategorySubcategory struct {
 	// Число брендов с продажами
 	BrandsWithSells int32 `json:"brands_with_sells"`
 	// Число продавцов
-	Sellers *int32 `json:"sellers,omitempty"`
+	Sellers int32 `json:"sellers"`
 	// Число продавцов с продажами
-	SellersWithSells *int32 `json:"sellers_with_sells,omitempty"`
+	SellersWithSells int32 `json:"sellers_with_sells"`
 	// Число зафиксированных продаж (единицы)
 	Sales int32 `json:"sales"`
 	// Сумма произведений числа проданных товаров на их стоимость
@@ -60,13 +60,15 @@ type CategorySubcategory struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategorySubcategory(name string, items int32, itemsWithSells int32, brands int32, brandsWithSells int32, sales int32, revenue float32, avgPrice float32, comments float32, rating float32, itemsWithSellsPercent float32, brandsWithSellsPercent float32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32) *CategorySubcategory {
+func NewCategorySubcategory(name string, items int32, itemsWithSells int32, brands int32, brandsWithSells int32, sellers int32, sellersWithSells int32, sales int32, revenue float32, avgPrice float32, comments float32, rating float32, itemsWithSellsPercent float32, brandsWithSellsPercent float32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32) *CategorySubcategory {
 	this := CategorySubcategory{}
 	this.Name = name
 	this.Items = items
 	this.ItemsWithSells = itemsWithSells
 	this.Brands = brands
 	this.BrandsWithSells = brandsWithSells
+	this.Sellers = sellers
+	this.SellersWithSells = sellersWithSells
 	this.Sales = sales
 	this.Revenue = revenue
 	this.AvgPrice = avgPrice
@@ -210,68 +212,52 @@ func (o *CategorySubcategory) SetBrandsWithSells(v int32) {
 	o.BrandsWithSells = v
 }
 
-// GetSellers returns the Sellers field value if set, zero value otherwise.
+// GetSellers returns the Sellers field value
 func (o *CategorySubcategory) GetSellers() int32 {
-	if o == nil || o.Sellers == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Sellers
+
+	return o.Sellers
 }
 
-// GetSellersOk returns a tuple with the Sellers field value if set, nil otherwise
+// GetSellersOk returns a tuple with the Sellers field value
 // and a boolean to check if the value has been set.
 func (o *CategorySubcategory) GetSellersOk() (*int32, bool) {
-	if o == nil || o.Sellers == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sellers, true
+	return &o.Sellers, true
 }
 
-// HasSellers returns a boolean if a field has been set.
-func (o *CategorySubcategory) HasSellers() bool {
-	if o != nil && o.Sellers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSellers gets a reference to the given int32 and assigns it to the Sellers field.
+// SetSellers sets field value
 func (o *CategorySubcategory) SetSellers(v int32) {
-	o.Sellers = &v
+	o.Sellers = v
 }
 
-// GetSellersWithSells returns the SellersWithSells field value if set, zero value otherwise.
+// GetSellersWithSells returns the SellersWithSells field value
 func (o *CategorySubcategory) GetSellersWithSells() int32 {
-	if o == nil || o.SellersWithSells == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.SellersWithSells
+
+	return o.SellersWithSells
 }
 
-// GetSellersWithSellsOk returns a tuple with the SellersWithSells field value if set, nil otherwise
+// GetSellersWithSellsOk returns a tuple with the SellersWithSells field value
 // and a boolean to check if the value has been set.
 func (o *CategorySubcategory) GetSellersWithSellsOk() (*int32, bool) {
-	if o == nil || o.SellersWithSells == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.SellersWithSells, true
+	return &o.SellersWithSells, true
 }
 
-// HasSellersWithSells returns a boolean if a field has been set.
-func (o *CategorySubcategory) HasSellersWithSells() bool {
-	if o != nil && o.SellersWithSells != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSellersWithSells gets a reference to the given int32 and assigns it to the SellersWithSells field.
+// SetSellersWithSells sets field value
 func (o *CategorySubcategory) SetSellersWithSells(v int32) {
-	o.SellersWithSells = &v
+	o.SellersWithSells = v
 }
 
 // GetSales returns the Sales field value
@@ -579,10 +565,10 @@ func (o CategorySubcategory) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["brands_with_sells"] = o.BrandsWithSells
 	}
-	if o.Sellers != nil {
+	if true {
 		toSerialize["sellers"] = o.Sellers
 	}
-	if o.SellersWithSells != nil {
+	if true {
 		toSerialize["sellers_with_sells"] = o.SellersWithSells
 	}
 	if true {

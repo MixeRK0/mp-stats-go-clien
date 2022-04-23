@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **ItemsWithSells** | **int32** | Число товаров с продажами | 
 **Brands** | **int32** | Число брендов | 
 **BrandsWithSells** | **int32** | Число брендов с продажами | 
-**Sellers** | Pointer to **int32** | Число продавцов | [optional] 
-**SellersWithSells** | Pointer to **int32** | Число продавцов с продажами | [optional] 
+**Sellers** | **int32** | Число продавцов | 
+**SellersWithSells** | **int32** | Число продавцов с продажами | 
 **Sales** | **int32** | Число зафиксированных продаж (единицы) | 
 **Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
 **AvgPrice** | **float32** | Средняя стоимость товара | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewCategorySubcategory
 
-`func NewCategorySubcategory(name string, items int32, itemsWithSells int32, brands int32, brandsWithSells int32, sales int32, revenue float32, avgPrice float32, comments float32, rating float32, itemsWithSellsPercent float32, brandsWithSellsPercent float32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, ) *CategorySubcategory`
+`func NewCategorySubcategory(name string, items int32, itemsWithSells int32, brands int32, brandsWithSells int32, sellers int32, sellersWithSells int32, sales int32, revenue float32, avgPrice float32, comments float32, rating float32, itemsWithSellsPercent float32, brandsWithSellsPercent float32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, ) *CategorySubcategory`
 
 NewCategorySubcategory instantiates a new CategorySubcategory object
 This constructor will assign default values to properties that have it defined,
@@ -162,11 +162,6 @@ and a boolean to check if the value has been set.
 
 SetSellers sets Sellers field to given value.
 
-### HasSellers
-
-`func (o *CategorySubcategory) HasSellers() bool`
-
-HasSellers returns a boolean if a field has been set.
 
 ### GetSellersWithSells
 
@@ -187,11 +182,6 @@ and a boolean to check if the value has been set.
 
 SetSellersWithSells sets SellersWithSells field to given value.
 
-### HasSellersWithSells
-
-`func (o *CategorySubcategory) HasSellersWithSells() bool`
-
-HasSellersWithSells returns a boolean if a field has been set.
 
 ### GetSales
 

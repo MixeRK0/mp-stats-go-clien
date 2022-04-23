@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tpls** | Pointer to **string** |  | [optional] 
+**Tpls** | **string** |  | 
 
 ## Methods
 
 ### NewTplsRequestBody
 
-`func NewTplsRequestBody() *TplsRequestBody`
+`func NewTplsRequestBody(tpls string, ) *TplsRequestBody`
 
 NewTplsRequestBody instantiates a new TplsRequestBody object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetTpls sets Tpls field to given value.
 
-### HasTpls
-
-`func (o *TplsRequestBody) HasTpls() bool`
-
-HasTpls returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
