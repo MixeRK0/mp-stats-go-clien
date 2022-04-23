@@ -18,32 +18,27 @@ import (
 type GetSearchItemsRequestBody struct {
 	StartRow int32 `json:"startRow"`
 	EndRow int32 `json:"endRow"`
-	FilterModel map[string]interface{} `json:"filterModel"`
-	GroupKeys []string `json:"groupKeys"`
-	PivotCols []string `json:"pivotCols"`
+	// 
+	FilterModel map[string]interface{} `json:"filterModel,omitempty"`
+	GroupKeys []string `json:"groupKeys,omitempty"`
+	PivotCols []string `json:"pivotCols,omitempty"`
 	PivotMode bool `json:"pivotMode"`
-	RowGroupCols []string `json:"rowGroupCols"`
-	SortModel []SortModelItem `json:"sortModel"`
+	RowGroupCols []string `json:"rowGroupCols,omitempty"`
+	SortModel []SortModelItem `json:"sortModel,omitempty"`
 	Tpl string `json:"tpl"`
-	ValueCols []string `json:"valueCols"`
+	ValueCols []string `json:"valueCols,omitempty"`
 }
 
 // NewGetSearchItemsRequestBody instantiates a new GetSearchItemsRequestBody object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetSearchItemsRequestBody(startRow int32, endRow int32, filterModel map[string]interface{}, groupKeys []string, pivotCols []string, pivotMode bool, rowGroupCols []string, sortModel []SortModelItem, tpl string, valueCols []string) *GetSearchItemsRequestBody {
+func NewGetSearchItemsRequestBody(startRow int32, endRow int32, pivotMode bool, tpl string) *GetSearchItemsRequestBody {
 	this := GetSearchItemsRequestBody{}
 	this.StartRow = startRow
 	this.EndRow = endRow
-	this.FilterModel = filterModel
-	this.GroupKeys = groupKeys
-	this.PivotCols = pivotCols
 	this.PivotMode = pivotMode
-	this.RowGroupCols = rowGroupCols
-	this.SortModel = sortModel
 	this.Tpl = tpl
-	this.ValueCols = valueCols
 	return &this
 }
 
@@ -103,74 +98,98 @@ func (o *GetSearchItemsRequestBody) SetEndRow(v int32) {
 	o.EndRow = v
 }
 
-// GetFilterModel returns the FilterModel field value
+// GetFilterModel returns the FilterModel field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetFilterModel() map[string]interface{} {
-	if o == nil {
+	if o == nil || o.FilterModel == nil {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.FilterModel
 }
 
-// GetFilterModelOk returns a tuple with the FilterModel field value
+// GetFilterModelOk returns a tuple with the FilterModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetFilterModelOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
 	return o.FilterModel, true
 }
 
-// SetFilterModel sets field value
+// HasFilterModel returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasFilterModel() bool {
+	if o != nil && o.FilterModel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilterModel gets a reference to the given map[string]interface{} and assigns it to the FilterModel field.
 func (o *GetSearchItemsRequestBody) SetFilterModel(v map[string]interface{}) {
 	o.FilterModel = v
 }
 
-// GetGroupKeys returns the GroupKeys field value
+// GetGroupKeys returns the GroupKeys field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetGroupKeys() []string {
-	if o == nil {
+	if o == nil || o.GroupKeys == nil {
 		var ret []string
 		return ret
 	}
-
 	return o.GroupKeys
 }
 
-// GetGroupKeysOk returns a tuple with the GroupKeys field value
+// GetGroupKeysOk returns a tuple with the GroupKeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetGroupKeysOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || o.GroupKeys == nil {
 		return nil, false
 	}
 	return o.GroupKeys, true
 }
 
-// SetGroupKeys sets field value
+// HasGroupKeys returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasGroupKeys() bool {
+	if o != nil && o.GroupKeys != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupKeys gets a reference to the given []string and assigns it to the GroupKeys field.
 func (o *GetSearchItemsRequestBody) SetGroupKeys(v []string) {
 	o.GroupKeys = v
 }
 
-// GetPivotCols returns the PivotCols field value
+// GetPivotCols returns the PivotCols field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetPivotCols() []string {
-	if o == nil {
+	if o == nil || o.PivotCols == nil {
 		var ret []string
 		return ret
 	}
-
 	return o.PivotCols
 }
 
-// GetPivotColsOk returns a tuple with the PivotCols field value
+// GetPivotColsOk returns a tuple with the PivotCols field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetPivotColsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || o.PivotCols == nil {
 		return nil, false
 	}
 	return o.PivotCols, true
 }
 
-// SetPivotCols sets field value
+// HasPivotCols returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasPivotCols() bool {
+	if o != nil && o.PivotCols != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPivotCols gets a reference to the given []string and assigns it to the PivotCols field.
 func (o *GetSearchItemsRequestBody) SetPivotCols(v []string) {
 	o.PivotCols = v
 }
@@ -199,50 +218,66 @@ func (o *GetSearchItemsRequestBody) SetPivotMode(v bool) {
 	o.PivotMode = v
 }
 
-// GetRowGroupCols returns the RowGroupCols field value
+// GetRowGroupCols returns the RowGroupCols field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetRowGroupCols() []string {
-	if o == nil {
+	if o == nil || o.RowGroupCols == nil {
 		var ret []string
 		return ret
 	}
-
 	return o.RowGroupCols
 }
 
-// GetRowGroupColsOk returns a tuple with the RowGroupCols field value
+// GetRowGroupColsOk returns a tuple with the RowGroupCols field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetRowGroupColsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || o.RowGroupCols == nil {
 		return nil, false
 	}
 	return o.RowGroupCols, true
 }
 
-// SetRowGroupCols sets field value
+// HasRowGroupCols returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasRowGroupCols() bool {
+	if o != nil && o.RowGroupCols != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRowGroupCols gets a reference to the given []string and assigns it to the RowGroupCols field.
 func (o *GetSearchItemsRequestBody) SetRowGroupCols(v []string) {
 	o.RowGroupCols = v
 }
 
-// GetSortModel returns the SortModel field value
+// GetSortModel returns the SortModel field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetSortModel() []SortModelItem {
-	if o == nil {
+	if o == nil || o.SortModel == nil {
 		var ret []SortModelItem
 		return ret
 	}
-
 	return o.SortModel
 }
 
-// GetSortModelOk returns a tuple with the SortModel field value
+// GetSortModelOk returns a tuple with the SortModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetSortModelOk() ([]SortModelItem, bool) {
-	if o == nil {
+	if o == nil || o.SortModel == nil {
 		return nil, false
 	}
 	return o.SortModel, true
 }
 
-// SetSortModel sets field value
+// HasSortModel returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasSortModel() bool {
+	if o != nil && o.SortModel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSortModel gets a reference to the given []SortModelItem and assigns it to the SortModel field.
 func (o *GetSearchItemsRequestBody) SetSortModel(v []SortModelItem) {
 	o.SortModel = v
 }
@@ -271,26 +306,34 @@ func (o *GetSearchItemsRequestBody) SetTpl(v string) {
 	o.Tpl = v
 }
 
-// GetValueCols returns the ValueCols field value
+// GetValueCols returns the ValueCols field value if set, zero value otherwise.
 func (o *GetSearchItemsRequestBody) GetValueCols() []string {
-	if o == nil {
+	if o == nil || o.ValueCols == nil {
 		var ret []string
 		return ret
 	}
-
 	return o.ValueCols
 }
 
-// GetValueColsOk returns a tuple with the ValueCols field value
+// GetValueColsOk returns a tuple with the ValueCols field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetSearchItemsRequestBody) GetValueColsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || o.ValueCols == nil {
 		return nil, false
 	}
 	return o.ValueCols, true
 }
 
-// SetValueCols sets field value
+// HasValueCols returns a boolean if a field has been set.
+func (o *GetSearchItemsRequestBody) HasValueCols() bool {
+	if o != nil && o.ValueCols != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValueCols gets a reference to the given []string and assigns it to the ValueCols field.
 func (o *GetSearchItemsRequestBody) SetValueCols(v []string) {
 	o.ValueCols = v
 }
@@ -303,28 +346,28 @@ func (o GetSearchItemsRequestBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["endRow"] = o.EndRow
 	}
-	if true {
+	if o.FilterModel != nil {
 		toSerialize["filterModel"] = o.FilterModel
 	}
-	if true {
+	if o.GroupKeys != nil {
 		toSerialize["groupKeys"] = o.GroupKeys
 	}
-	if true {
+	if o.PivotCols != nil {
 		toSerialize["pivotCols"] = o.PivotCols
 	}
 	if true {
 		toSerialize["pivotMode"] = o.PivotMode
 	}
-	if true {
+	if o.RowGroupCols != nil {
 		toSerialize["rowGroupCols"] = o.RowGroupCols
 	}
-	if true {
+	if o.SortModel != nil {
 		toSerialize["sortModel"] = o.SortModel
 	}
 	if true {
 		toSerialize["tpl"] = o.Tpl
 	}
-	if true {
+	if o.ValueCols != nil {
 		toSerialize["valueCols"] = o.ValueCols
 	}
 	return json.Marshal(toSerialize)

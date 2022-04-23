@@ -3439,19 +3439,12 @@ components:
             $ref: '#/components/schemas/SearchItemsElement'
           type: array
       required:
-      - data
       - endRow
       - error
-      - filterModel
-      - groupKeys
-      - pivotCols
       - pivotMode
-      - rowGroupCols
-      - sortModel
       - startRow
       - total
       - tpl
-      - valueCols
       title: SearchItems
       type: object
     SearchItemsElement:
@@ -3996,6 +3989,8 @@ components:
         endRow:
           type: integer
         filterModel:
+          description: ""
+          title: FilterModel
           type: object
         groupKeys:
           items:
@@ -4024,15 +4019,9 @@ components:
           type: array
       required:
       - endRow
-      - filterModel
-      - groupKeys
-      - pivotCols
       - pivotMode
-      - rowGroupCols
-      - sortModel
       - startRow
       - tpl
-      - valueCols
       title: GetSearchItemsRequestBody
       type: object
     inline_response_200:
