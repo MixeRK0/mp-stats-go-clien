@@ -21,6 +21,7 @@ docs/CategoryUrl.md
 docs/DetailedItem.md
 docs/FilterModelItem.md
 docs/GetItemsBatchRequestBody.md
+docs/GetSearchItemsRequestBody.md
 docs/InlineResponse200.md
 docs/Item.md
 docs/ItemBalanceByDay.md
@@ -61,6 +62,7 @@ model_category_url.go
 model_detailed_item.go
 model_filter_model_item.go
 model_get_items_batch_request_body.go
+model_get_search_items_request_body.go
 model_inline_response_200.go
 model_item.go
 model_item_balance_by_day.go

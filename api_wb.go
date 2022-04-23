@@ -4542,7 +4542,7 @@ type ApiPostWbGetSearchItemsRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	tplsRequestBody *TplsRequestBody
+	getSearchItemsRequestBody *GetSearchItemsRequestBody
 }
 
 // Поисковой запрос
@@ -4563,8 +4563,8 @@ func (r ApiPostWbGetSearchItemsRequest) D2(d2 string) ApiPostWbGetSearchItemsReq
 	return r
 }
 
-func (r ApiPostWbGetSearchItemsRequest) TplsRequestBody(tplsRequestBody TplsRequestBody) ApiPostWbGetSearchItemsRequest {
-	r.tplsRequestBody = &tplsRequestBody
+func (r ApiPostWbGetSearchItemsRequest) GetSearchItemsRequestBody(getSearchItemsRequestBody GetSearchItemsRequestBody) ApiPostWbGetSearchItemsRequest {
+	r.getSearchItemsRequestBody = &getSearchItemsRequestBody
 	return r
 }
 
@@ -4636,7 +4636,7 @@ func (a *WbApiService) PostWbGetSearchItemsExecute(r ApiPostWbGetSearchItemsRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tplsRequestBody
+	localVarPostBody = r.getSearchItemsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

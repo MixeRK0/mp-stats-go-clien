@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
  - [DetailedItem](docs/DetailedItem.md)
  - [FilterModelItem](docs/FilterModelItem.md)
  - [GetItemsBatchRequestBody](docs/GetItemsBatchRequestBody.md)
+ - [GetSearchItemsRequestBody](docs/GetSearchItemsRequestBody.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [Item](docs/Item.md)
  - [ItemBalanceByDay](docs/ItemBalanceByDay.md)

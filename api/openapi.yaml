@@ -1474,7 +1474,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TplsRequestBody'
+            $ref: '#/components/schemas/GetSearchItemsRequestBody'
     GetSearchCategories:
       content:
         application/json:
@@ -3966,6 +3966,73 @@ components:
           avg_price: 878.7576054955839
           comments: 3438.6237424547285
           rating: 4.857142857142857
+    GetSearchItemsRequestBody:
+      example:
+        valueCols: valueCols
+        tpl: tpl
+        pivotCols:
+        - pivotCols
+        - pivotCols
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 0
+        groupKeys:
+        - groupKeys
+        - groupKeys
+        filterModel: "{}"
+        rowGroupCols:
+        - rowGroupCols
+        - rowGroupCols
+        endRow: 6
+        pivotMode: true
+      properties:
+        startRow:
+          type: integer
+        endRow:
+          type: integer
+        filterModel:
+          description: ""
+          title: FilterModel
+          type: object
+        groupKeys:
+          items:
+            type: string
+          type: array
+        pivotCols:
+          items:
+            type: string
+          type: array
+        pivotMode:
+          type: boolean
+        rowGroupCols:
+          items:
+            type: string
+          type: array
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+        tpl:
+          type: string
+        valueCols:
+          type: string
+      required:
+      - endRow
+      - filterModel
+      - groupKeys
+      - pivotCols
+      - pivotMode
+      - rowGroupCols
+      - sortModel
+      - startRow
+      - tpl
+      - valueCols
+      title: GetSearchItemsRequestBody
+      type: object
     inline_response_200:
       example:
         sortModel:

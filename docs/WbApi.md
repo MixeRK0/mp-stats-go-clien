@@ -2328,7 +2328,7 @@ Name | Type | Description  | Notes
 
 ## PostWbGetSearchItems
 
-> SearchItems PostWbGetSearchItems(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+> SearchItems PostWbGetSearchItems(ctx).Path(path).D1(d1).D2(d2).GetSearchItemsRequestBody(getSearchItemsRequestBody).Execute()
 
 GetSearchItems
 
@@ -2351,11 +2351,11 @@ func main() {
     path := "path_example" // string | Поисковой запрос
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    tplsRequestBody := *openapiclient.NewTplsRequestBody("Tpls_example") // TplsRequestBody |  (optional)
+    getSearchItemsRequestBody := *openapiclient.NewGetSearchItemsRequestBody(int32(123), int32(123), map[string]interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, "Tpl_example", "ValueCols_example") // GetSearchItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.PostWbGetSearchItems(context.Background()).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.PostWbGetSearchItems(context.Background()).Path(path).D1(d1).D2(d2).GetSearchItemsRequestBody(getSearchItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2379,7 +2379,7 @@ Name | Type | Description  | Notes
  **path** | **string** | Поисковой запрос | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **tplsRequestBody** | [**TplsRequestBody**](TplsRequestBody.md) |  | 
+ **getSearchItemsRequestBody** | [**GetSearchItemsRequestBody**](GetSearchItemsRequestBody.md) |  | 
 
 ### Return type
 
