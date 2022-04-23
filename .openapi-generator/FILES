@@ -30,8 +30,8 @@ docs/ItemPhotos.md
 docs/ItemSale.md
 docs/ItemSimilar.md
 docs/PostRequestBody.md
+docs/SearchCategories.md
 docs/SearchCategoriesItem.md
-docs/SearchCategory.md
 docs/SellerBrand.md
 docs/SellerByDate.md
 docs/SellerCategory.md
@@ -44,8 +44,6 @@ docs/SortModelItem.md
 docs/TplsRequestBody.md
 docs/WbApi.md
 git_push.sh
-go.mod
-go.sum
 model_brand_by_date.go
 model_brand_category.go
 model_brand_price_segmentation.go
@@ -71,8 +69,8 @@ model_item_photos.go
 model_item_sale.go
 model_item_similar.go
 model_post_request_body.go
+model_search_categories.go
 model_search_categories_item.go
-model_search_category.go
 model_seller_brand.go
 model_seller_by_date.go
 model_seller_category.go

@@ -35,7 +35,7 @@ Method | HTTP request | Description
 [**GetSimilarCategories**](WbApi.md#GetSimilarCategories) | **Get** /wb/get/similar/categories | Категории похожего товара
 [**GetSimilarDetailedItems**](WbApi.md#GetSimilarDetailedItems) | **Post** /wb/get/similar | Товары по похожему товару
 [**GetSimilarSellers**](WbApi.md#GetSimilarSellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
-[**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | GetSearchCategory
+[**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | GetSearchCategories
 
 
 
@@ -2256,9 +2256,9 @@ Name | Type | Description  | Notes
 
 ## PostWbGetSearchCategories
 
-> []SearchCategory PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
+> SearchCategories PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
 
-GetSearchCategory
+GetSearchCategories
 
 ### Example
 
@@ -2286,7 +2286,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.PostWbGetSearchCategories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PostWbGetSearchCategories`: []SearchCategory
+    // response from `PostWbGetSearchCategories`: SearchCategories
     fmt.Fprintf(os.Stdout, "Response from `WbApi.PostWbGetSearchCategories`: %v\n", resp)
 }
 ```
@@ -2309,7 +2309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]SearchCategory**](SearchCategory.md)
+[**SearchCategories**](SearchCategories.md)
 
 ### Authorization
 

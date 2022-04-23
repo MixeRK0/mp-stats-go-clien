@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// InlineObject 
+// InlineObject struct for InlineObject
 type InlineObject struct {
 	Tpls string `json:"tpls"`
 }

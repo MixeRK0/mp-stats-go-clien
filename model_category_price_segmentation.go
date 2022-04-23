@@ -21,7 +21,7 @@ type CategoryPriceSegmentation struct {
 	// Число товаров в диапазоне
 	Items float32 `json:"items"`
 	// Число товаров с продажами в диапазоне
-	ItemsWithSells *float32 `json:"items_with_sells,omitempty"`
+	ItemsWithSells float32 `json:"items_with_sells"`
 	// Число брендов в диапазоне
 	Brands float32 `json:"brands"`
 	// Число брендов в диапазоне с продажами больше 0
@@ -41,19 +41,20 @@ type CategoryPriceSegmentation struct {
 	// Цена в диапазоне до
 	MaxRangePrice float32 `json:"max_range_price"`
 	// Упущенная выручка
-	LostProfit *float32 `json:"lost_profit,omitempty"`
+	LostProfit float32 `json:"lost_profit"`
 	// Процент упущенной выручка
-	LostProfitPercent *float32 `json:"lost_profit_percent,omitempty"`
+	LostProfitPercent float32 `json:"lost_profit_percent"`
 }
 
 // NewCategoryPriceSegmentation instantiates a new CategoryPriceSegmentation object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryPriceSegmentation(range_ string, items float32, brands float32, brandsWithSells float32, sellers float32, sellersWithSells float32, revenue float32, sales float32, productRevenue float32, minRangePrice float32, maxRangePrice float32) *CategoryPriceSegmentation {
+func NewCategoryPriceSegmentation(range_ string, items float32, itemsWithSells float32, brands float32, brandsWithSells float32, sellers float32, sellersWithSells float32, revenue float32, sales float32, productRevenue float32, minRangePrice float32, maxRangePrice float32, lostProfit float32, lostProfitPercent float32) *CategoryPriceSegmentation {
 	this := CategoryPriceSegmentation{}
 	this.Range = range_
 	this.Items = items
+	this.ItemsWithSells = itemsWithSells
 	this.Brands = brands
 	this.BrandsWithSells = brandsWithSells
 	this.Sellers = sellers
@@ -63,6 +64,8 @@ func NewCategoryPriceSegmentation(range_ string, items float32, brands float32, 
 	this.ProductRevenue = productRevenue
 	this.MinRangePrice = minRangePrice
 	this.MaxRangePrice = maxRangePrice
+	this.LostProfit = lostProfit
+	this.LostProfitPercent = lostProfitPercent
 	return &this
 }
 
@@ -122,36 +125,28 @@ func (o *CategoryPriceSegmentation) SetItems(v float32) {
 	o.Items = v
 }
 
-// GetItemsWithSells returns the ItemsWithSells field value if set, zero value otherwise.
+// GetItemsWithSells returns the ItemsWithSells field value
 func (o *CategoryPriceSegmentation) GetItemsWithSells() float32 {
-	if o == nil || o.ItemsWithSells == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ItemsWithSells
+
+	return o.ItemsWithSells
 }
 
-// GetItemsWithSellsOk returns a tuple with the ItemsWithSells field value if set, nil otherwise
+// GetItemsWithSellsOk returns a tuple with the ItemsWithSells field value
 // and a boolean to check if the value has been set.
 func (o *CategoryPriceSegmentation) GetItemsWithSellsOk() (*float32, bool) {
-	if o == nil || o.ItemsWithSells == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ItemsWithSells, true
+	return &o.ItemsWithSells, true
 }
 
-// HasItemsWithSells returns a boolean if a field has been set.
-func (o *CategoryPriceSegmentation) HasItemsWithSells() bool {
-	if o != nil && o.ItemsWithSells != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItemsWithSells gets a reference to the given float32 and assigns it to the ItemsWithSells field.
+// SetItemsWithSells sets field value
 func (o *CategoryPriceSegmentation) SetItemsWithSells(v float32) {
-	o.ItemsWithSells = &v
+	o.ItemsWithSells = v
 }
 
 // GetBrands returns the Brands field value
@@ -370,68 +365,52 @@ func (o *CategoryPriceSegmentation) SetMaxRangePrice(v float32) {
 	o.MaxRangePrice = v
 }
 
-// GetLostProfit returns the LostProfit field value if set, zero value otherwise.
+// GetLostProfit returns the LostProfit field value
 func (o *CategoryPriceSegmentation) GetLostProfit() float32 {
-	if o == nil || o.LostProfit == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LostProfit
+
+	return o.LostProfit
 }
 
-// GetLostProfitOk returns a tuple with the LostProfit field value if set, nil otherwise
+// GetLostProfitOk returns a tuple with the LostProfit field value
 // and a boolean to check if the value has been set.
 func (o *CategoryPriceSegmentation) GetLostProfitOk() (*float32, bool) {
-	if o == nil || o.LostProfit == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.LostProfit, true
+	return &o.LostProfit, true
 }
 
-// HasLostProfit returns a boolean if a field has been set.
-func (o *CategoryPriceSegmentation) HasLostProfit() bool {
-	if o != nil && o.LostProfit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLostProfit gets a reference to the given float32 and assigns it to the LostProfit field.
+// SetLostProfit sets field value
 func (o *CategoryPriceSegmentation) SetLostProfit(v float32) {
-	o.LostProfit = &v
+	o.LostProfit = v
 }
 
-// GetLostProfitPercent returns the LostProfitPercent field value if set, zero value otherwise.
+// GetLostProfitPercent returns the LostProfitPercent field value
 func (o *CategoryPriceSegmentation) GetLostProfitPercent() float32 {
-	if o == nil || o.LostProfitPercent == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LostProfitPercent
+
+	return o.LostProfitPercent
 }
 
-// GetLostProfitPercentOk returns a tuple with the LostProfitPercent field value if set, nil otherwise
+// GetLostProfitPercentOk returns a tuple with the LostProfitPercent field value
 // and a boolean to check if the value has been set.
 func (o *CategoryPriceSegmentation) GetLostProfitPercentOk() (*float32, bool) {
-	if o == nil || o.LostProfitPercent == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.LostProfitPercent, true
+	return &o.LostProfitPercent, true
 }
 
-// HasLostProfitPercent returns a boolean if a field has been set.
-func (o *CategoryPriceSegmentation) HasLostProfitPercent() bool {
-	if o != nil && o.LostProfitPercent != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLostProfitPercent gets a reference to the given float32 and assigns it to the LostProfitPercent field.
+// SetLostProfitPercent sets field value
 func (o *CategoryPriceSegmentation) SetLostProfitPercent(v float32) {
-	o.LostProfitPercent = &v
+	o.LostProfitPercent = v
 }
 
 func (o CategoryPriceSegmentation) MarshalJSON() ([]byte, error) {
@@ -442,7 +421,7 @@ func (o CategoryPriceSegmentation) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["items"] = o.Items
 	}
-	if o.ItemsWithSells != nil {
+	if true {
 		toSerialize["items_with_sells"] = o.ItemsWithSells
 	}
 	if true {
@@ -472,10 +451,10 @@ func (o CategoryPriceSegmentation) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["max_range_price"] = o.MaxRangePrice
 	}
-	if o.LostProfit != nil {
+	if true {
 		toSerialize["lost_profit"] = o.LostProfit
 	}
-	if o.LostProfitPercent != nil {
+	if true {
 		toSerialize["lost_profit_percent"] = o.LostProfitPercent
 	}
 	return json.Marshal(toSerialize)

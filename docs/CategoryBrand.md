@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **Items** | **int32** | Число товаров | 
 **ItemsWithSells** | **int32** | Число товаров с продажами | 
 **ItemsWithSellsPercent** | **float32** | Число товаров с продажами в процентах | 
-**Sellers** | Pointer to **int32** | Число продавцов | [optional] 
-**SellersWithSells** | Pointer to **int32** | Число продавцов с продажами | [optional] 
-**SellersWithSellsPercent** | Pointer to **int32** | Число продавцов с продажами в процентах | [optional] 
+**Sellers** | **int32** | Число продавцов | 
+**SellersWithSells** | **int32** | Число продавцов с продажами | 
+**SellersWithSellsPercent** | **int32** | Число продавцов с продажами в процентах | 
 **Sales** | **int32** | Число зафиксированных продаж (единицы) | 
 **Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
 **SalesPerItemsAverage** | **float32** | Среднее количество продаж на товарную позицию | 
 **SalesPerItemsWithSellsAverage** | **float32** | Среднее количество продаж на товарную позицию с продажами | 
-**RevenuePerItemsAverage** | Pointer to **float32** | Средняя выручка за товар | [optional] 
-**RevenuePerItemsWithSellsAverage** | Pointer to **float32** | Средняя выручка за товар с продажами | [optional] 
+**RevenuePerItemsAverage** | **float32** | Средняя выручка за товар | 
+**RevenuePerItemsWithSellsAverage** | **float32** | Средняя выручка за товар с продажами | 
 **Name** | **string** | Название бренда | 
 **Balance** | **string** | Баланс | 
 **AvgPrice** | **float32** | Средняя стоимость товара | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCategoryBrand
 
-`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32, ) *CategoryBrand`
+`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent int32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32, ) *CategoryBrand`
 
 NewCategoryBrand instantiates a new CategoryBrand object
 This constructor will assign default values to properties that have it defined,
@@ -143,11 +143,6 @@ and a boolean to check if the value has been set.
 
 SetSellers sets Sellers field to given value.
 
-### HasSellers
-
-`func (o *CategoryBrand) HasSellers() bool`
-
-HasSellers returns a boolean if a field has been set.
 
 ### GetSellersWithSells
 
@@ -168,11 +163,6 @@ and a boolean to check if the value has been set.
 
 SetSellersWithSells sets SellersWithSells field to given value.
 
-### HasSellersWithSells
-
-`func (o *CategoryBrand) HasSellersWithSells() bool`
-
-HasSellersWithSells returns a boolean if a field has been set.
 
 ### GetSellersWithSellsPercent
 
@@ -193,11 +183,6 @@ and a boolean to check if the value has been set.
 
 SetSellersWithSellsPercent sets SellersWithSellsPercent field to given value.
 
-### HasSellersWithSellsPercent
-
-`func (o *CategoryBrand) HasSellersWithSellsPercent() bool`
-
-HasSellersWithSellsPercent returns a boolean if a field has been set.
 
 ### GetSales
 
@@ -298,11 +283,6 @@ and a boolean to check if the value has been set.
 
 SetRevenuePerItemsAverage sets RevenuePerItemsAverage field to given value.
 
-### HasRevenuePerItemsAverage
-
-`func (o *CategoryBrand) HasRevenuePerItemsAverage() bool`
-
-HasRevenuePerItemsAverage returns a boolean if a field has been set.
 
 ### GetRevenuePerItemsWithSellsAverage
 
@@ -323,11 +303,6 @@ and a boolean to check if the value has been set.
 
 SetRevenuePerItemsWithSellsAverage sets RevenuePerItemsWithSellsAverage field to given value.
 
-### HasRevenuePerItemsWithSellsAverage
-
-`func (o *CategoryBrand) HasRevenuePerItemsWithSellsAverage() bool`
-
-HasRevenuePerItemsWithSellsAverage returns a boolean if a field has been set.
 
 ### GetName
 

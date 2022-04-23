@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Range** | **string** | Диапазон цен | 
 **Items** | **float32** | Число товаров в диапазоне | 
-**ItemsWithSells** | Pointer to **float32** | Число товаров с продажами в диапазоне | [optional] 
+**ItemsWithSells** | **float32** | Число товаров с продажами в диапазоне | 
 **Brands** | **float32** | Число брендов в диапазоне | 
 **BrandsWithSells** | **float32** | Число брендов в диапазоне с продажами больше 0 | 
 **Sellers** | **float32** | Число продавцов в диапазоне | 
@@ -16,14 +16,14 @@ Name | Type | Description | Notes
 **ProductRevenue** | **float32** | Сумма выручки диапазона, разделенная на число товаров в нем | 
 **MinRangePrice** | **float32** | Цена в диапазоне от | 
 **MaxRangePrice** | **float32** | Цена в диапазоне до | 
-**LostProfit** | Pointer to **float32** | Упущенная выручка | [optional] 
-**LostProfitPercent** | Pointer to **float32** | Процент упущенной выручка | [optional] 
+**LostProfit** | **float32** | Упущенная выручка | 
+**LostProfitPercent** | **float32** | Процент упущенной выручка | 
 
 ## Methods
 
 ### NewCategoryPriceSegmentation
 
-`func NewCategoryPriceSegmentation(range_ string, items float32, brands float32, brandsWithSells float32, sellers float32, sellersWithSells float32, revenue float32, sales float32, productRevenue float32, minRangePrice float32, maxRangePrice float32, ) *CategoryPriceSegmentation`
+`func NewCategoryPriceSegmentation(range_ string, items float32, itemsWithSells float32, brands float32, brandsWithSells float32, sellers float32, sellersWithSells float32, revenue float32, sales float32, productRevenue float32, minRangePrice float32, maxRangePrice float32, lostProfit float32, lostProfitPercent float32, ) *CategoryPriceSegmentation`
 
 NewCategoryPriceSegmentation instantiates a new CategoryPriceSegmentation object
 This constructor will assign default values to properties that have it defined,
@@ -97,11 +97,6 @@ and a boolean to check if the value has been set.
 
 SetItemsWithSells sets ItemsWithSells field to given value.
 
-### HasItemsWithSells
-
-`func (o *CategoryPriceSegmentation) HasItemsWithSells() bool`
-
-HasItemsWithSells returns a boolean if a field has been set.
 
 ### GetBrands
 
@@ -302,11 +297,6 @@ and a boolean to check if the value has been set.
 
 SetLostProfit sets LostProfit field to given value.
 
-### HasLostProfit
-
-`func (o *CategoryPriceSegmentation) HasLostProfit() bool`
-
-HasLostProfit returns a boolean if a field has been set.
 
 ### GetLostProfitPercent
 
@@ -327,11 +317,6 @@ and a boolean to check if the value has been set.
 
 SetLostProfitPercent sets LostProfitPercent field to given value.
 
-### HasLostProfitPercent
-
-`func (o *CategoryPriceSegmentation) HasLostProfitPercent() bool`
-
-HasLostProfitPercent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1317,17 +1317,15 @@ paths:
           type: string
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/GetSearchCategory'
+        $ref: '#/components/requestBodies/GetSearchCategories'
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/SearchCategory'
-                type: array
+                $ref: '#/components/schemas/SearchCategories'
           description: Get search categories response
-      summary: GetSearchCategory
+      summary: GetSearchCategories
       tags:
       - wb
 components:
@@ -1428,7 +1426,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PostRequestBody'
-    GetSearchCategory:
+    GetSearchCategories:
       content:
         application/json:
           schema:
@@ -1646,9 +1644,7 @@ components:
       content:
         application/json:
           schema:
-            items:
-              $ref: '#/components/schemas/SearchCategory'
-            type: array
+            $ref: '#/components/schemas/SearchCategories'
       description: Get search categories response
     GetBrand:
       content:
@@ -1939,9 +1935,14 @@ components:
       - position
       - rating
       - revenue
+      - revenue_per_items_average
+      - revenue_per_items_with_sells_average
       - sales
       - sales_per_items_average
       - sales_per_items_with_sells_average
+      - sellers
+      - sellers_with_sells
+      - sellers_with_sells_percent
       type: object
     CategorySeller:
       description: ""
@@ -2145,6 +2146,9 @@ components:
       - brands
       - brands_with_sells
       - items
+      - items_with_sells
+      - lost_profit
+      - lost_profit_percent
       - max_range_price
       - min_range_price
       - product_revenue
@@ -3471,7 +3475,7 @@ components:
           - 627
           - 627
           - 627
-    SearchCategory:
+    SearchCategories:
       example:
         pivotCols:
         - 2

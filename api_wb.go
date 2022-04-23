@@ -4417,12 +4417,12 @@ func (r ApiPostWbGetSearchCategoriesRequest) TplsRequestBody(tplsRequestBody Tpl
 	return r
 }
 
-func (r ApiPostWbGetSearchCategoriesRequest) Execute() ([]SearchCategory, *http.Response, error) {
+func (r ApiPostWbGetSearchCategoriesRequest) Execute() (*SearchCategories, *http.Response, error) {
 	return r.ApiService.PostWbGetSearchCategoriesExecute(r)
 }
 
 /*
-PostWbGetSearchCategories GetSearchCategory
+PostWbGetSearchCategories GetSearchCategories
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostWbGetSearchCategoriesRequest
@@ -4435,13 +4435,13 @@ func (a *WbApiService) PostWbGetSearchCategories(ctx context.Context) ApiPostWbG
 }
 
 // Execute executes the request
-//  @return []SearchCategory
-func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCategoriesRequest) ([]SearchCategory, *http.Response, error) {
+//  @return SearchCategories
+func (a *WbApiService) PostWbGetSearchCategoriesExecute(r ApiPostWbGetSearchCategoriesRequest) (*SearchCategories, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []SearchCategory
+		localVarReturnValue  *SearchCategories
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.PostWbGetSearchCategories")
