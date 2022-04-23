@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Name** | **string** | Наименование категории | 
 **Items** | **int32** | Число товаров | 
 **ItemsWithSells** | **int32** | Число товаров с продажами | 
-**ItemsWithSellsPercent** | **int32** | Процент товаров с продажами | 
+**ItemsWithSellsPercent** | **float32** | Процент товаров с продажами | 
 **Sellers** | **int32** | Число продавцов | 
 **SellersWithSells** | **int32** | Число продавцов с продажами | 
-**SellersWithSellsPercent** | **int32** | Процент продавцов с продажами | 
+**SellersWithSellsPercent** | **float32** | Процент продавцов с продажами | 
 **SalesPerItemsAverage** | **float32** | Среднее количество продаж на товар | 
 **SalesPerItemsWithSellsAverage** | **float32** | Среднее количество продаж на товар с продажами | 
 **Sales** | **int32** | Число продаж | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewSearchCategoriesElement
 
-`func NewSearchCategoriesElement(name string, items int32, itemsWithSells int32, itemsWithSellsPercent int32, sellers int32, sellersWithSells int32, sellersWithSellsPercent int32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, sales int32, revenue int32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, avgPrice float32, comments float32, rating float32, ) *SearchCategoriesElement`
+`func NewSearchCategoriesElement(name string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, sales int32, revenue int32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, avgPrice float32, comments float32, rating float32, ) *SearchCategoriesElement`
 
 NewSearchCategoriesElement instantiates a new SearchCategoriesElement object
 This constructor will assign default values to properties that have it defined,
@@ -102,20 +102,20 @@ SetItemsWithSells sets ItemsWithSells field to given value.
 
 ### GetItemsWithSellsPercent
 
-`func (o *SearchCategoriesElement) GetItemsWithSellsPercent() int32`
+`func (o *SearchCategoriesElement) GetItemsWithSellsPercent() float32`
 
 GetItemsWithSellsPercent returns the ItemsWithSellsPercent field if non-nil, zero value otherwise.
 
 ### GetItemsWithSellsPercentOk
 
-`func (o *SearchCategoriesElement) GetItemsWithSellsPercentOk() (*int32, bool)`
+`func (o *SearchCategoriesElement) GetItemsWithSellsPercentOk() (*float32, bool)`
 
 GetItemsWithSellsPercentOk returns a tuple with the ItemsWithSellsPercent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemsWithSellsPercent
 
-`func (o *SearchCategoriesElement) SetItemsWithSellsPercent(v int32)`
+`func (o *SearchCategoriesElement) SetItemsWithSellsPercent(v float32)`
 
 SetItemsWithSellsPercent sets ItemsWithSellsPercent field to given value.
 
@@ -162,20 +162,20 @@ SetSellersWithSells sets SellersWithSells field to given value.
 
 ### GetSellersWithSellsPercent
 
-`func (o *SearchCategoriesElement) GetSellersWithSellsPercent() int32`
+`func (o *SearchCategoriesElement) GetSellersWithSellsPercent() float32`
 
 GetSellersWithSellsPercent returns the SellersWithSellsPercent field if non-nil, zero value otherwise.
 
 ### GetSellersWithSellsPercentOk
 
-`func (o *SearchCategoriesElement) GetSellersWithSellsPercentOk() (*int32, bool)`
+`func (o *SearchCategoriesElement) GetSellersWithSellsPercentOk() (*float32, bool)`
 
 GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSellersWithSellsPercent
 
-`func (o *SearchCategoriesElement) SetSellersWithSellsPercent(v int32)`
+`func (o *SearchCategoriesElement) SetSellersWithSellsPercent(v float32)`
 
 SetSellersWithSellsPercent sets SellersWithSellsPercent field to given value.
 

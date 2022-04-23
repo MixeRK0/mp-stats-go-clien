@@ -23,13 +23,13 @@ type SearchCategoriesElement struct {
 	// Число товаров с продажами
 	ItemsWithSells int32 `json:"items_with_sells"`
 	// Процент товаров с продажами
-	ItemsWithSellsPercent int32 `json:"items_with_sells_percent"`
+	ItemsWithSellsPercent float32 `json:"items_with_sells_percent"`
 	// Число продавцов
 	Sellers int32 `json:"sellers"`
 	// Число продавцов с продажами
 	SellersWithSells int32 `json:"sellers_with_sells"`
 	// Процент продавцов с продажами
-	SellersWithSellsPercent int32 `json:"sellers_with_sells_percent"`
+	SellersWithSellsPercent float32 `json:"sellers_with_sells_percent"`
 	// Среднее количество продаж на товар
 	SalesPerItemsAverage float32 `json:"sales_per_items_average"`
 	// Среднее количество продаж на товар с продажами
@@ -54,7 +54,7 @@ type SearchCategoriesElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchCategoriesElement(name string, items int32, itemsWithSells int32, itemsWithSellsPercent int32, sellers int32, sellersWithSells int32, sellersWithSellsPercent int32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, sales int32, revenue int32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, avgPrice float32, comments float32, rating float32) *SearchCategoriesElement {
+func NewSearchCategoriesElement(name string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, sales int32, revenue int32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, avgPrice float32, comments float32, rating float32) *SearchCategoriesElement {
 	this := SearchCategoriesElement{}
 	this.Name = name
 	this.Items = items
@@ -156,9 +156,9 @@ func (o *SearchCategoriesElement) SetItemsWithSells(v int32) {
 }
 
 // GetItemsWithSellsPercent returns the ItemsWithSellsPercent field value
-func (o *SearchCategoriesElement) GetItemsWithSellsPercent() int32 {
+func (o *SearchCategoriesElement) GetItemsWithSellsPercent() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -167,7 +167,7 @@ func (o *SearchCategoriesElement) GetItemsWithSellsPercent() int32 {
 
 // GetItemsWithSellsPercentOk returns a tuple with the ItemsWithSellsPercent field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategoriesElement) GetItemsWithSellsPercentOk() (*int32, bool) {
+func (o *SearchCategoriesElement) GetItemsWithSellsPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -175,7 +175,7 @@ func (o *SearchCategoriesElement) GetItemsWithSellsPercentOk() (*int32, bool) {
 }
 
 // SetItemsWithSellsPercent sets field value
-func (o *SearchCategoriesElement) SetItemsWithSellsPercent(v int32) {
+func (o *SearchCategoriesElement) SetItemsWithSellsPercent(v float32) {
 	o.ItemsWithSellsPercent = v
 }
 
@@ -228,9 +228,9 @@ func (o *SearchCategoriesElement) SetSellersWithSells(v int32) {
 }
 
 // GetSellersWithSellsPercent returns the SellersWithSellsPercent field value
-func (o *SearchCategoriesElement) GetSellersWithSellsPercent() int32 {
+func (o *SearchCategoriesElement) GetSellersWithSellsPercent() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -239,7 +239,7 @@ func (o *SearchCategoriesElement) GetSellersWithSellsPercent() int32 {
 
 // GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field value
 // and a boolean to check if the value has been set.
-func (o *SearchCategoriesElement) GetSellersWithSellsPercentOk() (*int32, bool) {
+func (o *SearchCategoriesElement) GetSellersWithSellsPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -247,7 +247,7 @@ func (o *SearchCategoriesElement) GetSellersWithSellsPercentOk() (*int32, bool) 
 }
 
 // SetSellersWithSellsPercent sets field value
-func (o *SearchCategoriesElement) SetSellersWithSellsPercent(v int32) {
+func (o *SearchCategoriesElement) SetSellersWithSellsPercent(v float32) {
 	o.SellersWithSellsPercent = v
 }
 

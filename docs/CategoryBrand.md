@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ItemsWithSellsPercent** | **float32** | Число товаров с продажами в процентах | 
 **Sellers** | **int32** | Число продавцов | 
 **SellersWithSells** | **int32** | Число продавцов с продажами | 
-**SellersWithSellsPercent** | **int32** | Число продавцов с продажами в процентах | 
+**SellersWithSellsPercent** | **float32** | Число продавцов с продажами в процентах | 
 **Sales** | **int32** | Число зафиксированных продаж (единицы) | 
 **Revenue** | **float32** | Сумма произведений числа проданных товаров на их стоимость | 
 **SalesPerItemsAverage** | **float32** | Среднее количество продаж на товарную позицию | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCategoryBrand
 
-`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent int32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32, ) *CategoryBrand`
+`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32, ) *CategoryBrand`
 
 NewCategoryBrand instantiates a new CategoryBrand object
 This constructor will assign default values to properties that have it defined,
@@ -166,20 +166,20 @@ SetSellersWithSells sets SellersWithSells field to given value.
 
 ### GetSellersWithSellsPercent
 
-`func (o *CategoryBrand) GetSellersWithSellsPercent() int32`
+`func (o *CategoryBrand) GetSellersWithSellsPercent() float32`
 
 GetSellersWithSellsPercent returns the SellersWithSellsPercent field if non-nil, zero value otherwise.
 
 ### GetSellersWithSellsPercentOk
 
-`func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*int32, bool)`
+`func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*float32, bool)`
 
 GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSellersWithSellsPercent
 
-`func (o *CategoryBrand) SetSellersWithSellsPercent(v int32)`
+`func (o *CategoryBrand) SetSellersWithSellsPercent(v float32)`
 
 SetSellersWithSellsPercent sets SellersWithSellsPercent field to given value.
 

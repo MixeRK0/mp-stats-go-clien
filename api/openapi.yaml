@@ -1904,7 +1904,7 @@ components:
         graph:
         - 7
         - 7
-        sellers_with_sells_percent: 2
+        sellers_with_sells_percent: 2.3021358869347655
         sales_per_items_with_sells_average: 2.027123023002322
         revenue_per_items_with_sells_average: 7.386281948385884
         revenue: 9.301444243932576
@@ -1937,7 +1937,7 @@ components:
           type: integer
         sellers_with_sells_percent:
           description: Число продавцов с продажами в процентах
-          type: integer
+          type: number
         sales:
           description: Число зафиксированных продаж (единицы)
           type: integer
@@ -3872,7 +3872,7 @@ components:
         avg_price: 1.2315135367772556
         revenue_per_items_average: 4.145608029883936
         sales: 3
-        sellers_with_sells_percent: 2
+        sellers_with_sells_percent: 2.3021358869347655
         sales_per_items_with_sells_average: 9.301444243932576
         revenue_per_items_with_sells_average: 7.386281948385884
         revenue: 2
@@ -3880,7 +3880,7 @@ components:
         items_with_sells: 6
         items: 0
         sellers: 5
-        items_with_sells_percent: 1
+        items_with_sells_percent: 1.4658129805029452
       properties:
         name:
           description: Наименование категории
@@ -3893,7 +3893,7 @@ components:
           type: integer
         items_with_sells_percent:
           description: Процент товаров с продажами
-          type: integer
+          type: number
         sellers:
           description: Число продавцов
           type: integer
@@ -3902,7 +3902,7 @@ components:
           type: integer
         sellers_with_sells_percent:
           description: Процент продавцов с продажами
-          type: integer
+          type: number
         sales_per_items_average:
           description: Среднее количество продаж на товар
           type: number

@@ -29,7 +29,7 @@ type CategoryBrand struct {
 	// Число продавцов с продажами
 	SellersWithSells int32 `json:"sellers_with_sells"`
 	// Число продавцов с продажами в процентах
-	SellersWithSellsPercent int32 `json:"sellers_with_sells_percent"`
+	SellersWithSellsPercent float32 `json:"sellers_with_sells_percent"`
 	// Число зафиксированных продаж (единицы)
 	Sales int32 `json:"sales"`
 	// Сумма произведений числа проданных товаров на их стоимость
@@ -62,7 +62,7 @@ type CategoryBrand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent int32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32) *CategoryBrand {
+func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []int32) *CategoryBrand {
 	this := CategoryBrand{}
 	this.Brand = brand
 	this.Items = items
@@ -240,9 +240,9 @@ func (o *CategoryBrand) SetSellersWithSells(v int32) {
 }
 
 // GetSellersWithSellsPercent returns the SellersWithSellsPercent field value
-func (o *CategoryBrand) GetSellersWithSellsPercent() int32 {
+func (o *CategoryBrand) GetSellersWithSellsPercent() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -251,7 +251,7 @@ func (o *CategoryBrand) GetSellersWithSellsPercent() int32 {
 
 // GetSellersWithSellsPercentOk returns a tuple with the SellersWithSellsPercent field value
 // and a boolean to check if the value has been set.
-func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*int32, bool) {
+func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -259,7 +259,7 @@ func (o *CategoryBrand) GetSellersWithSellsPercentOk() (*int32, bool) {
 }
 
 // SetSellersWithSellsPercent sets field value
-func (o *CategoryBrand) SetSellersWithSellsPercent(v int32) {
+func (o *CategoryBrand) SetSellersWithSellsPercent(v float32) {
 	o.SellersWithSellsPercent = v
 }
 
