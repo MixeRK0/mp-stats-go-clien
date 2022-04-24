@@ -23,7 +23,7 @@ type SearchItemsElement struct {
 	SupplierId int32 `json:"supplier_id"`
 	Category string `json:"category"`
 	CategoryPosition int32 `json:"category_position"`
-	PosData string `json:"pos_data"`
+	PosData interface{} `json:"pos_data"`
 	Color string `json:"color"`
 	Balance int32 `json:"balance"`
 	BalanceFbs int32 `json:"balance_fbs"`
@@ -74,7 +74,7 @@ type SearchItemsElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}) *SearchItemsElement {
+func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}) *SearchItemsElement {
 	this := SearchItemsElement{}
 	this.Id = id
 	this.Name = name
@@ -308,9 +308,10 @@ func (o *SearchItemsElement) SetCategoryPosition(v int32) {
 }
 
 // GetPosData returns the PosData field value
-func (o *SearchItemsElement) GetPosData() string {
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *SearchItemsElement) GetPosData() interface{} {
 	if o == nil {
-		var ret string
+		var ret interface{}
 		return ret
 	}
 
@@ -319,15 +320,16 @@ func (o *SearchItemsElement) GetPosData() string {
 
 // GetPosDataOk returns a tuple with the PosData field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPosDataOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchItemsElement) GetPosDataOk() (*interface{}, bool) {
+	if o == nil || o.PosData == nil {
 		return nil, false
 	}
 	return &o.PosData, true
 }
 
 // SetPosData sets field value
-func (o *SearchItemsElement) SetPosData(v string) {
+func (o *SearchItemsElement) SetPosData(v interface{}) {
 	o.PosData = v
 }
 
@@ -1410,7 +1412,7 @@ func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["category_position"] = o.CategoryPosition
 	}
-	if true {
+	if o.PosData != nil {
 		toSerialize["pos_data"] = o.PosData
 	}
 	if true {

@@ -3292,7 +3292,7 @@ components:
           color: color
           gender: gender
           thumb: thumb
-          pos_data: pos_data
+          pos_data: ""
           has3d: 7
           final_price: 1
           cardratingval: 6
@@ -3352,7 +3352,7 @@ components:
           color: color
           gender: gender
           thumb: thumb
-          pos_data: pos_data
+          pos_data: ""
           has3d: 7
           final_price: 1
           cardratingval: 6
@@ -3489,7 +3489,7 @@ components:
         color: color
         gender: gender
         thumb: thumb
-        pos_data: pos_data
+        pos_data: ""
         has3d: 7
         final_price: 1
         cardratingval: 6
@@ -3527,8 +3527,7 @@ components:
           type: string
         category_position:
           type: integer
-        pos_data:
-          type: string
+        pos_data: {}
         color:
           type: string
         balance:

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **SupplierId** | **int32** |  | 
 **Category** | **string** |  | 
 **CategoryPosition** | **int32** |  | 
-**PosData** | **string** |  | 
+**PosData** | **interface{}** |  | 
 **Color** | **string** |  | 
 **Balance** | **int32** |  | 
 **BalanceFbs** | **int32** |  | 
@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 
 ### NewSearchItemsElement
 
-`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData string, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}, ) *SearchItemsElement`
+`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}, ) *SearchItemsElement`
 
 NewSearchItemsElement instantiates a new SearchItemsElement object
 This constructor will assign default values to properties that have it defined,
@@ -218,24 +218,34 @@ SetCategoryPosition sets CategoryPosition field to given value.
 
 ### GetPosData
 
-`func (o *SearchItemsElement) GetPosData() string`
+`func (o *SearchItemsElement) GetPosData() interface{}`
 
 GetPosData returns the PosData field if non-nil, zero value otherwise.
 
 ### GetPosDataOk
 
-`func (o *SearchItemsElement) GetPosDataOk() (*string, bool)`
+`func (o *SearchItemsElement) GetPosDataOk() (*interface{}, bool)`
 
 GetPosDataOk returns a tuple with the PosData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPosData
 
-`func (o *SearchItemsElement) SetPosData(v string)`
+`func (o *SearchItemsElement) SetPosData(v interface{})`
 
 SetPosData sets PosData field to given value.
 
 
+### SetPosDataNil
+
+`func (o *SearchItemsElement) SetPosDataNil(b bool)`
+
+ SetPosDataNil sets the value for PosData to be an explicit nil
+
+### UnsetPosData
+`func (o *SearchItemsElement) UnsetPosData()`
+
+UnsetPosData ensures that no value is present for PosData, not even an explicit nil
 ### GetColor
 
 `func (o *SearchItemsElement) GetColor() string`
