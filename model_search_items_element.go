@@ -63,7 +63,7 @@ type SearchItemsElement struct {
 	Commentsvaluation float32 `json:"commentsvaluation"`
 	Cardratingval int32 `json:"cardratingval"`
 	Position int32 `json:"position"`
-	CategoriesLastCount string `json:"categories_last_count"`
+	CategoriesLastCount interface{} `json:"categories_last_count"`
 	Graph []interface{} `json:"graph"`
 	CategoryGraph []interface{} `json:"category_graph"`
 	StocksGraph []interface{} `json:"stocks_graph"`
@@ -74,7 +74,7 @@ type SearchItemsElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}) *SearchItemsElement {
+func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}) *SearchItemsElement {
 	this := SearchItemsElement{}
 	this.Id = id
 	this.Name = name
@@ -1270,9 +1270,10 @@ func (o *SearchItemsElement) SetPosition(v int32) {
 }
 
 // GetCategoriesLastCount returns the CategoriesLastCount field value
-func (o *SearchItemsElement) GetCategoriesLastCount() string {
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *SearchItemsElement) GetCategoriesLastCount() interface{} {
 	if o == nil {
-		var ret string
+		var ret interface{}
 		return ret
 	}
 
@@ -1281,15 +1282,16 @@ func (o *SearchItemsElement) GetCategoriesLastCount() string {
 
 // GetCategoriesLastCountOk returns a tuple with the CategoriesLastCount field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoriesLastCountOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchItemsElement) GetCategoriesLastCountOk() (*interface{}, bool) {
+	if o == nil || o.CategoriesLastCount == nil {
 		return nil, false
 	}
 	return &o.CategoriesLastCount, true
 }
 
 // SetCategoriesLastCount sets field value
-func (o *SearchItemsElement) SetCategoriesLastCount(v string) {
+func (o *SearchItemsElement) SetCategoriesLastCount(v interface{}) {
 	o.CategoriesLastCount = v
 }
 
@@ -1532,7 +1534,7 @@ func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["position"] = o.Position
 	}
-	if true {
+	if o.CategoriesLastCount != nil {
 		toSerialize["categories_last_count"] = o.CategoriesLastCount
 	}
 	if true {

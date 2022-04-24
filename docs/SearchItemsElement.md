@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **Commentsvaluation** | **float32** |  | 
 **Cardratingval** | **int32** |  | 
 **Position** | **int32** |  | 
-**CategoriesLastCount** | **string** |  | 
+**CategoriesLastCount** | **interface{}** |  | 
 **Graph** | **[]interface{}** |  | 
 **CategoryGraph** | **[]interface{}** |  | 
 **StocksGraph** | **[]interface{}** |  | 
@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 
 ### NewSearchItemsElement
 
-`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}, ) *SearchItemsElement`
+`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}, ) *SearchItemsElement`
 
 NewSearchItemsElement instantiates a new SearchItemsElement object
 This constructor will assign default values to properties that have it defined,
@@ -1028,24 +1028,34 @@ SetPosition sets Position field to given value.
 
 ### GetCategoriesLastCount
 
-`func (o *SearchItemsElement) GetCategoriesLastCount() string`
+`func (o *SearchItemsElement) GetCategoriesLastCount() interface{}`
 
 GetCategoriesLastCount returns the CategoriesLastCount field if non-nil, zero value otherwise.
 
 ### GetCategoriesLastCountOk
 
-`func (o *SearchItemsElement) GetCategoriesLastCountOk() (*string, bool)`
+`func (o *SearchItemsElement) GetCategoriesLastCountOk() (*interface{}, bool)`
 
 GetCategoriesLastCountOk returns a tuple with the CategoriesLastCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategoriesLastCount
 
-`func (o *SearchItemsElement) SetCategoriesLastCount(v string)`
+`func (o *SearchItemsElement) SetCategoriesLastCount(v interface{})`
 
 SetCategoriesLastCount sets CategoriesLastCount field to given value.
 
 
+### SetCategoriesLastCountNil
+
+`func (o *SearchItemsElement) SetCategoriesLastCountNil(b bool)`
+
+ SetCategoriesLastCountNil sets the value for CategoriesLastCount to be an explicit nil
+
+### UnsetCategoriesLastCount
+`func (o *SearchItemsElement) UnsetCategoriesLastCount()`
+
+UnsetCategoriesLastCount ensures that no value is present for CategoriesLastCount, not even an explicit nil
 ### GetGraph
 
 `func (o *SearchItemsElement) GetGraph() []interface{}`

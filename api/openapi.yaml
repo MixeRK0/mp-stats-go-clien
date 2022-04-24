@@ -3274,7 +3274,7 @@ components:
           client_sale: 9
           start_price: 8
           thumb_middle: thumb_middle
-          categories_last_count: categories_last_count
+          categories_last_count: ""
           graph:
           - ""
           - ""
@@ -3334,7 +3334,7 @@ components:
           client_sale: 9
           start_price: 8
           thumb_middle: thumb_middle
-          categories_last_count: categories_last_count
+          categories_last_count: ""
           graph:
           - ""
           - ""
@@ -3471,7 +3471,7 @@ components:
         client_sale: 9
         start_price: 8
         thumb_middle: thumb_middle
-        categories_last_count: categories_last_count
+        categories_last_count: ""
         graph:
         - ""
         - ""
@@ -3606,8 +3606,7 @@ components:
           type: integer
         position:
           type: integer
-        categories_last_count:
-          type: string
+        categories_last_count: {}
         graph:
           items: {}
           type: array
