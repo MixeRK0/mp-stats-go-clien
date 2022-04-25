@@ -1289,6 +1289,7 @@ paths:
       - wb
   /wb/get/search/categories:
     post:
+      description: Search categories
       operationId: post-wb-get-search-categories
       parameters:
       - description: Дата начала периода
@@ -1331,7 +1332,7 @@ paths:
       - wb
   /wb/get/search:
     post:
-      description: ""
+      description: Search items
       operationId: post-wb-get-search-items
       parameters:
       - description: Дата начала периода
@@ -1449,17 +1450,17 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PostRequestBody'
+            $ref: '#/components/schemas/GetItemsRequestBody'
     GetBrand:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PostRequestBody'
+            $ref: '#/components/schemas/GetItemsRequestBody'
     GetSeller:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PostRequestBody'
+            $ref: '#/components/schemas/GetItemsRequestBody'
     GetItemsBatch:
       content:
         application/json:
@@ -1469,7 +1470,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PostRequestBody'
+            $ref: '#/components/schemas/GetItemsRequestBody'
     GetSearchItems:
       content:
         application/json:
@@ -2801,162 +2802,6 @@ components:
       - item
       - photos
       type: object
-    DetailedItem:
-      description: ""
-      example:
-        seller: seller
-        color: color
-        thumb: thumb
-        basic_price: 1.2315135367772556
-        days_with_sales: 6.683562403749608
-        rating: 2.3021358869347655
-        client_price: 6.84685269835264
-        days_in_stock: 9.369310271410669
-        sales: 1.1730742509559433
-        revenue: 4.965218492984954
-        balance: 5.637376656633329
-        final_price: 9.301444243932576
-        average_if_in_stock: 8.762042012749001
-        id: 5.962133916683182
-        brand: brand
-        lost_profit: 9.965781217890562
-        final_price_min: 2.027123023002322
-        client_sale: 1.4894159098541704
-        comments: 7.061401241503109
-        final_price_max: 3.616076749251911
-        promo_sale: 1.0246457001441578
-        start_price: 7.457744773683766
-        revenue_potential: 5.025004791520295
-        graph:
-        - 9.018348186070783
-        - 9.018348186070783
-        final_price_average: 4.145608029883936
-        name: name
-        basic_sale: 7.386281948385884
-        category: category
-      properties:
-        id:
-          description: Идентификатор товарной позиции
-          type: number
-        name:
-          description: Название товара
-          minLength: 1
-          type: string
-        brand:
-          description: Название бренда
-          minLength: 1
-          type: string
-        seller:
-          description: Название продавца
-          minLength: 1
-          type: string
-        category:
-          description: Категория товара
-          minLength: 1
-          type: string
-        color:
-          description: Цвет товара
-          type: string
-        balance:
-          description: Последний зафиксированный остаток на складе
-          type: number
-        rating:
-          description: Рейтинг товара
-          type: number
-        comments:
-          description: Количество комментариев
-          type: number
-        final_price:
-          description: Последняя зафиксированная цена
-          type: number
-        final_price_max:
-          description: Максимальная цена за период
-          type: number
-        final_price_min:
-          description: Минимальная цена за период
-          type: number
-        final_price_average:
-          description: Средняя цена за период (выручка / число продаж)
-          type: number
-        basic_sale:
-          description: Размер скидки
-          type: number
-        basic_price:
-          description: Цена после применения скидки
-          type: number
-        promo_sale:
-          description: Размер скидки по промокоду
-          type: number
-        client_sale:
-          description: Размер Скидки Постоянного Покупателя
-          type: number
-        client_price:
-          description: "Итоговая цена для посетителя, с учетом СПП"
-          type: number
-        start_price:
-          description: Цена без учета скидок
-          type: number
-        sales:
-          description: Количество проданных единиц товара за период
-          type: number
-        revenue:
-          description: Выручка за период
-          type: number
-        revenue_potential:
-          description: Потенциал выручки (выручка / число дней в наличии) * дней в
-            отчете
-          type: number
-        lost_profit:
-          description: Упущенная выручка (Потенциал - Выручка)
-          type: number
-        days_in_stock:
-          description: "Количество дней, когда товар был в наличии на конец дня"
-          type: number
-        days_with_sales:
-          description: "Количество дней, когда были продажи"
-          type: number
-        average_if_in_stock:
-          description: "Среднее число продаж, при наличии товара на конец дня"
-          type: number
-        thumb:
-          description: Изображение товара
-          type: string
-        graph:
-          description: График продаж
-          items:
-            type: number
-          type: array
-      required:
-      - average_if_in_stock
-      - balance
-      - basic_price
-      - basic_sale
-      - brand
-      - category
-      - client_price
-      - client_sale
-      - color
-      - comments
-      - days_in_stock
-      - days_with_sales
-      - final_price
-      - final_price_average
-      - final_price_max
-      - final_price_min
-      - graph
-      - id
-      - lost_profit
-      - name
-      - promo_sale
-      - rating
-      - revenue
-      - revenue_potential
-      - sales
-      - seller
-      - start_price
-      - thumb
-      title: ""
-      type: object
     ItemSale:
       description: ""
       example:
@@ -3179,38 +3024,6 @@ components:
       - thumb
       - thumb_middle
       type: object
-    PostRequestBody:
-      example:
-        sortModel:
-        - sort: sort
-          colId: colId
-        - sort: sort
-          colId: colId
-        startRow: 0
-        filterModel: ""
-        endRow: 6
-      properties:
-        startRow:
-          description: Номер строки начала получения данных
-          type: integer
-        endRow:
-          description: Номер строки конца получения данных
-          type: integer
-        filterModel:
-          description: ""
-          title: FilterModel
-        sortModel:
-          items:
-            $ref: '#/components/schemas/SortModelItem'
-          title: SortModel
-          type: array
-      required:
-      - endRow
-      - filterModel
-      - sortModel
-      - startRow
-      title: PostRequestBody
-      type: object
     GetItemsBatchRequestBody:
       example:
         ids:
@@ -3257,124 +3070,124 @@ components:
         data:
         - seller: seller
           country: country
-          hasvideo: 0
-          basic_price: 5
+          hasvideo: 6
+          basic_price: 6
           days_with_sales: 6
-          rating: 1
-          client_price: 6
-          is_fbs: 6
-          days_in_stock: 6
+          rating: 2
+          client_price: 4
+          is_fbs: 2
+          days_in_stock: 3
           sales: 9
-          revenue: 3
-          balance: 4
-          average_if_in_stock: 5.944895607614016
-          id: 9
+          revenue: 6
+          balance: 7
+          average_if_in_stock: 1.284659006116532
+          id: 5
           brand: brand
-          lost_profit: 1
-          client_sale: 9
-          start_price: 8
+          lost_profit: 9
+          client_sale: 1
+          start_price: 5
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
           - ""
           - ""
-          commentsvaluation: 7.058770351582356
+          commentsvaluation: 3.353193347011243
           name: name
-          basic_sale: 4
-          position: 0
+          basic_sale: 1
+          position: 7
           category_graph:
           - ""
           - ""
-          supplier_id: 3
-          sales_per_day_average: 6.438423552598547
-          picscount: 3
-          subject_id: 3
+          supplier_id: 5
+          sales_per_day_average: 9.369310271410669
+          picscount: 6
+          subject_id: 6
           color: color
           gender: gender
           thumb: thumb
           pos_data: ""
-          has3d: 7
-          final_price: 1
-          cardratingval: 6
-          final_price_min: 7
+          has3d: 5
+          final_price: 4
+          cardratingval: 3
+          final_price_min: 1
           price_graph:
           - ""
           - ""
-          comments: 1
-          final_price_max: 6
-          promo_sale: 9
+          comments: 3
+          final_price_max: 7
+          promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
           - ""
           - ""
-          revenue_potential: 6
+          revenue_potential: 8
           category_position: 2
           url: url
-          lost_profit_percent: 2.8841621266687802
-          final_price_average: 1.1730742509559433
+          lost_profit_percent: 6.438423552598547
+          final_price_average: 1.0246457001441578
           firstcommentdate: firstcommentdate
           category: category
-          balance_fbs: 7
+          balance_fbs: 9
         - seller: seller
           country: country
-          hasvideo: 0
-          basic_price: 5
+          hasvideo: 6
+          basic_price: 6
           days_with_sales: 6
-          rating: 1
-          client_price: 6
-          is_fbs: 6
-          days_in_stock: 6
+          rating: 2
+          client_price: 4
+          is_fbs: 2
+          days_in_stock: 3
           sales: 9
-          revenue: 3
-          balance: 4
-          average_if_in_stock: 5.944895607614016
-          id: 9
+          revenue: 6
+          balance: 7
+          average_if_in_stock: 1.284659006116532
+          id: 5
           brand: brand
-          lost_profit: 1
-          client_sale: 9
-          start_price: 8
+          lost_profit: 9
+          client_sale: 1
+          start_price: 5
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
           - ""
           - ""
-          commentsvaluation: 7.058770351582356
+          commentsvaluation: 3.353193347011243
           name: name
-          basic_sale: 4
-          position: 0
+          basic_sale: 1
+          position: 7
           category_graph:
           - ""
           - ""
-          supplier_id: 3
-          sales_per_day_average: 6.438423552598547
-          picscount: 3
-          subject_id: 3
+          supplier_id: 5
+          sales_per_day_average: 9.369310271410669
+          picscount: 6
+          subject_id: 6
           color: color
           gender: gender
           thumb: thumb
           pos_data: ""
-          has3d: 7
-          final_price: 1
-          cardratingval: 6
-          final_price_min: 7
+          has3d: 5
+          final_price: 4
+          cardratingval: 3
+          final_price_min: 1
           price_graph:
           - ""
           - ""
-          comments: 1
-          final_price_max: 6
-          promo_sale: 9
+          comments: 3
+          final_price_max: 7
+          promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
           - ""
           - ""
-          revenue_potential: 6
+          revenue_potential: 8
           category_position: 2
           url: url
-          lost_profit_percent: 2.8841621266687802
-          final_price_average: 1.1730742509559433
+          lost_profit_percent: 6.438423552598547
+          final_price_average: 1.0246457001441578
           firstcommentdate: firstcommentdate
           category: category
-          balance_fbs: 7
+          balance_fbs: 9
         filterModel: ""
         endRow: 1
         error: true
@@ -3454,64 +3267,64 @@ components:
       example:
         seller: seller
         country: country
-        hasvideo: 0
-        basic_price: 5
+        hasvideo: 6
+        basic_price: 6
         days_with_sales: 6
-        rating: 1
-        client_price: 6
-        is_fbs: 6
-        days_in_stock: 6
+        rating: 2
+        client_price: 4
+        is_fbs: 2
+        days_in_stock: 3
         sales: 9
-        revenue: 3
-        balance: 4
-        average_if_in_stock: 5.944895607614016
-        id: 9
+        revenue: 6
+        balance: 7
+        average_if_in_stock: 1.284659006116532
+        id: 5
         brand: brand
-        lost_profit: 1
-        client_sale: 9
-        start_price: 8
+        lost_profit: 9
+        client_sale: 1
+        start_price: 5
         thumb_middle: thumb_middle
         categories_last_count: ""
         graph:
         - ""
         - ""
-        commentsvaluation: 7.058770351582356
+        commentsvaluation: 3.353193347011243
         name: name
-        basic_sale: 4
-        position: 0
+        basic_sale: 1
+        position: 7
         category_graph:
         - ""
         - ""
-        supplier_id: 3
-        sales_per_day_average: 6.438423552598547
-        picscount: 3
-        subject_id: 3
+        supplier_id: 5
+        sales_per_day_average: 9.369310271410669
+        picscount: 6
+        subject_id: 6
         color: color
         gender: gender
         thumb: thumb
         pos_data: ""
-        has3d: 7
-        final_price: 1
-        cardratingval: 6
-        final_price_min: 7
+        has3d: 5
+        final_price: 4
+        cardratingval: 3
+        final_price_min: 1
         price_graph:
         - ""
         - ""
-        comments: 1
-        final_price_max: 6
-        promo_sale: 9
+        comments: 3
+        final_price_max: 7
+        promo_sale: 7
         sku_first_date: sku_first_date
         stocks_graph:
         - ""
         - ""
-        revenue_potential: 6
+        revenue_potential: 8
         category_position: 2
         url: url
-        lost_profit_percent: 2.8841621266687802
-        final_price_average: 1.1730742509559433
+        lost_profit_percent: 6.438423552598547
+        final_price_average: 1.0246457001441578
         firstcommentdate: firstcommentdate
         category: category
-        balance_fbs: 7
+        balance_fbs: 9
       properties:
         id:
           type: integer
@@ -4026,6 +3839,72 @@ components:
       - valueCols
       title: GetSearchItemsRequestBody
       type: object
+    GetItemsRequestBody:
+      example:
+        valueCols:
+        - valueCols
+        - valueCols
+        pivotCols:
+        - pivotCols
+        - pivotCols
+        sortModel:
+        - sort: sort
+          colId: colId
+        - sort: sort
+          colId: colId
+        startRow: 0
+        groupKeys:
+        - groupKeys
+        - groupKeys
+        filterModel: ""
+        rowGroupCols:
+        - rowGroupCols
+        - rowGroupCols
+        endRow: 6
+        pivotMode: true
+      properties:
+        startRow:
+          type: integer
+        endRow:
+          type: integer
+        filterModel:
+          description: ""
+          title: FilterModel
+        groupKeys:
+          items:
+            type: string
+          type: array
+        pivotCols:
+          items:
+            type: string
+          type: array
+        pivotMode:
+          type: boolean
+        rowGroupCols:
+          items:
+            type: string
+          type: array
+        sortModel:
+          items:
+            $ref: '#/components/schemas/SortModelItem'
+          title: SortModel
+          type: array
+        valueCols:
+          items:
+            type: string
+          type: array
+      required:
+      - endRow
+      - filterModel
+      - groupKeys
+      - pivotCols
+      - pivotMode
+      - rowGroupCols
+      - sortModel
+      - startRow
+      - valueCols
+      title: GetItemsRequestBody
+      type: object
     inline_response_200:
       example:
         sortModel:
@@ -4037,65 +3916,125 @@ components:
         startRow: 0
         data:
         - seller: seller
-          color: color
-          thumb: thumb
-          basic_price: 1.2315135367772556
-          days_with_sales: 6.683562403749608
-          rating: 2.3021358869347655
-          client_price: 6.84685269835264
-          days_in_stock: 9.369310271410669
-          sales: 1.1730742509559433
-          revenue: 4.965218492984954
-          balance: 5.637376656633329
-          final_price: 9.301444243932576
-          average_if_in_stock: 8.762042012749001
-          id: 5.962133916683182
+          country: country
+          hasvideo: 6
+          basic_price: 6
+          days_with_sales: 6
+          rating: 2
+          client_price: 4
+          is_fbs: 2
+          days_in_stock: 3
+          sales: 9
+          revenue: 6
+          balance: 7
+          average_if_in_stock: 1.284659006116532
+          id: 5
           brand: brand
-          lost_profit: 9.965781217890562
-          final_price_min: 2.027123023002322
-          client_sale: 1.4894159098541704
-          comments: 7.061401241503109
-          final_price_max: 3.616076749251911
-          promo_sale: 1.0246457001441578
-          start_price: 7.457744773683766
-          revenue_potential: 5.025004791520295
+          lost_profit: 9
+          client_sale: 1
+          start_price: 5
+          thumb_middle: thumb_middle
+          categories_last_count: ""
           graph:
-          - 9.018348186070783
-          - 9.018348186070783
-          final_price_average: 4.145608029883936
+          - ""
+          - ""
+          commentsvaluation: 3.353193347011243
           name: name
-          basic_sale: 7.386281948385884
+          basic_sale: 1
+          position: 7
+          category_graph:
+          - ""
+          - ""
+          supplier_id: 5
+          sales_per_day_average: 9.369310271410669
+          picscount: 6
+          subject_id: 6
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: ""
+          has3d: 5
+          final_price: 4
+          cardratingval: 3
+          final_price_min: 1
+          price_graph:
+          - ""
+          - ""
+          comments: 3
+          final_price_max: 7
+          promo_sale: 7
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - ""
+          - ""
+          revenue_potential: 8
+          category_position: 2
+          url: url
+          lost_profit_percent: 6.438423552598547
+          final_price_average: 1.0246457001441578
+          firstcommentdate: firstcommentdate
           category: category
+          balance_fbs: 9
         - seller: seller
-          color: color
-          thumb: thumb
-          basic_price: 1.2315135367772556
-          days_with_sales: 6.683562403749608
-          rating: 2.3021358869347655
-          client_price: 6.84685269835264
-          days_in_stock: 9.369310271410669
-          sales: 1.1730742509559433
-          revenue: 4.965218492984954
-          balance: 5.637376656633329
-          final_price: 9.301444243932576
-          average_if_in_stock: 8.762042012749001
-          id: 5.962133916683182
+          country: country
+          hasvideo: 6
+          basic_price: 6
+          days_with_sales: 6
+          rating: 2
+          client_price: 4
+          is_fbs: 2
+          days_in_stock: 3
+          sales: 9
+          revenue: 6
+          balance: 7
+          average_if_in_stock: 1.284659006116532
+          id: 5
           brand: brand
-          lost_profit: 9.965781217890562
-          final_price_min: 2.027123023002322
-          client_sale: 1.4894159098541704
-          comments: 7.061401241503109
-          final_price_max: 3.616076749251911
-          promo_sale: 1.0246457001441578
-          start_price: 7.457744773683766
-          revenue_potential: 5.025004791520295
+          lost_profit: 9
+          client_sale: 1
+          start_price: 5
+          thumb_middle: thumb_middle
+          categories_last_count: ""
           graph:
-          - 9.018348186070783
-          - 9.018348186070783
-          final_price_average: 4.145608029883936
+          - ""
+          - ""
+          commentsvaluation: 3.353193347011243
           name: name
-          basic_sale: 7.386281948385884
+          basic_sale: 1
+          position: 7
+          category_graph:
+          - ""
+          - ""
+          supplier_id: 5
+          sales_per_day_average: 9.369310271410669
+          picscount: 6
+          subject_id: 6
+          color: color
+          gender: gender
+          thumb: thumb
+          pos_data: ""
+          has3d: 5
+          final_price: 4
+          cardratingval: 3
+          final_price_min: 1
+          price_graph:
+          - ""
+          - ""
+          comments: 3
+          final_price_max: 7
+          promo_sale: 7
+          sku_first_date: sku_first_date
+          stocks_graph:
+          - ""
+          - ""
+          revenue_potential: 8
+          category_position: 2
+          url: url
+          lost_profit_percent: 6.438423552598547
+          final_price_average: 1.0246457001441578
+          firstcommentdate: firstcommentdate
           category: category
+          balance_fbs: 9
         filterModel: ""
         endRow: 6
       properties:
@@ -4119,7 +4058,7 @@ components:
         data:
           description: Массив данных
           items:
-            $ref: '#/components/schemas/DetailedItem'
+            $ref: '#/components/schemas/SearchItemsElement'
           type: array
       required:
       - data

@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **FilterModel** | **interface{}** |  | 
 **SortModel** | [**[]SortModelItem**](SortModelItem.md) |  | 
 **Total** | **int32** | Кол-во строк в результирующем запросе без учета пагинации | 
-**Data** | [**[]DetailedItem**](DetailedItem.md) | Массив данных | 
+**Data** | [**[]SearchItemsElement**](SearchItemsElement.md) | Массив данных | 
 
 ## Methods
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []DetailedItem, ) *InlineResponse200`
+`func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []SearchItemsElement, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -142,20 +142,20 @@ SetTotal sets Total field to given value.
 
 ### GetData
 
-`func (o *InlineResponse200) GetData() []DetailedItem`
+`func (o *InlineResponse200) GetData() []SearchItemsElement`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *InlineResponse200) GetDataOk() (*[]DetailedItem, bool)`
+`func (o *InlineResponse200) GetDataOk() (*[]SearchItemsElement, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *InlineResponse200) SetData(v []DetailedItem)`
+`func (o *InlineResponse200) SetData(v []SearchItemsElement)`
 
 SetData sets Data field to given value.
 

@@ -26,14 +26,14 @@ type InlineResponse200 struct {
 	// Кол-во строк в результирующем запросе без учета пагинации
 	Total int32 `json:"total"`
 	// Массив данных
-	Data []DetailedItem `json:"data"`
+	Data []SearchItemsElement `json:"data"`
 }
 
 // NewInlineResponse200 instantiates a new InlineResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []DetailedItem) *InlineResponse200 {
+func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []SearchItemsElement) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.StartRow = startRow
 	this.EndRow = endRow
@@ -175,9 +175,9 @@ func (o *InlineResponse200) SetTotal(v int32) {
 }
 
 // GetData returns the Data field value
-func (o *InlineResponse200) GetData() []DetailedItem {
+func (o *InlineResponse200) GetData() []SearchItemsElement {
 	if o == nil {
-		var ret []DetailedItem
+		var ret []SearchItemsElement
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *InlineResponse200) GetData() []DetailedItem {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDataOk() ([]DetailedItem, bool) {
+func (o *InlineResponse200) GetDataOk() ([]SearchItemsElement, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *InlineResponse200) GetDataOk() ([]DetailedItem, bool) {
 }
 
 // SetData sets field value
-func (o *InlineResponse200) SetData(v []DetailedItem) {
+func (o *InlineResponse200) SetData(v []SearchItemsElement) {
 	o.Data = v
 }
 

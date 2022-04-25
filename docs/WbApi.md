@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## GetBrandDetailedItems
 
-> InlineResponse200 GetBrandDetailedItems(ctx).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+> InlineResponse200 GetBrandDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары бренда
 
@@ -207,11 +207,11 @@ func main() {
     path := "Mango" // string | Бренд
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetBrandDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetBrandDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetBrandDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
  **path** | **string** | Бренд | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **postRequestBody** | [**PostRequestBody**](PostRequestBody.md) |  | 
+ **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 
 
 ### Return type
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ## GetCategoryDetailedItems
 
-> InlineResponse200 GetCategoryDetailedItems(ctx).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+> InlineResponse200 GetCategoryDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары категории
 
@@ -625,11 +625,11 @@ func main() {
     path := "Женщинам/Одежда" // string | Категория
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetCategoryDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetCategoryDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetCategoryDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
  **path** | **string** | Категория | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **postRequestBody** | [**PostRequestBody**](PostRequestBody.md) |  | 
+ **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 
 
 ### Return type
 
@@ -1756,7 +1756,7 @@ Name | Type | Description  | Notes
 
 ## GetSellerDetailedItems
 
-> InlineResponse200 GetSellerDetailedItems(ctx).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+> InlineResponse200 GetSellerDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары продавца
 
@@ -1779,11 +1779,11 @@ func main() {
     path := "ВАЙЛДБЕРРИЗ ООО" // string | Продавец
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetSellerDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetSellerDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSellerDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1807,7 +1807,7 @@ Name | Type | Description  | Notes
  **path** | **string** | Продавец | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **postRequestBody** | [**PostRequestBody**](PostRequestBody.md) |  | 
+ **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 
 
 ### Return type
 
@@ -2113,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ## GetSimilarDetailedItems
 
-> InlineResponse200 GetSimilarDetailedItems(ctx).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+> InlineResponse200 GetSimilarDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары по похожему товару
 
@@ -2136,11 +2136,11 @@ func main() {
     path := "6929090" // string | SKU
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
-    postRequestBody := *openapiclient.NewPostRequestBody(int32(123), int32(123), interface{}(123), []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}) // PostRequestBody |  (optional)
+    getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetSimilarDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).PostRequestBody(postRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetSimilarDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSimilarDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2164,7 +2164,7 @@ Name | Type | Description  | Notes
  **path** | **string** | SKU | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
- **postRequestBody** | [**PostRequestBody**](PostRequestBody.md) |  | 
+ **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 
 
 ### Return type
 
@@ -2260,6 +2260,8 @@ Name | Type | Description  | Notes
 > []SearchCategoriesElement PostWbGetSearchCategories(ctx).Path(path).D1(d1).D2(d2).TplsRequestBody(tplsRequestBody).Execute()
 
 GetSearchCategories
+
+
 
 ### Example
 

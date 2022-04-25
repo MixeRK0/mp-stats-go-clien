@@ -317,7 +317,7 @@ type ApiGetBrandDetailedItemsRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	postRequestBody *PostRequestBody
+	getItemsRequestBody *GetItemsRequestBody
 }
 
 // Бренд
@@ -338,8 +338,8 @@ func (r ApiGetBrandDetailedItemsRequest) D2(d2 string) ApiGetBrandDetailedItemsR
 	return r
 }
 
-func (r ApiGetBrandDetailedItemsRequest) PostRequestBody(postRequestBody PostRequestBody) ApiGetBrandDetailedItemsRequest {
-	r.postRequestBody = &postRequestBody
+func (r ApiGetBrandDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetBrandDetailedItemsRequest {
+	r.getItemsRequestBody = &getItemsRequestBody
 	return r
 }
 
@@ -411,7 +411,7 @@ func (a *WbApiService) GetBrandDetailedItemsExecute(r ApiGetBrandDetailedItemsRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.postRequestBody
+	localVarPostBody = r.getItemsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1158,7 +1158,7 @@ type ApiGetCategoryDetailedItemsRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	postRequestBody *PostRequestBody
+	getItemsRequestBody *GetItemsRequestBody
 }
 
 // Категория
@@ -1179,8 +1179,8 @@ func (r ApiGetCategoryDetailedItemsRequest) D2(d2 string) ApiGetCategoryDetailed
 	return r
 }
 
-func (r ApiGetCategoryDetailedItemsRequest) PostRequestBody(postRequestBody PostRequestBody) ApiGetCategoryDetailedItemsRequest {
-	r.postRequestBody = &postRequestBody
+func (r ApiGetCategoryDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetCategoryDetailedItemsRequest {
+	r.getItemsRequestBody = &getItemsRequestBody
 	return r
 }
 
@@ -1252,7 +1252,7 @@ func (a *WbApiService) GetCategoryDetailedItemsExecute(r ApiGetCategoryDetailedI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.postRequestBody
+	localVarPostBody = r.getItemsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3368,7 +3368,7 @@ type ApiGetSellerDetailedItemsRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	postRequestBody *PostRequestBody
+	getItemsRequestBody *GetItemsRequestBody
 }
 
 // Продавец
@@ -3389,8 +3389,8 @@ func (r ApiGetSellerDetailedItemsRequest) D2(d2 string) ApiGetSellerDetailedItem
 	return r
 }
 
-func (r ApiGetSellerDetailedItemsRequest) PostRequestBody(postRequestBody PostRequestBody) ApiGetSellerDetailedItemsRequest {
-	r.postRequestBody = &postRequestBody
+func (r ApiGetSellerDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetSellerDetailedItemsRequest {
+	r.getItemsRequestBody = &getItemsRequestBody
 	return r
 }
 
@@ -3462,7 +3462,7 @@ func (a *WbApiService) GetSellerDetailedItemsExecute(r ApiGetSellerDetailedItems
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.postRequestBody
+	localVarPostBody = r.getItemsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4096,7 +4096,7 @@ type ApiGetSimilarDetailedItemsRequest struct {
 	path *string
 	d1 *string
 	d2 *string
-	postRequestBody *PostRequestBody
+	getItemsRequestBody *GetItemsRequestBody
 }
 
 // SKU
@@ -4117,8 +4117,8 @@ func (r ApiGetSimilarDetailedItemsRequest) D2(d2 string) ApiGetSimilarDetailedIt
 	return r
 }
 
-func (r ApiGetSimilarDetailedItemsRequest) PostRequestBody(postRequestBody PostRequestBody) ApiGetSimilarDetailedItemsRequest {
-	r.postRequestBody = &postRequestBody
+func (r ApiGetSimilarDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetSimilarDetailedItemsRequest {
+	r.getItemsRequestBody = &getItemsRequestBody
 	return r
 }
 
@@ -4190,7 +4190,7 @@ func (a *WbApiService) GetSimilarDetailedItemsExecute(r ApiGetSimilarDetailedIte
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.postRequestBody
+	localVarPostBody = r.getItemsRequestBody
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4425,6 +4425,8 @@ func (r ApiPostWbGetSearchCategoriesRequest) Execute() ([]SearchCategoriesElemen
 /*
 PostWbGetSearchCategories GetSearchCategories
 
+Search categories
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostWbGetSearchCategoriesRequest
 */
@@ -4575,7 +4577,7 @@ func (r ApiPostWbGetSearchItemsRequest) Execute() (*SearchItems, *http.Response,
 /*
 PostWbGetSearchItems GetSearchItems
 
-
+Search items
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostWbGetSearchItemsRequest
