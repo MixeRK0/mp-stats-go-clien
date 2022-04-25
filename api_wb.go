@@ -1152,7 +1152,7 @@ func (a *WbApiService) GetCategoryByDateExecute(r ApiGetCategoryByDateRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCategoryDetailedItemsRequest struct {
+type ApiGetCategoryItemsRequest struct {
 	ctx context.Context
 	ApiService *WbApiService
 	path *string
@@ -1162,42 +1162,42 @@ type ApiGetCategoryDetailedItemsRequest struct {
 }
 
 // Категория
-func (r ApiGetCategoryDetailedItemsRequest) Path(path string) ApiGetCategoryDetailedItemsRequest {
+func (r ApiGetCategoryItemsRequest) Path(path string) ApiGetCategoryItemsRequest {
 	r.path = &path
 	return r
 }
 
 // Дата начала периода
-func (r ApiGetCategoryDetailedItemsRequest) D1(d1 string) ApiGetCategoryDetailedItemsRequest {
+func (r ApiGetCategoryItemsRequest) D1(d1 string) ApiGetCategoryItemsRequest {
 	r.d1 = &d1
 	return r
 }
 
 // Дата окончания периода
-func (r ApiGetCategoryDetailedItemsRequest) D2(d2 string) ApiGetCategoryDetailedItemsRequest {
+func (r ApiGetCategoryItemsRequest) D2(d2 string) ApiGetCategoryItemsRequest {
 	r.d2 = &d2
 	return r
 }
 
-func (r ApiGetCategoryDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetCategoryDetailedItemsRequest {
+func (r ApiGetCategoryItemsRequest) GetItemsRequestBody(getItemsRequestBody GetItemsRequestBody) ApiGetCategoryItemsRequest {
 	r.getItemsRequestBody = &getItemsRequestBody
 	return r
 }
 
-func (r ApiGetCategoryDetailedItemsRequest) Execute() (*InlineResponse200, *http.Response, error) {
-	return r.ApiService.GetCategoryDetailedItemsExecute(r)
+func (r ApiGetCategoryItemsRequest) Execute() (*InlineResponse200, *http.Response, error) {
+	return r.ApiService.GetCategoryItemsExecute(r)
 }
 
 /*
-GetCategoryDetailedItems Товары категории
+GetCategoryItems Товары категории
 
 Получение данных о товарах категории
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCategoryDetailedItemsRequest
+ @return ApiGetCategoryItemsRequest
 */
-func (a *WbApiService) GetCategoryDetailedItems(ctx context.Context) ApiGetCategoryDetailedItemsRequest {
-	return ApiGetCategoryDetailedItemsRequest{
+func (a *WbApiService) GetCategoryItems(ctx context.Context) ApiGetCategoryItemsRequest {
+	return ApiGetCategoryItemsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1205,7 +1205,7 @@ func (a *WbApiService) GetCategoryDetailedItems(ctx context.Context) ApiGetCateg
 
 // Execute executes the request
 //  @return InlineResponse200
-func (a *WbApiService) GetCategoryDetailedItemsExecute(r ApiGetCategoryDetailedItemsRequest) (*InlineResponse200, *http.Response, error) {
+func (a *WbApiService) GetCategoryItemsExecute(r ApiGetCategoryItemsRequest) (*InlineResponse200, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1213,7 +1213,7 @@ func (a *WbApiService) GetCategoryDetailedItemsExecute(r ApiGetCategoryDetailedI
 		localVarReturnValue  *InlineResponse200
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.GetCategoryDetailedItems")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.GetCategoryItems")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

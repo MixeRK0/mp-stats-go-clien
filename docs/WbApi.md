@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**GetCategories**](WbApi.md#GetCategories) | **Get** /wb/get/categories | Текущие категории
 [**GetCategoryBrands**](WbApi.md#GetCategoryBrands) | **Get** /wb/get/category/brands | Бренды категории
 [**GetCategoryByDate**](WbApi.md#GetCategoryByDate) | **Get** /wb/get/category/by_date | Данные по дням по категории
-[**GetCategoryDetailedItems**](WbApi.md#GetCategoryDetailedItems) | **Post** /wb/get/category | Товары категории
+[**GetCategoryItems**](WbApi.md#GetCategoryItems) | **Post** /wb/get/category | Товары категории
 [**GetCategoryPriceSegmentation**](WbApi.md#GetCategoryPriceSegmentation) | **Get** /wb/get/category/price_segmentation | Ценовая сегментация категории
 [**GetCategorySellers**](WbApi.md#GetCategorySellers) | **Get** /wb/get/category/sellers | Продавцы категории
 [**GetCategorySubcategories**](WbApi.md#GetCategorySubcategories) | **Get** /wb/get/category/subcategories | Подкатегории категории
@@ -600,9 +600,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCategoryDetailedItems
+## GetCategoryItems
 
-> InlineResponse200 GetCategoryDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+> InlineResponse200 GetCategoryItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары категории
 
@@ -629,13 +629,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetCategoryDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetCategoryItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetCategoryDetailedItems``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetCategoryItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetCategoryDetailedItems`: InlineResponse200
-    fmt.Fprintf(os.Stdout, "Response from `WbApi.GetCategoryDetailedItems`: %v\n", resp)
+    // response from `GetCategoryItems`: InlineResponse200
+    fmt.Fprintf(os.Stdout, "Response from `WbApi.GetCategoryItems`: %v\n", resp)
 }
 ```
 
@@ -645,7 +645,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetCategoryDetailedItemsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCategoryItemsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

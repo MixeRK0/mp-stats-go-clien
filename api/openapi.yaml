@@ -35,7 +35,7 @@ paths:
   /wb/get/category:
     post:
       description: Получение данных о товарах категории
-      operationId: get-category-detailed-items
+      operationId: get-category-items
       parameters:
       - description: Категория
         explode: true

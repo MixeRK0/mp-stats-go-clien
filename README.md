@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
 *WbApi* | [**GetCategories**](docs/WbApi.md#getcategories) | **Get** /wb/get/categories | Текущие категории
 *WbApi* | [**GetCategoryBrands**](docs/WbApi.md#getcategorybrands) | **Get** /wb/get/category/brands | Бренды категории
 *WbApi* | [**GetCategoryByDate**](docs/WbApi.md#getcategorybydate) | **Get** /wb/get/category/by_date | Данные по дням по категории
-*WbApi* | [**GetCategoryDetailedItems**](docs/WbApi.md#getcategorydetaileditems) | **Post** /wb/get/category | Товары категории
+*WbApi* | [**GetCategoryItems**](docs/WbApi.md#getcategoryitems) | **Post** /wb/get/category | Товары категории
 *WbApi* | [**GetCategoryPriceSegmentation**](docs/WbApi.md#getcategorypricesegmentation) | **Get** /wb/get/category/price_segmentation | Ценовая сегментация категории
 *WbApi* | [**GetCategorySellers**](docs/WbApi.md#getcategorysellers) | **Get** /wb/get/category/sellers | Продавцы категории
 *WbApi* | [**GetCategorySubcategories**](docs/WbApi.md#getcategorysubcategories) | **Get** /wb/get/category/subcategories | Подкатегории категории
