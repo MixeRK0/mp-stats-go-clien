@@ -45,7 +45,7 @@ type CategoryBrand struct {
 	// Название бренда
 	Name string `json:"name"`
 	// Баланс
-	Balance string `json:"balance"`
+	Balance float32 `json:"balance"`
 	// Средняя стоимость товара
 	AvgPrice float32 `json:"avg_price"`
 	// Средний рейтинг
@@ -62,7 +62,7 @@ type CategoryBrand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}) *CategoryBrand {
+func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance float32, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}) *CategoryBrand {
 	this := CategoryBrand{}
 	this.Brand = brand
 	this.Items = items
@@ -432,9 +432,9 @@ func (o *CategoryBrand) SetName(v string) {
 }
 
 // GetBalance returns the Balance field value
-func (o *CategoryBrand) GetBalance() string {
+func (o *CategoryBrand) GetBalance() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
@@ -443,7 +443,7 @@ func (o *CategoryBrand) GetBalance() string {
 
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
-func (o *CategoryBrand) GetBalanceOk() (*string, bool) {
+func (o *CategoryBrand) GetBalanceOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -451,7 +451,7 @@ func (o *CategoryBrand) GetBalanceOk() (*string, bool) {
 }
 
 // SetBalance sets field value
-func (o *CategoryBrand) SetBalance(v string) {
+func (o *CategoryBrand) SetBalance(v float32) {
 	o.Balance = v
 }
 

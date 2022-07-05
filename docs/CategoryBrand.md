@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **RevenuePerItemsAverage** | **float32** | Средняя выручка за товар | 
 **RevenuePerItemsWithSellsAverage** | **float32** | Средняя выручка за товар с продажами | 
 **Name** | **string** | Название бренда | 
-**Balance** | **string** | Баланс | 
+**Balance** | **float32** | Баланс | 
 **AvgPrice** | **float32** | Средняя стоимость товара | 
 **Rating** | **float32** | Средний рейтинг | 
 **Comments** | **float32** | Среднее число комментариев | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCategoryBrand
 
-`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance string, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}, ) *CategoryBrand`
+`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance float32, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}, ) *CategoryBrand`
 
 NewCategoryBrand instantiates a new CategoryBrand object
 This constructor will assign default values to properties that have it defined,
@@ -326,20 +326,20 @@ SetName sets Name field to given value.
 
 ### GetBalance
 
-`func (o *CategoryBrand) GetBalance() string`
+`func (o *CategoryBrand) GetBalance() float32`
 
 GetBalance returns the Balance field if non-nil, zero value otherwise.
 
 ### GetBalanceOk
 
-`func (o *CategoryBrand) GetBalanceOk() (*string, bool)`
+`func (o *CategoryBrand) GetBalanceOk() (*float32, bool)`
 
 GetBalanceOk returns a tuple with the Balance field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBalance
 
-`func (o *CategoryBrand) SetBalance(v string)`
+`func (o *CategoryBrand) SetBalance(v float32)`
 
 SetBalance sets Balance field to given value.
 

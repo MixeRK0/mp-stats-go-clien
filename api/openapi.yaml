@@ -1896,9 +1896,9 @@ components:
       example:
         sales_per_items_average: 3.616076749251911
         sellers_with_sells: 5
-        comments: 1.4894159098541704
-        rating: 1.0246457001441578
-        avg_price: 1.2315135367772556
+        comments: 6.84685269835264
+        rating: 1.4894159098541704
+        avg_price: 1.0246457001441578
         revenue_per_items_average: 4.145608029883936
         sales: 7
         graph:
@@ -1908,10 +1908,10 @@ components:
         sales_per_items_with_sells_average: 2.027123023002322
         revenue_per_items_with_sells_average: 7.386281948385884
         revenue: 9.301444243932576
-        balance: balance
+        balance: 1.2315135367772556
         name: name
         items_with_sells: 6
-        position: 6
+        position: 7
         brand: brand
         items: 0
         sellers: 5
@@ -1961,7 +1961,7 @@ components:
           type: string
         balance:
           description: Баланс
-          type: string
+          type: number
         avg_price:
           description: Средняя стоимость товара
           type: number
