@@ -64,17 +64,17 @@ type SearchItemsElement struct {
 	Cardratingval int32 `json:"cardratingval"`
 	Position int32 `json:"position"`
 	CategoriesLastCount interface{} `json:"categories_last_count"`
-	Graph []interface{} `json:"graph"`
-	CategoryGraph []interface{} `json:"category_graph"`
-	StocksGraph []interface{} `json:"stocks_graph"`
-	PriceGraph []interface{} `json:"price_graph"`
+	Graph []int32 `json:"graph"`
+	CategoryGraph []int32 `json:"category_graph"`
+	StocksGraph []int32 `json:"stocks_graph"`
+	PriceGraph []int32 `json:"price_graph"`
 }
 
 // NewSearchItemsElement instantiates a new SearchItemsElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []interface{}, categoryGraph []interface{}, stocksGraph []interface{}, priceGraph []interface{}) *SearchItemsElement {
+func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32) *SearchItemsElement {
 	this := SearchItemsElement{}
 	this.Id = id
 	this.Name = name
@@ -1296,9 +1296,9 @@ func (o *SearchItemsElement) SetCategoriesLastCount(v interface{}) {
 }
 
 // GetGraph returns the Graph field value
-func (o *SearchItemsElement) GetGraph() []interface{} {
+func (o *SearchItemsElement) GetGraph() []int32 {
 	if o == nil {
-		var ret []interface{}
+		var ret []int32
 		return ret
 	}
 
@@ -1307,7 +1307,7 @@ func (o *SearchItemsElement) GetGraph() []interface{} {
 
 // GetGraphOk returns a tuple with the Graph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetGraphOk() ([]interface{}, bool) {
+func (o *SearchItemsElement) GetGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1315,14 +1315,14 @@ func (o *SearchItemsElement) GetGraphOk() ([]interface{}, bool) {
 }
 
 // SetGraph sets field value
-func (o *SearchItemsElement) SetGraph(v []interface{}) {
+func (o *SearchItemsElement) SetGraph(v []int32) {
 	o.Graph = v
 }
 
 // GetCategoryGraph returns the CategoryGraph field value
-func (o *SearchItemsElement) GetCategoryGraph() []interface{} {
+func (o *SearchItemsElement) GetCategoryGraph() []int32 {
 	if o == nil {
-		var ret []interface{}
+		var ret []int32
 		return ret
 	}
 
@@ -1331,7 +1331,7 @@ func (o *SearchItemsElement) GetCategoryGraph() []interface{} {
 
 // GetCategoryGraphOk returns a tuple with the CategoryGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoryGraphOk() ([]interface{}, bool) {
+func (o *SearchItemsElement) GetCategoryGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1339,14 +1339,14 @@ func (o *SearchItemsElement) GetCategoryGraphOk() ([]interface{}, bool) {
 }
 
 // SetCategoryGraph sets field value
-func (o *SearchItemsElement) SetCategoryGraph(v []interface{}) {
+func (o *SearchItemsElement) SetCategoryGraph(v []int32) {
 	o.CategoryGraph = v
 }
 
 // GetStocksGraph returns the StocksGraph field value
-func (o *SearchItemsElement) GetStocksGraph() []interface{} {
+func (o *SearchItemsElement) GetStocksGraph() []int32 {
 	if o == nil {
-		var ret []interface{}
+		var ret []int32
 		return ret
 	}
 
@@ -1355,7 +1355,7 @@ func (o *SearchItemsElement) GetStocksGraph() []interface{} {
 
 // GetStocksGraphOk returns a tuple with the StocksGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetStocksGraphOk() ([]interface{}, bool) {
+func (o *SearchItemsElement) GetStocksGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1363,14 +1363,14 @@ func (o *SearchItemsElement) GetStocksGraphOk() ([]interface{}, bool) {
 }
 
 // SetStocksGraph sets field value
-func (o *SearchItemsElement) SetStocksGraph(v []interface{}) {
+func (o *SearchItemsElement) SetStocksGraph(v []int32) {
 	o.StocksGraph = v
 }
 
 // GetPriceGraph returns the PriceGraph field value
-func (o *SearchItemsElement) GetPriceGraph() []interface{} {
+func (o *SearchItemsElement) GetPriceGraph() []int32 {
 	if o == nil {
-		var ret []interface{}
+		var ret []int32
 		return ret
 	}
 
@@ -1379,7 +1379,7 @@ func (o *SearchItemsElement) GetPriceGraph() []interface{} {
 
 // GetPriceGraphOk returns a tuple with the PriceGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPriceGraphOk() ([]interface{}, bool) {
+func (o *SearchItemsElement) GetPriceGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1387,7 +1387,7 @@ func (o *SearchItemsElement) GetPriceGraphOk() ([]interface{}, bool) {
 }
 
 // SetPriceGraph sets field value
-func (o *SearchItemsElement) SetPriceGraph(v []interface{}) {
+func (o *SearchItemsElement) SetPriceGraph(v []int32) {
 	o.PriceGraph = v
 }
 

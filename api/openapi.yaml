@@ -1902,8 +1902,8 @@ components:
         revenue_per_items_average: 4.145608029883936
         sales: 7
         graph:
-        - ""
-        - ""
+        - 1
+        - 1
         sellers_with_sells_percent: 2.3021358869347655
         sales_per_items_with_sells_average: 2.027123023002322
         revenue_per_items_with_sells_average: 7.386281948385884
@@ -1976,7 +1976,8 @@ components:
           type: integer
         graph:
           description: Граф
-          items: {}
+          items:
+            type: integer
           type: array
       required:
       - avg_price
@@ -3089,15 +3090,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
-          - ""
-          - ""
+          - 0
+          - 0
           commentsvaluation: 3.353193347011243
           name: name
           basic_sale: 1
           position: 7
           category_graph:
-          - ""
-          - ""
+          - 7
+          - 7
           supplier_id: 5
           sales_per_day_average: 9.369310271410669
           picscount: 6
@@ -3111,15 +3112,15 @@ components:
           cardratingval: 3
           final_price_min: 1
           price_graph:
-          - ""
-          - ""
+          - 0
+          - 0
           comments: 3
           final_price_max: 7
           promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
-          - ""
-          - ""
+          - 6
+          - 6
           revenue_potential: 8
           category_position: 2
           url: url
@@ -3149,15 +3150,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
-          - ""
-          - ""
+          - 0
+          - 0
           commentsvaluation: 3.353193347011243
           name: name
           basic_sale: 1
           position: 7
           category_graph:
-          - ""
-          - ""
+          - 7
+          - 7
           supplier_id: 5
           sales_per_day_average: 9.369310271410669
           picscount: 6
@@ -3171,15 +3172,15 @@ components:
           cardratingval: 3
           final_price_min: 1
           price_graph:
-          - ""
-          - ""
+          - 0
+          - 0
           comments: 3
           final_price_max: 7
           promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
-          - ""
-          - ""
+          - 6
+          - 6
           revenue_potential: 8
           category_position: 2
           url: url
@@ -3286,15 +3287,15 @@ components:
         thumb_middle: thumb_middle
         categories_last_count: ""
         graph:
-        - ""
-        - ""
+        - 0
+        - 0
         commentsvaluation: 3.353193347011243
         name: name
         basic_sale: 1
         position: 7
         category_graph:
-        - ""
-        - ""
+        - 7
+        - 7
         supplier_id: 5
         sales_per_day_average: 9.369310271410669
         picscount: 6
@@ -3308,15 +3309,15 @@ components:
         cardratingval: 3
         final_price_min: 1
         price_graph:
-        - ""
-        - ""
+        - 0
+        - 0
         comments: 3
         final_price_max: 7
         promo_sale: 7
         sku_first_date: sku_first_date
         stocks_graph:
-        - ""
-        - ""
+        - 6
+        - 6
         revenue_potential: 8
         category_position: 2
         url: url
@@ -3421,16 +3422,20 @@ components:
           type: integer
         categories_last_count: {}
         graph:
-          items: {}
+          items:
+            type: integer
           type: array
         category_graph:
-          items: {}
+          items:
+            type: integer
           type: array
         stocks_graph:
-          items: {}
+          items:
+            type: integer
           type: array
         price_graph:
-          items: {}
+          items:
+            type: integer
           type: array
       required:
       - average_if_in_stock
@@ -3936,15 +3941,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
-          - ""
-          - ""
+          - 0
+          - 0
           commentsvaluation: 3.353193347011243
           name: name
           basic_sale: 1
           position: 7
           category_graph:
-          - ""
-          - ""
+          - 7
+          - 7
           supplier_id: 5
           sales_per_day_average: 9.369310271410669
           picscount: 6
@@ -3958,15 +3963,15 @@ components:
           cardratingval: 3
           final_price_min: 1
           price_graph:
-          - ""
-          - ""
+          - 0
+          - 0
           comments: 3
           final_price_max: 7
           promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
-          - ""
-          - ""
+          - 6
+          - 6
           revenue_potential: 8
           category_position: 2
           url: url
@@ -3996,15 +4001,15 @@ components:
           thumb_middle: thumb_middle
           categories_last_count: ""
           graph:
-          - ""
-          - ""
+          - 0
+          - 0
           commentsvaluation: 3.353193347011243
           name: name
           basic_sale: 1
           position: 7
           category_graph:
-          - ""
-          - ""
+          - 7
+          - 7
           supplier_id: 5
           sales_per_day_average: 9.369310271410669
           picscount: 6
@@ -4018,15 +4023,15 @@ components:
           cardratingval: 3
           final_price_min: 1
           price_graph:
-          - ""
-          - ""
+          - 0
+          - 0
           comments: 3
           final_price_max: 7
           promo_sale: 7
           sku_first_date: sku_first_date
           stocks_graph:
-          - ""
-          - ""
+          - 6
+          - 6
           revenue_potential: 8
           category_position: 2
           url: url

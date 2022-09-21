@@ -4,7 +4,6 @@ README.md
 api/openapi.yaml
 api_wb.go
 client.go
-configuration.go
 docs/BrandByDate.md
 docs/BrandCategory.md
 docs/BrandPriceSegmentation.md

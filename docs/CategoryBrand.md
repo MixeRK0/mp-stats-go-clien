@@ -23,13 +23,13 @@ Name | Type | Description | Notes
 **Rating** | **float32** | Средний рейтинг | 
 **Comments** | **float32** | Среднее число комментариев | 
 **Position** | **int32** | Позиция в рейтинге | 
-**Graph** | **[]interface{}** | Граф | 
+**Graph** | **[]int32** | Граф | 
 
 ## Methods
 
 ### NewCategoryBrand
 
-`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance float32, avgPrice float32, rating float32, comments float32, position int32, graph []interface{}, ) *CategoryBrand`
+`func NewCategoryBrand(brand string, items int32, itemsWithSells int32, itemsWithSellsPercent float32, sellers int32, sellersWithSells int32, sellersWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance float32, avgPrice float32, rating float32, comments float32, position int32, graph []int32, ) *CategoryBrand`
 
 NewCategoryBrand instantiates a new CategoryBrand object
 This constructor will assign default values to properties that have it defined,
@@ -426,20 +426,20 @@ SetPosition sets Position field to given value.
 
 ### GetGraph
 
-`func (o *CategoryBrand) GetGraph() []interface{}`
+`func (o *CategoryBrand) GetGraph() []int32`
 
 GetGraph returns the Graph field if non-nil, zero value otherwise.
 
 ### GetGraphOk
 
-`func (o *CategoryBrand) GetGraphOk() (*[]interface{}, bool)`
+`func (o *CategoryBrand) GetGraphOk() (*[]int32, bool)`
 
 GetGraphOk returns a tuple with the Graph field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGraph
 
-`func (o *CategoryBrand) SetGraph(v []interface{})`
+`func (o *CategoryBrand) SetGraph(v []int32)`
 
 SetGraph sets Graph field to given value.
 
