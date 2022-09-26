@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**GetCategoryPriceSegmentation**](WbApi.md#GetCategoryPriceSegmentation) | **Get** /wb/get/category/price_segmentation | Ценовая сегментация категории
 [**GetCategorySellers**](WbApi.md#GetCategorySellers) | **Get** /wb/get/category/sellers | Продавцы категории
 [**GetCategorySubcategories**](WbApi.md#GetCategorySubcategories) | **Get** /wb/get/category/subcategories | Подкатегории категории
+[**GetCategorySubjects**](WbApi.md#GetCategorySubjects) | **Get** /wb/get/category/items | Предметы категории
 [**GetCategoryTrends**](WbApi.md#GetCategoryTrends) | **Get** /wb/get/category/trends | Тренды категории
 [**GetItemBalanceByDay**](WbApi.md#GetItemBalanceByDay) | **Get** /wb/get/item/{sku}/balance_by_day | Продажи и остатки товарной позиции за сутки
 [**GetItemByCategory**](WbApi.md#GetItemByCategory) | **Get** /wb/get/item/{sku}/by_category | История товарной позиции по категориям
@@ -871,6 +872,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]CategorySubcategory**](CategorySubcategory.md)
+
+### Authorization
+
+[Header-token](../README.md#Header-token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCategorySubjects
+
+> []CategorySubject GetCategorySubjects(ctx).Path(path).D1(d1).D2(d2).Execute()
+
+Предметы категории
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    path := "Женщинам/Одежда" // string | Категория
+    d1 := time.Now() // string | Дата начала периода (optional)
+    d2 := time.Now() // string | Дата окончания периода (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WbApi.GetCategorySubjects(context.Background()).Path(path).D1(d1).D2(d2).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetCategorySubjects``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCategorySubjects`: []CategorySubject
+    fmt.Fprintf(os.Stdout, "Response from `WbApi.GetCategorySubjects`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCategorySubjectsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string** | Категория | 
+ **d1** | **string** | Дата начала периода | 
+ **d2** | **string** | Дата окончания периода | 
+
+### Return type
+
+[**[]CategorySubject**](CategorySubject.md)
 
 ### Authorization
 
