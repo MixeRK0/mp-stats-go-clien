@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *WbApi* | [**GetCategoryPriceSegmentation**](docs/WbApi.md#getcategorypricesegmentation) | **Get** /wb/get/category/price_segmentation | Ценовая сегментация категории
 *WbApi* | [**GetCategorySellers**](docs/WbApi.md#getcategorysellers) | **Get** /wb/get/category/sellers | Продавцы категории
 *WbApi* | [**GetCategorySubcategories**](docs/WbApi.md#getcategorysubcategories) | **Get** /wb/get/category/subcategories | Подкатегории категории
+*WbApi* | [**GetCategorySubjects**](docs/WbApi.md#getcategorysubjects) | **Get** /wb/get/category/items | Предметы категории
 *WbApi* | [**GetCategoryTrends**](docs/WbApi.md#getcategorytrends) | **Get** /wb/get/category/trends | Тренды категории
 *WbApi* | [**GetItemBalanceByDay**](docs/WbApi.md#getitembalancebyday) | **Get** /wb/get/item/{sku}/balance_by_day | Продажи и остатки товарной позиции за сутки
 *WbApi* | [**GetItemByCategory**](docs/WbApi.md#getitembycategory) | **Get** /wb/get/item/{sku}/by_category | История товарной позиции по категориям
@@ -126,6 +127,7 @@ Class | Method | HTTP request | Description
  - [CategoryPriceSegmentation](docs/CategoryPriceSegmentation.md)
  - [CategorySeller](docs/CategorySeller.md)
  - [CategorySubcategory](docs/CategorySubcategory.md)
+ - [CategorySubject](docs/CategorySubject.md)
  - [CategoryTrend](docs/CategoryTrend.md)
  - [CategoryUrl](docs/CategoryUrl.md)
  - [FilterModelItem](docs/FilterModelItem.md)
