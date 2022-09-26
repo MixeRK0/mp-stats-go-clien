@@ -120,6 +120,50 @@ paths:
       summary: Подкатегории категории
       tags:
       - wb
+  /wb/get/category/items:
+    get:
+      description: Получение данных по предметам категории
+      operationId: get-category-subjects
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategorySubject'
+                type: array
+          description: Get category subjects response
+      summary: Предметы категории
+      tags:
+      - wb
   /wb/get/category/brands:
     get:
       description: Получение данных о брендах категории
@@ -1528,6 +1572,14 @@ components:
               $ref: '#/components/schemas/CategoryBrand'
             type: array
       description: Get category brands response
+    GetCategorySubjects:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/CategorySubject'
+            type: array
+      description: Get category subjects response
     GetBrandCategories:
       content:
         application/json:
@@ -2215,6 +2267,256 @@ components:
       - sellers
       - sellers_with_sells
       type: object
+    CategorySubject:
+      example:
+        sales_per_items_average: 4.145608029883936
+        rating: 6.84685269835264
+        avg_price: 1.4894159098541704
+        revenue_per_items_average: 1.2315135367772556
+        sales: 0
+        sales_per_items_with_sells_average: 7.386281948385884
+        basic_logistics: 3.5571952270680973
+        brands_with_sells: 3
+        delivery_by_volume: delivery_by_volume
+        revenue: 6
+        balance: 1
+        storage_price: 6.965117697638846
+        items_with_sells: 5
+        id: 8
+        lost_profit: 9
+        sellers_with_sells: 7
+        brands: 9
+        comments: 7.457744773683766
+        commision_fbo: 9.018348186070783
+        purchase: 2.8841621266687802
+        commision_fbs: 6.438423552598547
+        live_items: 4
+        revenue_potential: 5
+        graph:
+        - 6
+        - 6
+        sellers_with_sells_percent: 2.027123023002322
+        purchase_after_return: 6.778324963048013
+        revenue_per_items_with_sells_average: 1.0246457001441578
+        acceptance_price: 1.284659006116532
+        lost_profit_percent: 9.369310271410669
+        name: name
+        items: 1
+        sellers: 2
+        items_with_sells_percent: 5.637376656633329
+      properties:
+        sales:
+          description: Количество продаж
+          format: int64
+          type: integer
+        revenue:
+          description: Выручка
+          format: int64
+          type: integer
+        items:
+          description: Количество товаров
+          format: int64
+          type: integer
+        items_with_sells:
+          description: Количество товаров с продажами
+          format: int64
+          type: integer
+        items_with_sells_percent:
+          description: Процент товаров с продажами
+          type: number
+        sellers:
+          description: Число продавцов
+          format: int64
+          type: integer
+        sellers_with_sells:
+          description: Число продавцов с продажами
+          format: int64
+          type: integer
+        brands:
+          description: Число брендов
+          format: int64
+          type: integer
+        brands_with_sells:
+          description: Число брендов с продажами
+          format: int64
+          type: integer
+        sellers_with_sells_percent:
+          description: Процент продавцов с продажами
+          type: number
+        sales_per_items_average:
+          description: Среднее количество продаж
+          type: number
+        sales_per_items_with_sells_average:
+          description: Среднее количество продаж у товаров с продажами
+          type: number
+        revenue_per_items_average:
+          description: Средняя выручка за товар
+          type: number
+        revenue_per_items_with_sells_average:
+          description: Средняя выручка за товар с продажами
+          type: number
+        avg_price:
+          description: Средняя цена
+          type: number
+        rating:
+          description: Рейтинг
+          type: number
+        comments:
+          description: Количество комментариев
+          type: number
+        balance:
+          description: Остаток
+          format: int64
+          type: integer
+        live_items:
+          description: Товаров с движением
+          format: int64
+          type: integer
+        revenue_potential:
+          description: Потенциал
+          format: int64
+          type: integer
+        lost_profit:
+          description: Упущенная выручка
+          format: int64
+          type: integer
+        lost_profit_percent:
+          description: Процент упущенной выручки
+          type: number
+        graph:
+          description: Граф
+          items:
+            type: integer
+          type: array
+        id:
+          description: Идентификатор
+          type: integer
+        name:
+          description: Наименование
+          type: string
+        commision_fbo:
+          description: Комиссия FBO
+          type: number
+        commision_fbs:
+          description: Комиссия FBS
+          type: number
+        basic_logistics:
+          description: Базовая логистика
+          type: number
+        storage_price:
+          description: Цена хранения
+          type: number
+        acceptance_price:
+          description: Цена приемки
+          type: number
+        delivery_by_volume:
+          type: string
+        purchase:
+          description: Средний процент выкупа
+          type: number
+        purchase_after_return:
+          description: Средний процент выкупа с учетом возврат
+          type: number
+      required:
+      - acceptance_price
+      - avg_price
+      - balance
+      - basic_logistics
+      - brands
+      - brands_with_sells
+      - comments
+      - commision_fbo
+      - commision_fbs
+      - delivery_by_volume
+      - graph
+      - id
+      - items
+      - items_with_sells
+      - items_with_sells_percent
+      - live_items
+      - lost_profit
+      - lost_profit_percent
+      - name
+      - purchase
+      - purchase_after_return
+      - rating
+      - revenue
+      - revenue_per_items_average
+      - revenue_per_items_with_sells_average
+      - revenue_potential
+      - sales
+      - sales_per_items_average
+      - sales_per_items_with_sells_average
+      - sellers
+      - sellers_with_sells
+      - sellers_with_sells_percent
+      - storage_price
+      type: object
+      x-examples:
+        example-1:
+          sales: 447199
+          revenue: 572131217
+          items: 14929
+          items_with_sells: 12185
+          items_with_sells_percent: 81.62
+          sellers: 2499
+          sellers_with_sells: 2172
+          brands: 2661
+          brands_with_sells: 2251
+          sellers_with_sells_percent: 86.91
+          sales_per_items_average: 29.96
+          sales_per_items_with_sells_average: 36.7
+          revenue_per_items_average: 38323.48
+          revenue_per_items_with_sells_average: 46953.73
+          avg_price: 1576.29
+          rating: 4.48
+          comments: 175.11
+          balance: 616533
+          live_items: 14888
+          revenue_potential: 671059993
+          lost_profit: 99100558
+          lost_profit_percent: 14
+          graph:
+          - 10025
+          - 11445
+          - 12771
+          - 12243
+          - 12893
+          - 12961
+          - 12614
+          - 12114
+          - 14952
+          - 16364
+          - 15961
+          - 15306
+          - 16683
+          - 15875
+          - 15145
+          - 15872
+          - 15657
+          - 16703
+          - 16419
+          - 16377
+          - 15742
+          - 14211
+          - 16106
+          - 15742
+          - 15730
+          - 14561
+          - 17057
+          - 17491
+          - 15571
+          - 16608
+          id: 217
+          name: Одежда / Лонгслив
+          commission_fbo: 18
+          commission_fbs: 15
+          basic_logistics: 55
+          storage_price: 0.07
+          acceptance_price: 13
+          delivery_by_volume: "0"
+          purchase: 69.94
+          purchase_after_return: 66.17
     BrandCategory:
       description: ""
       example:
