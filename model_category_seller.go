@@ -16,32 +16,74 @@ import (
 
 // CategorySeller 
 type CategorySeller struct {
-	// Название продавца
-	Name string `json:"name"`
+	// Идентификатор продавца
+	SupplierId int32 `json:"supplier_id"`
 	// Число товаров
 	Items int32 `json:"items"`
+	// Число товаров с продажами
+	ItemsWithSells int32 `json:"items_with_sells"`
+	// Процент товаров с продажами
+	ItemsWithSellsPercent float32 `json:"items_with_sells_percent"`
+	// Число брендов
+	Brands int32 `json:"brands"`
+	// Число брендов с продажами
+	BrandsWithSells int32 `json:"brands_with_sells"`
+	// Процент брендов с продажами
+	BrandsWithSellsPercent float32 `json:"brands_with_sells_percent"`
 	// Число зафиксированных продаж (единицы)
 	Sales int32 `json:"sales"`
 	// Сумма произведений числа проданных товаров на их стоимость
 	Revenue float32 `json:"revenue"`
-	// Среднее число комментариев
-	Comments float32 `json:"comments"`
+	// Среднее число продаж на товар
+	SalesPerItemsAverage float32 `json:"sales_per_items_average"`
+	// Среднее число продаж на товар с продажами
+	SalesPerItemsWithSellsAverage float32 `json:"sales_per_items_with_sells_average"`
+	// Средняя выручка на товар
+	RevenuePerItemsAverage float32 `json:"revenue_per_items_average"`
+	// Средняя выручка на товар с продажами
+	RevenuePerItemsWithSellsAverage float32 `json:"revenue_per_items_with_sells_average"`
+	// Название продавца
+	Name string `json:"name"`
+	// Число остатков товаров на складах
+	Balance float32 `json:"balance"`
+	// Средняя цена
+	AvgPrice float32 `json:"avg_price"`
 	// Средний рейтинг
 	Rating float32 `json:"rating"`
+	// Среднее число комментариев
+	Comments float32 `json:"comments"`
+	// Позиция продавца
+	Position int32 `json:"position"`
+	// Позиция продавца
+	Graph []int32 `json:"graph"`
 }
 
 // NewCategorySeller instantiates a new CategorySeller object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategorySeller(name string, items int32, sales int32, revenue float32, comments float32, rating float32) *CategorySeller {
+func NewCategorySeller(supplierId int32, items int32, itemsWithSells int32, itemsWithSellsPercent float32, brands int32, brandsWithSells int32, brandsWithSellsPercent float32, sales int32, revenue float32, salesPerItemsAverage float32, salesPerItemsWithSellsAverage float32, revenuePerItemsAverage float32, revenuePerItemsWithSellsAverage float32, name string, balance float32, avgPrice float32, rating float32, comments float32, position int32, graph []int32) *CategorySeller {
 	this := CategorySeller{}
-	this.Name = name
+	this.SupplierId = supplierId
 	this.Items = items
+	this.ItemsWithSells = itemsWithSells
+	this.ItemsWithSellsPercent = itemsWithSellsPercent
+	this.Brands = brands
+	this.BrandsWithSells = brandsWithSells
+	this.BrandsWithSellsPercent = brandsWithSellsPercent
 	this.Sales = sales
 	this.Revenue = revenue
-	this.Comments = comments
+	this.SalesPerItemsAverage = salesPerItemsAverage
+	this.SalesPerItemsWithSellsAverage = salesPerItemsWithSellsAverage
+	this.RevenuePerItemsAverage = revenuePerItemsAverage
+	this.RevenuePerItemsWithSellsAverage = revenuePerItemsWithSellsAverage
+	this.Name = name
+	this.Balance = balance
+	this.AvgPrice = avgPrice
 	this.Rating = rating
+	this.Comments = comments
+	this.Position = position
+	this.Graph = graph
 	return &this
 }
 
@@ -53,28 +95,28 @@ func NewCategorySellerWithDefaults() *CategorySeller {
 	return &this
 }
 
-// GetName returns the Name field value
-func (o *CategorySeller) GetName() string {
+// GetSupplierId returns the SupplierId field value
+func (o *CategorySeller) GetSupplierId() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.Name
+	return o.SupplierId
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetSupplierIdOk returns a tuple with the SupplierId field value
 // and a boolean to check if the value has been set.
-func (o *CategorySeller) GetNameOk() (*string, bool) {
+func (o *CategorySeller) GetSupplierIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return &o.SupplierId, true
 }
 
-// SetName sets field value
-func (o *CategorySeller) SetName(v string) {
-	o.Name = v
+// SetSupplierId sets field value
+func (o *CategorySeller) SetSupplierId(v int32) {
+	o.SupplierId = v
 }
 
 // GetItems returns the Items field value
@@ -99,6 +141,126 @@ func (o *CategorySeller) GetItemsOk() (*int32, bool) {
 // SetItems sets field value
 func (o *CategorySeller) SetItems(v int32) {
 	o.Items = v
+}
+
+// GetItemsWithSells returns the ItemsWithSells field value
+func (o *CategorySeller) GetItemsWithSells() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ItemsWithSells
+}
+
+// GetItemsWithSellsOk returns a tuple with the ItemsWithSells field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetItemsWithSellsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ItemsWithSells, true
+}
+
+// SetItemsWithSells sets field value
+func (o *CategorySeller) SetItemsWithSells(v int32) {
+	o.ItemsWithSells = v
+}
+
+// GetItemsWithSellsPercent returns the ItemsWithSellsPercent field value
+func (o *CategorySeller) GetItemsWithSellsPercent() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.ItemsWithSellsPercent
+}
+
+// GetItemsWithSellsPercentOk returns a tuple with the ItemsWithSellsPercent field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetItemsWithSellsPercentOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ItemsWithSellsPercent, true
+}
+
+// SetItemsWithSellsPercent sets field value
+func (o *CategorySeller) SetItemsWithSellsPercent(v float32) {
+	o.ItemsWithSellsPercent = v
+}
+
+// GetBrands returns the Brands field value
+func (o *CategorySeller) GetBrands() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Brands
+}
+
+// GetBrandsOk returns a tuple with the Brands field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetBrandsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Brands, true
+}
+
+// SetBrands sets field value
+func (o *CategorySeller) SetBrands(v int32) {
+	o.Brands = v
+}
+
+// GetBrandsWithSells returns the BrandsWithSells field value
+func (o *CategorySeller) GetBrandsWithSells() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.BrandsWithSells
+}
+
+// GetBrandsWithSellsOk returns a tuple with the BrandsWithSells field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetBrandsWithSellsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BrandsWithSells, true
+}
+
+// SetBrandsWithSells sets field value
+func (o *CategorySeller) SetBrandsWithSells(v int32) {
+	o.BrandsWithSells = v
+}
+
+// GetBrandsWithSellsPercent returns the BrandsWithSellsPercent field value
+func (o *CategorySeller) GetBrandsWithSellsPercent() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.BrandsWithSellsPercent
+}
+
+// GetBrandsWithSellsPercentOk returns a tuple with the BrandsWithSellsPercent field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetBrandsWithSellsPercentOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BrandsWithSellsPercent, true
+}
+
+// SetBrandsWithSellsPercent sets field value
+func (o *CategorySeller) SetBrandsWithSellsPercent(v float32) {
+	o.BrandsWithSellsPercent = v
 }
 
 // GetSales returns the Sales field value
@@ -149,28 +311,172 @@ func (o *CategorySeller) SetRevenue(v float32) {
 	o.Revenue = v
 }
 
-// GetComments returns the Comments field value
-func (o *CategorySeller) GetComments() float32 {
+// GetSalesPerItemsAverage returns the SalesPerItemsAverage field value
+func (o *CategorySeller) GetSalesPerItemsAverage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.Comments
+	return o.SalesPerItemsAverage
 }
 
-// GetCommentsOk returns a tuple with the Comments field value
+// GetSalesPerItemsAverageOk returns a tuple with the SalesPerItemsAverage field value
 // and a boolean to check if the value has been set.
-func (o *CategorySeller) GetCommentsOk() (*float32, bool) {
+func (o *CategorySeller) GetSalesPerItemsAverageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Comments, true
+	return &o.SalesPerItemsAverage, true
 }
 
-// SetComments sets field value
-func (o *CategorySeller) SetComments(v float32) {
-	o.Comments = v
+// SetSalesPerItemsAverage sets field value
+func (o *CategorySeller) SetSalesPerItemsAverage(v float32) {
+	o.SalesPerItemsAverage = v
+}
+
+// GetSalesPerItemsWithSellsAverage returns the SalesPerItemsWithSellsAverage field value
+func (o *CategorySeller) GetSalesPerItemsWithSellsAverage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.SalesPerItemsWithSellsAverage
+}
+
+// GetSalesPerItemsWithSellsAverageOk returns a tuple with the SalesPerItemsWithSellsAverage field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetSalesPerItemsWithSellsAverageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SalesPerItemsWithSellsAverage, true
+}
+
+// SetSalesPerItemsWithSellsAverage sets field value
+func (o *CategorySeller) SetSalesPerItemsWithSellsAverage(v float32) {
+	o.SalesPerItemsWithSellsAverage = v
+}
+
+// GetRevenuePerItemsAverage returns the RevenuePerItemsAverage field value
+func (o *CategorySeller) GetRevenuePerItemsAverage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.RevenuePerItemsAverage
+}
+
+// GetRevenuePerItemsAverageOk returns a tuple with the RevenuePerItemsAverage field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetRevenuePerItemsAverageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RevenuePerItemsAverage, true
+}
+
+// SetRevenuePerItemsAverage sets field value
+func (o *CategorySeller) SetRevenuePerItemsAverage(v float32) {
+	o.RevenuePerItemsAverage = v
+}
+
+// GetRevenuePerItemsWithSellsAverage returns the RevenuePerItemsWithSellsAverage field value
+func (o *CategorySeller) GetRevenuePerItemsWithSellsAverage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.RevenuePerItemsWithSellsAverage
+}
+
+// GetRevenuePerItemsWithSellsAverageOk returns a tuple with the RevenuePerItemsWithSellsAverage field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetRevenuePerItemsWithSellsAverageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RevenuePerItemsWithSellsAverage, true
+}
+
+// SetRevenuePerItemsWithSellsAverage sets field value
+func (o *CategorySeller) SetRevenuePerItemsWithSellsAverage(v float32) {
+	o.RevenuePerItemsWithSellsAverage = v
+}
+
+// GetName returns the Name field value
+func (o *CategorySeller) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *CategorySeller) SetName(v string) {
+	o.Name = v
+}
+
+// GetBalance returns the Balance field value
+func (o *CategorySeller) GetBalance() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Balance
+}
+
+// GetBalanceOk returns a tuple with the Balance field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetBalanceOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Balance, true
+}
+
+// SetBalance sets field value
+func (o *CategorySeller) SetBalance(v float32) {
+	o.Balance = v
+}
+
+// GetAvgPrice returns the AvgPrice field value
+func (o *CategorySeller) GetAvgPrice() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AvgPrice
+}
+
+// GetAvgPriceOk returns a tuple with the AvgPrice field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetAvgPriceOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgPrice, true
+}
+
+// SetAvgPrice sets field value
+func (o *CategorySeller) SetAvgPrice(v float32) {
+	o.AvgPrice = v
 }
 
 // GetRating returns the Rating field value
@@ -197,13 +503,100 @@ func (o *CategorySeller) SetRating(v float32) {
 	o.Rating = v
 }
 
+// GetComments returns the Comments field value
+func (o *CategorySeller) GetComments() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Comments
+}
+
+// GetCommentsOk returns a tuple with the Comments field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetCommentsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Comments, true
+}
+
+// SetComments sets field value
+func (o *CategorySeller) SetComments(v float32) {
+	o.Comments = v
+}
+
+// GetPosition returns the Position field value
+func (o *CategorySeller) GetPosition() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Position
+}
+
+// GetPositionOk returns a tuple with the Position field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetPositionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Position, true
+}
+
+// SetPosition sets field value
+func (o *CategorySeller) SetPosition(v int32) {
+	o.Position = v
+}
+
+// GetGraph returns the Graph field value
+func (o *CategorySeller) GetGraph() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+
+	return o.Graph
+}
+
+// GetGraphOk returns a tuple with the Graph field value
+// and a boolean to check if the value has been set.
+func (o *CategorySeller) GetGraphOk() ([]int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Graph, true
+}
+
+// SetGraph sets field value
+func (o *CategorySeller) SetGraph(v []int32) {
+	o.Graph = v
+}
+
 func (o CategorySeller) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["name"] = o.Name
+		toSerialize["supplier_id"] = o.SupplierId
 	}
 	if true {
 		toSerialize["items"] = o.Items
+	}
+	if true {
+		toSerialize["items_with_sells"] = o.ItemsWithSells
+	}
+	if true {
+		toSerialize["items_with_sells_percent"] = o.ItemsWithSellsPercent
+	}
+	if true {
+		toSerialize["brands"] = o.Brands
+	}
+	if true {
+		toSerialize["brands_with_sells"] = o.BrandsWithSells
+	}
+	if true {
+		toSerialize["brands_with_sells_percent"] = o.BrandsWithSellsPercent
 	}
 	if true {
 		toSerialize["sales"] = o.Sales
@@ -212,10 +605,37 @@ func (o CategorySeller) MarshalJSON() ([]byte, error) {
 		toSerialize["revenue"] = o.Revenue
 	}
 	if true {
-		toSerialize["comments"] = o.Comments
+		toSerialize["sales_per_items_average"] = o.SalesPerItemsAverage
+	}
+	if true {
+		toSerialize["sales_per_items_with_sells_average"] = o.SalesPerItemsWithSellsAverage
+	}
+	if true {
+		toSerialize["revenue_per_items_average"] = o.RevenuePerItemsAverage
+	}
+	if true {
+		toSerialize["revenue_per_items_with_sells_average"] = o.RevenuePerItemsWithSellsAverage
+	}
+	if true {
+		toSerialize["name"] = o.Name
+	}
+	if true {
+		toSerialize["balance"] = o.Balance
+	}
+	if true {
+		toSerialize["avg_price"] = o.AvgPrice
 	}
 	if true {
 		toSerialize["rating"] = o.Rating
+	}
+	if true {
+		toSerialize["comments"] = o.Comments
+	}
+	if true {
+		toSerialize["position"] = o.Position
+	}
+	if true {
+		toSerialize["graph"] = o.Graph
 	}
 	return json.Marshal(toSerialize)
 }

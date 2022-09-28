@@ -2056,38 +2056,112 @@ components:
     CategorySeller:
       description: ""
       example:
-        revenue: 1.4658129805029452
-        comments: 5.962133916683182
+        sales_per_items_average: 2.027123023002322
+        brands: 5
+        brands_with_sells_percent: 7.061401241503109
+        comments: 7.457744773683766
+        rating: 6.84685269835264
+        avg_price: 1.4894159098541704
+        revenue_per_items_average: 7.386281948385884
+        sales: 9
+        graph:
+        - 4
+        - 4
+        sales_per_items_with_sells_average: 4.145608029883936
+        brands_with_sells: 2
+        revenue_per_items_with_sells_average: 1.2315135367772556
+        revenue: 3.616076749251911
+        balance: 1.0246457001441578
         name: name
-        rating: 5.637376656633329
-        items: 0
-        sales: 6
+        items_with_sells: 1
+        position: 1
+        supplier_id: 0
+        items: 6
+        items_with_sells_percent: 5.962133916683182
       properties:
-        name:
-          description: Название продавца
-          type: string
+        supplier_id:
+          description: Идентификатор продавца
+          type: integer
         items:
           description: Число товаров
           type: integer
+        items_with_sells:
+          description: Число товаров с продажами
+          type: integer
+        items_with_sells_percent:
+          description: Процент товаров с продажами
+          type: number
+        brands:
+          description: Число брендов
+          type: integer
+        brands_with_sells:
+          description: Число брендов с продажами
+          type: integer
+        brands_with_sells_percent:
+          description: Процент брендов с продажами
+          type: number
         sales:
           description: Число зафиксированных продаж (единицы)
           type: integer
         revenue:
           description: Сумма произведений числа проданных товаров на их стоимость
           type: number
-        comments:
-          description: Среднее число комментариев
+        sales_per_items_average:
+          description: Среднее число продаж на товар
+          type: number
+        sales_per_items_with_sells_average:
+          description: Среднее число продаж на товар с продажами
+          type: number
+        revenue_per_items_average:
+          description: Средняя выручка на товар
+          type: number
+        revenue_per_items_with_sells_average:
+          description: Средняя выручка на товар с продажами
+          type: number
+        name:
+          description: Название продавца
+          type: string
+        balance:
+          description: Число остатков товаров на складах
+          type: number
+        avg_price:
+          description: Средняя цена
           type: number
         rating:
           description: Средний рейтинг
           type: number
+        comments:
+          description: Среднее число комментариев
+          type: number
+        position:
+          description: Позиция продавца
+          type: integer
+        graph:
+          description: Позиция продавца
+          items:
+            type: integer
+          type: array
       required:
+      - avg_price
+      - balance
+      - brands
+      - brands_with_sells
+      - brands_with_sells_percent
       - comments
+      - graph
       - items
+      - items_with_sells
+      - items_with_sells_percent
       - name
+      - position
       - rating
       - revenue
+      - revenue_per_items_average
+      - revenue_per_items_with_sells_average
       - sales
+      - sales_per_items_average
+      - sales_per_items_with_sells_average
+      - supplier_id
       type: object
     CategoryTrend:
       description: ""
@@ -2509,8 +2583,8 @@ components:
           - 16608
           id: 217
           name: Одежда / Лонгслив
-          commission_fbo: 18
-          commission_fbs: 15
+          commision_fbo: 18
+          commision_fbs: 15
           basic_logistics: 55
           storage_price: 0.07
           acceptance_price: 13
