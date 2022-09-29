@@ -3469,6 +3469,7 @@ components:
           - 0
           - 0
           commentsvaluation: 3.353193347011243
+          purchase_after_return: 8.969578798196912
           name: name
           basic_sale: 1
           position: 7
@@ -3497,6 +3498,7 @@ components:
           stocks_graph:
           - 6
           - 6
+          purchase: 4.652396432933246
           revenue_potential: 8
           category_position: 2
           url: url
@@ -3529,6 +3531,7 @@ components:
           - 0
           - 0
           commentsvaluation: 3.353193347011243
+          purchase_after_return: 8.969578798196912
           name: name
           basic_sale: 1
           position: 7
@@ -3557,6 +3560,7 @@ components:
           stocks_graph:
           - 6
           - 6
+          purchase: 4.652396432933246
           revenue_potential: 8
           category_position: 2
           url: url
@@ -3666,6 +3670,7 @@ components:
         - 0
         - 0
         commentsvaluation: 3.353193347011243
+        purchase_after_return: 8.969578798196912
         name: name
         basic_sale: 1
         position: 7
@@ -3694,6 +3699,7 @@ components:
         stocks_graph:
         - 6
         - 6
+        purchase: 4.652396432933246
         revenue_potential: 8
         category_position: 2
         url: url
@@ -3813,6 +3819,12 @@ components:
           items:
             type: integer
           type: array
+        purchase:
+          description: Процен выкупа
+          type: number
+        purchase_after_return:
+          description: Процент выкупа после возвратов
+          type: number
       required:
       - average_if_in_stock
       - balance
@@ -3852,6 +3864,8 @@ components:
       - position
       - price_graph
       - promo_sale
+      - purchase
+      - purchase_after_return
       - rating
       - revenue
       - revenue_potential
@@ -4320,6 +4334,7 @@ components:
           - 0
           - 0
           commentsvaluation: 3.353193347011243
+          purchase_after_return: 8.969578798196912
           name: name
           basic_sale: 1
           position: 7
@@ -4348,6 +4363,7 @@ components:
           stocks_graph:
           - 6
           - 6
+          purchase: 4.652396432933246
           revenue_potential: 8
           category_position: 2
           url: url
@@ -4380,6 +4396,7 @@ components:
           - 0
           - 0
           commentsvaluation: 3.353193347011243
+          purchase_after_return: 8.969578798196912
           name: name
           basic_sale: 1
           position: 7
@@ -4408,6 +4425,7 @@ components:
           stocks_graph:
           - 6
           - 6
+          purchase: 4.652396432933246
           revenue_potential: 8
           category_position: 2
           url: url

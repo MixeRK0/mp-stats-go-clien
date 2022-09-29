@@ -68,13 +68,17 @@ type SearchItemsElement struct {
 	CategoryGraph []int32 `json:"category_graph"`
 	StocksGraph []int32 `json:"stocks_graph"`
 	PriceGraph []int32 `json:"price_graph"`
+	// Процен выкупа
+	Purchase float32 `json:"purchase"`
+	// Процент выкупа после возвратов
+	PurchaseAfterReturn float32 `json:"purchase_after_return"`
 }
 
 // NewSearchItemsElement instantiates a new SearchItemsElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32) *SearchItemsElement {
+func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, purchase float32, purchaseAfterReturn float32) *SearchItemsElement {
 	this := SearchItemsElement{}
 	this.Id = id
 	this.Name = name
@@ -128,6 +132,8 @@ func NewSearchItemsElement(id int32, name string, brand string, seller string, s
 	this.CategoryGraph = categoryGraph
 	this.StocksGraph = stocksGraph
 	this.PriceGraph = priceGraph
+	this.Purchase = purchase
+	this.PurchaseAfterReturn = purchaseAfterReturn
 	return &this
 }
 
@@ -1391,6 +1397,54 @@ func (o *SearchItemsElement) SetPriceGraph(v []int32) {
 	o.PriceGraph = v
 }
 
+// GetPurchase returns the Purchase field value
+func (o *SearchItemsElement) GetPurchase() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Purchase
+}
+
+// GetPurchaseOk returns a tuple with the Purchase field value
+// and a boolean to check if the value has been set.
+func (o *SearchItemsElement) GetPurchaseOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Purchase, true
+}
+
+// SetPurchase sets field value
+func (o *SearchItemsElement) SetPurchase(v float32) {
+	o.Purchase = v
+}
+
+// GetPurchaseAfterReturn returns the PurchaseAfterReturn field value
+func (o *SearchItemsElement) GetPurchaseAfterReturn() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.PurchaseAfterReturn
+}
+
+// GetPurchaseAfterReturnOk returns a tuple with the PurchaseAfterReturn field value
+// and a boolean to check if the value has been set.
+func (o *SearchItemsElement) GetPurchaseAfterReturnOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PurchaseAfterReturn, true
+}
+
+// SetPurchaseAfterReturn sets field value
+func (o *SearchItemsElement) SetPurchaseAfterReturn(v float32) {
+	o.PurchaseAfterReturn = v
+}
+
 func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1548,6 +1602,12 @@ func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["price_graph"] = o.PriceGraph
+	}
+	if true {
+		toSerialize["purchase"] = o.Purchase
+	}
+	if true {
+		toSerialize["purchase_after_return"] = o.PurchaseAfterReturn
 	}
 	return json.Marshal(toSerialize)
 }

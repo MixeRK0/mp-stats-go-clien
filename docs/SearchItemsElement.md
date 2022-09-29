@@ -56,12 +56,14 @@ Name | Type | Description | Notes
 **CategoryGraph** | **[]int32** |  | 
 **StocksGraph** | **[]int32** |  | 
 **PriceGraph** | **[]int32** |  | 
+**Purchase** | **float32** | Процен выкупа | 
+**PurchaseAfterReturn** | **float32** | Процент выкупа после возвратов | 
 
 ## Methods
 
 ### NewSearchItemsElement
 
-`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, ) *SearchItemsElement`
+`func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount interface{}, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, purchase float32, purchaseAfterReturn float32, ) *SearchItemsElement`
 
 NewSearchItemsElement instantiates a new SearchItemsElement object
 This constructor will assign default values to properties that have it defined,
@@ -1134,6 +1136,46 @@ and a boolean to check if the value has been set.
 `func (o *SearchItemsElement) SetPriceGraph(v []int32)`
 
 SetPriceGraph sets PriceGraph field to given value.
+
+
+### GetPurchase
+
+`func (o *SearchItemsElement) GetPurchase() float32`
+
+GetPurchase returns the Purchase field if non-nil, zero value otherwise.
+
+### GetPurchaseOk
+
+`func (o *SearchItemsElement) GetPurchaseOk() (*float32, bool)`
+
+GetPurchaseOk returns a tuple with the Purchase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPurchase
+
+`func (o *SearchItemsElement) SetPurchase(v float32)`
+
+SetPurchase sets Purchase field to given value.
+
+
+### GetPurchaseAfterReturn
+
+`func (o *SearchItemsElement) GetPurchaseAfterReturn() float32`
+
+GetPurchaseAfterReturn returns the PurchaseAfterReturn field if non-nil, zero value otherwise.
+
+### GetPurchaseAfterReturnOk
+
+`func (o *SearchItemsElement) GetPurchaseAfterReturnOk() (*float32, bool)`
+
+GetPurchaseAfterReturnOk returns a tuple with the PurchaseAfterReturn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPurchaseAfterReturn
+
+`func (o *SearchItemsElement) SetPurchaseAfterReturn(v float32)`
+
+SetPurchaseAfterReturn sets PurchaseAfterReturn field to given value.
 
 
 
