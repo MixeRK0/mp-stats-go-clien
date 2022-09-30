@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ## GetBrandDetailedItems
 
-> InlineResponse200 GetBrandDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+> InlineResponse2001 GetBrandDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары бренда
 
@@ -217,7 +217,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetBrandDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetBrandDetailedItems`: InlineResponse200
+    // response from `GetBrandDetailedItems`: InlineResponse2001
     fmt.Fprintf(os.Stdout, "Response from `WbApi.GetBrandDetailedItems`: %v\n", resp)
 }
 ```
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -1828,7 +1828,7 @@ Name | Type | Description  | Notes
 
 ## GetSellerDetailedItems
 
-> InlineResponse200 GetSellerDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+> InlineResponse2001 GetSellerDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары продавца
 
@@ -1860,7 +1860,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSellerDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSellerDetailedItems`: InlineResponse200
+    // response from `GetSellerDetailedItems`: InlineResponse2001
     fmt.Fprintf(os.Stdout, "Response from `WbApi.GetSellerDetailedItems`: %v\n", resp)
 }
 ```
@@ -1883,7 +1883,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -2185,7 +2185,7 @@ Name | Type | Description  | Notes
 
 ## GetSimilarDetailedItems
 
-> InlineResponse200 GetSimilarDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+> InlineResponse2001 GetSimilarDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары по похожему товару
 
@@ -2217,7 +2217,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSimilarDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSimilarDetailedItems`: InlineResponse200
+    // response from `GetSimilarDetailedItems`: InlineResponse2001
     fmt.Fprintf(os.Stdout, "Response from `WbApi.GetSimilarDetailedItems`: %v\n", resp)
 }
 ```
@@ -2240,7 +2240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

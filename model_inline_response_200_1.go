@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse200 struct for InlineResponse200
-type InlineResponse200 struct {
+// InlineResponse2001 struct for InlineResponse2001
+type InlineResponse2001 struct {
 	// Номер строки начала получения данных
 	StartRow int32 `json:"startRow"`
 	// Номер строки конца получения данных
@@ -26,15 +26,15 @@ type InlineResponse200 struct {
 	// Кол-во строк в результирующем запросе без учета пагинации
 	Total int32 `json:"total"`
 	// Массив данных
-	Data []CategoryProduct `json:"data"`
+	Data []SearchItemsElement `json:"data"`
 }
 
-// NewInlineResponse200 instantiates a new InlineResponse200 object
+// NewInlineResponse2001 instantiates a new InlineResponse2001 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []CategoryProduct) *InlineResponse200 {
-	this := InlineResponse200{}
+func NewInlineResponse2001(startRow int32, endRow int32, filterModel interface{}, sortModel []SortModelItem, total int32, data []SearchItemsElement) *InlineResponse2001 {
+	this := InlineResponse2001{}
 	this.StartRow = startRow
 	this.EndRow = endRow
 	this.FilterModel = filterModel
@@ -44,16 +44,16 @@ func NewInlineResponse200(startRow int32, endRow int32, filterModel interface{},
 	return &this
 }
 
-// NewInlineResponse200WithDefaults instantiates a new InlineResponse200 object
+// NewInlineResponse2001WithDefaults instantiates a new InlineResponse2001 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse200WithDefaults() *InlineResponse200 {
-	this := InlineResponse200{}
+func NewInlineResponse2001WithDefaults() *InlineResponse2001 {
+	this := InlineResponse2001{}
 	return &this
 }
 
 // GetStartRow returns the StartRow field value
-func (o *InlineResponse200) GetStartRow() int32 {
+func (o *InlineResponse2001) GetStartRow() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -64,7 +64,7 @@ func (o *InlineResponse200) GetStartRow() int32 {
 
 // GetStartRowOk returns a tuple with the StartRow field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetStartRowOk() (*int32, bool) {
+func (o *InlineResponse2001) GetStartRowOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,12 +72,12 @@ func (o *InlineResponse200) GetStartRowOk() (*int32, bool) {
 }
 
 // SetStartRow sets field value
-func (o *InlineResponse200) SetStartRow(v int32) {
+func (o *InlineResponse2001) SetStartRow(v int32) {
 	o.StartRow = v
 }
 
 // GetEndRow returns the EndRow field value
-func (o *InlineResponse200) GetEndRow() int32 {
+func (o *InlineResponse2001) GetEndRow() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -88,7 +88,7 @@ func (o *InlineResponse200) GetEndRow() int32 {
 
 // GetEndRowOk returns a tuple with the EndRow field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetEndRowOk() (*int32, bool) {
+func (o *InlineResponse2001) GetEndRowOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,13 +96,13 @@ func (o *InlineResponse200) GetEndRowOk() (*int32, bool) {
 }
 
 // SetEndRow sets field value
-func (o *InlineResponse200) SetEndRow(v int32) {
+func (o *InlineResponse2001) SetEndRow(v int32) {
 	o.EndRow = v
 }
 
 // GetFilterModel returns the FilterModel field value
 // If the value is explicit nil, the zero value for interface{} will be returned
-func (o *InlineResponse200) GetFilterModel() interface{} {
+func (o *InlineResponse2001) GetFilterModel() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -114,7 +114,7 @@ func (o *InlineResponse200) GetFilterModel() interface{} {
 // GetFilterModelOk returns a tuple with the FilterModel field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InlineResponse200) GetFilterModelOk() (*interface{}, bool) {
+func (o *InlineResponse2001) GetFilterModelOk() (*interface{}, bool) {
 	if o == nil || o.FilterModel == nil {
 		return nil, false
 	}
@@ -122,12 +122,12 @@ func (o *InlineResponse200) GetFilterModelOk() (*interface{}, bool) {
 }
 
 // SetFilterModel sets field value
-func (o *InlineResponse200) SetFilterModel(v interface{}) {
+func (o *InlineResponse2001) SetFilterModel(v interface{}) {
 	o.FilterModel = v
 }
 
 // GetSortModel returns the SortModel field value
-func (o *InlineResponse200) GetSortModel() []SortModelItem {
+func (o *InlineResponse2001) GetSortModel() []SortModelItem {
 	if o == nil {
 		var ret []SortModelItem
 		return ret
@@ -138,7 +138,7 @@ func (o *InlineResponse200) GetSortModel() []SortModelItem {
 
 // GetSortModelOk returns a tuple with the SortModel field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetSortModelOk() ([]SortModelItem, bool) {
+func (o *InlineResponse2001) GetSortModelOk() ([]SortModelItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,12 +146,12 @@ func (o *InlineResponse200) GetSortModelOk() ([]SortModelItem, bool) {
 }
 
 // SetSortModel sets field value
-func (o *InlineResponse200) SetSortModel(v []SortModelItem) {
+func (o *InlineResponse2001) SetSortModel(v []SortModelItem) {
 	o.SortModel = v
 }
 
 // GetTotal returns the Total field value
-func (o *InlineResponse200) GetTotal() int32 {
+func (o *InlineResponse2001) GetTotal() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -162,7 +162,7 @@ func (o *InlineResponse200) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetTotalOk() (*int32, bool) {
+func (o *InlineResponse2001) GetTotalOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *InlineResponse200) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *InlineResponse200) SetTotal(v int32) {
+func (o *InlineResponse2001) SetTotal(v int32) {
 	o.Total = v
 }
 
 // GetData returns the Data field value
-func (o *InlineResponse200) GetData() []CategoryProduct {
+func (o *InlineResponse2001) GetData() []SearchItemsElement {
 	if o == nil {
-		var ret []CategoryProduct
+		var ret []SearchItemsElement
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *InlineResponse200) GetData() []CategoryProduct {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDataOk() ([]CategoryProduct, bool) {
+func (o *InlineResponse2001) GetDataOk() ([]SearchItemsElement, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,11 +194,11 @@ func (o *InlineResponse200) GetDataOk() ([]CategoryProduct, bool) {
 }
 
 // SetData sets field value
-func (o *InlineResponse200) SetData(v []CategoryProduct) {
+func (o *InlineResponse2001) SetData(v []SearchItemsElement) {
 	o.Data = v
 }
 
-func (o InlineResponse200) MarshalJSON() ([]byte, error) {
+func (o InlineResponse2001) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["startRow"] = o.StartRow
@@ -221,38 +221,38 @@ func (o InlineResponse200) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse200 struct {
-	value *InlineResponse200
+type NullableInlineResponse2001 struct {
+	value *InlineResponse2001
 	isSet bool
 }
 
-func (v NullableInlineResponse200) Get() *InlineResponse200 {
+func (v NullableInlineResponse2001) Get() *InlineResponse2001 {
 	return v.value
 }
 
-func (v *NullableInlineResponse200) Set(val *InlineResponse200) {
+func (v *NullableInlineResponse2001) Set(val *InlineResponse2001) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse200) IsSet() bool {
+func (v NullableInlineResponse2001) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse200) Unset() {
+func (v *NullableInlineResponse2001) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse200(val *InlineResponse200) *NullableInlineResponse200 {
-	return &NullableInlineResponse200{value: val, isSet: true}
+func NewNullableInlineResponse2001(val *InlineResponse2001) *NullableInlineResponse2001 {
+	return &NullableInlineResponse2001{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse200) MarshalJSON() ([]byte, error) {
+func (v NullableInlineResponse2001) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse200) UnmarshalJSON(src []byte) error {
+func (v *NullableInlineResponse2001) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -343,7 +343,7 @@ func (r ApiGetBrandDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBody
 	return r
 }
 
-func (r ApiGetBrandDetailedItemsRequest) Execute() (*InlineResponse200, *http.Response, error) {
+func (r ApiGetBrandDetailedItemsRequest) Execute() (*InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetBrandDetailedItemsExecute(r)
 }
 
@@ -363,13 +363,13 @@ func (a *WbApiService) GetBrandDetailedItems(ctx context.Context) ApiGetBrandDet
 }
 
 // Execute executes the request
-//  @return InlineResponse200
-func (a *WbApiService) GetBrandDetailedItemsExecute(r ApiGetBrandDetailedItemsRequest) (*InlineResponse200, *http.Response, error) {
+//  @return InlineResponse2001
+func (a *WbApiService) GetBrandDetailedItemsExecute(r ApiGetBrandDetailedItemsRequest) (*InlineResponse2001, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InlineResponse200
+		localVarReturnValue  *InlineResponse2001
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.GetBrandDetailedItems")
@@ -3538,7 +3538,7 @@ func (r ApiGetSellerDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBod
 	return r
 }
 
-func (r ApiGetSellerDetailedItemsRequest) Execute() (*InlineResponse200, *http.Response, error) {
+func (r ApiGetSellerDetailedItemsRequest) Execute() (*InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetSellerDetailedItemsExecute(r)
 }
 
@@ -3558,13 +3558,13 @@ func (a *WbApiService) GetSellerDetailedItems(ctx context.Context) ApiGetSellerD
 }
 
 // Execute executes the request
-//  @return InlineResponse200
-func (a *WbApiService) GetSellerDetailedItemsExecute(r ApiGetSellerDetailedItemsRequest) (*InlineResponse200, *http.Response, error) {
+//  @return InlineResponse2001
+func (a *WbApiService) GetSellerDetailedItemsExecute(r ApiGetSellerDetailedItemsRequest) (*InlineResponse2001, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InlineResponse200
+		localVarReturnValue  *InlineResponse2001
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.GetSellerDetailedItems")
@@ -4266,7 +4266,7 @@ func (r ApiGetSimilarDetailedItemsRequest) GetItemsRequestBody(getItemsRequestBo
 	return r
 }
 
-func (r ApiGetSimilarDetailedItemsRequest) Execute() (*InlineResponse200, *http.Response, error) {
+func (r ApiGetSimilarDetailedItemsRequest) Execute() (*InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetSimilarDetailedItemsExecute(r)
 }
 
@@ -4286,13 +4286,13 @@ func (a *WbApiService) GetSimilarDetailedItems(ctx context.Context) ApiGetSimila
 }
 
 // Execute executes the request
-//  @return InlineResponse200
-func (a *WbApiService) GetSimilarDetailedItemsExecute(r ApiGetSimilarDetailedItemsRequest) (*InlineResponse200, *http.Response, error) {
+//  @return InlineResponse2001
+func (a *WbApiService) GetSimilarDetailedItemsExecute(r ApiGetSimilarDetailedItemsRequest) (*InlineResponse2001, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InlineResponse200
+		localVarReturnValue  *InlineResponse2001
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WbApiService.GetSimilarDetailedItems")

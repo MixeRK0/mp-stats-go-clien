@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// SearchItemsElement struct for SearchItemsElement
-type SearchItemsElement struct {
+// CategoryProduct struct for CategoryProduct
+type CategoryProduct struct {
 	Id int32 `json:"id"`
 	Name string `json:"name"`
 	Brand string `json:"brand"`
@@ -63,7 +63,7 @@ type SearchItemsElement struct {
 	Commentsvaluation float32 `json:"commentsvaluation"`
 	Cardratingval int32 `json:"cardratingval"`
 	Position int32 `json:"position"`
-	CategoriesLastCount string `json:"categories_last_count"`
+	CategoriesLastCount int32 `json:"categories_last_count"`
 	Graph []int32 `json:"graph"`
 	CategoryGraph []int32 `json:"category_graph"`
 	StocksGraph []int32 `json:"stocks_graph"`
@@ -74,12 +74,12 @@ type SearchItemsElement struct {
 	PurchaseAfterReturn float32 `json:"purchase_after_return"`
 }
 
-// NewSearchItemsElement instantiates a new SearchItemsElement object
+// NewCategoryProduct instantiates a new CategoryProduct object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchItemsElement(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount string, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, purchase float32, purchaseAfterReturn float32) *SearchItemsElement {
-	this := SearchItemsElement{}
+func NewCategoryProduct(id int32, name string, brand string, seller string, supplierId int32, category string, categoryPosition int32, posData interface{}, color string, balance int32, balanceFbs int32, comments int32, rating int32, finalPrice int32, finalPriceMax int32, finalPriceMin int32, finalPriceAverage float32, basicSale int32, basicPrice int32, promoSale int32, clientSale int32, clientPrice int32, startPrice int32, sales int32, salesPerDayAverage float32, revenue int32, revenuePotential int32, lostProfit int32, lostProfitPercent float32, daysInStock int32, daysWithSales int32, averageIfInStock float32, thumb string, thumbMiddle string, isFbs int32, subjectId int32, url string, country string, gender string, skuFirstDate string, firstcommentdate string, picscount int32, has3d int32, hasvideo int32, commentsvaluation float32, cardratingval int32, position int32, categoriesLastCount int32, graph []int32, categoryGraph []int32, stocksGraph []int32, priceGraph []int32, purchase float32, purchaseAfterReturn float32) *CategoryProduct {
+	this := CategoryProduct{}
 	this.Id = id
 	this.Name = name
 	this.Brand = brand
@@ -137,16 +137,16 @@ func NewSearchItemsElement(id int32, name string, brand string, seller string, s
 	return &this
 }
 
-// NewSearchItemsElementWithDefaults instantiates a new SearchItemsElement object
+// NewCategoryProductWithDefaults instantiates a new CategoryProduct object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSearchItemsElementWithDefaults() *SearchItemsElement {
-	this := SearchItemsElement{}
+func NewCategoryProductWithDefaults() *CategoryProduct {
+	this := CategoryProduct{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *SearchItemsElement) GetId() int32 {
+func (o *CategoryProduct) GetId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -157,7 +157,7 @@ func (o *SearchItemsElement) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetIdOk() (*int32, bool) {
+func (o *CategoryProduct) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -165,12 +165,12 @@ func (o *SearchItemsElement) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *SearchItemsElement) SetId(v int32) {
+func (o *CategoryProduct) SetId(v int32) {
 	o.Id = v
 }
 
 // GetName returns the Name field value
-func (o *SearchItemsElement) GetName() string {
+func (o *CategoryProduct) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -181,7 +181,7 @@ func (o *SearchItemsElement) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetNameOk() (*string, bool) {
+func (o *CategoryProduct) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -189,12 +189,12 @@ func (o *SearchItemsElement) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *SearchItemsElement) SetName(v string) {
+func (o *CategoryProduct) SetName(v string) {
 	o.Name = v
 }
 
 // GetBrand returns the Brand field value
-func (o *SearchItemsElement) GetBrand() string {
+func (o *CategoryProduct) GetBrand() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -205,7 +205,7 @@ func (o *SearchItemsElement) GetBrand() string {
 
 // GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetBrandOk() (*string, bool) {
+func (o *CategoryProduct) GetBrandOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -213,12 +213,12 @@ func (o *SearchItemsElement) GetBrandOk() (*string, bool) {
 }
 
 // SetBrand sets field value
-func (o *SearchItemsElement) SetBrand(v string) {
+func (o *CategoryProduct) SetBrand(v string) {
 	o.Brand = v
 }
 
 // GetSeller returns the Seller field value
-func (o *SearchItemsElement) GetSeller() string {
+func (o *CategoryProduct) GetSeller() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -229,7 +229,7 @@ func (o *SearchItemsElement) GetSeller() string {
 
 // GetSellerOk returns a tuple with the Seller field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSellerOk() (*string, bool) {
+func (o *CategoryProduct) GetSellerOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -237,12 +237,12 @@ func (o *SearchItemsElement) GetSellerOk() (*string, bool) {
 }
 
 // SetSeller sets field value
-func (o *SearchItemsElement) SetSeller(v string) {
+func (o *CategoryProduct) SetSeller(v string) {
 	o.Seller = v
 }
 
 // GetSupplierId returns the SupplierId field value
-func (o *SearchItemsElement) GetSupplierId() int32 {
+func (o *CategoryProduct) GetSupplierId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -253,7 +253,7 @@ func (o *SearchItemsElement) GetSupplierId() int32 {
 
 // GetSupplierIdOk returns a tuple with the SupplierId field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSupplierIdOk() (*int32, bool) {
+func (o *CategoryProduct) GetSupplierIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -261,12 +261,12 @@ func (o *SearchItemsElement) GetSupplierIdOk() (*int32, bool) {
 }
 
 // SetSupplierId sets field value
-func (o *SearchItemsElement) SetSupplierId(v int32) {
+func (o *CategoryProduct) SetSupplierId(v int32) {
 	o.SupplierId = v
 }
 
 // GetCategory returns the Category field value
-func (o *SearchItemsElement) GetCategory() string {
+func (o *CategoryProduct) GetCategory() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -277,7 +277,7 @@ func (o *SearchItemsElement) GetCategory() string {
 
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoryOk() (*string, bool) {
+func (o *CategoryProduct) GetCategoryOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -285,12 +285,12 @@ func (o *SearchItemsElement) GetCategoryOk() (*string, bool) {
 }
 
 // SetCategory sets field value
-func (o *SearchItemsElement) SetCategory(v string) {
+func (o *CategoryProduct) SetCategory(v string) {
 	o.Category = v
 }
 
 // GetCategoryPosition returns the CategoryPosition field value
-func (o *SearchItemsElement) GetCategoryPosition() int32 {
+func (o *CategoryProduct) GetCategoryPosition() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -301,7 +301,7 @@ func (o *SearchItemsElement) GetCategoryPosition() int32 {
 
 // GetCategoryPositionOk returns a tuple with the CategoryPosition field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoryPositionOk() (*int32, bool) {
+func (o *CategoryProduct) GetCategoryPositionOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -309,13 +309,13 @@ func (o *SearchItemsElement) GetCategoryPositionOk() (*int32, bool) {
 }
 
 // SetCategoryPosition sets field value
-func (o *SearchItemsElement) SetCategoryPosition(v int32) {
+func (o *CategoryProduct) SetCategoryPosition(v int32) {
 	o.CategoryPosition = v
 }
 
 // GetPosData returns the PosData field value
 // If the value is explicit nil, the zero value for interface{} will be returned
-func (o *SearchItemsElement) GetPosData() interface{} {
+func (o *CategoryProduct) GetPosData() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -327,7 +327,7 @@ func (o *SearchItemsElement) GetPosData() interface{} {
 // GetPosDataOk returns a tuple with the PosData field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SearchItemsElement) GetPosDataOk() (*interface{}, bool) {
+func (o *CategoryProduct) GetPosDataOk() (*interface{}, bool) {
 	if o == nil || o.PosData == nil {
 		return nil, false
 	}
@@ -335,12 +335,12 @@ func (o *SearchItemsElement) GetPosDataOk() (*interface{}, bool) {
 }
 
 // SetPosData sets field value
-func (o *SearchItemsElement) SetPosData(v interface{}) {
+func (o *CategoryProduct) SetPosData(v interface{}) {
 	o.PosData = v
 }
 
 // GetColor returns the Color field value
-func (o *SearchItemsElement) GetColor() string {
+func (o *CategoryProduct) GetColor() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -351,7 +351,7 @@ func (o *SearchItemsElement) GetColor() string {
 
 // GetColorOk returns a tuple with the Color field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetColorOk() (*string, bool) {
+func (o *CategoryProduct) GetColorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -359,12 +359,12 @@ func (o *SearchItemsElement) GetColorOk() (*string, bool) {
 }
 
 // SetColor sets field value
-func (o *SearchItemsElement) SetColor(v string) {
+func (o *CategoryProduct) SetColor(v string) {
 	o.Color = v
 }
 
 // GetBalance returns the Balance field value
-func (o *SearchItemsElement) GetBalance() int32 {
+func (o *CategoryProduct) GetBalance() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -375,7 +375,7 @@ func (o *SearchItemsElement) GetBalance() int32 {
 
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetBalanceOk() (*int32, bool) {
+func (o *CategoryProduct) GetBalanceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -383,12 +383,12 @@ func (o *SearchItemsElement) GetBalanceOk() (*int32, bool) {
 }
 
 // SetBalance sets field value
-func (o *SearchItemsElement) SetBalance(v int32) {
+func (o *CategoryProduct) SetBalance(v int32) {
 	o.Balance = v
 }
 
 // GetBalanceFbs returns the BalanceFbs field value
-func (o *SearchItemsElement) GetBalanceFbs() int32 {
+func (o *CategoryProduct) GetBalanceFbs() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -399,7 +399,7 @@ func (o *SearchItemsElement) GetBalanceFbs() int32 {
 
 // GetBalanceFbsOk returns a tuple with the BalanceFbs field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetBalanceFbsOk() (*int32, bool) {
+func (o *CategoryProduct) GetBalanceFbsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -407,12 +407,12 @@ func (o *SearchItemsElement) GetBalanceFbsOk() (*int32, bool) {
 }
 
 // SetBalanceFbs sets field value
-func (o *SearchItemsElement) SetBalanceFbs(v int32) {
+func (o *CategoryProduct) SetBalanceFbs(v int32) {
 	o.BalanceFbs = v
 }
 
 // GetComments returns the Comments field value
-func (o *SearchItemsElement) GetComments() int32 {
+func (o *CategoryProduct) GetComments() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -423,7 +423,7 @@ func (o *SearchItemsElement) GetComments() int32 {
 
 // GetCommentsOk returns a tuple with the Comments field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCommentsOk() (*int32, bool) {
+func (o *CategoryProduct) GetCommentsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -431,12 +431,12 @@ func (o *SearchItemsElement) GetCommentsOk() (*int32, bool) {
 }
 
 // SetComments sets field value
-func (o *SearchItemsElement) SetComments(v int32) {
+func (o *CategoryProduct) SetComments(v int32) {
 	o.Comments = v
 }
 
 // GetRating returns the Rating field value
-func (o *SearchItemsElement) GetRating() int32 {
+func (o *CategoryProduct) GetRating() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -447,7 +447,7 @@ func (o *SearchItemsElement) GetRating() int32 {
 
 // GetRatingOk returns a tuple with the Rating field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetRatingOk() (*int32, bool) {
+func (o *CategoryProduct) GetRatingOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -455,12 +455,12 @@ func (o *SearchItemsElement) GetRatingOk() (*int32, bool) {
 }
 
 // SetRating sets field value
-func (o *SearchItemsElement) SetRating(v int32) {
+func (o *CategoryProduct) SetRating(v int32) {
 	o.Rating = v
 }
 
 // GetFinalPrice returns the FinalPrice field value
-func (o *SearchItemsElement) GetFinalPrice() int32 {
+func (o *CategoryProduct) GetFinalPrice() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -471,7 +471,7 @@ func (o *SearchItemsElement) GetFinalPrice() int32 {
 
 // GetFinalPriceOk returns a tuple with the FinalPrice field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFinalPriceOk() (*int32, bool) {
+func (o *CategoryProduct) GetFinalPriceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -479,12 +479,12 @@ func (o *SearchItemsElement) GetFinalPriceOk() (*int32, bool) {
 }
 
 // SetFinalPrice sets field value
-func (o *SearchItemsElement) SetFinalPrice(v int32) {
+func (o *CategoryProduct) SetFinalPrice(v int32) {
 	o.FinalPrice = v
 }
 
 // GetFinalPriceMax returns the FinalPriceMax field value
-func (o *SearchItemsElement) GetFinalPriceMax() int32 {
+func (o *CategoryProduct) GetFinalPriceMax() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -495,7 +495,7 @@ func (o *SearchItemsElement) GetFinalPriceMax() int32 {
 
 // GetFinalPriceMaxOk returns a tuple with the FinalPriceMax field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFinalPriceMaxOk() (*int32, bool) {
+func (o *CategoryProduct) GetFinalPriceMaxOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -503,12 +503,12 @@ func (o *SearchItemsElement) GetFinalPriceMaxOk() (*int32, bool) {
 }
 
 // SetFinalPriceMax sets field value
-func (o *SearchItemsElement) SetFinalPriceMax(v int32) {
+func (o *CategoryProduct) SetFinalPriceMax(v int32) {
 	o.FinalPriceMax = v
 }
 
 // GetFinalPriceMin returns the FinalPriceMin field value
-func (o *SearchItemsElement) GetFinalPriceMin() int32 {
+func (o *CategoryProduct) GetFinalPriceMin() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -519,7 +519,7 @@ func (o *SearchItemsElement) GetFinalPriceMin() int32 {
 
 // GetFinalPriceMinOk returns a tuple with the FinalPriceMin field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFinalPriceMinOk() (*int32, bool) {
+func (o *CategoryProduct) GetFinalPriceMinOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -527,12 +527,12 @@ func (o *SearchItemsElement) GetFinalPriceMinOk() (*int32, bool) {
 }
 
 // SetFinalPriceMin sets field value
-func (o *SearchItemsElement) SetFinalPriceMin(v int32) {
+func (o *CategoryProduct) SetFinalPriceMin(v int32) {
 	o.FinalPriceMin = v
 }
 
 // GetFinalPriceAverage returns the FinalPriceAverage field value
-func (o *SearchItemsElement) GetFinalPriceAverage() float32 {
+func (o *CategoryProduct) GetFinalPriceAverage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -543,7 +543,7 @@ func (o *SearchItemsElement) GetFinalPriceAverage() float32 {
 
 // GetFinalPriceAverageOk returns a tuple with the FinalPriceAverage field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFinalPriceAverageOk() (*float32, bool) {
+func (o *CategoryProduct) GetFinalPriceAverageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -551,12 +551,12 @@ func (o *SearchItemsElement) GetFinalPriceAverageOk() (*float32, bool) {
 }
 
 // SetFinalPriceAverage sets field value
-func (o *SearchItemsElement) SetFinalPriceAverage(v float32) {
+func (o *CategoryProduct) SetFinalPriceAverage(v float32) {
 	o.FinalPriceAverage = v
 }
 
 // GetBasicSale returns the BasicSale field value
-func (o *SearchItemsElement) GetBasicSale() int32 {
+func (o *CategoryProduct) GetBasicSale() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -567,7 +567,7 @@ func (o *SearchItemsElement) GetBasicSale() int32 {
 
 // GetBasicSaleOk returns a tuple with the BasicSale field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetBasicSaleOk() (*int32, bool) {
+func (o *CategoryProduct) GetBasicSaleOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -575,12 +575,12 @@ func (o *SearchItemsElement) GetBasicSaleOk() (*int32, bool) {
 }
 
 // SetBasicSale sets field value
-func (o *SearchItemsElement) SetBasicSale(v int32) {
+func (o *CategoryProduct) SetBasicSale(v int32) {
 	o.BasicSale = v
 }
 
 // GetBasicPrice returns the BasicPrice field value
-func (o *SearchItemsElement) GetBasicPrice() int32 {
+func (o *CategoryProduct) GetBasicPrice() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -591,7 +591,7 @@ func (o *SearchItemsElement) GetBasicPrice() int32 {
 
 // GetBasicPriceOk returns a tuple with the BasicPrice field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetBasicPriceOk() (*int32, bool) {
+func (o *CategoryProduct) GetBasicPriceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -599,12 +599,12 @@ func (o *SearchItemsElement) GetBasicPriceOk() (*int32, bool) {
 }
 
 // SetBasicPrice sets field value
-func (o *SearchItemsElement) SetBasicPrice(v int32) {
+func (o *CategoryProduct) SetBasicPrice(v int32) {
 	o.BasicPrice = v
 }
 
 // GetPromoSale returns the PromoSale field value
-func (o *SearchItemsElement) GetPromoSale() int32 {
+func (o *CategoryProduct) GetPromoSale() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -615,7 +615,7 @@ func (o *SearchItemsElement) GetPromoSale() int32 {
 
 // GetPromoSaleOk returns a tuple with the PromoSale field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPromoSaleOk() (*int32, bool) {
+func (o *CategoryProduct) GetPromoSaleOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -623,12 +623,12 @@ func (o *SearchItemsElement) GetPromoSaleOk() (*int32, bool) {
 }
 
 // SetPromoSale sets field value
-func (o *SearchItemsElement) SetPromoSale(v int32) {
+func (o *CategoryProduct) SetPromoSale(v int32) {
 	o.PromoSale = v
 }
 
 // GetClientSale returns the ClientSale field value
-func (o *SearchItemsElement) GetClientSale() int32 {
+func (o *CategoryProduct) GetClientSale() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -639,7 +639,7 @@ func (o *SearchItemsElement) GetClientSale() int32 {
 
 // GetClientSaleOk returns a tuple with the ClientSale field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetClientSaleOk() (*int32, bool) {
+func (o *CategoryProduct) GetClientSaleOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -647,12 +647,12 @@ func (o *SearchItemsElement) GetClientSaleOk() (*int32, bool) {
 }
 
 // SetClientSale sets field value
-func (o *SearchItemsElement) SetClientSale(v int32) {
+func (o *CategoryProduct) SetClientSale(v int32) {
 	o.ClientSale = v
 }
 
 // GetClientPrice returns the ClientPrice field value
-func (o *SearchItemsElement) GetClientPrice() int32 {
+func (o *CategoryProduct) GetClientPrice() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -663,7 +663,7 @@ func (o *SearchItemsElement) GetClientPrice() int32 {
 
 // GetClientPriceOk returns a tuple with the ClientPrice field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetClientPriceOk() (*int32, bool) {
+func (o *CategoryProduct) GetClientPriceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -671,12 +671,12 @@ func (o *SearchItemsElement) GetClientPriceOk() (*int32, bool) {
 }
 
 // SetClientPrice sets field value
-func (o *SearchItemsElement) SetClientPrice(v int32) {
+func (o *CategoryProduct) SetClientPrice(v int32) {
 	o.ClientPrice = v
 }
 
 // GetStartPrice returns the StartPrice field value
-func (o *SearchItemsElement) GetStartPrice() int32 {
+func (o *CategoryProduct) GetStartPrice() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -687,7 +687,7 @@ func (o *SearchItemsElement) GetStartPrice() int32 {
 
 // GetStartPriceOk returns a tuple with the StartPrice field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetStartPriceOk() (*int32, bool) {
+func (o *CategoryProduct) GetStartPriceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -695,12 +695,12 @@ func (o *SearchItemsElement) GetStartPriceOk() (*int32, bool) {
 }
 
 // SetStartPrice sets field value
-func (o *SearchItemsElement) SetStartPrice(v int32) {
+func (o *CategoryProduct) SetStartPrice(v int32) {
 	o.StartPrice = v
 }
 
 // GetSales returns the Sales field value
-func (o *SearchItemsElement) GetSales() int32 {
+func (o *CategoryProduct) GetSales() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -711,7 +711,7 @@ func (o *SearchItemsElement) GetSales() int32 {
 
 // GetSalesOk returns a tuple with the Sales field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSalesOk() (*int32, bool) {
+func (o *CategoryProduct) GetSalesOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -719,12 +719,12 @@ func (o *SearchItemsElement) GetSalesOk() (*int32, bool) {
 }
 
 // SetSales sets field value
-func (o *SearchItemsElement) SetSales(v int32) {
+func (o *CategoryProduct) SetSales(v int32) {
 	o.Sales = v
 }
 
 // GetSalesPerDayAverage returns the SalesPerDayAverage field value
-func (o *SearchItemsElement) GetSalesPerDayAverage() float32 {
+func (o *CategoryProduct) GetSalesPerDayAverage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -735,7 +735,7 @@ func (o *SearchItemsElement) GetSalesPerDayAverage() float32 {
 
 // GetSalesPerDayAverageOk returns a tuple with the SalesPerDayAverage field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSalesPerDayAverageOk() (*float32, bool) {
+func (o *CategoryProduct) GetSalesPerDayAverageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -743,12 +743,12 @@ func (o *SearchItemsElement) GetSalesPerDayAverageOk() (*float32, bool) {
 }
 
 // SetSalesPerDayAverage sets field value
-func (o *SearchItemsElement) SetSalesPerDayAverage(v float32) {
+func (o *CategoryProduct) SetSalesPerDayAverage(v float32) {
 	o.SalesPerDayAverage = v
 }
 
 // GetRevenue returns the Revenue field value
-func (o *SearchItemsElement) GetRevenue() int32 {
+func (o *CategoryProduct) GetRevenue() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -759,7 +759,7 @@ func (o *SearchItemsElement) GetRevenue() int32 {
 
 // GetRevenueOk returns a tuple with the Revenue field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetRevenueOk() (*int32, bool) {
+func (o *CategoryProduct) GetRevenueOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -767,12 +767,12 @@ func (o *SearchItemsElement) GetRevenueOk() (*int32, bool) {
 }
 
 // SetRevenue sets field value
-func (o *SearchItemsElement) SetRevenue(v int32) {
+func (o *CategoryProduct) SetRevenue(v int32) {
 	o.Revenue = v
 }
 
 // GetRevenuePotential returns the RevenuePotential field value
-func (o *SearchItemsElement) GetRevenuePotential() int32 {
+func (o *CategoryProduct) GetRevenuePotential() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -783,7 +783,7 @@ func (o *SearchItemsElement) GetRevenuePotential() int32 {
 
 // GetRevenuePotentialOk returns a tuple with the RevenuePotential field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetRevenuePotentialOk() (*int32, bool) {
+func (o *CategoryProduct) GetRevenuePotentialOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -791,12 +791,12 @@ func (o *SearchItemsElement) GetRevenuePotentialOk() (*int32, bool) {
 }
 
 // SetRevenuePotential sets field value
-func (o *SearchItemsElement) SetRevenuePotential(v int32) {
+func (o *CategoryProduct) SetRevenuePotential(v int32) {
 	o.RevenuePotential = v
 }
 
 // GetLostProfit returns the LostProfit field value
-func (o *SearchItemsElement) GetLostProfit() int32 {
+func (o *CategoryProduct) GetLostProfit() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -807,7 +807,7 @@ func (o *SearchItemsElement) GetLostProfit() int32 {
 
 // GetLostProfitOk returns a tuple with the LostProfit field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetLostProfitOk() (*int32, bool) {
+func (o *CategoryProduct) GetLostProfitOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -815,12 +815,12 @@ func (o *SearchItemsElement) GetLostProfitOk() (*int32, bool) {
 }
 
 // SetLostProfit sets field value
-func (o *SearchItemsElement) SetLostProfit(v int32) {
+func (o *CategoryProduct) SetLostProfit(v int32) {
 	o.LostProfit = v
 }
 
 // GetLostProfitPercent returns the LostProfitPercent field value
-func (o *SearchItemsElement) GetLostProfitPercent() float32 {
+func (o *CategoryProduct) GetLostProfitPercent() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -831,7 +831,7 @@ func (o *SearchItemsElement) GetLostProfitPercent() float32 {
 
 // GetLostProfitPercentOk returns a tuple with the LostProfitPercent field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetLostProfitPercentOk() (*float32, bool) {
+func (o *CategoryProduct) GetLostProfitPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -839,12 +839,12 @@ func (o *SearchItemsElement) GetLostProfitPercentOk() (*float32, bool) {
 }
 
 // SetLostProfitPercent sets field value
-func (o *SearchItemsElement) SetLostProfitPercent(v float32) {
+func (o *CategoryProduct) SetLostProfitPercent(v float32) {
 	o.LostProfitPercent = v
 }
 
 // GetDaysInStock returns the DaysInStock field value
-func (o *SearchItemsElement) GetDaysInStock() int32 {
+func (o *CategoryProduct) GetDaysInStock() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -855,7 +855,7 @@ func (o *SearchItemsElement) GetDaysInStock() int32 {
 
 // GetDaysInStockOk returns a tuple with the DaysInStock field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetDaysInStockOk() (*int32, bool) {
+func (o *CategoryProduct) GetDaysInStockOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -863,12 +863,12 @@ func (o *SearchItemsElement) GetDaysInStockOk() (*int32, bool) {
 }
 
 // SetDaysInStock sets field value
-func (o *SearchItemsElement) SetDaysInStock(v int32) {
+func (o *CategoryProduct) SetDaysInStock(v int32) {
 	o.DaysInStock = v
 }
 
 // GetDaysWithSales returns the DaysWithSales field value
-func (o *SearchItemsElement) GetDaysWithSales() int32 {
+func (o *CategoryProduct) GetDaysWithSales() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -879,7 +879,7 @@ func (o *SearchItemsElement) GetDaysWithSales() int32 {
 
 // GetDaysWithSalesOk returns a tuple with the DaysWithSales field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetDaysWithSalesOk() (*int32, bool) {
+func (o *CategoryProduct) GetDaysWithSalesOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -887,12 +887,12 @@ func (o *SearchItemsElement) GetDaysWithSalesOk() (*int32, bool) {
 }
 
 // SetDaysWithSales sets field value
-func (o *SearchItemsElement) SetDaysWithSales(v int32) {
+func (o *CategoryProduct) SetDaysWithSales(v int32) {
 	o.DaysWithSales = v
 }
 
 // GetAverageIfInStock returns the AverageIfInStock field value
-func (o *SearchItemsElement) GetAverageIfInStock() float32 {
+func (o *CategoryProduct) GetAverageIfInStock() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -903,7 +903,7 @@ func (o *SearchItemsElement) GetAverageIfInStock() float32 {
 
 // GetAverageIfInStockOk returns a tuple with the AverageIfInStock field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetAverageIfInStockOk() (*float32, bool) {
+func (o *CategoryProduct) GetAverageIfInStockOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -911,12 +911,12 @@ func (o *SearchItemsElement) GetAverageIfInStockOk() (*float32, bool) {
 }
 
 // SetAverageIfInStock sets field value
-func (o *SearchItemsElement) SetAverageIfInStock(v float32) {
+func (o *CategoryProduct) SetAverageIfInStock(v float32) {
 	o.AverageIfInStock = v
 }
 
 // GetThumb returns the Thumb field value
-func (o *SearchItemsElement) GetThumb() string {
+func (o *CategoryProduct) GetThumb() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -927,7 +927,7 @@ func (o *SearchItemsElement) GetThumb() string {
 
 // GetThumbOk returns a tuple with the Thumb field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetThumbOk() (*string, bool) {
+func (o *CategoryProduct) GetThumbOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -935,12 +935,12 @@ func (o *SearchItemsElement) GetThumbOk() (*string, bool) {
 }
 
 // SetThumb sets field value
-func (o *SearchItemsElement) SetThumb(v string) {
+func (o *CategoryProduct) SetThumb(v string) {
 	o.Thumb = v
 }
 
 // GetThumbMiddle returns the ThumbMiddle field value
-func (o *SearchItemsElement) GetThumbMiddle() string {
+func (o *CategoryProduct) GetThumbMiddle() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -951,7 +951,7 @@ func (o *SearchItemsElement) GetThumbMiddle() string {
 
 // GetThumbMiddleOk returns a tuple with the ThumbMiddle field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetThumbMiddleOk() (*string, bool) {
+func (o *CategoryProduct) GetThumbMiddleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -959,12 +959,12 @@ func (o *SearchItemsElement) GetThumbMiddleOk() (*string, bool) {
 }
 
 // SetThumbMiddle sets field value
-func (o *SearchItemsElement) SetThumbMiddle(v string) {
+func (o *CategoryProduct) SetThumbMiddle(v string) {
 	o.ThumbMiddle = v
 }
 
 // GetIsFbs returns the IsFbs field value
-func (o *SearchItemsElement) GetIsFbs() int32 {
+func (o *CategoryProduct) GetIsFbs() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -975,7 +975,7 @@ func (o *SearchItemsElement) GetIsFbs() int32 {
 
 // GetIsFbsOk returns a tuple with the IsFbs field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetIsFbsOk() (*int32, bool) {
+func (o *CategoryProduct) GetIsFbsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -983,12 +983,12 @@ func (o *SearchItemsElement) GetIsFbsOk() (*int32, bool) {
 }
 
 // SetIsFbs sets field value
-func (o *SearchItemsElement) SetIsFbs(v int32) {
+func (o *CategoryProduct) SetIsFbs(v int32) {
 	o.IsFbs = v
 }
 
 // GetSubjectId returns the SubjectId field value
-func (o *SearchItemsElement) GetSubjectId() int32 {
+func (o *CategoryProduct) GetSubjectId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -999,7 +999,7 @@ func (o *SearchItemsElement) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSubjectIdOk() (*int32, bool) {
+func (o *CategoryProduct) GetSubjectIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1007,12 +1007,12 @@ func (o *SearchItemsElement) GetSubjectIdOk() (*int32, bool) {
 }
 
 // SetSubjectId sets field value
-func (o *SearchItemsElement) SetSubjectId(v int32) {
+func (o *CategoryProduct) SetSubjectId(v int32) {
 	o.SubjectId = v
 }
 
 // GetUrl returns the Url field value
-func (o *SearchItemsElement) GetUrl() string {
+func (o *CategoryProduct) GetUrl() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -1023,7 +1023,7 @@ func (o *SearchItemsElement) GetUrl() string {
 
 // GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetUrlOk() (*string, bool) {
+func (o *CategoryProduct) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1031,12 +1031,12 @@ func (o *SearchItemsElement) GetUrlOk() (*string, bool) {
 }
 
 // SetUrl sets field value
-func (o *SearchItemsElement) SetUrl(v string) {
+func (o *CategoryProduct) SetUrl(v string) {
 	o.Url = v
 }
 
 // GetCountry returns the Country field value
-func (o *SearchItemsElement) GetCountry() string {
+func (o *CategoryProduct) GetCountry() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -1047,7 +1047,7 @@ func (o *SearchItemsElement) GetCountry() string {
 
 // GetCountryOk returns a tuple with the Country field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCountryOk() (*string, bool) {
+func (o *CategoryProduct) GetCountryOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1055,12 +1055,12 @@ func (o *SearchItemsElement) GetCountryOk() (*string, bool) {
 }
 
 // SetCountry sets field value
-func (o *SearchItemsElement) SetCountry(v string) {
+func (o *CategoryProduct) SetCountry(v string) {
 	o.Country = v
 }
 
 // GetGender returns the Gender field value
-func (o *SearchItemsElement) GetGender() string {
+func (o *CategoryProduct) GetGender() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -1071,7 +1071,7 @@ func (o *SearchItemsElement) GetGender() string {
 
 // GetGenderOk returns a tuple with the Gender field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetGenderOk() (*string, bool) {
+func (o *CategoryProduct) GetGenderOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1079,12 +1079,12 @@ func (o *SearchItemsElement) GetGenderOk() (*string, bool) {
 }
 
 // SetGender sets field value
-func (o *SearchItemsElement) SetGender(v string) {
+func (o *CategoryProduct) SetGender(v string) {
 	o.Gender = v
 }
 
 // GetSkuFirstDate returns the SkuFirstDate field value
-func (o *SearchItemsElement) GetSkuFirstDate() string {
+func (o *CategoryProduct) GetSkuFirstDate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -1095,7 +1095,7 @@ func (o *SearchItemsElement) GetSkuFirstDate() string {
 
 // GetSkuFirstDateOk returns a tuple with the SkuFirstDate field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetSkuFirstDateOk() (*string, bool) {
+func (o *CategoryProduct) GetSkuFirstDateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1103,12 +1103,12 @@ func (o *SearchItemsElement) GetSkuFirstDateOk() (*string, bool) {
 }
 
 // SetSkuFirstDate sets field value
-func (o *SearchItemsElement) SetSkuFirstDate(v string) {
+func (o *CategoryProduct) SetSkuFirstDate(v string) {
 	o.SkuFirstDate = v
 }
 
 // GetFirstcommentdate returns the Firstcommentdate field value
-func (o *SearchItemsElement) GetFirstcommentdate() string {
+func (o *CategoryProduct) GetFirstcommentdate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -1119,7 +1119,7 @@ func (o *SearchItemsElement) GetFirstcommentdate() string {
 
 // GetFirstcommentdateOk returns a tuple with the Firstcommentdate field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetFirstcommentdateOk() (*string, bool) {
+func (o *CategoryProduct) GetFirstcommentdateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1127,12 +1127,12 @@ func (o *SearchItemsElement) GetFirstcommentdateOk() (*string, bool) {
 }
 
 // SetFirstcommentdate sets field value
-func (o *SearchItemsElement) SetFirstcommentdate(v string) {
+func (o *CategoryProduct) SetFirstcommentdate(v string) {
 	o.Firstcommentdate = v
 }
 
 // GetPicscount returns the Picscount field value
-func (o *SearchItemsElement) GetPicscount() int32 {
+func (o *CategoryProduct) GetPicscount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -1143,7 +1143,7 @@ func (o *SearchItemsElement) GetPicscount() int32 {
 
 // GetPicscountOk returns a tuple with the Picscount field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPicscountOk() (*int32, bool) {
+func (o *CategoryProduct) GetPicscountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1151,12 +1151,12 @@ func (o *SearchItemsElement) GetPicscountOk() (*int32, bool) {
 }
 
 // SetPicscount sets field value
-func (o *SearchItemsElement) SetPicscount(v int32) {
+func (o *CategoryProduct) SetPicscount(v int32) {
 	o.Picscount = v
 }
 
 // GetHas3d returns the Has3d field value
-func (o *SearchItemsElement) GetHas3d() int32 {
+func (o *CategoryProduct) GetHas3d() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -1167,7 +1167,7 @@ func (o *SearchItemsElement) GetHas3d() int32 {
 
 // GetHas3dOk returns a tuple with the Has3d field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetHas3dOk() (*int32, bool) {
+func (o *CategoryProduct) GetHas3dOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1175,12 +1175,12 @@ func (o *SearchItemsElement) GetHas3dOk() (*int32, bool) {
 }
 
 // SetHas3d sets field value
-func (o *SearchItemsElement) SetHas3d(v int32) {
+func (o *CategoryProduct) SetHas3d(v int32) {
 	o.Has3d = v
 }
 
 // GetHasvideo returns the Hasvideo field value
-func (o *SearchItemsElement) GetHasvideo() int32 {
+func (o *CategoryProduct) GetHasvideo() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -1191,7 +1191,7 @@ func (o *SearchItemsElement) GetHasvideo() int32 {
 
 // GetHasvideoOk returns a tuple with the Hasvideo field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetHasvideoOk() (*int32, bool) {
+func (o *CategoryProduct) GetHasvideoOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1199,12 +1199,12 @@ func (o *SearchItemsElement) GetHasvideoOk() (*int32, bool) {
 }
 
 // SetHasvideo sets field value
-func (o *SearchItemsElement) SetHasvideo(v int32) {
+func (o *CategoryProduct) SetHasvideo(v int32) {
 	o.Hasvideo = v
 }
 
 // GetCommentsvaluation returns the Commentsvaluation field value
-func (o *SearchItemsElement) GetCommentsvaluation() float32 {
+func (o *CategoryProduct) GetCommentsvaluation() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -1215,7 +1215,7 @@ func (o *SearchItemsElement) GetCommentsvaluation() float32 {
 
 // GetCommentsvaluationOk returns a tuple with the Commentsvaluation field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCommentsvaluationOk() (*float32, bool) {
+func (o *CategoryProduct) GetCommentsvaluationOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1223,12 +1223,12 @@ func (o *SearchItemsElement) GetCommentsvaluationOk() (*float32, bool) {
 }
 
 // SetCommentsvaluation sets field value
-func (o *SearchItemsElement) SetCommentsvaluation(v float32) {
+func (o *CategoryProduct) SetCommentsvaluation(v float32) {
 	o.Commentsvaluation = v
 }
 
 // GetCardratingval returns the Cardratingval field value
-func (o *SearchItemsElement) GetCardratingval() int32 {
+func (o *CategoryProduct) GetCardratingval() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -1239,7 +1239,7 @@ func (o *SearchItemsElement) GetCardratingval() int32 {
 
 // GetCardratingvalOk returns a tuple with the Cardratingval field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCardratingvalOk() (*int32, bool) {
+func (o *CategoryProduct) GetCardratingvalOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1247,12 +1247,12 @@ func (o *SearchItemsElement) GetCardratingvalOk() (*int32, bool) {
 }
 
 // SetCardratingval sets field value
-func (o *SearchItemsElement) SetCardratingval(v int32) {
+func (o *CategoryProduct) SetCardratingval(v int32) {
 	o.Cardratingval = v
 }
 
 // GetPosition returns the Position field value
-func (o *SearchItemsElement) GetPosition() int32 {
+func (o *CategoryProduct) GetPosition() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -1263,7 +1263,7 @@ func (o *SearchItemsElement) GetPosition() int32 {
 
 // GetPositionOk returns a tuple with the Position field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPositionOk() (*int32, bool) {
+func (o *CategoryProduct) GetPositionOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1271,14 +1271,14 @@ func (o *SearchItemsElement) GetPositionOk() (*int32, bool) {
 }
 
 // SetPosition sets field value
-func (o *SearchItemsElement) SetPosition(v int32) {
+func (o *CategoryProduct) SetPosition(v int32) {
 	o.Position = v
 }
 
 // GetCategoriesLastCount returns the CategoriesLastCount field value
-func (o *SearchItemsElement) GetCategoriesLastCount() string {
+func (o *CategoryProduct) GetCategoriesLastCount() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
@@ -1287,7 +1287,7 @@ func (o *SearchItemsElement) GetCategoriesLastCount() string {
 
 // GetCategoriesLastCountOk returns a tuple with the CategoriesLastCount field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoriesLastCountOk() (*string, bool) {
+func (o *CategoryProduct) GetCategoriesLastCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1295,12 +1295,12 @@ func (o *SearchItemsElement) GetCategoriesLastCountOk() (*string, bool) {
 }
 
 // SetCategoriesLastCount sets field value
-func (o *SearchItemsElement) SetCategoriesLastCount(v string) {
+func (o *CategoryProduct) SetCategoriesLastCount(v int32) {
 	o.CategoriesLastCount = v
 }
 
 // GetGraph returns the Graph field value
-func (o *SearchItemsElement) GetGraph() []int32 {
+func (o *CategoryProduct) GetGraph() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -1311,7 +1311,7 @@ func (o *SearchItemsElement) GetGraph() []int32 {
 
 // GetGraphOk returns a tuple with the Graph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetGraphOk() ([]int32, bool) {
+func (o *CategoryProduct) GetGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1319,12 +1319,12 @@ func (o *SearchItemsElement) GetGraphOk() ([]int32, bool) {
 }
 
 // SetGraph sets field value
-func (o *SearchItemsElement) SetGraph(v []int32) {
+func (o *CategoryProduct) SetGraph(v []int32) {
 	o.Graph = v
 }
 
 // GetCategoryGraph returns the CategoryGraph field value
-func (o *SearchItemsElement) GetCategoryGraph() []int32 {
+func (o *CategoryProduct) GetCategoryGraph() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -1335,7 +1335,7 @@ func (o *SearchItemsElement) GetCategoryGraph() []int32 {
 
 // GetCategoryGraphOk returns a tuple with the CategoryGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetCategoryGraphOk() ([]int32, bool) {
+func (o *CategoryProduct) GetCategoryGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1343,12 +1343,12 @@ func (o *SearchItemsElement) GetCategoryGraphOk() ([]int32, bool) {
 }
 
 // SetCategoryGraph sets field value
-func (o *SearchItemsElement) SetCategoryGraph(v []int32) {
+func (o *CategoryProduct) SetCategoryGraph(v []int32) {
 	o.CategoryGraph = v
 }
 
 // GetStocksGraph returns the StocksGraph field value
-func (o *SearchItemsElement) GetStocksGraph() []int32 {
+func (o *CategoryProduct) GetStocksGraph() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -1359,7 +1359,7 @@ func (o *SearchItemsElement) GetStocksGraph() []int32 {
 
 // GetStocksGraphOk returns a tuple with the StocksGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetStocksGraphOk() ([]int32, bool) {
+func (o *CategoryProduct) GetStocksGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1367,12 +1367,12 @@ func (o *SearchItemsElement) GetStocksGraphOk() ([]int32, bool) {
 }
 
 // SetStocksGraph sets field value
-func (o *SearchItemsElement) SetStocksGraph(v []int32) {
+func (o *CategoryProduct) SetStocksGraph(v []int32) {
 	o.StocksGraph = v
 }
 
 // GetPriceGraph returns the PriceGraph field value
-func (o *SearchItemsElement) GetPriceGraph() []int32 {
+func (o *CategoryProduct) GetPriceGraph() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -1383,7 +1383,7 @@ func (o *SearchItemsElement) GetPriceGraph() []int32 {
 
 // GetPriceGraphOk returns a tuple with the PriceGraph field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPriceGraphOk() ([]int32, bool) {
+func (o *CategoryProduct) GetPriceGraphOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1391,12 +1391,12 @@ func (o *SearchItemsElement) GetPriceGraphOk() ([]int32, bool) {
 }
 
 // SetPriceGraph sets field value
-func (o *SearchItemsElement) SetPriceGraph(v []int32) {
+func (o *CategoryProduct) SetPriceGraph(v []int32) {
 	o.PriceGraph = v
 }
 
 // GetPurchase returns the Purchase field value
-func (o *SearchItemsElement) GetPurchase() float32 {
+func (o *CategoryProduct) GetPurchase() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -1407,7 +1407,7 @@ func (o *SearchItemsElement) GetPurchase() float32 {
 
 // GetPurchaseOk returns a tuple with the Purchase field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPurchaseOk() (*float32, bool) {
+func (o *CategoryProduct) GetPurchaseOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1415,12 +1415,12 @@ func (o *SearchItemsElement) GetPurchaseOk() (*float32, bool) {
 }
 
 // SetPurchase sets field value
-func (o *SearchItemsElement) SetPurchase(v float32) {
+func (o *CategoryProduct) SetPurchase(v float32) {
 	o.Purchase = v
 }
 
 // GetPurchaseAfterReturn returns the PurchaseAfterReturn field value
-func (o *SearchItemsElement) GetPurchaseAfterReturn() float32 {
+func (o *CategoryProduct) GetPurchaseAfterReturn() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -1431,7 +1431,7 @@ func (o *SearchItemsElement) GetPurchaseAfterReturn() float32 {
 
 // GetPurchaseAfterReturnOk returns a tuple with the PurchaseAfterReturn field value
 // and a boolean to check if the value has been set.
-func (o *SearchItemsElement) GetPurchaseAfterReturnOk() (*float32, bool) {
+func (o *CategoryProduct) GetPurchaseAfterReturnOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1439,11 +1439,11 @@ func (o *SearchItemsElement) GetPurchaseAfterReturnOk() (*float32, bool) {
 }
 
 // SetPurchaseAfterReturn sets field value
-func (o *SearchItemsElement) SetPurchaseAfterReturn(v float32) {
+func (o *CategoryProduct) SetPurchaseAfterReturn(v float32) {
 	o.PurchaseAfterReturn = v
 }
 
-func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
+func (o CategoryProduct) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
@@ -1610,38 +1610,38 @@ func (o SearchItemsElement) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableSearchItemsElement struct {
-	value *SearchItemsElement
+type NullableCategoryProduct struct {
+	value *CategoryProduct
 	isSet bool
 }
 
-func (v NullableSearchItemsElement) Get() *SearchItemsElement {
+func (v NullableCategoryProduct) Get() *CategoryProduct {
 	return v.value
 }
 
-func (v *NullableSearchItemsElement) Set(val *SearchItemsElement) {
+func (v *NullableCategoryProduct) Set(val *CategoryProduct) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSearchItemsElement) IsSet() bool {
+func (v NullableCategoryProduct) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSearchItemsElement) Unset() {
+func (v *NullableCategoryProduct) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSearchItemsElement(val *SearchItemsElement) *NullableSearchItemsElement {
-	return &NullableSearchItemsElement{value: val, isSet: true}
+func NewNullableCategoryProduct(val *CategoryProduct) *NullableCategoryProduct {
+	return &NullableCategoryProduct{value: val, isSet: true}
 }
 
-func (v NullableSearchItemsElement) MarshalJSON() ([]byte, error) {
+func (v NullableCategoryProduct) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSearchItemsElement) UnmarshalJSON(src []byte) error {
+func (v *NullableCategoryProduct) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

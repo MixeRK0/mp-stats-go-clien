@@ -13,6 +13,7 @@ docs/CategoryByDate.md
 docs/CategoryName.md
 docs/CategoryPath.md
 docs/CategoryPriceSegmentation.md
+docs/CategoryProduct.md
 docs/CategorySeller.md
 docs/CategorySubcategory.md
 docs/CategorySubject.md
@@ -23,6 +24,7 @@ docs/GetItemsBatchRequestBody.md
 docs/GetItemsRequestBody.md
 docs/GetSearchItemsRequestBody.md
 docs/InlineResponse200.md
+docs/InlineResponse2001.md
 docs/Item.md
 docs/ItemBalanceByDay.md
 docs/ItemByCategory.md
@@ -54,6 +56,7 @@ model_category_by_date.go
 model_category_name.go
 model_category_path.go
 model_category_price_segmentation.go
+model_category_product.go
 model_category_seller.go
 model_category_subcategory.go
 model_category_subject.go
@@ -64,6 +67,7 @@ model_get_items_batch_request_body.go
 model_get_items_request_body.go
 model_get_search_items_request_body.go
 model_inline_response_200.go
+model_inline_response_200_1.go
 model_item.go
 model_item_balance_by_day.go
 model_item_by_category.go
