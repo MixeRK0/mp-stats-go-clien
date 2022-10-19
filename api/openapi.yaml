@@ -76,6 +76,50 @@ paths:
       summary: Товары категории
       tags:
       - wb
+  /wb/get/subject:
+    post:
+      description: Получение списка товаров по предмету
+      operationId: get-subject-items
+      parameters:
+      - description: Категория
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          example: Женщинам/Одежда
+          type: string
+        style: form
+      - description: Дата начала периода
+        explode: true
+        in: query
+        name: d1
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания периода
+        explode: true
+        in: query
+        name: d2
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/GetSubject'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Get subject response
+      summary: Получить список товаров по предмету
+      tags:
+      - wb
   /wb/get/category/subcategories:
     get:
       description: Получение данных по подкатегориям категории
@@ -1490,6 +1534,11 @@ components:
         type: string
       style: form
   requestBodies:
+    GetSubject:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetItemsRequestBody'
     GetCategory:
       content:
         application/json:
@@ -1526,6 +1575,12 @@ components:
           schema:
             $ref: '#/components/schemas/TplsRequestBody'
   responses:
+    GetSubject:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Get subject response
     GetCategory:
       content:
         application/json:

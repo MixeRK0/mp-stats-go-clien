@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**GetSimilarCategories**](WbApi.md#GetSimilarCategories) | **Get** /wb/get/similar/categories | Категории похожего товара
 [**GetSimilarDetailedItems**](WbApi.md#GetSimilarDetailedItems) | **Post** /wb/get/similar | Товары по похожему товару
 [**GetSimilarSellers**](WbApi.md#GetSimilarSellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
+[**GetSubjectItems**](WbApi.md#GetSubjectItems) | **Post** /wb/get/subject | Получить список товаров по предмету
 [**PostWbGetSearchCategories**](WbApi.md#PostWbGetSearchCategories) | **Post** /wb/get/search/categories | GetSearchCategories
 [**PostWbGetSearchItems**](WbApi.md#PostWbGetSearchItems) | **Post** /wb/get/search | GetSearchItems
 
@@ -2320,6 +2321,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSubjectItems
+
+> InlineResponse200 GetSubjectItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+
+Получить список товаров по предмету
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    path := "Женщинам/Одежда" // string | Категория
+    d1 := time.Now() // string | Дата начала периода (optional)
+    d2 := time.Now() // string | Дата окончания периода (optional)
+    getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WbApi.GetSubjectItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSubjectItems``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSubjectItems`: InlineResponse200
+    fmt.Fprintf(os.Stdout, "Response from `WbApi.GetSubjectItems`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSubjectItemsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string** | Категория | 
+ **d1** | **string** | Дата начала периода | 
+ **d2** | **string** | Дата окончания периода | 
+ **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[Header-token](../README.md#Header-token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

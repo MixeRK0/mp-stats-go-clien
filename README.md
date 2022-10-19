@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *WbApi* | [**GetSimilarCategories**](docs/WbApi.md#getsimilarcategories) | **Get** /wb/get/similar/categories | Категории похожего товара
 *WbApi* | [**GetSimilarDetailedItems**](docs/WbApi.md#getsimilardetaileditems) | **Post** /wb/get/similar | Товары по похожему товару
 *WbApi* | [**GetSimilarSellers**](docs/WbApi.md#getsimilarsellers) | **Get** /wb/get/similar/sellers | Продавцы похожего товара
+*WbApi* | [**GetSubjectItems**](docs/WbApi.md#getsubjectitems) | **Post** /wb/get/subject | Получить список товаров по предмету
 *WbApi* | [**PostWbGetSearchCategories**](docs/WbApi.md#postwbgetsearchcategories) | **Post** /wb/get/search/categories | GetSearchCategories
 *WbApi* | [**PostWbGetSearchItems**](docs/WbApi.md#postwbgetsearchitems) | **Post** /wb/get/search | GetSearchItems
 
