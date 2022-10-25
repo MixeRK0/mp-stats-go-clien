@@ -11,12 +11,15 @@ Name | Type | Description | Notes
 **Items** | **float32** | Число товаров в рубрике на указанной неделе | 
 **Brands** | **float32** | Число брендов в рубрике на указанной неделе | 
 **Sellers** | **float32** |  Число продавцов в рубрике на указанной неделе | 
+**BrandsWithSells** | **float32** | Количество брендов с продажами | 
+**ItemsWithSells** | **float32** | Количество товаров с продажами | 
+**SellersWithSells** | **float32** | Количество продавцов с продажами | 
 
 ## Methods
 
 ### NewCategoryTrend
 
-`func NewCategoryTrend(week string, sales float32, revenue float32, productRevenue float32, items float32, brands float32, sellers float32, ) *CategoryTrend`
+`func NewCategoryTrend(week string, sales float32, revenue float32, productRevenue float32, items float32, brands float32, sellers float32, brandsWithSells float32, itemsWithSells float32, sellersWithSells float32, ) *CategoryTrend`
 
 NewCategoryTrend instantiates a new CategoryTrend object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +172,66 @@ and a boolean to check if the value has been set.
 `func (o *CategoryTrend) SetSellers(v float32)`
 
 SetSellers sets Sellers field to given value.
+
+
+### GetBrandsWithSells
+
+`func (o *CategoryTrend) GetBrandsWithSells() float32`
+
+GetBrandsWithSells returns the BrandsWithSells field if non-nil, zero value otherwise.
+
+### GetBrandsWithSellsOk
+
+`func (o *CategoryTrend) GetBrandsWithSellsOk() (*float32, bool)`
+
+GetBrandsWithSellsOk returns a tuple with the BrandsWithSells field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrandsWithSells
+
+`func (o *CategoryTrend) SetBrandsWithSells(v float32)`
+
+SetBrandsWithSells sets BrandsWithSells field to given value.
+
+
+### GetItemsWithSells
+
+`func (o *CategoryTrend) GetItemsWithSells() float32`
+
+GetItemsWithSells returns the ItemsWithSells field if non-nil, zero value otherwise.
+
+### GetItemsWithSellsOk
+
+`func (o *CategoryTrend) GetItemsWithSellsOk() (*float32, bool)`
+
+GetItemsWithSellsOk returns a tuple with the ItemsWithSells field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemsWithSells
+
+`func (o *CategoryTrend) SetItemsWithSells(v float32)`
+
+SetItemsWithSells sets ItemsWithSells field to given value.
+
+
+### GetSellersWithSells
+
+`func (o *CategoryTrend) GetSellersWithSells() float32`
+
+GetSellersWithSells returns the SellersWithSells field if non-nil, zero value otherwise.
+
+### GetSellersWithSellsOk
+
+`func (o *CategoryTrend) GetSellersWithSellsOk() (*float32, bool)`
+
+GetSellersWithSellsOk returns a tuple with the SellersWithSells field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSellersWithSells
+
+`func (o *CategoryTrend) SetSellersWithSells(v float32)`
+
+SetSellersWithSells sets SellersWithSells field to given value.
 
 
 

@@ -2221,9 +2221,12 @@ components:
     CategoryTrend:
       description: ""
       example:
+        brands_with_sells: 7.061401241503109
+        sellers_with_sells: 3.616076749251911
         revenue: 6.027456183070403
         week: week
         brands: 5.637376656633329
+        items_with_sells: 9.301444243932576
         items: 5.962133916683182
         sales: 0.8008281904610115
         sellers: 2.3021358869347655
@@ -2250,13 +2253,25 @@ components:
         sellers:
           description: "\tЧисло продавцов в рубрике на указанной неделе"
           type: number
+        brands_with_sells:
+          description: Количество брендов с продажами
+          type: number
+        items_with_sells:
+          description: Количество товаров с продажами
+          type: number
+        sellers_with_sells:
+          description: Количество продавцов с продажами
+          type: number
       required:
       - brands
+      - brands_with_sells
       - items
+      - items_with_sells
       - product_revenue
       - revenue
       - sales
       - sellers
+      - sellers_with_sells
       - week
       type: object
     CategoryByDate:

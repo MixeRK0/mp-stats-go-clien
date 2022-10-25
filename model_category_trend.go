@@ -30,13 +30,19 @@ type CategoryTrend struct {
 	Brands float32 `json:"brands"`
 	//  Число продавцов в рубрике на указанной неделе
 	Sellers float32 `json:"sellers"`
+	// Количество брендов с продажами
+	BrandsWithSells float32 `json:"brands_with_sells"`
+	// Количество товаров с продажами
+	ItemsWithSells float32 `json:"items_with_sells"`
+	// Количество продавцов с продажами
+	SellersWithSells float32 `json:"sellers_with_sells"`
 }
 
 // NewCategoryTrend instantiates a new CategoryTrend object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryTrend(week string, sales float32, revenue float32, productRevenue float32, items float32, brands float32, sellers float32) *CategoryTrend {
+func NewCategoryTrend(week string, sales float32, revenue float32, productRevenue float32, items float32, brands float32, sellers float32, brandsWithSells float32, itemsWithSells float32, sellersWithSells float32) *CategoryTrend {
 	this := CategoryTrend{}
 	this.Week = week
 	this.Sales = sales
@@ -45,6 +51,9 @@ func NewCategoryTrend(week string, sales float32, revenue float32, productRevenu
 	this.Items = items
 	this.Brands = brands
 	this.Sellers = sellers
+	this.BrandsWithSells = brandsWithSells
+	this.ItemsWithSells = itemsWithSells
+	this.SellersWithSells = sellersWithSells
 	return &this
 }
 
@@ -224,6 +233,78 @@ func (o *CategoryTrend) SetSellers(v float32) {
 	o.Sellers = v
 }
 
+// GetBrandsWithSells returns the BrandsWithSells field value
+func (o *CategoryTrend) GetBrandsWithSells() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.BrandsWithSells
+}
+
+// GetBrandsWithSellsOk returns a tuple with the BrandsWithSells field value
+// and a boolean to check if the value has been set.
+func (o *CategoryTrend) GetBrandsWithSellsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BrandsWithSells, true
+}
+
+// SetBrandsWithSells sets field value
+func (o *CategoryTrend) SetBrandsWithSells(v float32) {
+	o.BrandsWithSells = v
+}
+
+// GetItemsWithSells returns the ItemsWithSells field value
+func (o *CategoryTrend) GetItemsWithSells() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.ItemsWithSells
+}
+
+// GetItemsWithSellsOk returns a tuple with the ItemsWithSells field value
+// and a boolean to check if the value has been set.
+func (o *CategoryTrend) GetItemsWithSellsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ItemsWithSells, true
+}
+
+// SetItemsWithSells sets field value
+func (o *CategoryTrend) SetItemsWithSells(v float32) {
+	o.ItemsWithSells = v
+}
+
+// GetSellersWithSells returns the SellersWithSells field value
+func (o *CategoryTrend) GetSellersWithSells() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.SellersWithSells
+}
+
+// GetSellersWithSellsOk returns a tuple with the SellersWithSells field value
+// and a boolean to check if the value has been set.
+func (o *CategoryTrend) GetSellersWithSellsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SellersWithSells, true
+}
+
+// SetSellersWithSells sets field value
+func (o *CategoryTrend) SetSellersWithSells(v float32) {
+	o.SellersWithSells = v
+}
+
 func (o CategoryTrend) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -246,6 +327,15 @@ func (o CategoryTrend) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["sellers"] = o.Sellers
+	}
+	if true {
+		toSerialize["brands_with_sells"] = o.BrandsWithSells
+	}
+	if true {
+		toSerialize["items_with_sells"] = o.ItemsWithSells
+	}
+	if true {
+		toSerialize["sellers_with_sells"] = o.SellersWithSells
 	}
 	return json.Marshal(toSerialize)
 }
