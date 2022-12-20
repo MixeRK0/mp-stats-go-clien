@@ -3510,6 +3510,7 @@ type ApiGetSellerDetailedItemsRequest struct {
 	ctx context.Context
 	ApiService *WbApiService
 	path *string
+	supplierId *int32
 	d1 *string
 	d2 *string
 	getItemsRequestBody *GetItemsRequestBody
@@ -3518,6 +3519,12 @@ type ApiGetSellerDetailedItemsRequest struct {
 // Продавец
 func (r ApiGetSellerDetailedItemsRequest) Path(path string) ApiGetSellerDetailedItemsRequest {
 	r.path = &path
+	return r
+}
+
+// Идентификатор продавца
+func (r ApiGetSellerDetailedItemsRequest) SupplierId(supplierId int32) ApiGetSellerDetailedItemsRequest {
+	r.supplierId = &supplierId
 	return r
 }
 
@@ -3580,6 +3587,9 @@ func (a *WbApiService) GetSellerDetailedItemsExecute(r ApiGetSellerDetailedItems
 	if r.path == nil {
 		return localVarReturnValue, nil, reportError("path is required and must be specified")
 	}
+	if r.supplierId == nil {
+		return localVarReturnValue, nil, reportError("supplierId is required and must be specified")
+	}
 
 	localVarQueryParams.Add("path", parameterToString(*r.path, ""))
 	if r.d1 != nil {
@@ -3588,6 +3598,7 @@ func (a *WbApiService) GetSellerDetailedItemsExecute(r ApiGetSellerDetailedItems
 	if r.d2 != nil {
 		localVarQueryParams.Add("d2", parameterToString(*r.d2, ""))
 	}
+	localVarQueryParams.Add("supplierId", parameterToString(*r.supplierId, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

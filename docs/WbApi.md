@@ -1829,7 +1829,7 @@ Name | Type | Description  | Notes
 
 ## GetSellerDetailedItems
 
-> InlineResponse200 GetSellerDetailedItems(ctx).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+> InlineResponse200 GetSellerDetailedItems(ctx).Path(path).SupplierId(supplierId).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
 
 Товары продавца
 
@@ -1850,13 +1850,14 @@ import (
 
 func main() {
     path := "ВАЙЛДБЕРРИЗ ООО" // string | Продавец
+    supplierId := int32(56) // int32 | Идентификатор продавца
     d1 := time.Now() // string | Дата начала периода (optional)
     d2 := time.Now() // string | Дата окончания периода (optional)
     getItemsRequestBody := *openapiclient.NewGetItemsRequestBody(int32(123), int32(123), interface{}(123), []string{"GroupKeys_example"}, []string{"PivotCols_example"}, false, []string{"RowGroupCols_example"}, []openapiclient.SortModelItem{*openapiclient.NewSortModelItem("ColId_example", "Sort_example")}, []string{"ValueCols_example"}) // GetItemsRequestBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WbApi.GetSellerDetailedItems(context.Background()).Path(path).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
+    resp, r, err := apiClient.WbApi.GetSellerDetailedItems(context.Background()).Path(path).SupplierId(supplierId).D1(d1).D2(d2).GetItemsRequestBody(getItemsRequestBody).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WbApi.GetSellerDetailedItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1878,6 +1879,7 @@ Other parameters are passed through a pointer to a apiGetSellerDetailedItemsRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string** | Продавец | 
+ **supplierId** | **int32** | Идентификатор продавца | 
  **d1** | **string** | Дата начала периода | 
  **d2** | **string** | Дата окончания периода | 
  **getItemsRequestBody** | [**GetItemsRequestBody**](GetItemsRequestBody.md) |  | 

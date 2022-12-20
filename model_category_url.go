@@ -17,16 +17,16 @@ import (
 // CategoryUrl struct for CategoryUrl
 type CategoryUrl struct {
 	// Url на Wildberries
-	Id string `json:"id"`
+	Url string `json:"url"`
 }
 
 // NewCategoryUrl instantiates a new CategoryUrl object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCategoryUrl(id string) *CategoryUrl {
+func NewCategoryUrl(url string) *CategoryUrl {
 	this := CategoryUrl{}
-	this.Id = id
+	this.Url = url
 	return &this
 }
 
@@ -38,34 +38,34 @@ func NewCategoryUrlWithDefaults() *CategoryUrl {
 	return &this
 }
 
-// GetId returns the Id field value
-func (o *CategoryUrl) GetId() string {
+// GetUrl returns the Url field value
+func (o *CategoryUrl) GetUrl() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Id
+	return o.Url
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-func (o *CategoryUrl) GetIdOk() (*string, bool) {
+func (o *CategoryUrl) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.Url, true
 }
 
-// SetId sets field value
-func (o *CategoryUrl) SetId(v string) {
-	o.Id = v
+// SetUrl sets field value
+func (o *CategoryUrl) SetUrl(v string) {
+	o.Url = v
 }
 
 func (o CategoryUrl) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["id"] = o.Id
+		toSerialize["url"] = o.Url
 	}
 	return json.Marshal(toSerialize)
 }

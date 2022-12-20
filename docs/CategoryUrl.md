@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Url на Wildberries | 
+**Url** | **string** | Url на Wildberries | 
 
 ## Methods
 
 ### NewCategoryUrl
 
-`func NewCategoryUrl(id string, ) *CategoryUrl`
+`func NewCategoryUrl(url string, ) *CategoryUrl`
 
 NewCategoryUrl instantiates a new CategoryUrl object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewCategoryUrlWithDefaults instantiates a new CategoryUrl object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetUrl
 
-`func (o *CategoryUrl) GetId() string`
+`func (o *CategoryUrl) GetUrl() string`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetUrl returns the Url field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetUrlOk
 
-`func (o *CategoryUrl) GetIdOk() (*string, bool)`
+`func (o *CategoryUrl) GetUrlOk() (*string, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetUrl
 
-`func (o *CategoryUrl) SetId(v string)`
+`func (o *CategoryUrl) SetUrl(v string)`
 
-SetId sets Id field to given value.
+SetUrl sets Url field to given value.
 
 
 

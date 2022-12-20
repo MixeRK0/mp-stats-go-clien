@@ -28,7 +28,7 @@ paths:
                   - $ref: '#/components/schemas/category-name'
                   - $ref: '#/components/schemas/category-url'
                 type: array
-          description: OK
+          description: Get categories response
       summary: Текущие категории
       tags:
       - wb
@@ -679,6 +679,14 @@ paths:
         schema:
           format: date
           type: string
+        style: form
+      - description: Идентификатор продавца
+        explode: true
+        in: query
+        name: supplierId
+        required: true
+        schema:
+          type: integer
         style: form
       requestBody:
         $ref: '#/components/requestBodies/GetSeller'
@@ -1827,6 +1835,17 @@ components:
           schema:
             $ref: '#/components/schemas/inline_response_200'
       description: Get seller response
+    GetCategories:
+      content:
+        application/json:
+          schema:
+            items:
+              allOf:
+              - $ref: '#/components/schemas/category-path'
+              - $ref: '#/components/schemas/category-name'
+              - $ref: '#/components/schemas/category-url'
+            type: array
+      description: Get categories response
   schemas:
     category-path:
       properties:
@@ -1848,11 +1867,11 @@ components:
       type: object
     category-url:
       properties:
-        id:
+        url:
           description: Url на Wildberries
           type: string
       required:
-      - id
+      - url
       title: category-url
       type: object
     FilterModel:
